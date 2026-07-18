@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo, useState, useEffect, useRef, Children, cloneElement } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import './App.css'
 import AnimatedBackground from '@/components/ui/animated-background'
 
@@ -113,23 +114,33 @@ function SectionTheme({ variant = 'platform', children }) {
       case 'individuals':
         return {
           '--page-bg': 'var(--soft-sand)',
+          '--surface': '#FFFFFF',
+          '--panel': '#FFFFFF',
           '--accent': 'var(--warm-coral)',
-          '--accent-soft': 'rgba(232, 115, 74, 0.12)',
+          '--accent-soft': 'rgba(226, 114, 91, 0.12)',
           '--surface-soft': 'var(--soft-sand)',
-          '--hero-bg-from': 'var(--soft-sand)',
-          '--hero-bg-to': '#FFF7EF',
-          '--bg-glow-1': 'rgba(232, 115, 74, 0.16)',
-          '--bg-glow-2': 'rgba(232, 115, 74, 0.13)',
+          '--line': '#D6DFE2',
+          '--ink': 'var(--midnight-ink)',
+          '--muted': 'var(--driftwood-gray)',
+          '--hero-bg-from': 'var(--midnight-ink)',
+          '--hero-bg-to': 'var(--deep-lake-blue)',
+          '--bg-glow-1': 'rgba(226, 114, 91, 0.16)',
+          '--bg-glow-2': 'rgba(226, 114, 91, 0.13)',
           '--bg-glow-3': 'rgba(15, 27, 45, 0.08)',
         }
       case 'organizations':
         return {
-          '--page-bg': 'var(--soft-sand)',
-          '--accent': 'var(--horizon-teal)',
-          '--accent-soft': 'rgba(30, 127, 130, 0.12)',
-          '--surface-soft': 'var(--soft-sand)',
-          '--hero-bg-from': 'var(--deep-lake-blue)',
-          '--hero-bg-to': 'var(--midnight-ink)',
+          '--page-bg': 'var(--midnight-ink)',
+          '--surface': 'var(--deep-lake-blue)',
+          '--panel': 'var(--deep-lake-blue)',
+          '--accent': 'var(--eleviq-teal)',
+          '--accent-soft': 'rgba(15, 168, 138, 0.12)',
+          '--surface-soft': 'rgba(27, 58, 92, 0.5)',
+          '--line': 'rgba(255, 255, 255, 0.15)',
+          '--ink': '#FFFFFF',
+          '--muted': 'rgba(255, 255, 255, 0.7)',
+          '--hero-bg-from': 'var(--midnight-ink)',
+          '--hero-bg-to': 'var(--deep-lake-blue)',
           '--bg-glow-1': 'rgba(30, 127, 130, 0.16)',
           '--bg-glow-2': 'rgba(27, 58, 92, 0.13)',
           '--bg-glow-3': 'rgba(15, 27, 45, 0.08)',
@@ -137,10 +148,15 @@ function SectionTheme({ variant = 'platform', children }) {
       case 'platform':
       default:
         return {
-          '--page-bg': 'var(--soft-sand)',
+          '--page-bg': 'var(--sky-mist)',
+          '--surface': '#FFFFFF',
+          '--panel': '#FFFFFF',
           '--accent': 'var(--eleviq-teal)',
           '--accent-soft': 'rgba(15, 168, 138, 0.12)',
-          '--surface-soft': 'var(--soft-sand)',
+          '--surface-soft': 'var(--sky-mist)',
+          '--line': '#D6DFE2',
+          '--ink': 'var(--midnight-ink)',
+          '--muted': 'var(--driftwood-gray)',
           '--hero-bg-from': 'var(--midnight-ink)',
           '--hero-bg-to': 'var(--deep-lake-blue)',
           '--bg-glow-1': 'rgba(34, 180, 168, 0.16)',
@@ -190,9 +206,8 @@ function ScrollReveal({ children }) {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
+      className={`transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
     >
       {children}
     </div>
@@ -270,7 +285,7 @@ function AppShell() {
               <Link to="/" className="font-sans text-xl font-bold tracking-tight text-white hover:opacity-90">
                 CAS Experience
               </Link>
-              
+
               {/* Desktop Nav - Static Underline active state, no float overlays */}
               <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-6">
                 {TOP_NAV.map((item) => (
@@ -279,10 +294,9 @@ function AppShell() {
                     to={item.path}
                     end={item.path === '/'}
                     className={({ isActive }) =>
-                      `text-sm font-medium transition-colors hover:text-[var(--eleviq-teal)] py-1 ${
-                        isActive
-                          ? 'text-white border-b-2 border-[var(--eleviq-teal)]'
-                          : 'text-white/70'
+                      `text-sm font-medium transition-colors hover:text-[var(--eleviq-teal)] py-1 ${isActive
+                        ? 'text-white border-b-2 border-[var(--eleviq-teal)]'
+                        : 'text-white/70'
                       }`
                     }
                   >
@@ -306,7 +320,7 @@ function AppShell() {
               </div>
             </div>
           </header>
-  
+
           {/* Mobile Menu Drawer */}
           {isMobileMenuOpen && (
             <div className="fixed inset-0 z-50 bg-[var(--midnight-ink)] p-6 md:hidden flex flex-col gap-6 text-white animate-in fade-in duration-200">
@@ -331,8 +345,7 @@ function AppShell() {
                     end={item.path === '/'}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={({ isActive }) =>
-                      `text-lg font-medium py-3 border-b border-white/5 transition-colors ${
-                        isActive ? 'text-[var(--eleviq-teal)]' : 'text-white/70 hover:text-white'
+                      `text-lg font-medium py-3 border-b border-white/5 transition-colors ${isActive ? 'text-[var(--eleviq-teal)]' : 'text-white/70 hover:text-white'
                       }`
                     }
                   >
@@ -342,7 +355,7 @@ function AppShell() {
               </nav>
             </div>
           )}
-  
+
           <main className="mx-auto flex w-full max-w-[var(--shell-max)] flex-col gap-[var(--section-gap)] px-6 py-6 pb-16 flex-grow">
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -415,11 +428,18 @@ function ActionButton({ action }) {
   )
 }
 
-function Card({ title, eyebrow, body, bullets = [], meta, action, variant, icon }) {
+function Card({ title, eyebrow, body, bullets = [], meta, action, variant, icon, bgWhite }) {
   const theme = useSectionTheme()
 
   const cardContent = (
-    <article className="rounded-[24px] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[var(--soft-shadow)] h-full flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--shadow-color)]/25">
+    <article 
+      className="rounded-[24px] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[var(--soft-shadow)] h-full flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--shadow-color)]/25"
+      style={bgWhite ? {
+        '--panel': '#FFFFFF',
+        '--ink': '#0F1B2D',
+        '--muted': '#6B7280',
+      } : {}}
+    >
       <div>
         {icon ? <div className="mb-3">{icon}</div> : null}
         {eyebrow ? <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">{eyebrow}</p> : null}
@@ -466,7 +486,7 @@ function HomePage() {
       <section className="relative rounded-[32px] border border-[rgba(255,255,255,0.15)] bg-gradient-to-br from-[var(--midnight-ink)] to-[var(--deep-lake-blue)] p-[var(--panel-pad)] text-white shadow-[var(--panel-shadow)] overflow-hidden">
         {/* Subtle geometric pattern overlay */}
         <div className="hero-bg-pattern" />
-        
+
         {/* Hero content container */}
         <div className="relative z-10 max-w-4xl space-y-6 py-6 md:py-10">
           <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.34em] text-white/80">
@@ -479,20 +499,20 @@ function HomePage() {
             The ElevIQ Capability Alignment System™ connects participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure.
           </p>
           <div className="flex flex-wrap gap-3 pt-4">
-            <Link 
-              to="/platform" 
+            <Link
+              to="/platform"
               className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-xl hover:brightness-105"
             >
               See How CAS Works
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/20 hover:border-white/50"
             >
               Request Demo
             </Link>
-            <Link 
-              to="/platform/participant-portal" 
+            <Link
+              to="/platform/participant-portal"
               className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/20 hover:border-white/50"
             >
               Access Portal
@@ -502,7 +522,7 @@ function HomePage() {
       </section>
 
       {/* Re-formatted Relationship Statement Section */}
-      <section 
+      <section
         className="rounded-[28px] border border-[#d2dfdf] p-8 shadow-[var(--soft-shadow)]"
         style={{ backgroundColor: '#EAF3F3', color: '#0F1B2D' }}
       >
@@ -516,7 +536,7 @@ function HomePage() {
               STC Innovations develops, owns, configures, licenses, and commercializes the ElevIQ Capability Alignment System.
             </p>
           </div>
-          
+
           {/* Column 2 */}
           <div className="space-y-2">
             <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
@@ -526,7 +546,7 @@ function HomePage() {
               ElevIQ Foundation applies CAS through mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation.
             </p>
           </div>
-          
+
           {/* Column 3 */}
           <div className="space-y-2">
             <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
@@ -555,6 +575,7 @@ function HomePage() {
             body: 'STC Innovations helps organizations configure the ElevIQ Capability Alignment System to support participant pathways, advisor workflows, and organizational intelligence.',
             action: { label: 'For Organizations', to: '/organizations' },
             variant: 'organizations',
+            bgWhite: true,
           },
           {
             icon: PLATFORM_ICON,
@@ -574,7 +595,7 @@ function HomePage() {
             The Capability Journey Timeline
           </h3>
         </div>
-        
+
         {/* Spacious 3-column / 4-column layout */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* Step 1 */}
@@ -696,7 +717,7 @@ function HomePage() {
               Pending Approval
             </span>
           </div>
-          
+
           {/* Descriptive block card (not a quote layout) */}
           <div className="rounded-[28px] bg-[var(--horizon-teal)] p-8 text-white relative shadow-lg overflow-hidden flex flex-col justify-between min-h-[260px] transform hover:scale-[1.01] transition-transform duration-300">
             <div className="space-y-3 z-10 relative">
@@ -705,14 +726,14 @@ function HomePage() {
                 The platform centers participant reflection and context, organizing scenarios into practical next-step choices. Feedback is delivered in plain, human-readable language to build confidence without diagnostic framing.
               </p>
             </div>
-            
+
             <div className="mt-8 flex items-end justify-between z-10 relative">
               <p className="font-mono text-[10px] uppercase tracking-widest text-white/60">Guided Flow Preview</p>
-              
+
               {/* Slider navigation controls mock */}
               <div className="flex gap-2">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   aria-label="Previous page"
                   className="w-8 h-8 rounded-full border border-white/20 bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all active:scale-95"
                 >
@@ -720,8 +741,8 @@ function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   aria-label="Next page"
                   className="w-8 h-8 rounded-full border border-white/20 bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all active:scale-95"
                 >
@@ -798,7 +819,7 @@ function PlatformOverviewPage() {
               Moving beyond static resumes and rigid clinical assessments. The ElevIQ Capability Alignment System (CAS) is human-centered infrastructure that connects personal reflection with real-world workforce paths.
             </p>
           </div>
-          
+
           <div className="flex justify-center items-center relative py-4 lg:py-0">
             {/* SVG Connected Graph Node Diagram */}
             <svg viewBox="0 0 400 400" className="w-full max-w-[340px] md:max-w-[400px] h-auto drop-shadow-md" aria-hidden="true">
@@ -806,28 +827,28 @@ function PlatformOverviewPage() {
               <line x1="280" y1="80" x2="330" y2="180" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
               <line x1="280" y1="80" x2="220" y2="180" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
               <line x1="280" y1="80" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
-              
+
               <line x1="330" y1="180" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
               <line x1="330" y1="180" x2="340" y2="280" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-              
+
               <line x1="220" y1="180" x2="150" y2="240" stroke="var(--horizon-teal)" strokeWidth="2" opacity="0.7" />
               <line x1="220" y1="180" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="3" opacity="0.85" />
               <line x1="220" y1="180" x2="230" y2="300" stroke="var(--horizon-teal)" strokeWidth="2" opacity="0.7" />
-              
+
               <line x1="150" y1="240" x2="230" y2="300" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
               <line x1="150" y1="240" x2="160" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.7" />
               <line x1="150" y1="240" x2="95" y2="240" stroke="var(--eleviq-teal)" strokeWidth="2.5" opacity="0.9" />
-              
+
               <line x1="280" y1="240" x2="340" y2="280" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
               <line x1="280" y1="240" x2="230" y2="300" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-              
+
               <line x1="340" y1="280" x2="340" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
               <line x1="230" y1="300" x2="340" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
               <line x1="230" y1="300" x2="160" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
               <line x1="230" y1="300" x2="245" y2="375" stroke="var(--eleviq-teal)" strokeWidth="2" opacity="0.85" />
-              
+
               <line x1="160" y1="360" x2="245" y2="375" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-              
+
               <line x1="95" y1="240" x2="150" y2="240" stroke="var(--eleviq-teal)" strokeWidth="2" />
               <line x1="95" y1="240" x2="160" y2="360" stroke="var(--eleviq-teal)" strokeWidth="1.5" opacity="0.6" />
               <line x1="340" y1="280" x2="280" y2="240" stroke="var(--eleviq-teal)" strokeWidth="1.5" opacity="0.6" />
@@ -836,21 +857,21 @@ function PlatformOverviewPage() {
               <circle cx="280" cy="80" r="11" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
               <circle cx="330" cy="180" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
               <circle cx="220" cy="180" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              
+
               {/* Highlight teal nodes */}
               <circle cx="95" cy="240" r="13" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
               <circle cx="95" cy="240" r="6" fill="var(--page-bg)" />
-              
+
               <circle cx="150" cy="240" r="10" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
               <circle cx="280" cy="240" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              
+
               <circle cx="340" cy="280" r="13" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
               <circle cx="340" cy="280" r="6" fill="var(--page-bg)" />
-              
+
               <circle cx="230" cy="300" r="10" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
               <circle cx="160" cy="360" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
               <circle cx="340" cy="360" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              
+
               <circle cx="245" cy="375" r="15" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
               <circle cx="245" cy="375" r="7" fill="var(--page-bg)" />
             </svg>
@@ -920,7 +941,7 @@ function PlatformOverviewPage() {
             A Modern Paradigm Shift
           </h3>
         </div>
-        
+
         {/* Comparative Columns */}
         <div className="grid gap-8 md:grid-cols-2">
           {/* Column 1: Limitations of Legacy Models */}
@@ -991,24 +1012,21 @@ function PlatformOverviewPage() {
 
 function ParticipantPortalPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-[#d2dfdf]"
-      style={{ backgroundColor: '#EAF3F3', color: '#0F1B2D' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: THE PORTAL HERO HEADER */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         {/* Left Column Content */}
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#1E7F82] font-bold">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold">
             INDIVIDUAL HOME BASE
           </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-[#0F1B2D] md:text-5xl lg:text-6xl leading-[1.1]">
+          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             A Dedicated Space for Personal Agency
           </h2>
-          <p className="text-lg font-medium text-[#0F1B2D]/85 leading-relaxed">
+          <p className="text-lg font-medium text-white/90 leading-relaxed">
             Your secure workspace built around dignity, continuous discovery, and absolute privacy.
           </p>
-          <p className="text-sm leading-relaxed text-[#6B7280]">
+          <p className="text-sm leading-relaxed text-white/70">
             The Participant Portal gives you full sovereignty over how your capabilities are mapped, stored, and shared. There are no rigid tests, scores, or black-box algorithms here—just an intuitive ecosystem designed to highlight your true potential.
           </p>
         </div>
@@ -1018,19 +1036,19 @@ function ParticipantPortalPage() {
           <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white border border-[var(--line)]" aria-hidden="true">
             {/* Minimalist Dashboard Background */}
             <rect x="0" y="0" width="320" height="240" fill="#FFFFFF" />
-            
+
             {/* Header outline bar */}
             <line x1="20" y1="30" x2="300" y2="30" stroke="#0F1B2D" strokeWidth="2" opacity="0.15" />
-            
+
             {/* Circle markers */}
             <circle cx="35" cy="18" r="4" fill="#0FA88A" />
             <circle cx="50" cy="18" r="4" fill="#0F1B2D" opacity="0.3" />
             <circle cx="65" cy="18" r="4" fill="#0F1B2D" opacity="0.3" />
-            
+
             {/* Clean minimalist cards */}
             <rect x="20" y="45" width="130" height="80" rx="8" fill="#EAF3F3" stroke="#d2dfdf" strokeWidth="1" />
             <rect x="170" y="45" width="130" height="80" rx="8" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="1.5" />
-            
+
             {/* Lines inside Left Card */}
             <line x1="35" y1="65" x2="105" y2="65" stroke="#0F1B2D" strokeWidth="3" opacity="0.4" />
             <line x1="35" y1="80" x2="120" y2="80" stroke="#0F1B2D" strokeWidth="2" opacity="0.2" />
@@ -1043,13 +1061,13 @@ function ParticipantPortalPage() {
             <circle cx="195" cy="105" r="8" fill="#0FA88A" opacity="0.2" />
             <circle cx="195" cy="105" r="4" fill="#0FA88A" />
             <line x1="210" y1="105" x2="270" y2="105" stroke="#0FA88A" strokeWidth="2" />
-            
+
             {/* Full-width lower dashboard block */}
             <rect x="20" y="145" width="280" height="75" rx="8" fill="#FFFFFF" stroke="#0F1B2D" strokeWidth="1" opacity="0.15" />
             <line x1="35" y1="165" x2="265" y2="165" stroke="#0F1B2D" strokeWidth="2.5" opacity="0.3" />
             <line x1="35" y1="180" x2="230" y2="180" stroke="#6B7280" strokeWidth="2" opacity="0.25" />
             <line x1="35" y1="195" x2="245" y2="195" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-            
+
             {/* Interactive growth nodes */}
             <circle cx="280" cy="195" r="5" fill="#0FA88A" />
           </svg>
@@ -1165,12 +1183,9 @@ function ParticipantPortalPage() {
 
 function CommunityIntelligenceConsolePage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: ENTERPRISE HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         {/* Left Column Content */}
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
@@ -1192,11 +1207,11 @@ function CommunityIntelligenceConsolePage() {
           <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
             {/* Dark background panel */}
             <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            
+
             {/* Grid lines */}
             <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
             <line x1="20" y1="130" x2="300" y2="130" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
-            
+
             {/* Left Box (Bar Charts Graph representation) */}
             <rect x="25" y="55" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <line x1="40" y1="100" x2="40" y2="70" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
@@ -1221,7 +1236,7 @@ function CommunityIntelligenceConsolePage() {
             <rect x="25" y="145" width="270" height="75" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <path d="M 40 185 L 80 165 L 120 195 L 160 175 L 200 190 L 240 160 L 280 185" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
             <path d="M 40 185 L 80 165 L 120 195 L 160 175 L 200 190 L 240 160 L 280 185" fill="none" stroke="#0FA88A" strokeWidth="6" opacity="0.15" />
-            
+
             <circle cx="240" cy="160" r="4" fill="#FFFFFF" />
             <circle cx="80" cy="165" r="4" fill="#FFFFFF" />
           </svg>
@@ -1337,12 +1352,9 @@ function CommunityIntelligenceConsolePage() {
 
 function ElevIqAriaPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         {/* Left Column Content */}
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
@@ -1364,11 +1376,11 @@ function ElevIqAriaPage() {
           <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
             {/* Dark background panel */}
             <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            
+
             {/* Abstract geometric constellations/lines */}
             <circle cx="160" cy="120" r="80" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.08" />
             <circle cx="160" cy="120" r="50" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.4" />
-            
+
             {/* Interconnected node lines */}
             <line x1="80" y1="80" x2="160" y2="50" stroke="#0FA88A" strokeWidth="2" opacity="0.75" />
             <line x1="160" y1="50" x2="240" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
@@ -1376,7 +1388,7 @@ function ElevIqAriaPage() {
             <line x1="240" y1="160" x2="160" y2="190" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
             <line x1="160" y1="190" x2="80" y2="160" stroke="#0FA88A" strokeWidth="2" opacity="0.75" />
             <line x1="80" y1="160" x2="80" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            
+
             <line x1="80" y1="80" x2="240" y2="160" stroke="#0FA88A" strokeWidth="1" opacity="0.4" />
             <line x1="160" y1="50" x2="160" y2="190" stroke="#0FA88A" strokeWidth="1.5" opacity="0.5" />
             <line x1="240" y1="80" x2="80" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.2" />
@@ -1388,7 +1400,7 @@ function ElevIqAriaPage() {
             <circle cx="240" cy="160" r="6" fill="#0FA88A" />
             <circle cx="160" cy="190" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
             <circle cx="80" cy="160" r="6" fill="#0FA88A" />
-            
+
             {/* Center core reflection ring */}
             <circle cx="160" cy="120" r="14" fill="#0FA88A" opacity="0.2" />
             <circle cx="160" cy="120" r="7" fill="#0FA88A" />
@@ -1506,12 +1518,9 @@ function ElevIqAriaPage() {
 
 function ElevIqClaraPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         {/* Left Column Content */}
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
@@ -1533,16 +1542,16 @@ function ElevIqClaraPage() {
           <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white border border-[var(--line)]" aria-hidden="true">
             {/* White background panel */}
             <rect x="0" y="0" width="320" height="240" fill="#FFFFFF" rx="16" />
-            
+
             {/* Collaboration graphic / Dashboard window */}
             <rect x="20" y="25" width="280" height="190" rx="8" fill="#F5EFE6" stroke="#0F1B2D" strokeWidth="1.5" opacity="0.15" />
-            
+
             {/* Header bar within dashboard */}
             <rect x="20" y="25" width="280" height="35" rx="8" fill="#0F1B2D" />
             <circle cx="35" cy="42" r="4" fill="#0FA88A" />
             <circle cx="47" cy="42" r="4" fill="#FFFFFF" opacity="0.5" />
             <circle cx="59" cy="42" r="4" fill="#FFFFFF" opacity="0.5" />
-            
+
             {/* Title in dashboard header */}
             <rect x="80" y="38" width="80" height="8" rx="4" fill="#FFFFFF" opacity="0.3" />
 
@@ -1561,13 +1570,13 @@ function ElevIqClaraPage() {
             <rect x="160" y="75" width="125" height="125" rx="6" fill="#FFFFFF" stroke="#0F1B2D" strokeWidth="1" opacity="0.2" />
             <line x1="175" y1="95" x2="270" y2="95" stroke="#0F1B2D" strokeWidth="2.5" opacity="0.7" />
             <line x1="175" y1="110" x2="250" y2="110" stroke="#6B7280" strokeWidth="2" opacity="0.5" />
-            
+
             <circle cx="175" cy="135" r="4" fill="#0FA88A" />
             <line x1="185" y1="135" x2="255" y2="135" stroke="#0FA88A" strokeWidth="2" />
-            
+
             <circle cx="175" cy="155" r="4" fill="#0F1B2D" opacity="0.4" />
             <line x1="185" y1="155" x2="265" y2="155" stroke="#6B7280" strokeWidth="2" opacity="0.5" />
-            
+
             <circle cx="175" cy="175" r="4" fill="#0FA88A" />
             <line x1="185" y1="175" x2="245" y2="175" stroke="#0FA88A" strokeWidth="2" />
           </svg>
@@ -1683,12 +1692,9 @@ function ElevIqClaraPage() {
 
 function CapabilitySignalsPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             DYNAMIC SKILL TRACKING
@@ -1711,7 +1717,7 @@ function CapabilitySignalsPage() {
             <path d="M 30 120 Q 70 40 110 120 T 190 120 T 270 120" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
             <path d="M 30 120 Q 70 60 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
             <path d="M 30 120 Q 70 80 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="5" opacity="0.15" />
-            
+
             {/* Grid ticks / nodes */}
             <circle cx="110" cy="120" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
             <circle cx="190" cy="120" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
@@ -1820,12 +1826,9 @@ function CapabilitySignalsPage() {
 
 function AlignmentSnapshotPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             HIGH-FIDELITY PROFILE VIEWER
@@ -1848,11 +1851,11 @@ function AlignmentSnapshotPage() {
             <rect x="25" y="45" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="170" y="45" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="25" y="135" width="270" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            
+
             {/* Elements */}
             <circle cx="45" cy="75" r="10" fill="#0FA88A" />
             <line x1="65" y1="75" x2="130" y2="75" stroke="#FFFFFF" strokeWidth="3" opacity="0.5" />
-            
+
             <circle cx="190" cy="75" r="10" fill="#FFFFFF" opacity="0.3" />
             <line x1="210" y1="75" x2="275" y2="75" stroke="#0FA88A" strokeWidth="3" />
 
@@ -1959,12 +1962,9 @@ function AlignmentSnapshotPage() {
 
 function AlignmentPathwaysPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             DYNAMIC TRAJECTORY PLANNING
@@ -1987,7 +1987,7 @@ function AlignmentPathwaysPage() {
             <path d="M 30 60 C 100 60, 100 180, 170 180 S 240 60, 300 60" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
             <path d="M 30 180 C 100 180, 100 60, 170 60 S 240 180, 300 180" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
             <path d="M 30 120 H 300" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-            
+
             {/* Intersecting path nodes */}
             <circle cx="30" cy="180" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
             <circle cx="100" cy="120" r="5" fill="#0FA88A" />
@@ -2096,12 +2096,9 @@ function AlignmentPathwaysPage() {
 
 function RoleAlignmentPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             HUMAN-CENTERED ECOSYSTEM FIT
@@ -2123,18 +2120,18 @@ function RoleAlignmentPage() {
             {/* Intersecting Aligned Containers */}
             <rect x="35" y="60" width="100" height="120" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="185" y="60" width="100" height="120" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.3" />
-            
+
             {/* Aligned connector tracks */}
             <line x1="135" y1="90" x2="185" y2="90" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
             <line x1="135" y1="120" x2="185" y2="120" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
             <line x1="135" y1="150" x2="185" y2="150" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
-            
+
             <circle cx="135" cy="90" r="3" fill="#0FA88A" />
             <circle cx="185" cy="90" r="3" fill="#0FA88A" />
-            
+
             <circle cx="135" cy="120" r="3" fill="#FFFFFF" />
             <circle cx="185" cy="120" r="3" fill="#FFFFFF" />
-            
+
             <circle cx="135" cy="150" r="3" fill="#0FA88A" />
             <circle cx="185" cy="150" r="3" fill="#0FA88A" />
           </svg>
@@ -2238,12 +2235,9 @@ function RoleAlignmentPage() {
 
 function DevelopmentOpportunitiesPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             ACTIONABLE SKILL GROWTH
@@ -2267,7 +2261,7 @@ function DevelopmentOpportunitiesPage() {
             <rect x="110" y="130" width="50" height="60" rx="4" fill="#FFFFFF" opacity="0.15" />
             <rect x="170" y="90" width="50" height="100" rx="4" fill="#0FA88A" />
             <rect x="230" y="60" width="50" height="130" rx="4" fill="#FFFFFF" opacity="0.6" />
-            
+
             {/* Growth arrow curve */}
             <path d="M 40 200 Q 135 150 255 75" fill="none" stroke="#0FA88A" strokeWidth="2.5" strokeDasharray="4 4" />
             <polygon points="255,75 245,76 252,83" fill="#0FA88A" />
@@ -2372,12 +2366,9 @@ function DevelopmentOpportunitiesPage() {
 
 function SupportConnectionsPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             HUMAN-CENTERED GUIDE HUBS
@@ -2399,17 +2390,17 @@ function SupportConnectionsPage() {
             {/* Interconnected human node dots (Constellation style) */}
             <circle cx="160" cy="120" r="15" fill="#0FA88A" opacity="0.3" />
             <circle cx="160" cy="120" r="6" fill="#0FA88A" />
-            
+
             <circle cx="80" cy="80" r="5" fill="#FFFFFF" />
             <circle cx="240" cy="80" r="5" fill="#FFFFFF" />
             <circle cx="80" cy="160" r="5" fill="#FFFFFF" />
             <circle cx="240" cy="160" r="5" fill="#FFFFFF" />
-            
+
             <line x1="160" y1="120" x2="80" y2="80" stroke="#0FA88A" strokeWidth="2" />
             <line x1="160" y1="120" x2="240" y2="80" stroke="#0FA88A" strokeWidth="2" />
             <line x1="160" y1="120" x2="80" y2="160" stroke="#0FA88A" strokeWidth="2" />
             <line x1="160" y1="120" x2="240" y2="160" stroke="#0FA88A" strokeWidth="2" />
-            
+
             <line x1="80" y1="80" x2="240" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" strokeDasharray="3 3" />
             <line x1="80" y1="160" x2="240" y2="160" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" strokeDasharray="3 3" />
           </svg>
@@ -2513,12 +2504,9 @@ function SupportConnectionsPage() {
 
 function ExperienceContextPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             BEYOND STALE BACKGROUNDS
@@ -2541,13 +2529,13 @@ function ExperienceContextPage() {
             <rect x="35" y="45" width="110" height="70" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="175" y="45" width="110" height="70" rx="8" fill="#0FA88A" opacity="0.25" stroke="#0FA88A" strokeWidth="1.5" />
             <rect x="35" y="130" width="250" height="65" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.2" />
-            
+
             {/* Inner details */}
             <line x1="50" y1="70" x2="130" y2="70" stroke="#FFFFFF" strokeWidth="3" opacity="0.5" />
             <line x1="50" y1="85" x2="110" y2="85" stroke="#FFFFFF" strokeWidth="2" opacity="0.3" />
-            
+
             <line x1="190" y1="70" x2="270" y2="70" stroke="#0FA88A" strokeWidth="3" />
-            
+
             <circle cx="210" cy="160" r="10" fill="#0FA88A" />
             <line x1="60" y1="160" x2="180" y2="160" stroke="#FFFFFF" strokeWidth="3" opacity="0.4" />
           </svg>
@@ -2651,12 +2639,9 @@ function ExperienceContextPage() {
 
 function LifeVectorPage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             LONG-TERM TRAJECTORY HEURISTICS
@@ -2678,11 +2663,11 @@ function LifeVectorPage() {
             {/* Coordinate grid */}
             <line x1="30" y1="210" x2="290" y2="210" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
             <line x1="30" y1="30" x2="30" y2="210" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            
+
             {/* Flow Vector curves */}
             <path d="M 30 210 Q 120 180 180 100 T 290 40" fill="none" stroke="#0FA88A" strokeWidth="3" />
             <path d="M 30 210 Q 90 200 200 130 T 290 80" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.7" />
-            
+
             <circle cx="180" cy="100" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
             <circle cx="290" cy="40" r="6" fill="#0FA88A" />
           </svg>
@@ -2870,10 +2855,9 @@ function SubNav({ tabs }) {
               to={item.path}
               end={item.path === '/platform' || item.path === '/individuals' || item.path === '/organizations'}
               className={({ isActive }) =>
-                `rounded-full border px-4 py-2 text-xs md:text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'border-[var(--accent)] bg-[var(--accent)] text-white shadow-sm font-semibold'
-                    : 'border-[var(--line)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--ink)]'
+                `rounded-full border px-4 py-2 text-xs md:text-sm font-medium transition-all duration-200 ${isActive
+                  ? 'border-[var(--accent)] bg-[var(--accent)] text-white shadow-sm font-semibold'
+                  : 'border-[var(--line)] bg-[var(--surface)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--ink)]'
                 }`
               }
             >
@@ -2911,7 +2895,7 @@ function Footer() {
     <footer className="mt-auto bg-[var(--midnight-ink)] text-white/95 border-t border-[var(--line)]/10 pt-16 pb-12 transition-all duration-300">
       <div className="mx-auto w-full max-w-[var(--shell-max)] px-6">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-white/10">
-          
+
           <div className="lg:col-span-2 space-y-4">
             <h3 className="font-sans text-xl font-semibold tracking-[-0.03em] text-white">
               CAS Experience
@@ -3014,7 +2998,7 @@ function Footer() {
             <p>© 2026 ElevIQ / STC Innovations. All rights reserved.</p>
             <p className="font-mono uppercase tracking-widest text-[var(--eleviq-teal)] text-[10px]">Capability Alignment Infrastructure</p>
           </div>
-          
+
           <div className="space-y-2.5">
             <p className="font-mono text-[9px] uppercase tracking-widest text-white/30">Trademark Lock Terminology</p>
             <div className="flex flex-wrap gap-2">
@@ -3052,41 +3036,1207 @@ function IndividualsSection() {
 
 function IndividualsHome() {
   return (
-    <SectionShell
-      eyebrow="For Individuals"
-      title="See Your Strengths. Build Your Next Step."
-      lead="ElevIQ Foundation helps overlooked talent discover capabilities, understand options, connect with trusted support, and move toward meaningful opportunity."
-      actions={[{ label: 'Explore Your Path', to: '/individuals/how-it-works' }, { label: 'Partner / Donor Information', to: '/contact' }]}
-      extra={<SectionGrid cards={[
-        { eyebrow: 'Mission', title: 'ElevIQ Foundation', body: 'Mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation.', bullets: ['Participant-centered', 'Community-rooted', 'Practical support'] },
-        { eyebrow: 'CAS language', title: 'ElevIQ Alignment Scan™ to next step', body: 'The Alignment Scan™, Capability Signals™, Alignment Snapshot™, ElevIQ ARIA™, Alignment Pathways™, Support Connections, and The ElevIQ Last Mile™ create a guided flow that keeps human support central.' },
-        { eyebrow: 'Primary CTA', title: 'Invite collaboration', body: 'Use the platform to connect participants, families, community partners, and mission-aligned supporters around real next steps.', action: { label: 'Request Information', to: '/contact' } },
-      ]} />} />
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <section className="rounded-[32px] border border-[var(--line)] bg-[var(--surface)] p-[var(--panel-pad)] shadow-[var(--soft-shadow)] overflow-hidden">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          {/* Left Column Content */}
+          <div className="space-y-6">
+            <span className="inline-flex rounded-full border border-[var(--accent)] bg-[var(--accent-soft)] px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] font-bold">
+              A PLATFORM BUILT FOR YOUR JOURNEY
+            </span>
+            <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-[var(--ink)] md:text-5xl lg:text-6xl leading-[1.1]">
+              Your Capabilities Are More Than a Resume
+            </h2>
+            <p className="text-lg font-medium text-[var(--ink)]/90 leading-relaxed max-w-xl">
+              A dignified, private workspace to discover, verify, and own your professional strengths.
+            </p>
+            <p className="text-sm leading-relaxed text-[var(--muted)] max-w-xl">
+              Standard job applications limit you to employment dates and generic titles, ignoring the rich skills you have built through real-world life experience. The Capability Alignment System gives you a self-paced, secure environment to turn your unique personal stories into verified strengths, completely free from the stress of clinical testing.
+            </p>
+            <div className="flex flex-wrap gap-2.5 pt-2">
+              <Link
+                to="/individuals/how-it-works"
+                className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+              >
+                Explore Your Path
+              </Link>
+              <Link
+                to="/contact"
+                className="rounded-full border border-[var(--line)] bg-[var(--surface)] px-6 py-2.5 text-xs font-semibold text-[var(--ink)] transition hover:brightness-95"
+              >
+                Request Information
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column Media Graphic */}
+          <div className="flex justify-center items-center p-4">
+            <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
+              <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
+              {/* Grid lines */}
+              <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="20" y1="80" x2="300" y2="80" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="20" y1="120" x2="300" y2="120" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="20" y1="160" x2="300" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="20" y1="200" x2="300" y2="200" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              
+              <line x1="60" y1="20" x2="60" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="120" y1="20" x2="120" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="180" y1="20" x2="180" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+              <line x1="240" y1="20" x2="240" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+
+              {/* Rising trajectory wave path */}
+              <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="var(--accent)" strokeWidth="3" />
+              <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="var(--accent)" strokeWidth="8" opacity="0.15" />
+
+              {/* Coordinate nodes */}
+              <circle cx="40" cy="180" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+              <circle cx="100" cy="153" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+              <circle cx="157" cy="98" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+              <circle cx="218" cy="80" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+              <circle cx="280" cy="60" r="6" fill="var(--accent)" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: THE THREE SYSTEM GATEWAYS */}
+      <section className="grid gap-6 md:grid-cols-3">
+        {/* Card 1 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="font-mono text-xs font-bold text-[var(--ink)]">01. Log & Reflect</span>
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              YOUR EXPERIENCES
+            </span>
+          </div>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Document your specialized life paths, family caregiving milestones, volunteer leadership, and independent problem-solving using intuitive, non-linear text logs.
+          </p>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="font-mono text-xs font-bold text-[var(--ink)]">02. Format & Verify</span>
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              YOUR STRENGTHS
+            </span>
+          </div>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Watch your qualitative personal entries translate seamlessly into professional Capability Signals™ that highlight your verified real-world execution capacity.
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="font-mono text-xs font-bold text-[var(--ink)]">03. Share & Align</span>
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              YOUR OPPORTUNITIES
+            </span>
+          </div>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Securely link your profile with regional upskilling coursework, community coaching groups, or corporate role matches whenever you decide the timing is right.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 3: INDIVIDUAL RIGHTS EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            Our Structural Core Commitments to You
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Absolute Profile Sovereignty
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              You maintain absolute master ownership of your capability map. No automated algorithms can rank you, no employers can view your drafts, and you can revoke access permissions instantly.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Zero Assessment Stress
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              There are no automated screening countdowns, confusing personality quizzes, or high-pressure tests. Data accumulates entirely through your own self-driven, verified lifestyle milestones.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Permanent Lifelong Portability
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Your workspace portal belongs to you permanently. Even after successfully matching into a local role, your portal links remain active so you can log ongoing career momentum.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+const InteractiveTimeline = () => {
+  return (
+    <svg className="w-full h-full min-h-[300px] md:min-h-[400px]" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Gradients */}
+      <defs>
+        <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.1" />
+        </linearGradient>
+      </defs>
+
+      {/* Background glow lines */}
+      <motion.path
+        d="M 50 150 C 150 50, 250 250, 450 100"
+        stroke="url(#tealGrad)"
+        strokeWidth="4"
+        strokeLinecap="round"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.7 }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+      />
+      <motion.path
+        d="M 50 250 C 180 350, 320 150, 450 300"
+        stroke="url(#tealGrad)"
+        strokeWidth="2"
+        strokeDasharray="6,6"
+        strokeLinecap="round"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.4 }}
+        transition={{ duration: 2.5, ease: "easeInOut", delay: 0.3 }}
+      />
+      <motion.path
+        d="M 50 200 C 150 200, 300 200, 450 200"
+        stroke="url(#tealGrad)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.3 }}
+        transition={{ duration: 1.8, ease: "easeInOut", delay: 0.6 }}
+      />
+
+      {/* Interactive Floating Nodes */}
+      <g>
+        <motion.circle
+          cx="100"
+          cy="115"
+          r="16"
+          fill="var(--accent)"
+          fillOpacity="0.15"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        />
+        <circle cx="100" cy="115" r="7" fill="var(--accent)" />
+        <motion.circle
+          cx="100"
+          cy="115"
+          r="4"
+          fill="#FFFFFF"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        />
+        <text x="100" y="90" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">01. Reflect</text>
+      </g>
+
+      <g>
+        <motion.circle
+          cx="220"
+          cy="200"
+          r="20"
+          fill="var(--accent)"
+          fillOpacity="0.1"
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+        />
+        <circle cx="220" cy="200" r="8" fill="var(--accent)" />
+        <motion.circle
+          cx="220"
+          cy="200"
+          r="4"
+          fill="#FFFFFF"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+        />
+        <text x="220" y="175" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">03. Signals™</text>
+      </g>
+
+      <g>
+        <motion.circle
+          cx="340"
+          cy="225"
+          r="18"
+          fill="var(--accent)"
+          fillOpacity="0.12"
+          animate={{ scale: [1, 1.25, 1] }}
+          transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 2 }}
+        />
+        <circle cx="340" cy="225" r="7" fill="var(--accent)" />
+        <motion.circle
+          cx="340"
+          cy="225"
+          r="4"
+          fill="#FFFFFF"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 1 }}
+        />
+        <text x="340" y="252" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">06. Pathways™</text>
+      </g>
+
+      <g>
+        <motion.circle
+          cx="420"
+          cy="120"
+          r="24"
+          fill="var(--accent)"
+          fillOpacity="0.2"
+          animate={{ scale: [1, 1.35, 1] }}
+          transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1.5 }}
+        />
+        <circle cx="420" cy="120" r="9" fill="var(--accent)" />
+        <motion.circle
+          cx="420"
+          cy="120"
+          r="5"
+          fill="#FFFFFF"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 1.5 }}
+        />
+        <text x="420" y="95" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">08. Align</text>
+      </g>
+
+      <motion.line
+        x1="100" y1="115" x2="220" y2="200"
+        stroke="var(--accent)"
+        strokeWidth="1"
+        strokeDasharray="4,4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 1 }}
+      />
+      <motion.line
+        x1="220" y1="200" x2="340" y2="225"
+        stroke="var(--accent)"
+        strokeWidth="1"
+        strokeDasharray="4,4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 1.5 }}
+      />
+      <motion.line
+        x1="340" y1="225" x2="420" y2="120"
+        stroke="var(--accent)"
+        strokeWidth="1"
+        strokeDasharray="4,4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{ delay: 2 }}
+      />
+    </svg>
   )
 }
 
 function IndividualsHowItWorks() {
-  return <SectionShell eyebrow="How It Works" title="Program Entry and Support Flow" lead="Program entry starts with trust, access, and guided reflection, then moves through the CAS flow toward practical support and next-step planning." actions={[{ label: 'Support the Mission', to: '/individuals/support-the-mission' }, { label: 'Request Information', to: '/contact' }]} cards={[{ eyebrow: 'Flow', title: 'ElevIQ Alignment Scan™', body: 'Guided scenario-based reflection starts the process.' }, { eyebrow: 'Flow', title: 'Capability Signals™ and Alignment Snapshot™', body: 'Participant responses and Experience & Context inform a shared view of current support needs.' }, { eyebrow: 'Flow', title: 'ElevIQ ARIA™, Alignment Pathways™, Support Connections, and The ElevIQ Last Mile™', body: 'Participants reflect, choose pathways, connect with support, and move through the handoff.' }]} />
+  return (
+    <div className="font-sans text-[var(--ink)] space-y-16 py-8">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              THE PARTICIPANT PIPELINE
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            How It Works
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            A dignified, self-paced framework built completely around your personal agency.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            Navigating your growth shouldn't feel like a stressful test. The Capability Alignment System (CAS) maps out a clear, supportive process that honors your lived experiences, transforms your stories into verified strengths, and connects you directly with regional opportunities—all while keeping you in absolute control of your data.
+          </p>
+        </div>
+        <div className="lg:col-span-5 flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <InteractiveTimeline />
+        </div>
+      </section>
+
+      {/* SECTION 2: THE 8-CORE STEP PROGRESSION GRID */}
+      <section className="space-y-8">
+        <div className="text-center lg:text-left space-y-2">
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[var(--accent)]">Step-by-Step Flow</span>
+          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--ink)]">The Capability Path</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              num: "01",
+              title: "01. Self-Guided Reflection",
+              desc: "Begin with stress-free, unpaced workspace logs to document your specialized life experiences, caregiving milestones, and volunteer efforts."
+            },
+            {
+              num: "02",
+              title: "02. Contextual Capture",
+              desc: "Use intuitive textual prompts to detail real-world problems you have naturally solved, preserving your true, authentic voice."
+            },
+            {
+              num: "03",
+              title: "03. Signal Formatting",
+              desc: "Watch your qualitative personal stories convert into professional, dynamic indicators known as Capability Signals™."
+            },
+            {
+              num: "04",
+              title: "04. Secure Storage",
+              desc: "Your emerging capability map is securely locked. You maintain absolute profile sovereignty and data ownership at all times."
+            },
+            {
+              num: "05",
+              title: "05. Advisor Invitation",
+              desc: "Choose exactly when to grant secure viewing access to trusted community coaches or frontline workforce mentors."
+            },
+            {
+              num: "06",
+              title: "06. Pathway Mapping",
+              desc: "Co-create flexible Alignment Pathways™ that suggest targeted routes through local educational blocks and training modules."
+            },
+            {
+              num: "07",
+              title: "07. Mutual Role Alignment",
+              desc: "Evaluate active regional positions side-by-side with your profile context, bypassing biased, automated resume keyword filters."
+            },
+            {
+              num: "08",
+              title: "08. Sustainable Last Mile",
+              desc: "Transition smoothly into your active role with continuous post-placement support and lifelong access to your guidance portal."
+            }
+          ].map((card, i) => (
+            <motion.div
+              key={card.num}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              whileHover={{ y: -6, boxShadow: "var(--panel-shadow)" }}
+              className="bg-[var(--surface)] rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-[var(--soft-shadow)] border border-[var(--line)] relative overflow-hidden transition-all duration-250"
+            >
+              <div className="space-y-4">
+                <span className="font-mono text-sm font-bold text-[var(--accent)] bg-[var(--accent-soft)] px-2.5 py-1 rounded-md inline-block">
+                  Step {card.num}
+                </span>
+                <h4 className="text-[var(--ink)] font-bold text-lg md:text-xl font-sans tracking-tight">
+                  {card.title.replace(/^\d+\.\s*/, '')}
+                </h4>
+                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans font-normal">
+                  {card.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3: DEEP ADVANCED EXPOSITION (BOTTOM HALF) */}
+      <section>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full bg-[var(--surface)] rounded-3xl p-8 md:p-14 lg:p-16 shadow-[var(--panel-shadow)] border border-[var(--line)] relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-[var(--accent)]" />
+
+          <div className="max-w-4xl mx-auto space-y-12">
+            <h3 className="text-center font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-[var(--ink)] tracking-tight">
+              Navigating Your Advanced Growth Pathways
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-4">
+              <div className="space-y-4">
+                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
+                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
+                  Adaptive Route Planning
+                </h4>
+                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
+                  Explore individual Alignment Pathways™ that suggest flexible routes through educational blocks, local upskilling coursework, and community pilot programs. The roadmap dynamically updates and suggests fresh steps as your goals evolve.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
+                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
+                  Mutual Role Alignment
+                </h4>
+                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
+                  Evaluate open regional positions side-by-side with your active capability profile. Organizations cleanly express what a position requires, and you choose when to share your context—eliminating the bias of cold, automated resume filters.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
+                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
+                  The Sustained Last Mile
+                </h4>
+                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
+                  Transition smoothly into your active new role with continuous support. Your portal links remain fully operational post-placement, allowing you to log fresh milestones, track ongoing career momentum, and access lifelong guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  )
 }
 
 function IndividualsWhoWeServe() {
-  return <SectionShell eyebrow="Who We Serve" title="People and Communities" lead="The audience spans youth and adult learners, job seekers, and people moving through education, workforce, or reentry pathways." cards={[{ title: 'Youth and high school / CTE', body: 'School-age participants and career-connected learners.' }, { title: 'Job Corps', body: 'Job Corps participants and counselor-supported pathways.' }, { title: 'Higher education and community college', body: 'Students and adult learners who need clearer next-step support.' }, { title: 'Rural job seekers and career changers', body: 'Participants navigating access, transportation, and opportunity constraints.' }, { title: 'Workforce participants', body: 'People moving through employment services and support planning.' }, { title: 'Reentry and justice-impacted adults', body: 'Participants rebuilding direction with trusted support.' }, { title: 'Veterans and transitioning service members', body: 'People moving from service into civilian opportunity.' }, { title: 'Military spouses and families', body: 'Households balancing transition, location, and support access.' }]} actions={[{ label: 'Explore Your Path', to: '/contact' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              TAILORED PARTICIPANT FOCUS
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            Who We Serve
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            Dignified growth pathways designed for every stage of your life journey.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            The Capability Alignment System is built to serve individuals navigating critical life or career transitions. We recognize that highly valuable problem-solving, resilience, and operational skills are built across diverse backgrounds. CAS honors your unique trajectory without reducing you to a rigid application score.
+          </p>
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <Link
+              to="/contact"
+              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+            >
+              Connect With Us
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column Media Graphic */}
+        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
+            <circle cx="160" cy="120" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+            <circle cx="160" cy="120" r="40" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+            <line x1="80" y1="120" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
+            <line x1="160" y1="120" x2="240" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
+            <line x1="160" y1="60" x2="160" y2="180" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
+            <circle cx="80" cy="120" r="6" fill="var(--accent)" />
+            <circle cx="160" cy="60" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+            <circle cx="240" cy="120" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+            <circle cx="160" cy="180" r="6" fill="var(--accent)" />
+            <circle cx="160" cy="120" r="12" fill="var(--accent)" opacity="0.2" />
+            <circle cx="160" cy="120" r="5" fill="var(--accent)" />
+          </svg>
+        </div>
+      </section>
+
+      {/* SECTION 2: THE 10-AUDIENCE CARD MATRIX */}
+      <section className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Career Re-Enters",
+              desc: "Designed for individuals returning to full-time roles after periods of dedicated family caregiving, health recovery, or structural life breaks."
+            },
+            {
+              num: "02",
+              title: "Workforce Grads",
+              desc: "Built for participants finishing regional training pilots, local non-profit cohorts, or specialized municipal upskilling paths."
+            },
+            {
+              num: "03",
+              title: "Opportunity Youth",
+              desc: "Tailored for young adults (ages 16–24) looking for clear, non-linear career entry points to bypass strict resume experience gates."
+            },
+            {
+              num: "04",
+              title: "Displaced Workers",
+              desc: "For experienced professionals whose local industries have undergone sudden economic shifts, modern automation, or down-scaling."
+            },
+            {
+              num: "05",
+              title: "Military Veterans",
+              desc: "Translates specialized tactical operations, leadership high-fidelity milestones, and field execution into civilian Capability Signals™."
+            },
+            {
+              num: "06",
+              title: "Justice-Impacted",
+              desc: "Provides a private, stress-free space for re-entering citizens to document authentic strengths without being filtered out by legacy screening boxes."
+            },
+            {
+              num: "07",
+              title: "Adaptive Learners",
+              desc: "Perfect for self-taught professionals, community organizers, and individuals who naturally thrive outside rigid clinical testing parameters."
+            },
+            {
+              num: "08",
+              title: "Mature Workers",
+              desc: "Highlights deep behavioral wisdom, institutional knowledge, and operational execution capacity rather than historic graduation dates."
+            },
+            {
+              num: "09",
+              title: "Non-Traditional",
+              desc: "Enables independent contractors, freelance executors, and gig economy workers to build a single, unified, verified capability footprint."
+            },
+            {
+              num: "10",
+              title: "Underemployed",
+              desc: "For dedicated workers trapped in survival roles who possess advanced, unmapped skill sets ready to align with true regional career pathways."
+            }
+          ].map((card) => (
+            <div
+              key={card.num}
+              className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300"
+            >
+              <div className="flex justify-between items-start">
+                <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+                  Focus {card.num}
+                </span>
+              </div>
+              <h3 className="font-sans text-lg font-bold text-[var(--ink)] tracking-tight">
+                {card.num}. {card.title}
+              </h3>
+              <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+                {card.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            A System Built for Diverse Backgrounds
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Respecting Lived Experience
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              We recognize that elite management and problem-solving skills are built during non-linear paths outside traditional corporate employment.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Removing Stale Screeners
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Our dynamic process ensures that real human review and qualitative context override cold, automated resume keyword filters.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Continuous Access Rights
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Your individual portal belongs to you permanently. You can update, scale, and carry your capability maps anywhere your career moves.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 function IndividualsJobCorps() {
-  return <SectionShell eyebrow="Job Corps" title="Job Corps" lead="Initial April 2026 implementation used earlier TalentScan™ for 14 students. The Job Corps-specific CAS, CSS/ESP support, eight CTT pathways, and counselor workflows remain in development and validation." ribbon="Implementation history and validation" actions={[{ label: 'Use My Program Link', to: '/contact' }, { label: 'Support the Mission', to: '/individuals/support-the-mission' }]} cards={[{ title: 'Implementation note', body: 'Use status labels and verified language only when discussing this work.' }, { title: 'Counselor workflows', body: 'Counselor workflows are in development and validation for Job Corps use.' }, { title: 'CTT pathways', body: 'Eight CTT pathways are part of the program context being organized for this section.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              ACTIVE PILOT INTEGRATION — DEPLOYED APRIL 2026
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            Job Corps Collaboration
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            Empowering our inaugural 14-student cohort with high-fidelity capability frameworks.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            Launched in April 2026, our specialized Job Corps pilot framework directly interfaces with active training cohorts to bridge the gap between technical classroom mastery and real-world workspace alignment. By monitoring and mapping a baseline group of 14 active students, this framework demonstrates how non-linear technical milestones cleanly convert into verified strengths local employers trust.
+          </p>
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <Link
+              to="/contact"
+              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+            >
+              Inquire About Pilots
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column Media Graphic */}
+        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
+            <rect x="50" y="170" width="40" height="15" fill="var(--accent)" opacity="0.2" rx="2" />
+            <rect x="100" y="140" width="40" height="15" fill="var(--accent)" opacity="0.4" rx="2" />
+            <rect x="150" y="110" width="40" height="15" fill="var(--accent)" opacity="0.6" rx="2" />
+            <rect x="200" y="80" width="40" height="15" fill="var(--accent)" opacity="0.8" rx="2" />
+            <rect x="250" y="50" width="40" height="15" fill="var(--accent)" rx="2" />
+            <path d="M 70 170 L 120 140 L 170 110 L 220 80 L 270 50" fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.5" strokeDasharray="3 3" />
+            <circle cx="270" cy="50" r="4" fill="#FFFFFF" />
+          </svg>
+        </div>
+      </section>
+
+      {/* SECTION 2: THE PILOT TRACKING GRID (3 White Cards) */}
+      <section className="grid gap-6 md:grid-cols-3">
+        {/* Card 1 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              14-STUDENT COHORT METRICS
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Technical Milestone Mapping</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Translates standard vocational training units, automotive logs, and hands-on mechanical fabrication projects directly into dynamic Capability Signals™.
+          </p>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              PILOT SYNCHRONICITY
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Advisor Observation Status</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Enables on-site Job Corps counselors and vocational instructors to directly input validated observational notes, updating the student's operational profile status in real-time.
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              APRIL 2026 TARGETS
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Direct Pipeline Alignment</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Connects the active 14-student tracking pipeline directly with regional corporate buyers, bypassing arbitrary resume keyword filters entirely.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            Strengthening Institutional Student Pipelines
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Accelerated Onboarding Status
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Gives partner companies deep visibility into a student's project work, allowing day-one operational trust.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Dignity in Early Careers
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Ensures young professionals or tradespeople entering the market are judged by practical execution rather than background length.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Localized Ecosystem Links
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Seamlessly integrates training center objectives with active, real-time municipal employer demands updated for April 2026.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 function IndividualsPartnersPilots() {
-  return <SectionShell eyebrow="Partners & Pilots" title="Partners, Pilots, and Status Labels" lead="Use status labels to describe relationships without implying unapproved endorsements." actions={[{ label: 'Partner with us', to: '/contact' }]} cards={[{ title: 'Pilot / implementation partner', body: 'Status label only. No unapproved endorsement implied.' }, { title: 'Program partner', body: 'Status label only. No unapproved endorsement implied.' }, { title: 'Technology partner', body: 'Status label only. No unapproved endorsement implied.' }, { title: 'Membership / affiliation / supporter', body: 'Status label only. Use only verified wording and scope.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              REGIONAL IMPACT CLUSTERS
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            Partners & Pilots
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            Real-world validation of human-centered alignment models in action.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            Explore the structural network driving active community pilot frameworks across selected municipal regions. These regional talent clusters bring together distinct ecosystem stakeholders to prove how qualitative capability models scale, entirely independent of individual corporate branding or isolated endorsements.
+          </p>
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <Link
+              to="/contact"
+              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+            >
+              Inquire to Partner
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column Media Graphic */}
+        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
+            <circle cx="120" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+            <circle cx="200" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+            <circle cx="160" cy="160" r="45" fill="none" stroke="var(--accent)" strokeWidth="2" opacity="0.4" />
+            <circle cx="120" cy="110" r="4" fill="var(--accent)" />
+            <circle cx="200" cy="110" r="4" fill="var(--accent)" />
+            <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+            <circle cx="160" cy="110" r="4" fill="#FFFFFF" />
+          </svg>
+        </div>
+      </section>
+
+      {/* SECTION 2: CORE PARTNER CATEGORIES (3 White Cards / No Named Endorsements) */}
+      <section className="grid gap-6 md:grid-cols-3">
+        {/* Card 1 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              PARTNER CATEGORY A
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Philanthropic & Foundational Networks</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Regional foundations and civic funding networks that establish the baseline capital to deploy free, private scanning frameworks to local citizens.
+          </p>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              PARTNER CATEGORY B
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Workforce Boards & Community Non-Profits</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Localized public agencies and frontline neighborhood operations responsible for onboarding trusted community coaches and managing active participant tracking.
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              PARTNER CATEGORY C
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Institutional Regional Corporate Buyers</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Forward-thinking employer networks who format open roles around verified capability benchmarks, cleanly accepting dynamic snapshot profiles.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            Our Measurable Pilot Principles
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Hyper-Local Customization
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Every pilot cluster is customized to match the explicit economic needs and demographic realities of that specific regional ecosystem.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Verified Mobility Metrics
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              We measure success strictly through individual trajectory progress and sustainable career retention rates, never marketing clicks.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Data Splitting Protocols
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Ensures workforce networks receive clean, macro-level impact metrics while keeping individual participant profiles completely private.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 function IndividualsSupportMission() {
-  return <SectionShell eyebrow="Support the Mission" title="Support Access and Delivery" lead="This section explains how participant access, paper packets, digital access, advisor training, pilot implementation, and partner-delivered support can be organized without universal guarantee claims." actions={[{ label: 'Support the mission', to: '/contact' }]} cards={[{ title: 'Participant access', body: 'Support can be delivered with paper packets or digital access depending on context.' }, { title: 'Advisor training', body: 'Training supports consistent guidance and practical next steps.' }, { title: 'Pilot implementation', body: 'Pilot implementation can be organized with mission-aligned partners and local support.' }, { title: 'Partner-delivered support', body: 'Partner-delivered support can help participants move through the flow.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              COMMUNITY CHAMPIONS & PHILANTHROPY
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            Support the Mission
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            Invest in scaling an equitable, human-centered regional infrastructure.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            We invite philanthropic partners, civic networks, and regional foundation ecosystems to engage with our formal intake team to seed the Capability Alignment System. By supporting this foundational mission, you provide everyday citizens with free access to secure, dignified workspaces that bridge the gap between unrecognized life potential and active local career opportunities.
+          </p>
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <Link
+              to="/contact"
+              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+            >
+              Partner or Donate
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column Media Graphic */}
+        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
+            <polygon points="160,50 90,170 230,170" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+            <circle cx="160" cy="50" r="6" fill="var(--accent)" />
+            <circle cx="90" cy="170" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+            <circle cx="230" cy="170" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
+            <line x1="160" y1="50" x2="160" y2="120" stroke="var(--accent)" strokeWidth="2" />
+            <line x1="90" y1="170" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6" />
+            <line x1="230" y1="170" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6" />
+            <circle cx="160" cy="120" r="7" fill="var(--accent)" />
+          </svg>
+        </div>
+      </section>
+
+      {/* SECTION 2: CORE PILLARS (3 White Cards) */}
+      <section className="grid gap-6 md:grid-cols-3">
+        {/* Card 1 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              FOUNDATION INTAKE PATH
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Expand Free Access</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Your foundational alignment ensures that scanning tools and lifelong portal access remain permanently 100% free for all individual participants within your target municipality.
+          </p>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              CIVIC ALLOCATION BLOCK
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Empower Local Mentors</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Help scale specialized operational training cohorts for frontline community coaches, non-profit staff, and neighborhood advisors who securely guide participants.
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              INFRASTRUCTURE FUNDING
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Drive Local Pilots</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Sponsor hyper-targeted geographic alignment clusters that bring together municipal workgroups and regional corporate buyers under verified baseline data frameworks.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            Ecosystem Alignment Protocols & Governance
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Formal Funder Contact Protocol
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              All foundational and philanthropic backing must be routed through our centralized compliance and engagement contact desk to ensure strategic regional alignment.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Infrastructure Support No-Guarantees Statement
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Contributions are allocated strictly to maintain public utility deployment, security standards, and open access. Funding does not yield commercial placement guarantees, preferential ranking overrides, or custom algorithmic tuning.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Measurable Civic Trajectories
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              While individual placements are never commercially guaranteed, donor networks receive clean, macro-level regional ecosystem health metrics proving capital mobility impact.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 function IndividualsTrustGovernance() {
-  return <SectionShell eyebrow="Trust & Governance" title="Privacy, Accessibility, Oversight, and Correction" lead="Use verified status only. Keep human oversight, consent, correction, safeguarding, and contact paths visible." actions={[{ label: 'Request Information', to: '/contact' }]} cards={[{ title: 'Privacy and accessibility', body: 'Respect privacy, accessibility, and readable navigation.' }, { title: 'AI support and human oversight', body: 'AI support must stay under human oversight and verification.' }, { title: 'Consent and correction', body: 'Participants should know how to consent, correct, and follow safeguarding or contact paths.' }, { title: 'Verified status only', body: 'Use only verified status language and scope.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
+              SECURITY, PRIVACY & SYSTEM COMPLIANCE
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            Trust & Governance
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
+            An uncompromising commitment to personal privacy, system transparency, and data ethics.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+            Trust is the foundational architecture of the Capability Alignment System. We hold ourselves to rigorous governance guidelines to ensure that individual data sovereignty is protected at every single turn. This framework is completely insulated from predictive algorithms, clinical scoring bias, or exploitative data networks.
+          </p>
+          <div className="flex flex-wrap gap-2.5 pt-2">
+            <Link
+              to="/contact"
+              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+            >
+              Inquire for Trust Docs
+            </Link>
+          </div>
+        </div>
+
+        {/* Right Column Media Graphic */}
+        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
+          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
+            <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="var(--accent)" strokeWidth="2.5" />
+            <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="var(--accent)" strokeWidth="6" opacity="0.15" />
+            <circle cx="160" cy="115" r="14" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" />
+            <circle cx="160" cy="115" r="5" fill="#FFFFFF" />
+          </svg>
+        </div>
+      </section>
+
+      {/* SECTION 2: CORE GOVERNANCE PILLARS (3 White Cards) */}
+      <section className="grid gap-6 md:grid-cols-3">
+        {/* Card 1 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              PRIVACY PROTOCOL
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Absolute Data Privacy</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Participants retain master key ownership of their content. Data is strictly segmented so corporate and donor entities can only view high-level, anonymized macro statistics, keeping personal profiles perfectly private.
+          </p>
+        </div>
+
+        {/* Card 2 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              INCLUSION STANDARD
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Universal Accessibility</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            Engineered around a self-paced, zero-stress framework that completely eliminates timed countdowns, clinical assessments, or confusing quizzes, ensuring a dignified experience for all backgrounds.
+          </p>
+        </div>
+
+        {/* Card 3 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+              OVERSIGHT MANDATE
+            </span>
+          </div>
+          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Independent System Oversight</h3>
+          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+            System workflows are continuously validated by neutral compliance partners to strictly outlaw black-box predictive indexing, automated fit scores, and algorithmic background ranking mechanisms.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
+        <div className="text-center space-y-2">
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+            Our Structural Security Safeguards
+          </h3>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Point 1 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Revocable Permissions
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Individuals share profile access strictly on their own terms and can completely wipe or pull back viewing rights from any advisor or institution instantly.
+            </p>
+          </div>
+
+          {/* Point 2 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Algorithmic Insulation
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Our governance code guarantees that human review and qualitative context override cold, automated resume keyword filters and predictive hiring models.
+            </p>
+          </div>
+
+          {/* Point 3 */}
+          <div className="space-y-3">
+            <div className="pl-4 border-l-4 border-[var(--accent)]">
+              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+                Dignity-First Security
+              </h4>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              Every server, operational protocol, and code layer is engineered around safeguarding the participant's long-term career safety and absolute profile sovereignty.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 function OrganizationsSection() {
@@ -3160,12 +4310,9 @@ function ContactPage() {
 
 function ElevIqLastMilePage() {
   return (
-    <div 
-      className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
-      style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
-    >
+    <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
             SUSTAINABLE ONBOARDING INFRASTRUCTURE
@@ -3188,7 +4335,7 @@ function ElevIqLastMilePage() {
             <rect x="200" y="60" width="80" height="120" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#0FA88A" strokeWidth="1.5" />
             <path d="M 40 120 C 100 120, 120 70, 190 90" fill="none" stroke="#FFFFFF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.5" />
             <path d="M 40 120 C 100 120, 120 170, 190 150" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
-            
+
             <circle cx="40" cy="120" r="5" fill="#FFFFFF" />
             <circle cx="190" cy="90" r="4" fill="#FFFFFF" opacity="0.6" />
             <circle cx="190" cy="150" r="6" fill="#0FA88A" />
@@ -3294,7 +4441,7 @@ function ElevIqLastMilePage() {
 
 function ScreenshotsPreviewPage() {
   return (
-    <div 
+    <div
       className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
       style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
     >
@@ -3313,7 +4460,7 @@ function ScreenshotsPreviewPage() {
           <p className="text-sm leading-relaxed text-white/75">
             Explore the clean, intuitive layout architecture designed for participants, advisors, and corporate partners. All interface mock-ups focus entirely on tracking qualitative capability progress maps, avoiding clinical scoring mechanisms or black-box predictive automation graphs.
           </p>
-          
+
           <div className="flex flex-wrap gap-2 pt-2 font-mono text-xs">
             <Link
               to="/platform/contact"
@@ -3344,7 +4491,7 @@ function ScreenshotsPreviewPage() {
             <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
             {/* Structured Canvas Mockup Frame */}
             <rect x="20" y="30" width="280" height="180" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            
+
             {/* Mockup Title bar */}
             <rect x="20" y="30" width="280" height="30" rx="8" fill="#102A45" />
             <circle cx="35" cy="45" r="4" fill="#0FA88A" />
@@ -3355,7 +4502,7 @@ function ScreenshotsPreviewPage() {
             <rect x="35" y="75" width="75" height="120" rx="4" fill="#0F1B2D" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="120" y="75" width="165" height="50" rx="4" fill="#0F1B2D" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="120" y="135" width="165" height="60" rx="4" fill="#0F1B2D" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            
+
             {/* Tiny accent bars */}
             <rect x="45" y="90" width="55" height="6" rx="3" fill="#0FA88A" opacity="0.8" />
             <rect x="135" y="90" width="100" height="6" rx="3" fill="#FFFFFF" opacity="0.4" />
@@ -3471,7 +4618,7 @@ function InteractiveJourneyPage() {
   const [step, setStep] = useState(0)
 
   return (
-    <div 
+    <div
       className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
       style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
     >
@@ -3498,20 +4645,20 @@ function InteractiveJourneyPage() {
             {/* Step trajectory line */}
             <path d="M 40 160 L 90 120 L 140 160 L 190 120 L 240 160 L 280 120" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.15" />
             <path d="M 40 160 Q 90 120 140 160 T 240 160 T 280 120" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
-            
+
             {/* Node markers */}
             {steps.map((_, i) => {
               const cx = 40 + i * 48
               const cy = i % 2 === 0 ? 160 : 120
               const isActive = i === step
               return (
-                <circle 
-                  key={i} 
-                  cx={cx} 
-                  cy={cy} 
-                  r={isActive ? 8 : 4} 
-                  fill={isActive ? '#0FA88A' : '#FFFFFF'} 
-                  stroke={isActive ? '#FFFFFF' : '#0FA88A'} 
+                <circle
+                  key={i}
+                  cx={cx}
+                  cy={cy}
+                  r={isActive ? 8 : 4}
+                  fill={isActive ? '#0FA88A' : '#FFFFFF'}
+                  stroke={isActive ? '#FFFFFF' : '#0FA88A'}
                   strokeWidth={isActive ? 2 : 1}
                   className="transition-all duration-300"
                 />
@@ -3531,21 +4678,21 @@ function InteractiveJourneyPage() {
             {steps[step]}
           </h3>
           <div className="flex gap-2">
-            <button 
+            <button
               onClick={() => setStep((current) => Math.max(0, current - 1))}
               disabled={step === 0}
               className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white transition hover:border-[var(--eleviq-teal)] disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            <button 
+            <button
               onClick={() => setStep((current) => Math.min(steps.length - 1, current + 1))}
               disabled={step === steps.length - 1}
               className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-4 py-2 text-xs font-medium text-white transition hover:brightness-105 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Next
             </button>
-            <button 
+            <button
               onClick={() => setStep(0)}
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white/70 transition hover:text-white"
             >
@@ -3673,7 +4820,7 @@ function FaqPage() {
   ]
 
   return (
-    <div 
+    <div
       className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
       style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
     >
@@ -3700,10 +4847,10 @@ function FaqPage() {
             {/* Dialogue shapes & dotted lines */}
             <rect x="30" y="50" width="160" height="45" rx="6" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
             <rect x="130" y="120" width="160" height="45" rx="6" fill="#0FA88A" opacity="0.25" stroke="#0FA88A" strokeWidth="1.5" />
-            
+
             <circle cx="50" cy="72" r="8" fill="#FFFFFF" opacity="0.5" />
             <line x1="70" y1="72" x2="160" y2="72" stroke="#FFFFFF" strokeWidth="2.5" opacity="0.6" />
-            
+
             <circle cx="260" cy="142" r="8" fill="#0FA88A" />
             <line x1="160" y1="142" x2="240" y2="142" stroke="#0FA88A" strokeWidth="2.5" />
 
@@ -3716,7 +4863,7 @@ function FaqPage() {
       <section className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
         <div className="flex justify-between items-center mb-2">
           <h3 className="font-sans text-xl font-bold text-white">Platform FAQs</h3>
-          <button 
+          <button
             onClick={() => setOpenAll((value) => !value)}
             className="text-xs font-mono font-semibold px-3 py-1.5 rounded-full border border-white/10 hover:border-white/30 text-white/80 transition"
           >
@@ -3726,9 +4873,9 @@ function FaqPage() {
 
         <div className="space-y-3">
           {faqs.map((item) => (
-            <details 
-              key={item.question} 
-              open={openAll} 
+            <details
+              key={item.question}
+              open={openAll}
               className="group rounded-xl border border-white/10 bg-white/5 p-4 transition-all duration-300"
             >
               <summary className="cursor-pointer list-none font-sans text-base font-semibold text-white/90 select-none outline-none flex justify-between items-center">
@@ -3899,7 +5046,7 @@ function ContactFormPage() {
   }
 
   return (
-    <div 
+    <div
       className="space-y-[var(--section-gap)] p-6 md:p-8 rounded-[32px] border border-white/10"
       style={{ backgroundColor: '#0F1B2D', color: '#FFFFFF' }}
     >
@@ -3928,7 +5075,7 @@ function ContactFormPage() {
             <path d="M 40 60 L 160 130 L 280 60" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
             <path d="M 40 180 L 120 130" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
             <path d="M 280 180 L 200 130" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            
+
             <circle cx="160" cy="130" r="4" fill="#0FA88A" />
             <line x1="160" y1="130" x2="160" y2="200" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
             <circle cx="160" cy="200" r="4" fill="#FFFFFF" />
@@ -3961,59 +5108,59 @@ function ContactFormPage() {
         ) : (
           <form onSubmit={handleSubmit} noValidate className="grid gap-6 sm:grid-cols-2">
             <Field label="Name" error={errors.name}>
-              <input 
-                value={form.name} 
-                onChange={(event) => updateField('name', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]" 
-                type="text" 
-                autoComplete="name" 
+              <input
+                value={form.name}
+                onChange={(event) => updateField('name', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]"
+                type="text"
+                autoComplete="name"
               />
             </Field>
-            
+
             <Field label="Organization" error={errors.organization}>
-              <input 
-                value={form.organization} 
-                onChange={(event) => updateField('organization', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]" 
-                type="text" 
-                autoComplete="organization" 
+              <input
+                value={form.organization}
+                onChange={(event) => updateField('organization', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]"
+                type="text"
+                autoComplete="organization"
               />
             </Field>
 
             <Field label="Email" error={errors.email}>
-              <input 
-                value={form.email} 
-                onChange={(event) => updateField('email', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]" 
-                type="email" 
-                autoComplete="email" 
+              <input
+                value={form.email}
+                onChange={(event) => updateField('email', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]"
+                type="email"
+                autoComplete="email"
               />
             </Field>
 
             <Field label="Phone" error={errors.phone}>
-              <input 
-                value={form.phone} 
-                onChange={(event) => updateField('phone', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]" 
-                type="tel" 
-                autoComplete="tel" 
+              <input
+                value={form.phone}
+                onChange={(event) => updateField('phone', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]"
+                type="tel"
+                autoComplete="tel"
               />
             </Field>
 
             <Field label="Role" error={errors.role} className="sm:col-span-2">
-              <input 
-                value={form.role} 
-                onChange={(event) => updateField('role', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]" 
-                type="text" 
-                placeholder="Participant advocate, school leader, employer, donor, or other" 
+              <input
+                value={form.role}
+                onChange={(event) => updateField('role', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)]"
+                type="text"
+                placeholder="Participant advocate, school leader, employer, donor, or other"
               />
             </Field>
 
             <Field label="Interest Area" error={errors.interestArea} className="sm:col-span-2">
-              <select 
-                value={form.interestArea} 
-                onChange={(event) => updateField('interestArea', event.target.value)} 
+              <select
+                value={form.interestArea}
+                onChange={(event) => updateField('interestArea', event.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white/80 focus:outline-none focus:border-[var(--eleviq-teal)] [&>option]:bg-[#0F1B2D]"
               >
                 <option value="">Select one</option>
@@ -4028,11 +5175,11 @@ function ContactFormPage() {
             </Field>
 
             <Field label="Message" error={errors.message} className="sm:col-span-2">
-              <textarea 
-                value={form.message} 
-                onChange={(event) => updateField('message', event.target.value)} 
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)] min-h-[120px]" 
-                rows="4" 
+              <textarea
+                value={form.message}
+                onChange={(event) => updateField('message', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--eleviq-teal)] min-h-[120px]"
+                rows="4"
               />
             </Field>
 
@@ -4043,15 +5190,15 @@ function ContactFormPage() {
             ) : null}
 
             <div className="sm:col-span-2 flex flex-wrap gap-2 pt-2">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit inquiry'}
               </button>
-              <Link 
-                to="/platform" 
+              <Link
+                to="/platform"
                 className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white/80 transition hover:text-white"
               >
                 Review how CAS works
@@ -4059,98 +5206,6 @@ function ContactFormPage() {
             </div>
           </form>
         )}
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Institutional License Paths</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Directs corporate, public sector, and enterprise clients to STC Innovations for custom configuration paths.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-3c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-3c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Community Partnership Paths</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Connects non-profits, local pilot leads, and community foundations to ElevIQ Foundation for social-impact access.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Participant Direct Access</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Provides direct portal registration pathways for individual talent groups looking to start an active reflection map.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
-            Seamless Engagement Standards
-          </h3>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
-                Zero Arbitrary Statistics
-              </h4>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Adheres strictly to verified data, ensuring no unverified claims or false performance metrics populate the page.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
-                Direct Contact Links
-              </h4>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Integrates smoothly with our central site form to ensure inquiry data routes perfectly to target stakeholder desks.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
-                High-Trust Communication
-              </h4>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Guarantees responses are completely human, professional, transparent, and entirely free of marketing hyperbole.
-            </p>
-          </div>
-        </div>
       </section>
     </div>
   )

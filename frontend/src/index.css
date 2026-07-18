@@ -72,7 +72,7 @@
   --color-sky-mist: #EAF3F3;
   --color-soft-sand: #F5EFE6;
   --color-driftwood-gray: #6B7280;
-  --color-warm-coral: #E8734A;
+  --color-warm-coral: #E2725B;
 
   --font-sans: 'Epilogue', 'Arial', 'Helvetica', 'sans-serif';
   --font-serif: '"Playfair Display"', 'Georgia', 'serif';
@@ -88,7 +88,7 @@
   --sky-mist: #EAF3F3;
   --soft-sand: #F5EFE6;
   --driftwood-gray: #6B7280;
-  --warm-coral: #E8734A;
+  --warm-coral: #E2725B;
 
   /* Current functional variable mappings */
   --ink: var(--midnight-ink);
