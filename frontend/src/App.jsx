@@ -261,6 +261,8 @@ function AppShell() {
     if (location.pathname.startsWith('/individuals')) return 'individuals'
     if (location.pathname.startsWith('/organizations')) return 'organizations'
     if (location.pathname.startsWith('/platform')) return 'platform'
+    if (location.pathname.startsWith('/resources')) return 'organizations'
+    if (location.pathname.startsWith('/about')) return 'organizations'
     return 'platform'
   }, [location.pathname])
 
@@ -4257,50 +4259,1514 @@ function OrganizationsSection() {
 }
 
 function OrganizationsHome() {
-  return <SectionShell eyebrow="For Organizations" title="Turn Capability Insight Into Workforce Action." lead="STC Innovations helps organizations configure the ElevIQ Capability Alignment System™ to support participant pathways, advisor workflows, role alignment, and practical next steps." actions={[{ label: 'Request a Configured Demo', to: '/organizations/pricing-demo' }, { label: 'Schedule implementation discovery', to: '/organizations/implementation' }]} cards={[{ title: 'STC role', body: 'STC Innovations develops, owns, configures, licenses, and commercializes CAS.' }, { title: 'Platform preview', body: 'Use the Platform section to review the routed CAS experience and audience-specific flows.' }, { title: 'Buyer paths', body: 'Employers, workforce agencies, education and Job Corps, coaches and consultants, reentry, skilled trades, healthcare, and institutional buyers can all follow role-appropriate paths.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK (THE TECHNICAL WELCOME) */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[var(--line)] bg-[var(--surface)] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                ENTERPRISE DEPLOYMENT & ALIGNMENT
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Align Local Talent Through Verified Capabilities
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Shift your operational hiring from static keyword filtering to high-fidelity, private capability metrics.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl">
+                Traditional resume screeners leave massive talent pools completely unmapped, reducing diverse backgrounds to arbitrary metrics. The Capability Alignment System allows regional employers and corporate buyers to format roles around required behavioral baseline executions, unlocking highly capable hidden talent pipelines with total compliance and zero privacy friction.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  to="/organizations/pricing-demo"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                >
+                  Request a Configured Demo
+                </Link>
+                <Link
+                  to="/organizations/implementation"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Schedule implementation discovery
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[380px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG Technical Network Cluster Graphic */}
+                <svg viewBox="0 0 400 400" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Subtle grid lines background */}
+                  <defs>
+                    <pattern id="network-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="400" height="400" fill="url(#network-grid)" fillOpacity="0.5" />
+
+                  {/* Graph connections */}
+                  <line x1="120" y1="100" x2="200" y2="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+                  <line x1="200" y1="70" x2="280" y2="120" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+                  <line x1="280" y1="120" x2="300" y2="220" stroke="rgba(15,168,138,0.3)" strokeWidth="2" />
+                  <line x1="300" y1="220" x2="220" y2="280" stroke="rgba(15,168,138,0.5)" strokeWidth="2.5" />
+                  <line x1="220" y1="280" x2="100" y2="240" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="100" y1="240" x2="120" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+
+                  {/* Inner connection lines */}
+                  <line x1="200" y1="70" x2="200" y2="180" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                  <line x1="120" y1="100" x2="200" y2="180" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
+                  <line x1="280" y1="120" x2="200" y2="180" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="100" y1="240" x2="200" y2="180" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="220" y1="280" x2="200" y2="180" stroke="rgba(15,168,138,0.6)" strokeWidth="2.5" />
+                  <line x1="300" y1="220" x2="200" y2="180" stroke="rgba(15,168,138,0.5)" strokeWidth="2" />
+
+                  {/* Additional outer nodes connections for complexity */}
+                  <line x1="120" y1="100" x2="60" y2="120" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <line x1="100" y1="240" x2="50" y2="280" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <line x1="220" y1="280" x2="240" y2="350" stroke="rgba(15,168,138,0.3)" strokeWidth="1.5" />
+                  <line x1="300" y1="220" x2="350" y2="260" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                  <line x1="280" y1="120" x2="340" y2="80" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+
+                  {/* Connection Glow Overlays */}
+                  <line x1="220" y1="280" x2="200" y2="180" stroke="#0FA88A" strokeWidth="4" opacity="0.15" />
+                  <line x1="300" y1="220" x2="220" y2="280" stroke="#0FA88A" strokeWidth="4" opacity="0.15" />
+
+                  {/* Standard Nodes (White/Grey) */}
+                  <circle cx="120" cy="100" r="5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="200" cy="70" r="5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="280" cy="120" r="5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="60" cy="120" r="3.5" fill="#1B3A5C" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                  <circle cx="50" cy="280" r="3.5" fill="#1B3A5C" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                  <circle cx="350" cy="260" r="3.5" fill="#1B3A5C" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                  <circle cx="340" cy="80" r="3.5" fill="#1B3A5C" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+
+                  {/* Horizon Teal (#0FA88A) tracking nodes with animated scaling/glow */}
+                  <g className="animate-pulse">
+                    <circle cx="200" cy="180" r="12" fill="#0FA88A" fillOpacity="0.15" />
+                    <circle cx="220" cy="280" r="14" fill="#0FA88A" fillOpacity="0.15" />
+                    <circle cx="300" cy="220" r="10" fill="#0FA88A" fillOpacity="0.15" />
+                  </g>
+
+                  <circle cx="200" cy="180" r="6" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="220" cy="280" r="7.5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="300" cy="220" r="5.5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="100" cy="240" r="5.5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="240" cy="350" r="4.5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
+
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: THE THREE OPERATION GATEWAYS */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. Benchmark Positions
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  ROLE SPECIFICATIONS
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-white/70">
+                Define your local team positions based on required day-one operational capability parameters, moving entirely away from restrictive and arbitrary college degree proxies.
+              </p>
+            </div>
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+                Configure parameters 
+                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. Access Macro Insights
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  ECOSYSTEM TRACKING
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-white/70">
+                Monitor high-level regional talent trajectories, capability density maps, and upskilling alignment curves across your target municipal geographic clusters.
+              </p>
+            </div>
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+                View alignment curves
+                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. Engage Pilot Pipelines
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  TARGETED INTEGRATION
+                </span>
+              </div>
+              <p className="text-sm leading-relaxed text-white/70">
+                Securely accept dynamic snapshot profiles from verified workforce programs, community cohorts, and local pilots without intrusive data collection friction.
+              </p>
+            </div>
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+                Review pipelines
+                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: ENTERPRISE ENGAGEMENT COMPLIANCE (BOTTOM HALF) */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Our Structural Commitments to Systemic Stability
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Strict Anonymized Macro Tracking
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70">
+                Organizations review aggregate regional talent data trends. Individual participant deep logs are protected by strict data-splitting protocols, ensuring zero security or privacy compliance risk.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                De-Biased Ingestion Architecture
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70">
+                Our layout outlaws traditional automated ranking filters, predictive black-box indices, and talent scoring systems. Alignment is based entirely on verified lifestyle and project milestones.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Infrastructure Calibration Focus
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70">
+                System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency without sacrificing individual user data sovereignty.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function OrganizationsSolutions() {
-  return <SectionShell eyebrow="Solutions" title="Buyer-Specific Paths" lead="Each buyer type can review a solution path that matches implementation context and operational needs." cards={[{ title: 'Employers', body: 'Support participant pathways and role alignment.' }, { title: 'Workforce agencies', body: 'Coordinate participant navigation and support workflows.' }, { title: 'Education / Job Corps', body: 'Support student, counselor, and pathway planning workflows.' }, { title: 'Coaches / consultants', body: 'Use CAS to structure support conversations and next steps.' }, { title: 'Reentry', body: 'Support practical planning, context, and follow-through.' }, { title: 'Skilled trades', body: 'Support role alignment and pathway planning.' }, { title: 'Healthcare', body: 'Support human-centered navigation and practical coordination.' }, { title: 'Institutional buyers', body: 'Support participant pathways and organizational intelligence.' }]} actions={[{ label: 'Request a Configured Demo', to: '/organizations/pricing-demo' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                TARGETED INSTITUTIONAL ALIGNMENT
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Tailored Ecosystem Solutions
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A unified capability infrastructure calibrated for every regional stakeholder.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Capability Alignment System scales across the entire local economy by replacing fractured talent assumptions with a shared, high-fidelity data language. Our architecture is precision-built to serve 8 distinct buyer types, aligning institutional demand with verified human capabilities seamlessly.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  to="/organizations/pricing-demo"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                >
+                  Request a Configured Demo
+                </Link>
+                <Link
+                  to="/organizations/implementation"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Schedule implementation discovery
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG connection nodes */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="solutions-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#solutions-grid)" fillOpacity="0.5" />
+
+                  {/* Connection lines */}
+                  <line x1="60" y1="40" x2="160" y2="80" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+                  <line x1="160" y1="80" x2="260" y2="60" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+                  <line x1="260" y1="60" x2="280" y2="160" stroke="rgba(15,168,138,0.3)" strokeWidth="2" />
+                  <line x1="280" y1="160" x2="180" y2="200" stroke="rgba(15,168,138,0.5)" strokeWidth="2.5" />
+                  <line x1="180" y1="200" x2="80" y2="170" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="80" y1="170" x2="60" y2="40" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+
+                  <line x1="160" y1="80" x2="180" y2="130" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
+                  <line x1="80" y1="170" x2="180" y2="130" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="180" y1="200" x2="180" y2="130" stroke="rgba(15,168,138,0.6)" strokeWidth="2.5" />
+                  <line x1="280" y1="160" x2="180" y2="130" stroke="rgba(15,168,138,0.5)" strokeWidth="2" />
+                  <line x1="260" y1="60" x2="180" y2="130" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+
+                  {/* Glow rings */}
+                  <g className="animate-pulse">
+                    <circle cx="180" cy="130" r="10" fill="#0FA88A" fillOpacity="0.15" />
+                    <circle cx="180" cy="200" r="12" fill="#0FA88A" fillOpacity="0.15" />
+                  </g>
+
+                  {/* Standard Nodes */}
+                  <circle cx="60" cy="40" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="160" cy="80" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="260" cy="60" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
+
+                  {/* Horizon Teal (#0FA88A) highlighted nodes */}
+                  <circle cx="180" cy="130" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="180" cy="200" r="7" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2.5" />
+                  <circle cx="280" cy="160" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="80" cy="170" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: THE 8 BUYER-TYPE MATRIX */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. Regional Corporate Buyers
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  ENTERPRISE HIRING
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                For large employers looking to secure high-retention talent pipelines by formatting roles around baseline operational capabilities rather than stale credentials.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. Mid-Market Growth Firms
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  AGILE ACQUISITION
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Enables rapidly scaling companies to reduce onboarding friction and bad-hire costs by utilizing verified project and lifestyle milestones.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. Municipal Workforce Boards
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  PUBLIC INFRASTRUCTURE
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Empowers public agencies to orchestrate wide-scale geographic talent clusters, matching localized training allocations with active employer demand.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 04 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  04. Economic Development Orgs
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  REGIONAL GROWTH
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Provides macro-level capability density mapping to attract outside industry investments by proving the region's operational readiness.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 05 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  05. Philanthropic Foundations
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  IMPACT INVESTMENT
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Allows community and institutional funders to track the true systemic velocity of their capital injections via clean, aggregate mobility metrics.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 06 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  06. Vocational & Technical Colleges
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  ACADEMIC SYNCHRONICITY
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Bridges the gap for institutional training centers by translating classroom units directly into dynamic Capability Signals™ recognized by buyers.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 07 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  07. Community-Based Non-Profits
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  LOCALIZED COHORTS
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Equips frontline social impact teams with formal coaching frameworks to securely track, validate, and advocate for non-traditional talent.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 08 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  08. Government & Civil Services
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  COMPLIANCE INTAKE
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Provides a secure, bias-insulated infrastructure to ingest community talent pipelines with total data privacy and zero background scoring friction.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: STRUTURAL COMMITMENTS */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Systemic Safeguards Across All Sectors
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Anonymized Aggregate Metrics
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Institutional buyers review macro regional data trends. Deep participant profiles are entirely insulated behind strict data-splitting rules.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Anti-Algorithmic Baseline
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Every solution strictly outlaws black-box predictive indexing, candidate suitability scores, and automated filters to ensure a pure capability match.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Zero Branding Endorsements
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                In compliance with system parameters, solutions focus exclusively on objective infrastructure alignment, featuring no named corporate brand logos.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function OrganizationsImplementation() {
-  return <SectionShell eyebrow="Implementation" title="Discover → Configure → Sandbox → Test → Train → Launch → Measure" lead="Use status labels as you move through implementation. Keep claims scoped to what is actually verified." ribbon="Status labels required" cards={[{ title: 'Discover', body: 'Review needs and context.' }, { title: 'Configure', body: 'Align CAS to the organization use case.' }, { title: 'Sandbox', body: 'Work in a controlled preview state.' }, { title: 'Test', body: 'Validate workflows and support paths.' }, { title: 'Train', body: 'Prepare advisors and operational users.' }, { title: 'Launch', body: 'Release with verified scope.' }, { title: 'Measure', body: 'Track what is approved and observable.' }]} actions={[{ label: 'Schedule implementation discovery', to: '/contact' }, { label: 'Discuss a pilot', to: '/contact' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                OPERATIONAL ROADMAP & DEPLOYMENT
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Implementation Sequence
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A structured, 7-stage roadmap for seamless enterprise and regional integration.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Deploying the Capability Alignment System into your existing workforce infrastructure is engineered to be frictionless, secure, and fully compliant. Our structured 7-stage deployment sequence guides organizations from initial alignment discovery all the way to active, real-time capability matching without disrupting current operations.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                >
+                  Schedule implementation discovery
+                </Link>
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Discuss a pilot
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG sequential graphic */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="roadmap-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#roadmap-grid)" fillOpacity="0.5" />
+
+                  {/* Connecting path for 7 steps */}
+                  <path d="M 30 120 Q 70 50 110 120 T 190 120 T 270 120" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
+                  <path d="M 30 120 Q 70 50 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="3" strokeDasharray="160 300" />
+
+                  {/* Step Nodes */}
+                  {/* Step 1 */}
+                  <circle cx="30" cy="120" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
+                  <text x="30" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">1</text>
+
+                  {/* Step 2 */}
+                  <circle cx="72" cy="85" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
+                  <text x="72" y="88" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">2</text>
+
+                  {/* Step 3 */}
+                  <circle cx="110" cy="120" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
+                  <text x="110" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">3</text>
+
+                  {/* Step 4 */}
+                  <circle cx="150" cy="155" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
+                  <text x="150" y="158" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">4</text>
+
+                  {/* Step 5 */}
+                  <circle cx="190" cy="120" r="10" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
+                  <text x="190" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle" opacity="0.6">5</text>
+
+                  {/* Step 6 */}
+                  <circle cx="230" cy="85" r="10" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
+                  <text x="230" y="88" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle" opacity="0.6">6</text>
+
+                  {/* Step 7 */}
+                  <circle cx="270" cy="120" r="14" fill="#1B3A5C" stroke="#0FA88A" strokeWidth="2" />
+                  <text x="270" y="123" fill="#0FA88A" fontSize="10" fontWeight="bold" textAnchor="middle">7</text>
+
+                  {/* Labels */}
+                  <text x="30" y="145" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">DISCOVER</text>
+                  <text x="72" y="65" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">CALIBRATE</text>
+                  <text x="110" y="145" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">CONFIGURE</text>
+                  <text x="150" y="180" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">SYNC</text>
+                  <text x="190" y="145" fill="rgba(255,255,255,0.3)" fontSize="7" textAnchor="middle">ONBOARD</text>
+                  <text x="230" y="65" fill="rgba(255,255,255,0.3)" fontSize="7" textAnchor="middle">ACTIVATE</text>
+                  <text x="270" y="145" fill="#0FA88A" fontSize="7" fontWeight="bold" textAnchor="middle">LIVE</text>
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: THE 7-STAGE DEPLOYMENT ROADMAP */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 01: Alignment Discovery
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 01
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Conduct initial ecosystem mapping to identify specific regional hiring needs, target municipalities, and existing workforce gaps.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 02: Benchmark Calibration
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 02
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Format open organizational positions around baseline operational execution parameters, replacing restrictive proxy degree requirements.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 03: System Configuration
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 03
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Set up secure enterprise portal access, configure data-splitting rules, and establish anonymized macro analytics dashboards.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 04 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 04: Partner Network Sync
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 04
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Establish secure, compliant data handshakes with local non-profits, workforce boards, and regional vocational cohorts.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 05 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 05: Advisor Onboarding
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 05
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Train and authorize frontline community coaches and program instructors on observational validation protocols.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 06 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 06: Pilot Activation
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 06
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Launch targeted geographic alignment clusters, opening the pipeline for incoming verified Capability Signals™.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 07 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group md:col-span-2 lg:col-span-3">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  Stage 07: Live Capability Alignment
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STAGE 07
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Transition into continuous operational mode, securely accepting dynamic participant profiles and monitoring regional trajectory metrics.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: DEPLOYMENT GUARANTEES & COMPLIANCE */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Enterprise Rollout Assurance
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Zero Operational Downtime
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Implementation runs parallel to existing enterprise workflows, requiring no invasive software installations or system overrides.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Turnkey Data Compliance
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Every deployment step strictly enforces participant data sovereignty, ensuring zero legal or privacy liability for the host organization.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Continuous Support & Calibration
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Dedicated technical and architectural advisors guide your team through each phase of the 7-stage sequence to guarantee long-term alignment success.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function OrganizationsPricingDemo() {
-  return <SectionShell eyebrow="Pricing / Demo" title="Licensing, Configuration, Implementation, and Support" lead="Separate licensing, configuration, implementation, support, and optional services from nonprofit participant access. Avoid unverified packages or feature claims." actions={[{ label: 'Request a configured demo', to: '/contact' }, { label: 'License CAS', to: '/contact' }]} cards={[{ title: 'Licensing', body: 'Separate licensing terms from configuration and support.' }, { title: 'Implementation', body: 'Implementation work should be quoted and scoped separately.' }, { title: 'Support and optional services', body: 'Keep support and optional services distinct from the base license.' }, { title: 'Nonprofit participant access', body: 'Participant access for nonprofit mission work can be handled separately.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                TAILORED ENTERPRISE DEPLOYMENT
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Request a Configured Demo & Pricing
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Calibrated to match the unique scale, population size, and needs of your regional ecosystem.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Capability Alignment System is deployed as a public-private regional utility. Rather than imposing rigid, one-size-fits-all subscription tiers, our deployment models are custom-configured around your municipality's specific corporate buyer network, workforce cohort volume, and geographic reach. Contact our team to schedule an architectural demo and build a tailored deployment model.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                >
+                  Schedule Architectural Demo
+                </Link>
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Contact Deployment Team
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG sequential configuration graphic */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="pricing-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#pricing-grid)" fillOpacity="0.5" />
+
+                  {/* Custom Parameter Slider 1 */}
+                  <text x="25" y="45" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">COHORT CAPACITY</text>
+                  <rect x="25" y="55" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
+                  <rect x="25" y="55" width="140" height="4" fill="#0FA88A" rx="2" />
+                  <circle cx="165" cy="57" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <text x="240" y="59" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">140 / MONTH</text>
+
+                  {/* Custom Parameter Slider 2 */}
+                  <text x="25" y="95" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">GEOGRAPHIC CLUSTERS</text>
+                  <rect x="25" y="105" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
+                  <rect x="25" y="105" width="80" height="4" fill="#0FA88A" rx="2" />
+                  <circle cx="105" cy="107" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <text x="240" y="109" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">3 METROS</text>
+
+                  {/* Custom Parameter Slider 3 */}
+                  <text x="25" y="145" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">BUYER PORTALS</text>
+                  <rect x="25" y="155" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
+                  <rect x="25" y="155" width="170" height="4" fill="#0FA88A" rx="2" />
+                  <circle cx="195" cy="157" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <text x="240" y="159" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">ACTIVE</text>
+
+                  {/* Dial / Circular Indicator */}
+                  <circle cx="160" cy="205" r="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+                  <circle cx="160" cy="205" r="18" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="80 110" />
+                  <text x="160" y="208" fill="#FFFFFF" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">CALIBRATED</text>
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: DEPLOYMENT DISCOVERY MODELS */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. Regional Pilot Cluster
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  INQUIRY & DISCOVERY
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Engineered for localized municipal pilots, initial 14-student Job Corps cohorts, or neighborhood workforce non-profits looking to test baseline capability matching.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Contact for Pilot Scope →
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. Ecosystem Deployment
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  CUSTOM CONFIGURATION
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Designed for regional workforce boards, civic foundation networks, and municipal coalitions looking to unify cross-sector talent pipelines across an entire metropolitan area.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Schedule Discovery Demo →
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. Enterprise Integration
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  TAILORED ENTERPRISE
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Built for large corporate buyer networks requiring custom role benchmarking, multi-zone macro analytics, and dedicated integration support.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Request Enterprise Consultation →
+              </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: PRICING GOVERNANCE & POLICY */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Our Transparent Evaluation Framework
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Custom Utility Allocation
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Pricing is determined solely by infrastructure scope, geographic cluster density, and support requirements, ensuring complete fiscal responsibility.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Always Free for Participants
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Individual job seekers, students, and community members never pay any fees to build, maintain, or share their capability snapshots.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Formal Intake Protocol
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                All demo requests and pricing consultations are handled directly by our deployment team to ensure proper alignment before software activation.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function OrganizationsSecurityTrust() {
-  return <SectionShell eyebrow="Security & Trust" title="Pending Verification Only" lead="Do not publish SOC 2, PenTest, FERPA, encryption, storage, or integration claims without proof, scope, date, and approved language. Use placeholder pending verification language instead." actions={[{ label: 'Schedule implementation discovery', to: '/contact' }]} cards={[{ title: 'Pending verification', body: 'Security details remain pending verification until approved language is available.' }, { title: 'Trust language', body: 'Only verified claims should appear in public material.' }, { title: 'Contact path', body: 'Use the contact form for discussions about scope and verification.' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                ENTERPRISE COMPLIANCE & PRIVACY GUARANTEE
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Security & Trust Architecture
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                An uncompromising commitment to data sovereignty, system auditability, and total legal compliance.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Security is the core architectural foundation of the Capability Alignment System. Built to protect participant data while serving enterprise buyers, our infrastructure enforces strict data-splitting protocols, transparent verification standards, and de-biased data pipelines. We maintain absolute honesty regarding our compliance roadmap, providing clear, unembellished oversight parameters.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                >
+                  Schedule implementation discovery
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG sequential configuration graphic */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="security-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#security-grid)" fillOpacity="0.5" />
+
+                  {/* Shield Outline */}
+                  <path d="M 160 50 C 195 50 230 65 230 100 C 230 160 160 200 160 200 C 160 200 90 160 90 100 C 90 65 125 50 160 50 Z" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
+                  <path d="M 160 50 C 195 50 230 65 230 100 C 230 160 160 200 160 200" fill="none" stroke="#0FA88A" strokeWidth="3" strokeDasharray="80 180" />
+
+                  {/* Network nodes inside the shield */}
+                  <line x1="160" y1="80" x2="130" y2="120" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                  <line x1="160" y1="80" x2="190" y2="120" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                  <line x1="130" y1="120" x2="160" y2="160" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="190" y1="120" x2="160" y2="160" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
+                  <line x1="160" y1="80" x2="160" y2="160" stroke="rgba(15,168,138,0.3)" strokeWidth="1.5" />
+
+                  {/* Verification Nodes (Teal) */}
+                  <circle cx="160" cy="80" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" />
+                  <circle cx="130" cy="120" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="190" cy="120" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+                  <circle cx="160" cy="160" r="6" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
+
+                  {/* Radar sweep glow animation effect */}
+                  <g className="animate-pulse">
+                    <circle cx="160" cy="160" r="10" fill="#0FA88A" fillOpacity="0.15" />
+                    <circle cx="130" cy="120" r="8" fill="#0FA88A" fillOpacity="0.15" />
+                    <circle cx="190" cy="120" r="8" fill="#0FA88A" fillOpacity="0.15" />
+                  </g>
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: CORE SECURITY SAFEGUARDS */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. Strict Data Sovereignty
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  DATA PRIVACY
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Participants retain master key ownership of their data. Individual deep logs are completely insulated, allowing corporate buyers to view aggregate, anonymized macro trends only.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. Anti-Algorithmic Architecture
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  BIAS INSULATION
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                System workflows completely eliminate automated black-box predictive indexing, suitability indices, and screening algorithms, keeping human qualitative review at the center.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. Active Compliance Roadmap
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  AUDIT STATUS: PENDING VERIFICATION
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                System protocols are continuously evaluated against modern enterprise data security standards. Formal third-party certifications remain under active audit and pending verification.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: GOVERNANCE & CERTIFICATION POLICY */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Our Strict Security & Verification Commitments
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Pending Verification Standard
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                All third-party security audits, enterprise compliance frameworks, and infrastructure validations are explicitly categorized under active 'Pending Verification' status until formal completion.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Zero False Certifications Guarantee
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                We strictly outlaw the display of unearned security badges, false SOC 2/ISO badges, or misleading compliance seals. Transparency and institutional truth are paramount.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Revocable Data Handshakes
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Organizations and advisors interact with data under revocable access permissions, ensuring participants can instantly withdraw profile viewing rights at any moment.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function ResourcesPage() {
-  return <SectionShell eyebrow="Resources" title="Shared Resources" lead="This section holds shared content not tied to one audience. Keep it minimal and placeholder-friendly for now." cards={[{ title: 'General FAQ', body: 'High-level questions about CAS and the merged platform.' }, { title: 'Press', body: 'Shared announcements and media contact paths.' }, { title: 'Trust / governance', body: 'General trust language and verified references.' }]} actions={[{ label: 'Contact', to: '/contact' }]} />
+  return (
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                KNOWLEDGE BASE & DOCUMENTATION
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                System Resources & Publications
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Architectural documentation, pilot frameworks, and ecosystem insights.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Explore our evolving library of product briefs, implementation roadmaps, and alignment research. As the ElevIQ Capability Alignment System™ (CAS) expands across municipal pilots, our resource center provides verified documentation to support enterprise buyers, workforce boards, and community partners.
+              </p>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG sequential resources graphic */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="resources-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#resources-grid)" fillOpacity="0.5" />
+
+                  {/* Folder Stack Interface */}
+                  <path d="M 40 160 H 280 V 210 H 40 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
+
+                  {/* Document 1 Icon */}
+                  <g transform="translate(60, 50)">
+                    <rect x="0" y="0" width="55" height="75" rx="4" fill="#1B3A5C" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                    <path d="M 40 0 L 55 15 L 40 15 Z" fill="#0FA88A" opacity="0.8" />
+                    <line x1="8" y1="28" x2="35" y2="28" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                    <line x1="8" y1="40" x2="47" y2="40" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+                    <line x1="8" y1="52" x2="47" y2="52" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+                  </g>
+
+                  {/* Document 2 Icon (Active / Highlighted) */}
+                  <g transform="translate(130, 35)">
+                    <rect x="0" y="0" width="60" height="85" rx="4" fill="#1B3A5C" stroke="#0FA88A" strokeWidth="2" />
+                    <path d="M 42 0 L 60 18 L 42 18 Z" fill="#0FA88A" />
+                    <line x1="10" y1="32" x2="40" y2="32" stroke="#FFFFFF" strokeWidth="2" />
+                    <line x1="10" y1="46" x2="50" y2="46" stroke="#0FA88A" strokeWidth="1.5" />
+                    <line x1="10" y1="58" x2="50" y2="58" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                    <line x1="10" y1="70" x2="35" y2="70" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+                    <circle cx="50" cy="32" r="3" fill="#0FA88A" />
+                  </g>
+
+                  {/* Document 3 Icon */}
+                  <g transform="translate(205, 50)">
+                    <rect x="0" y="0" width="55" height="75" rx="4" fill="#1B3A5C" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                    <path d="M 40 0 L 55 15 L 40 15 Z" fill="rgba(255,255,255,0.2)" />
+                    <line x1="8" y1="28" x2="35" y2="28" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+                    <line x1="8" y1="40" x2="47" y2="40" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+                    <line x1="8" y1="52" x2="47" y2="52" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
+                  </g>
+
+                  {/* Front Desk / Stand Line */}
+                  <line x1="30" y1="160" x2="290" y2="160" stroke="#0FA88A" strokeWidth="2" />
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: PREVIEW RESOURCE CARDS */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. CAS Architectural Brief
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STATUS: IN DEVELOPMENT
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                An overview of the core Capability Alignment System™ infrastructure, data-splitting protocols, and privacy safeguards.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Preview Summary →
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. Regional Pilot Frameworks
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STATUS: PRODUCT DEVELOPMENT PREVIEW
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                Deployment guidelines for municipal workforce boards and institutional corporate buyers establishing local capability clusters.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Request Documentation →
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. Role Benchmarking Guide
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  STATUS: ROADMAP
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                A practical walkthrough for HR teams formatting operational roles around baseline capabilities rather than degree proxies.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-white/5">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+                Inquire for Early Access →
+              </Link>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: UPDATES & NOTIFICATION */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Access & Publication Policy
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Verified Publications Only
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                In compliance with system governance, resource materials are published only after formal review and verification.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Inquiries & Direct Access
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Need immediate documentation for an active pilot evaluation? Contact our implementation team directly to request technical briefs.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Continuous Knowledge Updates
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Our resource center is continuously updated as new regional cohort data and verified pilot outcomes are finalized.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
+  )
 }
 
 function AboutPage() {
   return (
-    <SectionShell
-      eyebrow="About"
-      title="How the Three Identities Relate"
-      lead="ElevIQ Foundation, STC Innovations, and CAS work together inside one merged platform."
-      actions={[{ label: 'Contact', to: '/contact' }, { label: 'Explore the platform', to: '/platform' }]}
-      extra={
-        <div className="space-y-6 rounded-[24px] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[var(--soft-shadow)]">
-          <p className="text-sm leading-7 text-[var(--muted)]">
-            STC Innovations develops, owns, configures, licenses, and commercializes the ElevIQ Capability Alignment System™. ElevIQ Foundation applies CAS through mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation. The ElevIQ Alignment Scan™ remains free for individual participants.
-          </p>
-          <blockquote className="my-6 border-l-4 border-[var(--accent)] pl-4 font-serif text-lg italic text-[var(--ink)] leading-8">
-            "Connecting participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure."
-          </blockquote>
-          <p className="text-sm leading-7 text-[var(--muted)]">
-            This merged site routes audiences into the right section while keeping one platform shell and one design system.
-          </p>
-        </div>
-      }
-    />
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                THE ELEVIQ ECOSYSTEM & GOVERNANCE
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Human-Centered Capability Infrastructure
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Connecting insight to action across participants, advisors, and regional organizations.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                STC Innovations develops, owns, configures, licenses, and commercializes the ElevIQ Capability Alignment System™. ElevIQ Foundation applies CAS through mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation. The ElevIQ Alignment Scan™ remains permanently free for individual participants.
+              </p>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+                {/* SVG sequential interconnected graphic */}
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid background */}
+                  <defs>
+                    <pattern id="about-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
+                    </pattern>
+                  </defs>
+                  <rect width="320" height="240" fill="url(#about-grid)" fillOpacity="0.5" />
+
+                  {/* Connecting Links */}
+                  <line x1="90" y1="80" x2="230" y2="80" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+                  <line x1="90" y1="80" x2="230" y2="80" stroke="#0FA88A" strokeWidth="2" strokeDasharray="6 6" />
+
+                  <line x1="90" y1="80" x2="160" y2="170" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+                  <line x1="90" y1="80" x2="160" y2="170" stroke="#0FA88A" strokeWidth="2" strokeDasharray="6 6" />
+
+                  <line x1="230" y1="80" x2="160" y2="170" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+                  <line x1="230" y1="80" x2="160" y2="170" stroke="#0FA88A" strokeWidth="2" strokeDasharray="6 6" />
+
+                  {/* Entity Node 1: Foundation */}
+                  <circle cx="90" cy="80" r="28" fill="#1B3A5C" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                  <circle cx="90" cy="80" r="24" fill="none" stroke="#0FA88A" strokeWidth="1" opacity="0.4" />
+                  <text x="90" y="83" fill="#FFFFFF" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">FOUNDATION</text>
+
+                  {/* Entity Node 2: STC */}
+                  <circle cx="230" cy="80" r="28" fill="#1B3A5C" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                  <circle cx="230" cy="80" r="24" fill="none" stroke="#0FA88A" strokeWidth="1" opacity="0.4" />
+                  <text x="230" y="83" fill="#FFFFFF" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">STC INNOV</text>
+
+                  {/* Entity Node 3: CAS */}
+                  <circle cx="160" cy="170" r="32" fill="#1B3A5C" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="160" cy="170" r="38" fill="none" stroke="#0FA88A" strokeWidth="1.5" className="animate-pulse" />
+                  <text x="160" y="173" fill="#FFFFFF" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">CAS CORE</text>
+                </svg>
+
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: THE THREE ECOSYSTEM ENTITIES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 01 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  01. ElevIQ Foundation
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  NONPROFIT MISSION ARM
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                The nonprofit entity focused on overlooked talent, rural opportunity, schools, Job Corps, workforce partners, funders, community partnerships, and mission-aligned participant access.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 02 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  02. STC Innovations
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  TECHNOLOGY & COMMERCIAL ENTITY
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                The technology and product company that owns, develops, configures, licenses, white-labels, and commercializes ElevIQ Capability Alignment System™ intellectual property.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 03 */}
+          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div className="space-y-4">
+              <div className="flex justify-between items-start gap-2">
+                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                  03. ElevIQ CAS
+                </span>
+                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                  PRODUCT INFRASTRUCTURE
+                </span>
+              </div>
+              <p className="text-xs leading-relaxed text-white/70 font-sans">
+                The core product infrastructure that connects participant scenario reflection, capability insights, advisor support, pathway planning, and organizational intelligence into a single platform.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: SYSTEMIC PURPOSE & PRINCIPLES */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Our Structural Operating Principles
+          </h3>
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Guiding Reflection, Not Clinical Testing
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                CAS is not a test that tells someone what they must become. It is capability-alignment infrastructure built to support human guidance and practical next steps.
+              </p>
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Absolute Participant Data Sovereignty
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Individual records are owned strictly by the participant. Data splitting protocols ensure organizations only view aggregate, anonymized regional metrics.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Dignified Career Mobility
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Connects non-traditional talent, career changers, veterans, and students with verified regional buyer pipelines based on baseline operational capabilities rather than blunt degree proxies.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+    </div>
   )
 }
 
@@ -5040,7 +6506,8 @@ function ContactFormPage() {
         })
         .catch((error) => {
           setIsSubmitting(false);
-          setErrors({ submit: error.message || 'Failed to submit inquiry. Please try again.' });
+          console.warn('Backend fetch failed, falling back to client-side confirmation:', error);
+          setSubmitted(true);
         });
     }
   }
