@@ -67,27 +67,27 @@
 @theme {
   --color-midnight-ink: #0F1B2D;
   --color-deep-lake-blue: #1B3A5C;
-  --color-horizon-teal: #1E7F82;
+  --color-horizon-teal: #0FA88A;
   --color-eleviq-teal: #0FA88A;
-  --color-sky-mist: #EAF3F3;
+  --color-sky-mist: #EBF1F5;
   --color-soft-sand: #F5EFE6;
-  --color-driftwood-gray: #6B7280;
+  --color-driftwood-gray: #4B5563;
   --color-warm-coral: #E2725B;
 
-  --font-sans: 'Epilogue', 'Arial', 'Helvetica', 'sans-serif';
+  --font-sans: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
   --font-serif: '"Playfair Display"', 'Georgia', 'serif';
-  --font-mono: '"IBM Plex Mono"', 'Consolas', 'monospace';
+  --font-mono: '"IBM Plex Mono"', 'Consolas', monospace;
 }
 
 :root {
   /* Color Tokens */
   --midnight-ink: #0F1B2D;
   --deep-lake-blue: #1B3A5C;
-  --horizon-teal: #1E7F82;
+  --horizon-teal: #0FA88A;
   --eleviq-teal: #0FA88A;
-  --sky-mist: #EAF3F3;
+  --sky-mist: #EBF1F5;
   --soft-sand: #F5EFE6;
-  --driftwood-gray: #6B7280;
+  --driftwood-gray: #4B5563;
   --warm-coral: #E2725B;
 
   /* Current functional variable mappings */
@@ -97,15 +97,15 @@
   --surface: #FFFFFF;
   --panel: #FFFFFF;
   --surface-soft: var(--sky-mist);
-  --line: #D6DFE2;
+  --line: #1B3A5C;
   --accent: var(--eleviq-teal);
   --accent-soft: rgba(15, 168, 138, 0.12);
   --warm: var(--warm-coral);
   --shadow-color: rgba(15, 27, 45, 0.14);
   --panel-shadow: 0 20px 50px -28px var(--shadow-color);
   --soft-shadow: 0 14px 30px -24px rgba(15, 27, 45, 0.2);
-  --heading-font: 'Epilogue', 'Arial', 'Helvetica', sans-serif;
-  --sans-font: 'Epilogue', 'Arial', 'Helvetica', sans-serif;
+  --heading-font: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
+  --sans-font: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
   --mono-font: 'IBM Plex Mono', 'Consolas', monospace;
   color-scheme: light;
   font-family: var(--sans-font);

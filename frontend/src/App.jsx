@@ -113,52 +113,52 @@ function SectionTheme({ variant = 'platform', children }) {
     switch (variant) {
       case 'individuals':
         return {
-          '--page-bg': 'var(--soft-sand)',
+          '--page-bg': '#F5EFE6',
           '--surface': '#FFFFFF',
           '--panel': '#FFFFFF',
-          '--accent': 'var(--warm-coral)',
+          '--accent': '#E2725B',
           '--accent-soft': 'rgba(226, 114, 91, 0.12)',
-          '--surface-soft': 'var(--soft-sand)',
-          '--line': '#D6DFE2',
-          '--ink': 'var(--midnight-ink)',
-          '--muted': 'var(--driftwood-gray)',
-          '--hero-bg-from': 'var(--midnight-ink)',
-          '--hero-bg-to': 'var(--deep-lake-blue)',
+          '--surface-soft': '#F5EFE6',
+          '--line': '#1B3A5C',
+          '--ink': '#0F1B2D',
+          '--muted': '#4B5563',
+          '--hero-bg-from': '#1B3A5C',
+          '--hero-bg-to': '#1B3A5C',
           '--bg-glow-1': 'rgba(226, 114, 91, 0.16)',
           '--bg-glow-2': 'rgba(226, 114, 91, 0.13)',
           '--bg-glow-3': 'rgba(15, 27, 45, 0.08)',
         }
       case 'organizations':
         return {
-          '--page-bg': 'var(--midnight-ink)',
-          '--surface': 'var(--deep-lake-blue)',
-          '--panel': 'var(--deep-lake-blue)',
-          '--accent': 'var(--eleviq-teal)',
+          '--page-bg': '#EBF1F5',
+          '--surface': '#FFFFFF',
+          '--panel': '#FFFFFF',
+          '--accent': '#0FA88A',
           '--accent-soft': 'rgba(15, 168, 138, 0.12)',
-          '--surface-soft': 'rgba(27, 58, 92, 0.5)',
-          '--line': 'rgba(255, 255, 255, 0.15)',
-          '--ink': '#FFFFFF',
-          '--muted': 'rgba(255, 255, 255, 0.7)',
-          '--hero-bg-from': 'var(--midnight-ink)',
-          '--hero-bg-to': 'var(--deep-lake-blue)',
-          '--bg-glow-1': 'rgba(30, 127, 130, 0.16)',
-          '--bg-glow-2': 'rgba(27, 58, 92, 0.13)',
-          '--bg-glow-3': 'rgba(15, 27, 45, 0.08)',
+          '--surface-soft': '#EBF1F5',
+          '--line': '#1B3A5C',
+          '--ink': '#0F1B2D',
+          '--muted': '#4B5563',
+          '--hero-bg-from': '#1B3A5C',
+          '--hero-bg-to': '#1B3A5C',
+          '--bg-glow-1': 'rgba(30, 127, 130, 0.08)',
+          '--bg-glow-2': 'rgba(27, 58, 92, 0.06)',
+          '--bg-glow-3': 'rgba(15, 27, 45, 0.04)',
         }
       case 'platform':
       default:
         return {
-          '--page-bg': 'var(--sky-mist)',
+          '--page-bg': '#EBF1F5',
           '--surface': '#FFFFFF',
           '--panel': '#FFFFFF',
-          '--accent': 'var(--eleviq-teal)',
+          '--accent': '#0FA88A',
           '--accent-soft': 'rgba(15, 168, 138, 0.12)',
-          '--surface-soft': 'var(--sky-mist)',
-          '--line': '#D6DFE2',
-          '--ink': 'var(--midnight-ink)',
-          '--muted': 'var(--driftwood-gray)',
-          '--hero-bg-from': 'var(--midnight-ink)',
-          '--hero-bg-to': 'var(--deep-lake-blue)',
+          '--surface-soft': '#EBF1F5',
+          '--line': '#1B3A5C',
+          '--ink': '#0F1B2D',
+          '--muted': '#4B5563',
+          '--hero-bg-from': '#1B3A5C',
+          '--hero-bg-to': '#1B3A5C',
           '--bg-glow-1': 'rgba(34, 180, 168, 0.16)',
           '--bg-glow-2': 'rgba(0, 87, 128, 0.13)',
           '--bg-glow-3': 'rgba(196, 114, 85, 0.12)',
@@ -439,13 +439,13 @@ function Card({ title, eyebrow, body, bullets = [], meta, action, variant, icon,
       style={bgWhite ? {
         '--panel': '#FFFFFF',
         '--ink': '#0F1B2D',
-        '--muted': '#6B7280',
+        '--muted': '#4B5563',
       } : {}}
     >
       <div>
         {icon ? <div className="mb-3">{icon}</div> : null}
         {eyebrow ? <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">{eyebrow}</p> : null}
-        <h3 className="font-serif text-xl font-semibold tracking-[-0.03em] text-[var(--ink)]">{title}</h3>
+        <h3 className="font-sans text-xl font-bold tracking-[-0.03em] text-[var(--ink)]">{title}</h3>
         {body ? <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{body}</p> : null}
         {bullets.length ? (
           <ul className="mt-4 space-y-2 text-sm leading-6 text-[var(--muted)]">
@@ -484,44 +484,106 @@ function CopyBlock({ title, body, eyebrow, bullets, action, meta }) {
 function HomePage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* Redesigned Hero Section matching Wix Template */}
-      <section className="relative rounded-[32px] border border-[rgba(255,255,255,0.15)] bg-gradient-to-br from-[var(--midnight-ink)] to-[var(--deep-lake-blue)] p-[var(--panel-pad)] text-white shadow-[var(--panel-shadow)] overflow-hidden">
-        {/* Subtle geometric pattern overlay */}
-        <div className="hero-bg-pattern" />
+      {/* Option A (Hybrid Slate Variant) Hero Section */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                HUMAN-CENTERED CAPABILITY INFRASTRUCTURE
+              </span>
+              <h1 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                One Platform for Capability, Alignment, and Action.
+              </h1>
+              <p className="text-base md:text-lg font-normal text-[#EBF1F5] leading-relaxed max-w-2xl font-sans opacity-90">
+                The ElevIQ Capability Alignment System™ connects participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure.
+              </p>
+              
+              {/* Primary CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                {/* Button 1: Horizon Teal Fill */}
+                <Link
+                  to="/platform"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-105"
+                >
+                  See How CAS Works
+                </Link>
 
-        {/* Hero content container */}
-        <div className="relative z-10 max-w-4xl space-y-6 py-6 md:py-10">
-          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.34em] text-white/80">
-            Capability Alignment System
-          </span>
-          <h2 className="font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-6xl leading-[1.1]">
-            One Platform for Capability, Alignment, and Action.
-          </h2>
-          <p className="text-base leading-relaxed text-white/85 md:text-lg max-w-3xl">
-            The ElevIQ Capability Alignment System™ connects participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-4">
-            <Link
-              to="/platform"
-              className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:shadow-xl hover:brightness-105"
-            >
-              See How CAS Works
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/20 hover:border-white/50"
-            >
-              Request Demo
-            </Link>
-            <Link
-              to="/platform/participant-portal"
-              className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/20 hover:border-white/50"
-            >
-              Access Portal
-            </Link>
+                {/* Button 2: Warm Coral Fill */}
+                <Link
+                  to="/organizations/pricing-demo"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-105"
+                >
+                  Request Demo
+                </Link>
+
+                {/* Button 3: Transparent Outline */}
+                <Link
+                  to="/platform/participant-portal"
+                  className="rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/10 hover:border-white"
+                >
+                  Access Portal
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Visual Inset Dashboard Mockup */}
+            <div className="flex justify-center items-center p-2 lg:p-4">
+              <div className="w-full max-w-[380px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="flex items-center gap-1.5 font-mono text-[9px] text-white/70 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                    LIVE ECOSYSTEM
+                  </span>
+                </div>
+
+                <svg viewBox="0 0 340 210" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Header Bar */}
+                  <rect x="10" y="10" width="320" height="24" rx="4" fill="#1B3A5C" opacity="0.8" />
+                  <circle cx="25" cy="22" r="4" fill="#E2725B" />
+                  <circle cx="40" cy="22" r="4" fill="#0FA88A" />
+                  <circle cx="55" cy="22" r="4" fill="#FFFFFF" opacity="0.6" />
+                  
+                  {/* Left Panel: Alignment Matrix */}
+                  <rect x="10" y="42" width="150" height="158" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
+                  <text x="22" y="60" fill="#0FA88A" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">ALIGNMENT MATRIX</text>
+                  
+                  {/* Node Diagram */}
+                  <circle cx="85" cy="115" r="28" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <circle cx="85" cy="115" r="8" fill="#0FA88A" />
+                  <circle cx="55" cy="85" r="6" fill="#E2725B" />
+                  <circle cx="115" cy="85" r="6" fill="#FFFFFF" />
+                  <circle cx="55" cy="145" r="6" fill="#FFFFFF" />
+                  <circle cx="115" cy="145" r="6" fill="#E2725B" />
+                  
+                  <line x1="85" y1="115" x2="55" y2="85" stroke="#0FA88A" strokeWidth="1.5" />
+                  <line x1="85" y1="115" x2="115" y2="85" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
+                  <line x1="85" y1="115" x2="55" y2="145" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
+                  <line x1="85" y1="115" x2="115" y2="145" stroke="#E2725B" strokeWidth="1.5" />
+
+                  {/* Right Panel: Active Signals & Pathways */}
+                  <rect x="170" y="42" width="160" height="74" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#E2725B" strokeWidth="1" />
+                  <text x="182" y="60" fill="#E2725B" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">CAPABILITY SIGNALS™</text>
+                  <rect x="182" y="70" width="136" height="8" rx="4" fill="#E2725B" opacity="0.4" />
+                  <rect x="182" y="70" width="95" height="8" rx="4" fill="#E2725B" />
+                  <rect x="182" y="86" width="136" height="8" rx="4" fill="#0FA88A" opacity="0.4" />
+                  <rect x="182" y="86" width="112" height="8" rx="4" fill="#0FA88A" />
+
+                  <rect x="170" y="124" width="160" height="76" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.3" />
+                  <text x="182" y="142" fill="#FFFFFF" opacity="0.9" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">ALIGNMENT PATHWAYS™</text>
+                  <rect x="182" y="152" width="136" height="16" rx="4" fill="#0FA88A" opacity="0.2" />
+                  <text x="190" y="163" fill="#FFFFFF" fontSize="8" fontFamily="sans-serif">Verified Ecosystem Fit</text>
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Re-formatted Relationship Statement Section */}
       <section
@@ -807,207 +869,155 @@ function PlatformShell() {
 function PlatformOverviewPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* Platform Hero Section */}
-      <section className="rounded-[32px] border border-[var(--line)] bg-[var(--surface)] p-[var(--panel-pad)] shadow-[var(--soft-shadow)] overflow-hidden">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div className="space-y-6">
-            <span className="inline-flex rounded-full border border-[var(--accent)] bg-[var(--accent-soft)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--accent)]">
-              Platform Architecture
-            </span>
-            <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-[var(--ink)] md:text-5xl lg:text-6xl leading-[1.1]">
-              The Architecture of Capability Alignment
-            </h2>
-            <p className="max-w-2xl text-base leading-relaxed text-[var(--muted)] md:text-lg">
-              Moving beyond static resumes and rigid clinical assessments. The ElevIQ Capability Alignment System (CAS) is human-centered infrastructure that connects personal reflection with real-world workforce paths.
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                SYSTEM ARCHITECTURE OVERVIEW
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                The Architecture of Capability Alignment
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Moving beyond static resumes and rigid clinical assessments.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The ElevIQ Capability Alignment System (CAS) is human-centered infrastructure that connects personal reflection with real-world workforce paths. It creates a continuous, secure environment to translate non-linear life experience into verified Capability Signals™.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/platform/participant-portal"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Explore Platform Modules
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 220" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Connection lines */}
+                  <line x1="160" y1="40" x2="80" y2="100" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
+                  <line x1="160" y1="40" x2="240" y2="100" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
+                  <line x1="80" y1="100" x2="120" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="240" y1="100" x2="200" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="120" y1="170" x2="200" y2="170" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
+                  <line x1="160" y1="40" x2="160" y2="170" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
+
+                  {/* Nodes */}
+                  <circle cx="160" cy="40" r="8" fill="#0FA88A" />
+                  <circle cx="80" cy="100" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="240" cy="100" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="120" cy="170" r="7" fill="#0FA88A" />
+                  <circle cx="200" cy="170" r="7" fill="#0FA88A" />
+
+                  {/* Labels */}
+                  <text x="160" y="24" fill="#FFFFFF" fontSize="9" fontFamily="monospace" textAnchor="middle">REFLECTION HUB</text>
+                  <text x="80" y="118" fill="#FFFFFF" fontSize="8" fontFamily="monospace" textAnchor="middle" opacity="0.8">SIGNALS</text>
+                  <text x="240" y="118" fill="#FFFFFF" fontSize="8" fontFamily="monospace" textAnchor="middle" opacity="0.8">MAPPING</text>
+                  <text x="160" y="195" fill="#0FA88A" fontSize="9" fontFamily="monospace" textAnchor="middle" fontWeight="bold">ALIGNMENT PATHWAYS™</text>
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: MIDDLE GRID CARDS (Core Ecosystem Pillars) */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                01. INDIVIDUAL MODULE
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Reflect & Discover</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Engages participants through intuitive tools to capture non-linear experiences, practical contexts, and true capability without clinical testing pressure.
             </p>
           </div>
 
-          <div className="flex justify-center items-center relative py-4 lg:py-0">
-            {/* SVG Connected Graph Node Diagram */}
-            <svg viewBox="0 0 400 400" className="w-full max-w-[340px] md:max-w-[400px] h-auto drop-shadow-md" aria-hidden="true">
-              {/* Connection lines */}
-              <line x1="280" y1="80" x2="330" y2="180" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-              <line x1="280" y1="80" x2="220" y2="180" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
-              <line x1="280" y1="80" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
-
-              <line x1="330" y1="180" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
-              <line x1="330" y1="180" x2="340" y2="280" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-
-              <line x1="220" y1="180" x2="150" y2="240" stroke="var(--horizon-teal)" strokeWidth="2" opacity="0.7" />
-              <line x1="220" y1="180" x2="280" y2="240" stroke="var(--deep-lake-blue)" strokeWidth="3" opacity="0.85" />
-              <line x1="220" y1="180" x2="230" y2="300" stroke="var(--horizon-teal)" strokeWidth="2" opacity="0.7" />
-
-              <line x1="150" y1="240" x2="230" y2="300" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
-              <line x1="150" y1="240" x2="160" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.7" />
-              <line x1="150" y1="240" x2="95" y2="240" stroke="var(--eleviq-teal)" strokeWidth="2.5" opacity="0.9" />
-
-              <line x1="280" y1="240" x2="340" y2="280" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
-              <line x1="280" y1="240" x2="230" y2="300" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-
-              <line x1="340" y1="280" x2="340" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.6" />
-              <line x1="230" y1="300" x2="340" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-              <line x1="230" y1="300" x2="160" y2="360" stroke="var(--deep-lake-blue)" strokeWidth="2" opacity="0.8" />
-              <line x1="230" y1="300" x2="245" y2="375" stroke="var(--eleviq-teal)" strokeWidth="2" opacity="0.85" />
-
-              <line x1="160" y1="360" x2="245" y2="375" stroke="var(--deep-lake-blue)" strokeWidth="2.5" opacity="0.8" />
-
-              <line x1="95" y1="240" x2="150" y2="240" stroke="var(--eleviq-teal)" strokeWidth="2" />
-              <line x1="95" y1="240" x2="160" y2="360" stroke="var(--eleviq-teal)" strokeWidth="1.5" opacity="0.6" />
-              <line x1="340" y1="280" x2="280" y2="240" stroke="var(--eleviq-teal)" strokeWidth="1.5" opacity="0.6" />
-
-              {/* Nodes */}
-              <circle cx="280" cy="80" r="11" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              <circle cx="330" cy="180" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              <circle cx="220" cy="180" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-
-              {/* Highlight teal nodes */}
-              <circle cx="95" cy="240" r="13" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
-              <circle cx="95" cy="240" r="6" fill="var(--page-bg)" />
-
-              <circle cx="150" cy="240" r="10" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              <circle cx="280" cy="240" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-
-              <circle cx="340" cy="280" r="13" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
-              <circle cx="340" cy="280" r="6" fill="var(--page-bg)" />
-
-              <circle cx="230" cy="300" r="10" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              <circle cx="160" cy="360" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-              <circle cx="340" cy="360" r="9" fill="var(--midnight-ink)" stroke="var(--page-bg)" strokeWidth="2.5" />
-
-              <circle cx="245" cy="375" r="15" fill="var(--eleviq-teal)" stroke="white" strokeWidth="2.5" />
-              <circle cx="245" cy="375" r="7" fill="var(--page-bg)" />
-            </svg>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                02. ADVISOR MODULE
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Support & Guide</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Empowers mentors and workforce coaches with transparent, data-driven dashboards (ElevIQ CLARA™) to deliver targeted human assistance.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Pillars Section Header */}
-      <section className="text-center py-6">
-        <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)] md:text-5xl">
-          The Core Ecosystem Pillars
-        </h3>
-      </section>
-
-      {/* Pillars Grid */}
-      <div className="grid gap-[var(--tile-gap)] md:grid-cols-3">
-        {/* Card 1 */}
-        <article className="rounded-[24px] border border-[var(--line)] bg-[var(--surface)] p-8 shadow-[var(--soft-shadow)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-start">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--accent-soft)] flex items-center justify-center mb-6">
-            <svg className="h-6 w-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                03. ENTERPRISE MODULE
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Align & Act</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Provides community networks and regional corporate buyers with macro intelligence to match talent to real developmental tracks and open roles.
+            </p>
           </div>
-          <h4 className="font-sans text-2xl font-bold tracking-[-0.03em] text-[var(--ink)] mb-4">
-            Reflect & Discover
-          </h4>
-          <p className="text-sm leading-relaxed text-[var(--muted)]">
-            Engaging individuals through intuitive tools to capture non-linear experiences, practical contexts, and true capability.
-          </p>
-        </article>
+        </section>
+      </ScrollReveal>
 
-        {/* Card 2 */}
-        <article className="rounded-[24px] border border-[var(--line)] bg-[var(--surface)] p-8 shadow-[var(--soft-shadow)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-start">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--accent-soft)] flex items-center justify-center mb-6">
-            <svg className="h-6 w-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-          </div>
-          <h4 className="font-sans text-2xl font-bold tracking-[-0.03em] text-[var(--ink)] mb-4">
-            Support & Guide
-          </h4>
-          <p className="text-sm leading-relaxed text-[var(--muted)]">
-            Empowering mentors and workforce coaches with transparent, data-driven dashboards to deliver targeted assistance.
-          </p>
-        </article>
-
-        {/* Card 3 */}
-        <article className="rounded-[24px] border border-[var(--line)] bg-[var(--surface)] p-8 shadow-[var(--soft-shadow)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-start">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--accent-soft)] flex items-center justify-center mb-6">
-            <svg className="h-6 w-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
-          </div>
-          <h4 className="font-sans text-2xl font-bold tracking-[-0.03em] text-[var(--ink)] mb-4">
-            Align & Act
-          </h4>
-          <p className="text-sm leading-relaxed text-[var(--muted)]">
-            Providing community networks and organizations with localized intelligence to match talent to real development tracks.
-          </p>
-        </article>
-      </div>
-
-      {/* New Section: Paradigm Shift in Capability Alignment */}
-      <section className="rounded-[32px] border border-[var(--line)] bg-white p-[var(--panel-pad)] shadow-[var(--soft-shadow)] space-y-8 mt-[var(--section-gap)]">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
-            A Modern Paradigm Shift
+      {/* SECTION 3: BOTTOM EXPOSITION */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            System Safeguards & Oversight Principles
           </h3>
-        </div>
 
-        {/* Comparative Columns */}
-        <div className="grid gap-8 md:grid-cols-2">
-          {/* Column 1: Limitations of Legacy Models */}
-          <div className="space-y-4 p-6 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40">
-            <h4 className="font-sans text-xl font-bold text-[#0F1B2D]">
-              The Limitations of Legacy Models
-            </h4>
-            <div className="space-y-2">
-              <p className="font-mono text-xs uppercase tracking-wider text-[#1E7F82] font-semibold">
-                Traditional Resumes & Clinical Testing
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Data Splitting Protocols
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Protects individual data sovereignty by separating raw reflection data from macro organizational intelligence.
               </p>
-              <p className="text-sm leading-relaxed text-[#6B7280]">
-                Legacy systems reduce human potential to static bullet points, rigid behavioral scoring, and predictive automation. These models strip away essential personal contexts, fail to capture non-linear life experiences, and isolate the participant from meaningful, proactive human support systems.
+            </div>
+
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Human Oversight First
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Outlaws black-box predictive indexing and automated scoring, ensuring trained coaches maintain meaningful review at every stage.
+              </p>
+            </div>
+
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Continuous Agency
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Participants own their snapshot data permanently and maintain explicit control over profile sharing permissions across regional networks.
               </p>
             </div>
           </div>
-
-          {/* Column 2: ElevIQ Infrastructure Solution */}
-          <div className="space-y-4 p-6 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40">
-            <h4 className="font-sans text-xl font-bold text-[#0F1B2D]">
-              The ElevIQ Infrastructure Solution
-            </h4>
-            <div className="space-y-2">
-              <p className="font-mono text-xs uppercase tracking-wider text-[#1E7F82] font-semibold">
-                Human-Centered Capability Mapping
-              </p>
-              <p className="text-sm leading-relaxed text-[#6B7280]">
-                The Capability Alignment System (CAS) replaces rigid testing with secure, continuous, self-guided reflection workspaces. By turning qualitative life experiences into dynamic Capability Signals, the platform honors individual agency while giving advisors and regional organizations highly visible, verifiable capability landscapes to guide real-world next steps.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Feature Bars Stack */}
-        <div className="space-y-4 pt-4 border-t border-[var(--line)]/50">
-          {/* Feature 1 */}
-          <div className="p-6 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-            <div className="md:w-1/3 shrink-0">
-              <h5 className="font-sans text-base font-bold text-[#0F1B2D]">
-                Granular Privacy Control
-              </h5>
-            </div>
-            <div className="flex-grow">
-              <p className="text-xs md:text-sm leading-relaxed text-[#6B7280]">
-                Participants retain complete sovereignty over their data profiles, dictating precisely how, when, and with which trusted mentors or regional partners their capability alignment maps are shared.
-              </p>
-            </div>
-          </div>
-
-          {/* Feature 2 */}
-          <div className="p-6 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-            <div className="md:w-1/3 shrink-0">
-              <h5 className="font-sans text-base font-bold text-[#0F1B2D]">
-                Ecosystem Synchronization
-              </h5>
-            </div>
-            <div className="flex-grow">
-              <p className="text-xs md:text-sm leading-relaxed text-[#6B7280]">
-                Bridges the gap between individual growth, workforce guidance workflows, and local capability requirements to build sustainable municipal and organizational development networks.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1015,170 +1025,153 @@ function PlatformOverviewPage() {
 function ParticipantPortalPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: THE PORTAL HERO HEADER */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        {/* Left Column Content */}
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold">
-            INDIVIDUAL HOME BASE
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            A Dedicated Space for Personal Agency
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Your secure workspace built around dignity, continuous discovery, and absolute privacy.
-          </p>
-          <p className="text-sm leading-relaxed text-white/70">
-            The Participant Portal gives you full sovereignty over how your capabilities are mapped, stored, and shared. There are no rigid tests, scores, or black-box algorithms here—just an intuitive ecosystem designed to highlight your true potential.
-          </p>
-        </div>
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                INDIVIDUAL HOME BASE
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                A Dedicated Space for Personal Agency
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Your secure workspace built around dignity, continuous discovery, and absolute privacy.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Participant Portal gives you full sovereignty over how your capabilities are mapped, stored, and shared. There are no rigid tests, scores, or black-box algorithms here—just an intuitive ecosystem designed to highlight your true potential.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Access Participant Demo
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white border border-[var(--line)]" aria-hidden="true">
-            {/* Minimalist Dashboard Background */}
-            <rect x="0" y="0" width="320" height="240" fill="#FFFFFF" />
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.9" />
+                  <line x1="25" y1="35" x2="295" y2="35" stroke="#1B3A5C" strokeWidth="1.5" opacity="0.2" />
+                  <circle cx="35" cy="24" r="4" fill="#E2725B" />
+                  <circle cx="48" cy="24" r="4" fill="#1B3A5C" opacity="0.3" />
+                  <circle cx="61" cy="24" r="4" fill="#1B3A5C" opacity="0.3" />
 
-            {/* Header outline bar */}
-            <line x1="20" y1="30" x2="300" y2="30" stroke="#0F1B2D" strokeWidth="2" opacity="0.15" />
+                  <rect x="25" y="50" width="125" height="65" rx="6" fill="#F5EFE6" stroke="#1B3A5C" strokeWidth="1" opacity="0.4" />
+                  <rect x="165" y="50" width="130" height="65" rx="6" fill="#FFFFFF" stroke="#E2725B" strokeWidth="1.5" />
 
-            {/* Circle markers */}
-            <circle cx="35" cy="18" r="4" fill="#0FA88A" />
-            <circle cx="50" cy="18" r="4" fill="#0F1B2D" opacity="0.3" />
-            <circle cx="65" cy="18" r="4" fill="#0F1B2D" opacity="0.3" />
+                  <line x1="38" y1="70" x2="115" y2="70" stroke="#0F1B2D" strokeWidth="3" opacity="0.6" />
+                  <line x1="38" y1="85" x2="130" y2="85" stroke="#E2725B" strokeWidth="2" />
 
-            {/* Clean minimalist cards */}
-            <rect x="20" y="45" width="130" height="80" rx="8" fill="#EAF3F3" stroke="#d2dfdf" strokeWidth="1" />
-            <rect x="170" y="45" width="130" height="80" rx="8" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="1.5" />
+                  <line x1="178" y1="70" x2="265" y2="70" stroke="#0F1B2D" strokeWidth="3" />
+                  <line x1="178" y1="85" x2="275" y2="85" stroke="#E2725B" strokeWidth="2" />
 
-            {/* Lines inside Left Card */}
-            <line x1="35" y1="65" x2="105" y2="65" stroke="#0F1B2D" strokeWidth="3" opacity="0.4" />
-            <line x1="35" y1="80" x2="120" y2="80" stroke="#0F1B2D" strokeWidth="2" opacity="0.2" />
-            <line x1="35" y1="95" x2="90" y2="95" stroke="#0F1B2D" strokeWidth="2" opacity="0.2" />
-            <line x1="35" y1="105" x2="110" y2="105" stroke="#0FA88A" strokeWidth="2.5" />
-
-            {/* Lines inside Right Card */}
-            <line x1="185" y1="65" x2="265" y2="65" stroke="#0F1B2D" strokeWidth="3" />
-            <line x1="185" y1="80" x2="280" y2="80" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="195" cy="105" r="8" fill="#0FA88A" opacity="0.2" />
-            <circle cx="195" cy="105" r="4" fill="#0FA88A" />
-            <line x1="210" y1="105" x2="270" y2="105" stroke="#0FA88A" strokeWidth="2" />
-
-            {/* Full-width lower dashboard block */}
-            <rect x="20" y="145" width="280" height="75" rx="8" fill="#FFFFFF" stroke="#0F1B2D" strokeWidth="1" opacity="0.15" />
-            <line x1="35" y1="165" x2="265" y2="165" stroke="#0F1B2D" strokeWidth="2.5" opacity="0.3" />
-            <line x1="35" y1="180" x2="230" y2="180" stroke="#6B7280" strokeWidth="2" opacity="0.25" />
-            <line x1="35" y1="195" x2="245" y2="195" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-
-            {/* Interactive growth nodes */}
-            <circle cx="280" cy="195" r="5" fill="#0FA88A" />
-          </svg>
-        </div>
-      </section>
+                  <rect x="25" y="130" width="270" height="45" rx="6" fill="#1B3A5C" opacity="0.1" />
+                  <line x1="38" y1="150" x2="240" y2="150" stroke="#E2725B" strokeWidth="2.5" />
+                  <circle cx="255" cy="150" r="5" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THREE CORE WORKSPACE MODULES */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        {/* Module 1 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Module 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PORTAL MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Self-Guided Reflection</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Intuitive, stress-free workspaces where you can safely document your unique life contexts, specialized experiences, and vital community contributions at your own pace.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Self-Guided Reflection
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Intuitive, stress-free workspaces where you can safely document your unique life contexts, specialized experiences, and vital community contributions at your own pace.
-          </p>
-        </div>
 
-        {/* Module 2 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
+          {/* Module 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PORTAL MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Live Capability Mapping</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Watch your profile evolve in real time. Translate your qualitative life stories into visible, dynamic capability signals that showcase your active strengths to the world.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Live Capability Mapping
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Watch your profile evolve in real time. Translate your qualitative life stories into visible, dynamic capability signals that showcase your active strengths to the world.
-          </p>
-        </div>
 
-        {/* Module 3 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+          {/* Module 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PORTAL MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Connection Hub</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              A secure, transparent interface to co-create pathway plans, review collaborative goals, and communicate directly with your dedicated coaches and support networks.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Advisor Connection Hub
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            A secure, transparent interface to co-create pathway plans, review collaborative goals, and communicate directly with your dedicated coaches and support networks.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: THE PARTICIPANT EXPERIENCE JOURNEY */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             A Dignified, Step-by-Step Experience
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Total Profile Sovereignty
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Participants maintain absolute control over their dynamic capability profiles. You decide exactly when your data is ready to be shared, which specific support networks or advisors can view your reflections, and you retain the ability to rescind access at any time.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Participants maintain absolute control over their dynamic capability profiles. You decide exactly when your data is ready to be shared, which specific support networks or advisors can view your reflections, and you retain the ability to rescind access at any time.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Non-Linear Experience Capture
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Traditional systems reject non-traditional background paths. The CAS portal allows individuals to naturally document volunteer initiatives, caregiving responsibilities, independent projects, and informal community leadership—translating real-world capability into visible data.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Traditional systems reject non-traditional background paths. The CAS portal allows individuals to naturally document volunteer initiatives, caregiving responsibilities, independent projects, and informal community leadership—translating real-world capability into visible data.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Continuous Reflection Cycles
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Unlike static, high-stakes annual evaluations, your portal grows alongside you. Update your capabilities, log new milestones, and adjust your personalized pathway targets whenever you acquire fresh real-world experience.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Unlike static, high-stakes annual evaluations, your portal grows alongside you. Update your capabilities, log new milestones, and adjust your personalized pathway targets whenever you acquire fresh real-world experience.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1186,168 +1179,159 @@ function ParticipantPortalPage() {
 function CommunityIntelligenceConsolePage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: ENTERPRISE HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        {/* Left Column Content */}
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            SYSTEM INTEL & MACRO VIEW
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Community Intelligence Console™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Transform fragmented regional workforce data into clear, actionable ecosystem coordination.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            The Community Intelligence Console provides regional orchestrators, institutional funders, and community networks with macro-level visibility into active local capabilities. Make precision funding and training decisions without relying on legacy systems or compromising individual participant privacy.
-          </p>
-        </div>
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                SYSTEM INTEL & MACRO VIEW
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Community Intelligence Console™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Transform fragmented regional workforce data into clear, actionable ecosystem coordination.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Community Intelligence Console provides regional orchestrators, institutional funders, and community networks with macro-level visibility into active local capabilities. Make precision funding and training decisions without relying on legacy systems or compromising individual participant privacy.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Request Console Access
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            {/* Dark background panel */}
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#0F1B2D" opacity="0.9" />
+                  <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
 
-            {/* Grid lines */}
-            <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
-            <line x1="20" y1="130" x2="300" y2="130" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
+                  {/* Left Chart Box */}
+                  <rect x="25" y="55" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
+                  <line x1="40" y1="100" x2="40" y2="70" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
+                  <line x1="60" y1="100" x2="60" y2="80" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
+                  <line x1="80" y1="100" x2="80" y2="65" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
+                  <line x1="100" y1="100" x2="100" y2="85" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
+                  <line x1="120" y1="100" x2="120" y2="75" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
 
-            {/* Left Box (Bar Charts Graph representation) */}
-            <rect x="25" y="55" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <line x1="40" y1="100" x2="40" y2="70" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
-            <line x1="60" y1="100" x2="60" y2="80" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
-            <line x1="80" y1="100" x2="80" y2="65" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
-            <line x1="100" y1="100" x2="100" y2="85" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
-            <line x1="120" y1="100" x2="120" y2="75" stroke="#0FA88A" strokeWidth="8" strokeLinecap="round" />
+                  {/* Right Network Matrix */}
+                  <rect x="170" y="55" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
+                  <circle cx="195" cy="85" r="4" fill="#0FA88A" />
+                  <circle cx="230" cy="70" r="4" fill="#FFFFFF" />
+                  <circle cx="265" cy="85" r="4" fill="#0FA88A" />
+                  <circle cx="230" cy="100" r="4" fill="#FFFFFF" />
+                  <line x1="199" y1="83" x2="226" y2="72" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.5" />
+                  <line x1="230" y1="74" x2="230" y2="96" stroke="#0FA88A" strokeWidth="1.5" />
+                  <line x1="234" y1="72" x2="261" y2="83" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.5" />
 
-            {/* Right Box (Network Connections Matrix) */}
-            <rect x="170" y="55" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <circle cx="195" cy="85" r="4" fill="#0FA88A" />
-            <circle cx="230" cy="70" r="4" fill="#FFFFFF" />
-            <circle cx="265" cy="85" r="4" fill="#0FA88A" />
-            <circle cx="230" cy="100" r="4" fill="#FFFFFF" />
-            <line x1="199" y1="83" x2="226" y2="72" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.5" />
-            <line x1="230" y1="74" x2="230" y2="96" stroke="#0FA88A" strokeWidth="1.5" />
-            <line x1="234" y1="72" x2="261" y2="83" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.5" />
-            <line x1="199" y1="87" x2="226" y2="98" stroke="#0FA88A" strokeWidth="1.5" />
-            <line x1="234" y1="98" x2="261" y2="87" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.5" />
-
-            {/* Bottom Full-Width Box (Data Table/Pulse Wave) */}
-            <rect x="25" y="145" width="270" height="75" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <path d="M 40 185 L 80 165 L 120 195 L 160 175 L 200 190 L 240 160 L 280 185" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
-            <path d="M 40 185 L 80 165 L 120 195 L 160 175 L 200 190 L 240 160 L 280 185" fill="none" stroke="#0FA88A" strokeWidth="6" opacity="0.15" />
-
-            <circle cx="240" cy="160" r="4" fill="#FFFFFF" />
-            <circle cx="80" cy="165" r="4" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
+                  {/* Bottom Pulse Bar */}
+                  <rect x="25" y="130" width="270" height="50" rx="6" fill="#1B3A5C" opacity="0.6" />
+                  <path d="M 40 160 L 80 145 L 120 170 L 160 150 L 200 165 L 240 140 L 280 160" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: CORE MACRO CAPABILITIES */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        {/* Card 1 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-            </svg>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                MACRO MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Aggregate Insights</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Track broad capability trends across student blocks, training cohorts, or municipal initiatives. Understand collective strengths at scale without exposing private, individual identity details.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Aggregate Insights
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Track broad capability trends across student blocks, training cohorts, or municipal initiatives. Understand collective strengths at scale without exposing private, individual identity details.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                MACRO MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Resource Deployment</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Pinpoint exact systemic gaps in regional support structures. Deploy targeted development opportunities, local pathways, and mentor systems precisely where they are required most.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Resource Deployment
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Pinpoint exact systemic gaps in regional support structures. Deploy targeted development opportunities, local pathways, and mentor systems precisely where they are required most.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                MACRO MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Ecosystem Health</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Evaluate the live alignment between active local roles, open community pathways, and the actual talent base of your region to build a highly synchronized workforce.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Ecosystem Health
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Evaluate the live alignment between active local roles, open community pathways, and the actual talent base of your region to build a highly synchronized workforce.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: ENTERPRISE DATA GOVERNANCE */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Enterprise-Grade Regional Coordination
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Privacy-Preserving Architecture
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                The console operates entirely on aggregate capability metrics. It strips away personally identifiable tracking information to compile community patterns, ensuring your organization remains fully compliant with modern data protection standards while gaining rich regional insights.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              The console operates entirely on aggregate capability metrics. It strips away personally identifiable tracking information to compile community patterns, ensuring your organization remains fully compliant with modern data protection standards while gaining rich regional insights.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Precision Labor-Market Mapping
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Move beyond standard regional vacancy data. CAS maps real-time emerging capability sets against specific municipal project needs and open training pathways, giving workforce coordinators an accurate radar for local investment.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Move beyond standard regional vacancy data. CAS maps real-time emerging capability sets against specific municipal project needs and open training pathways, giving workforce coordinators an accurate radar for local investment.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Inter-Agency Synergy
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Break down regional communication silos. The console provides a unified, secure data layer that allows schools, non-profits, enterprise partners, and public services to view the same regional capability map and coordinate supportive handoffs seamlessly.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Break down regional communication silos. The console provides a unified, secure data layer that allows schools, non-profits, enterprise partners, and public services to view the same regional capability map and coordinate supportive handoffs seamlessly.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1355,165 +1339,154 @@ function CommunityIntelligenceConsolePage() {
 function ElevIqAriaPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        {/* Left Column Content */}
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            INTERACTIVE REFLECTION PARTNER
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            ElevIQ ARIA™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Human-centered guidance designed to elevate personal agency and deep reflection.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            ElevIQ ARIA™ acts as an interactive reflection collaborator within the participant framework. It works directly alongside individuals to help draw out unique life experiences, unmapped community contributions, and non-linear capabilities that traditional resumes and rigid testing models completely miss.
-          </p>
-        </div>
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                INTERACTIVE REFLECTION PARTNER
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                ElevIQ ARIA™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Human-centered guidance designed to elevate personal agency and deep reflection.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                ElevIQ ARIA™ acts as an interactive reflection collaborator within the participant framework. It works directly alongside individuals to help draw out unique life experiences, unmapped community contributions, and non-linear capabilities that traditional resumes and rigid testing models completely miss.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Experience ARIA Demo
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            {/* Dark background panel */}
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <circle cx="160" cy="100" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
+                  <circle cx="160" cy="100" r="45" fill="none" stroke="#E2725B" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
 
-            {/* Abstract geometric constellations/lines */}
-            <circle cx="160" cy="120" r="80" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.08" />
-            <circle cx="160" cy="120" r="50" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.4" />
+                  <line x1="90" y1="65" x2="160" y2="40" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="160" y1="40" x2="230" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="230" y1="65" x2="230" y2="135" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="230" y1="135" x2="160" y2="160" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="160" y1="160" x2="90" y2="135" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="90" y1="135" x2="90" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
 
-            {/* Interconnected node lines */}
-            <line x1="80" y1="80" x2="160" y2="50" stroke="#0FA88A" strokeWidth="2" opacity="0.75" />
-            <line x1="160" y1="50" x2="240" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            <line x1="240" y1="80" x2="240" y2="160" stroke="#0FA88A" strokeWidth="2" opacity="0.75" />
-            <line x1="240" y1="160" x2="160" y2="190" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            <line x1="160" y1="190" x2="80" y2="160" stroke="#0FA88A" strokeWidth="2" opacity="0.75" />
-            <line x1="80" y1="160" x2="80" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
+                  <circle cx="90" cy="65" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="160" cy="40" r="6" fill="#E2725B" />
+                  <circle cx="230" cy="65" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="230" cy="135" r="6" fill="#E2725B" />
+                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="90" cy="135" r="6" fill="#E2725B" />
 
-            <line x1="80" y1="80" x2="240" y2="160" stroke="#0FA88A" strokeWidth="1" opacity="0.4" />
-            <line x1="160" y1="50" x2="160" y2="190" stroke="#0FA88A" strokeWidth="1.5" opacity="0.5" />
-            <line x1="240" y1="80" x2="80" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.2" />
-
-            {/* Glowing nodes */}
-            <circle cx="80" cy="80" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="160" cy="50" r="6" fill="#0FA88A" />
-            <circle cx="240" cy="80" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="240" cy="160" r="6" fill="#0FA88A" />
-            <circle cx="160" cy="190" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="80" cy="160" r="6" fill="#0FA88A" />
-
-            {/* Center core reflection ring */}
-            <circle cx="160" cy="120" r="14" fill="#0FA88A" opacity="0.2" />
-            <circle cx="160" cy="120" r="7" fill="#0FA88A" />
-            <circle cx="160" cy="120" r="3" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
+                  <circle cx="160" cy="100" r="12" fill="#E2725B" opacity="0.2" />
+                  <circle cx="160" cy="100" r="6" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THREE CORE CAPABILITY MODULES */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        {/* Card 1 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ARIA MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Contextual Discovery</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Engages participants in thoughtful, open-ended dialogues to safely capture specialized skills, personal contexts, and real-world problems they have solved.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Contextual Discovery
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Engages participants in thoughtful, open-ended dialogues to safely capture specialized skills, personal contexts, and real-world problems they have solved.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11 4a2 2 0 114 0v1a2 2 0 002 2h3a1 1 0 011 1v3a2 2 0 002 2 2 2 0 110 4 2 2 0 00-2 2v3a1 1 0 01-1 1h-3a2 2 0 00-2 2 2 2 0 11-4 0 2 2 0 00-2-2H7a1 1 0 01-1-1v-3a2 2 0 00-2-2 2 2 0 110-4 2 2 0 002-2V7a1 1 0 011-1h3a2 2 0 002-2V4z" />
-            </svg>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ARIA MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Collaborative Structuring</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Helps translate deep personal reflection into organized, visible capability points that can be seamlessly shared with advisors and workforce mentors.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Collaborative Structuring
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Helps translate deep personal reflection into organized, visible capability points that can be seamlessly shared with advisors and workforce mentors.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ARIA MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Agency Protection</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Operates purely as a supportive mirror for the user, ensuring the data generation process remains entirely driven by the participant's own voice.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Agency Protection
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Operates purely as a supportive mirror for the user, ensuring the data generation process remains entirely driven by the participant's own voice.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: THE DEPTH & SHIFT EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             How ARIA Reframes Personal Capability
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Qualitative Data Layer
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Instead of forcing users to fit into standardized multiple-choice slots, ARIA allows for unstructured, natural language inputs. It formats stories into professional, legible statements while preserving the user's authentic voice.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Instead of forcing users to fit into standardized multiple-choice slots, ARIA allows for unstructured, natural language inputs. It formats stories into professional, legible statements while preserving the user's authentic voice.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Uncovering Hidden Strengths
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Many vital workforce skills—like community organization, crisis management, or multilingual navigation—go undocumented. ARIA prompts participants intentionally to reveal these hidden talents.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Many vital workforce skills—like community organization, crisis management, or multilingual navigation—go undocumented. ARIA prompts participants intentionally to reveal these hidden talents.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero-Score Philosophy
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                ARIA never grades, scores, or passes judgment. By removing predictive testing logic, it creates a safe environment that encourages complete honesty and deep, unstressed self-discovery.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              ARIA never grades, scores, or passes judgment. By removing predictive testing logic, it creates a safe environment that encourages complete honesty and deep, unstressed self-discovery.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1521,173 +1494,149 @@ function ElevIqAriaPage() {
 function ElevIqClaraPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        {/* Left Column Content */}
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            ADVISOR & COACH WORKSPACE
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            ElevIQ CLARA™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Empowering advisors and coaches with transparent, actionable context.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            ElevIQ CLARA™ is the dedicated workspace built specifically for frontline advisors, workforce coaches, and program administrators. Rather than hiding data behind black-box scoring systems or predictive automation, CLARA provides a clear, high-fidelity window into a participant's complete capability map and self-guided reflections.
-          </p>
-        </div>
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                ADVISOR & COACH WORKSPACE
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                ElevIQ CLARA™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Empowering advisors and coaches with transparent, actionable context.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                ElevIQ CLARA™ is the dedicated workspace built specifically for frontline advisors, workforce coaches, and program administrators. Rather than hiding data behind black-box scoring systems or predictive automation, CLARA provides a clear, high-fidelity window into a participant's complete capability map and self-guided reflections.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Request CLARA Access
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white border border-[var(--line)]" aria-hidden="true">
-            {/* White background panel */}
-            <rect x="0" y="0" width="320" height="240" fill="#FFFFFF" rx="16" />
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.95" />
+                  <rect x="10" y="10" width="300" height="30" rx="10" fill="#0F1B2D" />
+                  <circle cx="25" cy="25" r="4" fill="#0FA88A" />
+                  <circle cx="38" cy="25" r="4" fill="#FFFFFF" opacity="0.5" />
+                  <circle cx="51" cy="25" r="4" fill="#FFFFFF" opacity="0.5" />
 
-            {/* Collaboration graphic / Dashboard window */}
-            <rect x="20" y="25" width="280" height="190" rx="8" fill="#F5EFE6" stroke="#0F1B2D" strokeWidth="1.5" opacity="0.15" />
+                  <rect x="25" y="55" width="110" height="120" rx="6" fill="#1B3A5C" opacity="0.1" />
+                  <circle cx="80" cy="85" r="14" fill="#0FA88A" opacity="0.2" />
+                  <circle cx="80" cy="85" r="7" fill="#0FA88A" />
 
-            {/* Header bar within dashboard */}
-            <rect x="20" y="25" width="280" height="35" rx="8" fill="#0F1B2D" />
-            <circle cx="35" cy="42" r="4" fill="#0FA88A" />
-            <circle cx="47" cy="42" r="4" fill="#FFFFFF" opacity="0.5" />
-            <circle cx="59" cy="42" r="4" fill="#FFFFFF" opacity="0.5" />
-
-            {/* Title in dashboard header */}
-            <rect x="80" y="38" width="80" height="8" rx="4" fill="#FFFFFF" opacity="0.3" />
-
-            {/* Left box inside dashboard: Participant summary card */}
-            <rect x="35" y="75" width="110" height="125" rx="6" fill="#FFFFFF" stroke="#0F1B2D" strokeWidth="1" opacity="0.2" />
-            <circle cx="90" cy="105" r="16" fill="#EAF3F3" />
-            {/* Human head outline inside circle */}
-            <circle cx="90" cy="101" r="5" fill="#0FA88A" />
-            <path d="M 80 118 Q 90 110 100 118" stroke="#0FA88A" strokeWidth="2" fill="none" />
-            <rect x="50" y="135" width="80" height="6" rx="3" fill="#0F1B2D" opacity="0.5" />
-            <rect x="60" y="148" width="60" height="5" rx="2" fill="#6B7280" opacity="0.4" />
-            <rect x="45" y="165" width="90" height="20" rx="4" fill="#0FA88A" opacity="0.15" />
-            <rect x="55" y="172" width="70" height="6" rx="3" fill="#0FA88A" />
-
-            {/* Right box inside dashboard: Shared notes/activities logs */}
-            <rect x="160" y="75" width="125" height="125" rx="6" fill="#FFFFFF" stroke="#0F1B2D" strokeWidth="1" opacity="0.2" />
-            <line x1="175" y1="95" x2="270" y2="95" stroke="#0F1B2D" strokeWidth="2.5" opacity="0.7" />
-            <line x1="175" y1="110" x2="250" y2="110" stroke="#6B7280" strokeWidth="2" opacity="0.5" />
-
-            <circle cx="175" cy="135" r="4" fill="#0FA88A" />
-            <line x1="185" y1="135" x2="255" y2="135" stroke="#0FA88A" strokeWidth="2" />
-
-            <circle cx="175" cy="155" r="4" fill="#0F1B2D" opacity="0.4" />
-            <line x1="185" y1="155" x2="265" y2="155" stroke="#6B7280" strokeWidth="2" opacity="0.5" />
-
-            <circle cx="175" cy="175" r="4" fill="#0FA88A" />
-            <line x1="185" y1="175" x2="245" y2="175" stroke="#0FA88A" strokeWidth="2" />
-          </svg>
-        </div>
-      </section>
+                  <rect x="150" y="55" width="145" height="120" rx="6" fill="#1B3A5C" opacity="0.1" />
+                  <line x1="165" y1="75" x2="275" y2="75" stroke="#0F1B2D" strokeWidth="2" opacity="0.7" />
+                  <line x1="165" y1="95" x2="250" y2="95" stroke="#0FA88A" strokeWidth="2" />
+                  <line x1="165" y1="115" x2="280" y2="115" stroke="#0F1B2D" strokeWidth="1.5" opacity="0.5" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THREE CORE CAPABILITY MODULES */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        {/* Card 1 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CLARA MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Deep-Dive Insights</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Review a participant's qualitative reflections, articulated goals, and situational contexts side-by-side to understand their true baseline.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Deep-Dive Insights
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Review a participant's qualitative reflections, articulated goals, and situational contexts side-by-side to understand their true baseline.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CLARA MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Targeted Collaboration</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Co-create actionable development plans, leave supportive guidance notes, and track individual progress milestones inside a shared secure interface.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Targeted Collaboration
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Co-create actionable development plans, leave supportive guidance notes, and track individual progress milestones inside a shared secure interface.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z" />
-            </svg>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CLARA MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Cohort Management</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Seamlessly organize student blocks, training groups, or pilot cohorts to ensure no participant slips through the cracks.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
-            Cohort Management
-          </h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Seamlessly organize student blocks, training groups, or pilot cohorts to ensure no participant slips through the cracks.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: THE DEPTH & SHIFT EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8" style={{ backgroundColor: '#EAF3F3' }}>
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Empowering Frontline Mentors
           </h3>
-        </div>
 
-        <div className="bg-white rounded-2xl p-8 border border-[#d2dfdf] shadow-sm grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Eliminating Blind Automation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                CLARA rejects algorithmic sorting. It provides human advisors with raw, unaltered participant reflections, eliminating the bias introduced by traditional automated resume filters.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              CLARA rejects algorithmic sorting. It provides human advisors with raw, unaltered participant reflections, eliminating the bias introduced by traditional automated resume filters.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 High-Fidelity Interaction Records
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Every note, collaborative pathway milestone, and advisor observation is saved chronologically, providing a comprehensive audit trail of personal development and supportive actions.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Every note, collaborative pathway milestone, and advisor observation is saved chronologically, providing a comprehensive audit trail of personal development and supportive actions.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Optimized Cohort Navigation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Track macro milestone progress across your entire deployment group simultaneously, allowing program managers to step in with individual care the moment momentum stalls.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Track macro milestone progress across your entire deployment group simultaneously, allowing program managers to step in with individual care the moment momentum stalls.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1696,132 +1645,134 @@ function CapabilitySignalsPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            DYNAMIC SKILL TRACKING
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Capability Signals™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            A dynamic, real-time alternative to flat resumes and static credentials.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Capabilities aren't static boxes to check—they are active, evolving behaviors. Capability Signals™ capture real-time indicators of an individual's strengths, emerging skills, and practical problem-solving capacities as they engage with training pathways and community projects.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                DYNAMIC SKILL TRACKING
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Capability Signals™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A dynamic, real-time alternative to flat resumes and static credentials.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Capabilities aren't static boxes to check—they are active, evolving behaviors. Capability Signals™ capture real-time indicators of an individual's strengths, emerging skills, and practical problem-solving capacities as they engage with training pathways and community projects.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Explore Signals Demo
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Dynamic line wave */}
-            <path d="M 30 120 Q 70 40 110 120 T 190 120 T 270 120" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
-            <path d="M 30 120 Q 70 60 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-            <path d="M 30 120 Q 70 80 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="5" opacity="0.15" />
-
-            {/* Grid ticks / nodes */}
-            <circle cx="110" cy="120" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="190" cy="120" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="70" cy="70" r="4" fill="#0FA88A" />
-            <circle cx="150" cy="170" r="4" fill="#FFFFFF" opacity="0.5" />
-            <circle cx="230" cy="70" r="4" fill="#0FA88A" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#0F1B2D" opacity="0.9" />
+                  <path d="M 30 100 Q 70 40 110 100 T 190 100 T 270 100" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.15" />
+                  <path d="M 30 100 Q 70 55 110 100 T 190 100 T 270 100" fill="none" stroke="#E2725B" strokeWidth="2.5" />
+                  <circle cx="110" cy="100" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="190" cy="100" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="70" cy="60" r="4" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Reflective Signals</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Captured directly from the participant's continuous self-assessments, contextual milestones, and self-guided workspace inputs.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SIGNAL TYPE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Reflective Signals</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Captured directly from the participant's continuous self-assessments, contextual milestones, and self-guided workspace inputs.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Verified Action</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Validated indicators generated through active milestone completions, peer support roles, and verified community-level project work.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SIGNAL TYPE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Verified Action</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Validated indicators generated through active milestone completions, peer support roles, and verified community-level project work.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Advisor Observations</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Qualitative validation inputs from trusted program coaches, capturing soft skills, leadership traits, and accountability indicators.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SIGNAL TYPE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Observations</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Qualitative validation inputs from trusted program coaches, capturing soft skills, leadership traits, and accountability indicators.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Why Dynamic Signals Matter
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Capturing Hidden Growth
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Traditional systems miss skills gained during non-linear lifepaths. Signals track behavioral milestones, giving visibility to continuous personal progress.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Traditional systems miss skills gained during non-linear lifepaths. Signals track behavioral milestones, giving visibility to continuous personal progress.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Real-Time Skill Validation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Eliminates outdated annual check-ins. Signals adapt dynamically as the participant works, ensuring profile validity.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Eliminates outdated annual check-ins. Signals adapt dynamically as the participant works, ensuring profile validity.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero Test-Stress Framework
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                No multiple-choice tests or clinical scores. Signals gather data organically from real actions, protecting participant dignity.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              No multiple-choice tests or clinical scores. Signals gather data organically from real actions, protecting participant dignity.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1830,134 +1781,135 @@ function AlignmentSnapshotPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            HIGH-FIDELITY PROFILE VIEWER
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Alignment Snapshot™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            A comprehensive, high-fidelity visual summary of a participant’s dynamic capability landscape.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            The Alignment Snapshot™ brings together qualitative reflections, advisor notes, and dynamic capability signals into a single, clean visual dashboard. It allows trusted mentors and regional partners to see a participant's complete strengths immediately without reducing them to a single metric.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                HIGH-FIDELITY PROFILE VIEWER
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Alignment Snapshot™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A comprehensive, high-fidelity visual summary of a participant’s dynamic capability landscape.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Alignment Snapshot™ brings together qualitative reflections, advisor notes, and dynamic capability signals into a single, clean visual dashboard. It allows trusted mentors and regional partners to see a participant's complete strengths immediately without reducing them to a single metric.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  View Sample Snapshot
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Visual Summary Grid */}
-            <rect x="25" y="45" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <rect x="170" y="45" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <rect x="25" y="135" width="270" height="60" rx="6" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-
-            {/* Elements */}
-            <circle cx="45" cy="75" r="10" fill="#0FA88A" />
-            <line x1="65" y1="75" x2="130" y2="75" stroke="#FFFFFF" strokeWidth="3" opacity="0.5" />
-
-            <circle cx="190" cy="75" r="10" fill="#FFFFFF" opacity="0.3" />
-            <line x1="210" y1="75" x2="275" y2="75" stroke="#0FA88A" strokeWidth="3" />
-
-            <line x1="45" y1="165" x2="275" y2="165" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="160" cy="165" r="6" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.9" />
+                  <rect x="25" y="30" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.2" />
+                  <rect x="170" y="30" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.2" />
+                  <rect x="25" y="105" width="270" height="70" rx="6" fill="#1B3A5C" opacity="0.15" />
+                  <circle cx="45" cy="60" r="8" fill="#E2725B" />
+                  <line x1="65" y1="60" x2="130" y2="60" stroke="#1B3A5C" strokeWidth="2.5" />
+                  <line x1="45" y1="140" x2="275" y2="140" stroke="#E2725B" strokeWidth="2.5" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Qualitative Overlay</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Displays the participant's authentic voice, personal goals, and self-guided reflections right at the top of the interface.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SNAPSHOT FEATURE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Qualitative Overlay</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Displays the participant's authentic voice, personal goals, and self-guided reflections right at the top of the interface.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Signal Aggregation</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Maps verified action indicators and dynamic capability tracking patterns onto an easy-to-read layout framework.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SNAPSHOT FEATURE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Signal Aggregation</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Maps verified action indicators and dynamic capability tracking patterns onto an easy-to-read layout framework.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Advisor Verification Space</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            A dedicated component housing qualitative coaching validation notes, milestone updates, and collaborative goals.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SNAPSHOT FEATURE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Verification Space</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              A dedicated component housing qualitative coaching validation notes, milestone updates, and collaborative goals.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             A Human-Centered Vision Document
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Context Over Scoring
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Replaces unfair predictive algorithms with complete personal context, honoring individual agency.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Replaces unfair predictive algorithms with complete personal context, honoring individual agency.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Secure Share Controls
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Built with strict data privacy rules. Participants control when, how, and with whom their active profile view is shared.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Built with strict data privacy rules. Participants control when, how, and with whom their active profile view is shared.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Actionable Guidance Foundation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Serves as a perfect launching pad for advisors to co-create tailored development tracks and career planning models.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Serves as a perfect launching pad for advisors to co-create tailored development tracks and career planning models.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -1966,132 +1918,132 @@ function AlignmentPathwaysPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            DYNAMIC TRAJECTORY PLANNING
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Alignment Pathways™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Individualized, dynamic roadmaps connecting capability insight to practical workforce tracks.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Traditional mapping systems force users onto rigid, linear paths. Alignment Pathways™ leverage real-time capability insights to suggest adaptive, flexible routes through educational blocks, specialized training modules, and regional community pilots.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                DYNAMIC TRAJECTORY PLANNING
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Alignment Pathways™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Individualized, dynamic roadmaps connecting capability insight to practical workforce tracks.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Traditional mapping systems force users onto rigid, linear paths. Alignment Pathways™ leverage real-time capability insights to suggest adaptive, flexible routes through educational blocks, specialized training modules, and regional community pilots.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Explore Pathways
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Interconnecting pathways/routes */}
-            <path d="M 30 60 C 100 60, 100 180, 170 180 S 240 60, 300 60" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            <path d="M 30 180 C 100 180, 100 60, 170 60 S 240 180, 300 180" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
-            <path d="M 30 120 H 300" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.6" />
-
-            {/* Intersecting path nodes */}
-            <circle cx="30" cy="180" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="100" cy="120" r="5" fill="#0FA88A" />
-            <circle cx="170" cy="60" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="240" cy="120" r="5" fill="#0FA88A" />
-            <circle cx="300" cy="180" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <path d="M 30 150 C 100 150, 100 50, 170 50 S 240 150, 300 150" fill="none" stroke="#E2725B" strokeWidth="2.5" />
+                  <circle cx="30" cy="150" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="170" cy="50" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="300" cy="150" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Adaptive Route Adjustments</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Pathways automatically update and suggest new steps as participants log fresh capability signals or adjust personal goals.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PATHWAY FEATURE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Adaptive Route Adjustments</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Pathways automatically update and suggest new steps as participants log fresh capability signals or adjust personal goals.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Hyper-Local Integration</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Directly connects pathway roadmaps with active localized municipal initiatives, training centers, and regional partners.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PATHWAY FEATURE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Hyper-Local Integration</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Directly connects pathway roadmaps with active localized municipal initiatives, training centers, and regional partners.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Milestone Tracking</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Breaks broad, overwhelming long-term milestones down into manageable, self-paced progress steps to maintain growth momentum.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PATHWAY FEATURE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Milestone Tracking</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Breaks broad, overwhelming long-term milestones down into manageable, self-paced progress steps to maintain growth momentum.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Unlocking Non-Linear Growth
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Recommending, Never Dictating
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                The system values participant choices. It acts as an advisory roadmap, leaving final career/learning agency completely with the user.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              The system values participant choices. It acts as an advisory roadmap, leaving final career/learning agency completely with the user.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Modular Skill Assembly
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Focuses on stackable, practical blocks. Participants gather micro-milestones across different sectors to build custom strengths.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Focuses on stackable, practical blocks. Participants gather micro-milestones across different sectors to build custom strengths.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Advisor View Inclusion
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Pathway maps link directly to the coach interface, allowing mentors to review, discuss, and refine milestones during touchpoints.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Pathway maps link directly to the coach interface, allowing mentors to review, discuss, and refine milestones during touchpoints.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -2100,137 +2052,136 @@ function RoleAlignmentPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            HUMAN-CENTERED ECOSYSTEM FIT
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Role Alignment
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Bridging the gap between individual capabilities and modern organizational requirements.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Role Alignment inside CAS steps completely away from automated resume keyword parsing and cold compatibility scoring. Instead, it creates a transparent context ecosystem where organizations can cleanly express the actual capability requirements of a position, and participants can seamlessly align their mapped strengths against them.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                HUMAN-CENTERED ECOSYSTEM FIT
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Role Alignment
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Bridging the gap between individual capabilities and modern organizational requirements.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Role Alignment inside CAS steps completely away from automated resume keyword parsing and cold compatibility scoring. Instead, it creates a transparent context ecosystem where organizations can cleanly express the actual capability requirements of a position, and participants can seamlessly align their mapped strengths against them.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Request Role Alignment Demo
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Intersecting Aligned Containers */}
-            <rect x="35" y="60" width="100" height="120" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <rect x="185" y="60" width="100" height="120" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.3" />
-
-            {/* Aligned connector tracks */}
-            <line x1="135" y1="90" x2="185" y2="90" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
-            <line x1="135" y1="120" x2="185" y2="120" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-            <line x1="135" y1="150" x2="185" y2="150" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
-
-            <circle cx="135" cy="90" r="3" fill="#0FA88A" />
-            <circle cx="185" cy="90" r="3" fill="#0FA88A" />
-
-            <circle cx="135" cy="120" r="3" fill="#FFFFFF" />
-            <circle cx="185" cy="120" r="3" fill="#FFFFFF" />
-
-            <circle cx="135" cy="150" r="3" fill="#0FA88A" />
-            <circle cx="185" cy="150" r="3" fill="#0FA88A" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1M9 11l3 3m0 0l3-3m-3 3V8" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="25" y="40" width="100" height="110" rx="8" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
+                  <rect x="195" y="40" width="100" height="110" rx="8" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
+                  <line x1="125" y1="70" x2="195" y2="70" stroke="#0FA88A" strokeWidth="2" strokeDasharray="3 3" />
+                  <line x1="125" y1="110" x2="195" y2="110" stroke="#0FA88A" strokeWidth="2" strokeDasharray="3 3" />
+                  <circle cx="125" cy="70" r="3" fill="#0FA88A" />
+                  <circle cx="195" cy="70" r="3" fill="#0FA88A" />
+                  <circle cx="125" cy="110" r="3" fill="#0FA88A" />
+                  <circle cx="195" cy="110" r="3" fill="#0FA88A" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Capability Requirement Outlining</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Allows regional partner organizations to define active roles by required behavioral strengths and context needs rather than strict credentials.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ROLE MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Capability Requirement Outlining</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Allows regional partner organizations to define active roles by required behavioral strengths and context needs rather than strict credentials.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Mutual Context View</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Provides a clean, collaborative view where a participant's snapshot and an organization's role framework can be evaluated side-by-side transparently.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ROLE MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Mutual Context View</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Provides a clean, collaborative view where a participant's snapshot and an organization's role framework can be evaluated side-by-side transparently.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Growth Focus Mapping</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Highlights areas for onboarding preparation, identifying exactly which training pathways can support a participant's long-term integration into the role.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                ROLE MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Growth Focus Mapping</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Highlights areas for onboarding preparation, identifying exactly which training pathways can support a participant's long-term integration into the role.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Moving Past Binary Selection
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Scrubbing Algorithmic Rejection
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Rejects automated screening filters. The alignment framework ensures individual context is always honored, creating room for overlooked talent.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Rejects automated screening filters. The alignment framework ensures individual context is always honored, creating room for overlooked talent.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Targeted Onboarding Insight
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Identifies development focuses early, allowing companies to tailor proactive workspace support from the very first day.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Identifies development focuses early, allowing companies to tailor proactive workspace support from the very first day.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Ecosystem Balance
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Connects regional talent development strategies cleanly with shifting corporate demands, keeping the community network fully synchronized.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Connects regional talent development strategies cleanly with shifting corporate demands, keeping the community network fully synchronized.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -2239,129 +2190,132 @@ function DevelopmentOpportunitiesPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            ACTIONABLE SKILL GROWTH
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Development Opportunities
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Connecting capability alignment maps with personalized growth ecosystems.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Discovering current capabilities is only the first step. The Development Opportunities module seamlessly bridges the gap between where a participant stands today and where they want to grow, highlighting actionable pathways, local coursework, and targeted mentorship programs.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                ACTIONABLE SKILL GROWTH
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Development Opportunities
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Connecting capability alignment maps with personalized growth ecosystems.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Discovering current capabilities is only the first step. The Development Opportunities module seamlessly bridges the gap between where a participant stands today and where they want to grow, highlighting actionable pathways, local coursework, and targeted mentorship programs.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Explore Opportunities
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Abstract growth shapes/blocks */}
-            <rect x="50" y="160" width="50" height="30" rx="4" fill="#0FA88A" opacity="0.4" />
-            <rect x="110" y="130" width="50" height="60" rx="4" fill="#FFFFFF" opacity="0.15" />
-            <rect x="170" y="90" width="50" height="100" rx="4" fill="#0FA88A" />
-            <rect x="230" y="60" width="50" height="130" rx="4" fill="#FFFFFF" opacity="0.6" />
-
-            {/* Growth arrow curve */}
-            <path d="M 40 200 Q 135 150 255 75" fill="none" stroke="#0FA88A" strokeWidth="2.5" strokeDasharray="4 4" />
-            <polygon points="255,75 245,76 252,83" fill="#0FA88A" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="40" y="130" width="45" height="40" rx="4" fill="#0FA88A" opacity="0.5" />
+                  <rect x="100" y="100" width="45" height="70" rx="4" fill="#FFFFFF" opacity="0.3" />
+                  <rect x="160" y="70" width="45" height="100" rx="4" fill="#0FA88A" />
+                  <rect x="220" y="40" width="45" height="130" rx="4" fill="#FFFFFF" opacity="0.8" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Targeted Training Integration</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Directly maps specific educational blocks and technical skills workshops onto the user's active capability timeline.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                GROWTH MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Targeted Training Integration</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Directly maps specific educational blocks and technical skills workshops onto the user's active capability timeline.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Ecosystem Project Sync</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Connects participants with localized community initiatives, regional pilots, and real-world micro-assignments to build stackable strengths.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                GROWTH MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Ecosystem Project Sync</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Connects participants with localized community initiatives, regional pilots, and real-world micro-assignments to build stackable strengths.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Adaptive Skill Recommendations</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Dynamically flags relevant upskilling modules based on the participant's self-guided reflections and evolving goals.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                GROWTH MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Adaptive Skill Recommendations</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Dynamically flags relevant upskilling modules based on the participant's self-guided reflections and evolving goals.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Proactive Personal Advancements
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Purpose-Driven Learning
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Replaces generic curriculum tracks with highly targeted growth suggestions tailored to the participant's actual trajectory.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Replaces generic curriculum tracks with highly targeted growth suggestions tailored to the participant's actual trajectory.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Continuous Optimization
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                As new skills are verified, the development module automatically updates, offering fresh, specialized paths.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              As new skills are verified, the development module automatically updates, offering fresh, specialized paths.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Advisor Collaboration Support
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Allows mentors to directly tag, suggest, and track growth opportunities alongside the individual in real time.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Allows mentors to directly tag, suggest, and track growth opportunities alongside the individual in real time.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -2370,136 +2324,138 @@ function SupportConnectionsPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            HUMAN-CENTERED GUIDE HUBS
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Support Connections
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Linking participants directly with trusted frontline networks and regional advisors.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            No one achieves alignment in isolation. The Support Connections space is the collaborative nerve center of the platform, bringing together frontline mentors, workforce coaches, and community support systems into a single transparent interface.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+                HUMAN-CENTERED GUIDE HUBS
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Support Connections
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Linking participants directly with trusted frontline networks and regional advisors.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                No one achieves alignment in isolation. The Support Connections space is the collaborative nerve center of the platform, bringing together frontline mentors, workforce coaches, and community support systems into a single transparent interface.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Access Connections Hub
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Interconnected human node dots (Constellation style) */}
-            <circle cx="160" cy="120" r="15" fill="#0FA88A" opacity="0.3" />
-            <circle cx="160" cy="120" r="6" fill="#0FA88A" />
-
-            <circle cx="80" cy="80" r="5" fill="#FFFFFF" />
-            <circle cx="240" cy="80" r="5" fill="#FFFFFF" />
-            <circle cx="80" cy="160" r="5" fill="#FFFFFF" />
-            <circle cx="240" cy="160" r="5" fill="#FFFFFF" />
-
-            <line x1="160" y1="120" x2="80" y2="80" stroke="#0FA88A" strokeWidth="2" />
-            <line x1="160" y1="120" x2="240" y2="80" stroke="#0FA88A" strokeWidth="2" />
-            <line x1="160" y1="120" x2="80" y2="160" stroke="#0FA88A" strokeWidth="2" />
-            <line x1="160" y1="120" x2="240" y2="160" stroke="#0FA88A" strokeWidth="2" />
-
-            <line x1="80" y1="80" x2="240" y2="80" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" strokeDasharray="3 3" />
-            <line x1="80" y1="160" x2="240" y2="160" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" strokeDasharray="3 3" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PRODUCT DEVELOPMENT PREVIEW
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <circle cx="160" cy="100" r="15" fill="#0FA88A" opacity="0.3" />
+                  <circle cx="160" cy="100" r="6" fill="#0FA88A" />
+                  <circle cx="80" cy="60" r="5" fill="#FFFFFF" />
+                  <circle cx="240" cy="60" r="5" fill="#FFFFFF" />
+                  <circle cx="80" cy="140" r="5" fill="#FFFFFF" />
+                  <circle cx="240" cy="140" r="5" fill="#FFFFFF" />
+                  <line x1="160" y1="100" x2="80" y2="60" stroke="#0FA88A" strokeWidth="2" />
+                  <line x1="160" y1="100" x2="240" y2="60" stroke="#0FA88A" strokeWidth="2" />
+                  <line x1="160" y1="100" x2="80" y2="140" stroke="#0FA88A" strokeWidth="2" />
+                  <line x1="160" y1="100" x2="240" y2="140" stroke="#0FA88A" strokeWidth="2" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Direct Mentorship Windows</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            A secure communication link connecting participants to regional coaches for high-fidelity guidance touchpoints.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SUPPORT MODULE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Direct Mentorship Windows</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              A secure communication link connecting participants to regional coaches for high-fidelity guidance touchpoints.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Resource Network Mapping</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Provides a clean directory of localized community support services, childcare networks, and transport assistance tools.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SUPPORT MODULE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Resource Network Mapping</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Provides a clean directory of localized community support services, childcare networks, and transport assistance tools.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Shared Progress Workspaces</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Allows users and advisors to co-sign collaborative goals, build roadmap targets, and update progress timelines transparently.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                SUPPORT MODULE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Shared Progress Workspaces</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Allows users and advisors to co-sign collaborative goals, build roadmap targets, and update progress timelines transparently.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Ecosystem Care Coordination
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Eliminating Siloed Guidance
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Creates a unified collaborative layer so all approved support agencies can check progress milestones concurrently.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Creates a unified collaborative layer so all approved support agencies can check progress milestones concurrently.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Dignified Interaction History
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Saves collaborative goals chronologically, moving far away from rigid, clinical case-management logs.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Saves collaborative goals chronologically, moving far away from rigid, clinical case-management logs.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Participant Sovereignty Hub
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                The user remains completely in charge of who belongs in their mentor network, controlling access permissions directly.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              The user remains completely in charge of who belongs in their mentor network, controlling access permissions directly.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -2508,133 +2464,131 @@ function ExperienceContextPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            BEYOND STALE BACKGROUNDS
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Experience & Context
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Honoring the complete human journey by capturing unmapped life contexts.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Standard platforms only look at official employment titles, completely ignoring the rich skills developed outside traditional structures. The Experience & Context layer allows individuals to capture non-linear life pathways, proving that real capability exists far beyond formal resumes.
-          </p>
-        </div>
-
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Multi-layered grids / Context shapes */}
-            <rect x="35" y="45" width="110" height="70" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.1" />
-            <rect x="175" y="45" width="110" height="70" rx="8" fill="#0FA88A" opacity="0.25" stroke="#0FA88A" strokeWidth="1.5" />
-            <rect x="35" y="130" width="250" height="65" rx="8" fill="#1B3A5C" opacity="0.4" stroke="#FFFFFF" strokeWidth="1.5" strokeOpacity="0.2" />
-
-            {/* Inner details */}
-            <line x1="50" y1="70" x2="130" y2="70" stroke="#FFFFFF" strokeWidth="3" opacity="0.5" />
-            <line x1="50" y1="85" x2="110" y2="85" stroke="#FFFFFF" strokeWidth="2" opacity="0.3" />
-
-            <line x1="190" y1="70" x2="270" y2="70" stroke="#0FA88A" strokeWidth="3" />
-
-            <circle cx="210" cy="160" r="10" fill="#0FA88A" />
-            <line x1="60" y1="160" x2="180" y2="160" stroke="#FFFFFF" strokeWidth="3" opacity="0.4" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Non-Linear Path Tracking</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Provides natural workspaces to easily document volunteer leadership, family caregiving, community organization, and independent problem-solving.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Situational Reality Mapping</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Captures structural realities and regional environments so advisors fully understand a participant's baseline context.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Qualitative Nuance Gathering</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Uses self-guided textual prompts to draw out deep, authentic personal stories rather than sterile chronological boxes.
-          </p>
-        </div>
-      </section>
-
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
-            Redefining Talent baselines
-          </h3>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                BEYOND STALE BACKGROUNDS
               </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Experience & Context
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Honoring the complete human journey by capturing unmapped life contexts.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Standard platforms only look at official employment titles, completely ignoring the rich skills developed outside traditional structures. The Experience & Context layer allows individuals to capture non-linear life pathways, proving that real capability exists far beyond formal resumes.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Capture Context
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="25" y="30" width="110" height="60" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" />
+                  <rect x="175" y="30" width="110" height="60" rx="8" fill="#E2725B" opacity="0.3" stroke="#E2725B" strokeWidth="1.5" />
+                  <rect x="25" y="110" width="260" height="60" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1.5" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CONTEXT FEATURE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Non-Linear Path Tracking</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Provides natural workspaces to easily document volunteer leadership, family caregiving, community organization, and independent problem-solving.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CONTEXT FEATURE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Situational Reality Mapping</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Captures structural realities and regional environments so advisors fully understand a participant's baseline context.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CONTEXT FEATURE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Qualitative Nuance Gathering</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Uses self-guided textual prompts to draw out deep, authentic personal stories rather than sterile chronological boxes.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Redefining Talent Baselines
+          </h3>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Validating Hidden Assets
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Translates everyday problem-solving and lived experiences into dynamic, actionable capability metrics.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Translates everyday problem-solving and lived experiences into dynamic, actionable capability metrics.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Removing Outdated Credentials
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Focuses entirely on what an individual can actually do, bypassing the rigid bias of traditional background scanning.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Focuses entirely on what an individual can actually do, bypassing the rigid bias of traditional background scanning.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Fostering True Representation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Empowers marginalized or overlooked talent groups to present their backgrounds accurately and with pride.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Empowers marginalized or overlooked talent groups to present their backgrounds accurately and with pride.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -2643,130 +2597,132 @@ function LifeVectorPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
-        <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
-            LONG-TERM TRAJECTORY HEURISTICS
-          </span>
-          <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-            Life Vector™
-          </h2>
-          <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Mapping the direction and long-term momentum of personal growth frameworks.
-          </p>
-          <p className="text-sm leading-relaxed text-white/75">
-            Growth is a direction, not a destination. The Life Vector™ module visualizes the active momentum of a participant's collective learning curves, milestone accomplishments, and evolving pathways, helping long-term planning remain perfectly aligned with personal agency.
-          </p>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                LONG-TERM TRAJECTORY HEURISTICS
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Life Vector™
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Mapping the direction and long-term momentum of personal growth frameworks.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Growth is a direction, not a destination. The Life Vector™ module visualizes the active momentum of a participant's collective learning curves, milestone accomplishments, and evolving pathways, helping long-term planning remain perfectly aligned with personal agency.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  View Life Vector Demo
+                </Link>
+              </div>
+            </div>
 
-        <div className="flex justify-center items-center p-4">
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-            <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-            {/* Coordinate grid */}
-            <line x1="30" y1="210" x2="290" y2="210" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-            <line x1="30" y1="30" x2="30" y2="210" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-
-            {/* Flow Vector curves */}
-            <path d="M 30 210 Q 120 180 180 100 T 290 40" fill="none" stroke="#0FA88A" strokeWidth="3" />
-            <path d="M 30 210 Q 90 200 200 130 T 290 80" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.7" />
-
-            <circle cx="180" cy="100" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-            <circle cx="290" cy="40" r="6" fill="#0FA88A" />
-          </svg>
-        </div>
-      </section>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    CONFIGURED SAMPLE ENVIRONMENT
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                </div>
+                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <line x1="30" y1="170" x2="290" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
+                  <line x1="30" y1="30" x2="30" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
+                  <path d="M 30 170 Q 120 140 180 80 T 290 30" fill="none" stroke="#E2725B" strokeWidth="3" />
+                  <circle cx="290" cy="30" r="6" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Active Momentum Analysis</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Aggregates continuous capability signals to visually trace the trajectory of an individual's emerging strengths over time.
-          </p>
-        </div>
+        </section>
+      </ScrollReveal>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
+      {/* SECTION 2: THREE CORE MODULES */}
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                VECTOR FEATURE 01
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Active Momentum Analysis</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Aggregates continuous capability signals to visually trace the trajectory of an individual's emerging strengths over time.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Long-Range Goal Orientation</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Maps macro-level personal aspirations onto localized workforce infrastructure, showing multiple viable growth avenues.
-          </p>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
-            </svg>
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                VECTOR FEATURE 02
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Long-Range Goal Orientation</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Maps macro-level personal aspirations onto localized workforce infrastructure, showing multiple viable growth avenues.
+            </p>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Dynamic Future Adaptations</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Automatically shifts trajectory options as the user gathers new capabilities, avoiding rigid professional lock-ins.
-          </p>
-        </div>
-      </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                VECTOR FEATURE 03
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Dynamic Future Adaptations</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Automatically shifts trajectory options as the user gathers new capabilities, avoiding rigid professional lock-ins.
+            </p>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION GRID */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Continuous Trajectory Tracking
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                01
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Focusing on Flow, Not Scores
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Completely wipes away static ranking systems, evaluating growth strictly as continuous individual movement.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Completely wipes away static ranking systems, evaluating growth strictly as continuous individual movement.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                02
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Visualizing Possibilities
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Gives individuals an inspiring, high-fidelity window into diverse sectors where their strengths can naturally cross-align.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Gives individuals an inspiring, high-fidelity window into diverse sectors where their strengths can naturally cross-align.
-            </p>
-          </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Strategic Support Insights
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Helps community networks anticipate future ecosystem training and funding allocations based on macro timeline directions.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Helps community networks anticipate future ecosystem training and funding allocations based on macro timeline directions.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3040,157 +2996,158 @@ function IndividualsHome() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
-      <section className="rounded-[32px] border border-[var(--line)] bg-[var(--surface)] p-[var(--panel-pad)] shadow-[var(--soft-shadow)] overflow-hidden">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          {/* Left Column Content */}
-          <div className="space-y-6">
-            <span className="inline-flex rounded-full border border-[var(--accent)] bg-[var(--accent-soft)] px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] font-bold">
-              A PLATFORM BUILT FOR YOUR JOURNEY
-            </span>
-            <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-[var(--ink)] md:text-5xl lg:text-6xl leading-[1.1]">
-              Your Capabilities Are More Than a Resume
-            </h2>
-            <p className="text-lg font-medium text-[var(--ink)]/90 leading-relaxed max-w-xl">
-              A dignified, private workspace to discover, verify, and own your professional strengths.
-            </p>
-            <p className="text-sm leading-relaxed text-[var(--muted)] max-w-xl">
-              Standard job applications limit you to employment dates and generic titles, ignoring the rich skills you have built through real-world life experience. The Capability Alignment System gives you a self-paced, secure environment to turn your unique personal stories into verified strengths, completely free from the stress of clinical testing.
-            </p>
-            <div className="flex flex-wrap gap-2.5 pt-2">
-              <Link
-                to="/individuals/how-it-works"
-                className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-              >
-                Explore Your Path
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-full border border-[var(--line)] bg-[var(--surface)] px-6 py-2.5 text-xs font-semibold text-[var(--ink)] transition hover:brightness-95"
-              >
-                Request Information
-              </Link>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            {/* Left Column Content */}
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                A PLATFORM BUILT FOR YOUR JOURNEY
+              </span>
+              <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Your Capabilities Are More Than a Resume
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A dignified, private workspace to discover, verify, and own your professional strengths.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
+                Standard job applications limit you to employment dates and generic titles, ignoring the rich skills you have built through real-world life experience. The Capability Alignment System gives you a self-paced, secure environment to turn your unique personal stories into verified strengths, completely free from the stress of clinical testing.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/individuals/how-it-works"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Explore Your Path
+                </Link>
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Request Information
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  {/* Grid lines */}
+                  <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="20" y1="80" x2="300" y2="80" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="20" y1="120" x2="300" y2="120" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="20" y1="160" x2="300" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="20" y1="200" x2="300" y2="200" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  
+                  <line x1="60" y1="20" x2="60" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="120" y1="20" x2="120" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="180" y1="20" x2="180" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="240" y1="20" x2="240" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+
+                  {/* Rising trajectory wave path */}
+                  <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="3" />
+                  <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="8" opacity="0.15" />
+
+                  {/* Coordinate nodes */}
+                  <circle cx="40" cy="180" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="100" cy="153" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="157" cy="98" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="218" cy="80" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="280" cy="60" r="6" fill="#E2725B" />
+                </svg>
+                {/* Sub-card decorative glass reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
             </div>
           </div>
-
-          {/* Right Column Media Graphic */}
-          <div className="flex justify-center items-center p-4">
-            <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md rounded-2xl bg-white/5 border border-white/10" aria-hidden="true">
-              <rect x="0" y="0" width="320" height="240" fill="#0F1B2D" rx="16" />
-              {/* Grid lines */}
-              <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="20" y1="80" x2="300" y2="80" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="20" y1="120" x2="300" y2="120" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="20" y1="160" x2="300" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="20" y1="200" x2="300" y2="200" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              
-              <line x1="60" y1="20" x2="60" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="120" y1="20" x2="120" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="180" y1="20" x2="180" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-              <line x1="240" y1="20" x2="240" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-
-              {/* Rising trajectory wave path */}
-              <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="var(--accent)" strokeWidth="3" />
-              <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="var(--accent)" strokeWidth="8" opacity="0.15" />
-
-              {/* Coordinate nodes */}
-              <circle cx="40" cy="180" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-              <circle cx="100" cy="153" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-              <circle cx="157" cy="98" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-              <circle cx="218" cy="80" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-              <circle cx="280" cy="60" r="6" fill="var(--accent)" />
-            </svg>
-          </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THE THREE SYSTEM GATEWAYS */}
-      <section className="grid gap-6 md:grid-cols-3">
-        {/* Card 1 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="font-mono text-xs font-bold text-[var(--ink)]">01. Log & Reflect</span>
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              YOUR EXPERIENCES
-            </span>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="font-mono text-xs font-bold text-[#0F1B2D]">01. Log & Reflect</span>
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                YOUR EXPERIENCES
+              </span>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Document your specialized life paths, family caregiving milestones, volunteer leadership, and independent problem-solving using intuitive, non-linear text logs.
+            </p>
           </div>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Document your specialized life paths, family caregiving milestones, volunteer leadership, and independent problem-solving using intuitive, non-linear text logs.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="font-mono text-xs font-bold text-[var(--ink)]">02. Format & Verify</span>
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              YOUR STRENGTHS
-            </span>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="font-mono text-xs font-bold text-[#0F1B2D]">02. Format & Verify</span>
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                YOUR STRENGTHS
+              </span>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Watch your qualitative personal entries translate seamlessly into professional Capability Signals™ that highlight your verified real-world execution capacity.
+            </p>
           </div>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Watch your qualitative personal entries translate seamlessly into professional Capability Signals™ that highlight your verified real-world execution capacity.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="font-mono text-xs font-bold text-[var(--ink)]">03. Share & Align</span>
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              YOUR OPPORTUNITIES
-            </span>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="font-mono text-xs font-bold text-[#0F1B2D]">03. Share & Align</span>
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                YOUR OPPORTUNITIES
+              </span>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Securely link your profile with regional upskilling coursework, community coaching groups, or corporate role matches whenever you decide the timing is right.
+            </p>
           </div>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Securely link your profile with regional upskilling coursework, community coaching groups, or corporate role matches whenever you decide the timing is right.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: INDIVIDUAL RIGHTS EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Structural Core Commitments to You
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Absolute Profile Sovereignty
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                You maintain absolute master ownership of your capability map. No automated algorithms can rank you, no employers can view your drafts, and you can revoke access permissions instantly.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              You maintain absolute master ownership of your capability map. No automated algorithms can rank you, no employers can view your drafts, and you can revoke access permissions instantly.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero Assessment Stress
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                There are no automated screening countdowns, confusing personality quizzes, or high-pressure tests. Data accumulates entirely through your own self-driven, verified lifestyle milestones.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              There are no automated screening countdowns, confusing personality quizzes, or high-pressure tests. Data accumulates entirely through your own self-driven, verified lifestyle milestones.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Permanent Lifelong Portability
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Your workspace portal belongs to you permanently. Even after successfully matching into a local role, your portal links remain active so you can log ongoing career momentum.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Your workspace portal belongs to you permanently. Even after successfully matching into a local role, your portal links remain active so you can log ongoing career momentum.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3361,157 +3318,140 @@ const InteractiveTimeline = () => {
 
 function IndividualsHowItWorks() {
   return (
-    <div className="font-sans text-[var(--ink)] space-y-16 py-8">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              THE PARTICIPANT PIPELINE
-            </span>
+    <div className="space-y-[var(--section-gap)]">
+      {/* SECTION 1: HERO BLOCK */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                THE PARTICIPANT PIPELINE
+              </span>
+              <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                How It Works
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                A dignified, self-paced framework built completely around your personal agency.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
+                Navigating your growth shouldn't feel like a stressful test. The Capability Alignment System (CAS) maps out a clear, supportive process that honors your lived experiences, transforms your stories into verified strengths, and connects you directly with regional opportunities—all while keeping you in absolute control of your data.
+              </p>
+            </div>
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-4 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <InteractiveTimeline />
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            How It Works
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            A dignified, self-paced framework built completely around your personal agency.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            Navigating your growth shouldn't feel like a stressful test. The Capability Alignment System (CAS) maps out a clear, supportive process that honors your lived experiences, transforms your stories into verified strengths, and connects you directly with regional opportunities—all while keeping you in absolute control of your data.
-          </p>
-        </div>
-        <div className="lg:col-span-5 flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <InteractiveTimeline />
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THE 8-CORE STEP PROGRESSION GRID */}
-      <section className="space-y-8">
-        <div className="text-center lg:text-left space-y-2">
-          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-[var(--accent)]">Step-by-Step Flow</span>
-          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-[var(--ink)]">The Capability Path</h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <ScrollReveal>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               num: "01",
-              title: "01. Self-Guided Reflection",
+              title: "Self-Guided Reflection",
               desc: "Begin with stress-free, unpaced workspace logs to document your specialized life experiences, caregiving milestones, and volunteer efforts."
             },
             {
               num: "02",
-              title: "02. Contextual Capture",
+              title: "Contextual Capture",
               desc: "Use intuitive textual prompts to detail real-world problems you have naturally solved, preserving your true, authentic voice."
             },
             {
               num: "03",
-              title: "03. Signal Formatting",
+              title: "Signal Formatting",
               desc: "Watch your qualitative personal stories convert into professional, dynamic indicators known as Capability Signals™."
             },
             {
               num: "04",
-              title: "04. Secure Storage",
+              title: "Secure Storage",
               desc: "Your emerging capability map is securely locked. You maintain absolute profile sovereignty and data ownership at all times."
             },
             {
               num: "05",
-              title: "05. Advisor Invitation",
+              title: "Advisor Invitation",
               desc: "Choose exactly when to grant secure viewing access to trusted community coaches or frontline workforce mentors."
             },
             {
               num: "06",
-              title: "06. Pathway Mapping",
+              title: "Pathway Mapping",
               desc: "Co-create flexible Alignment Pathways™ that suggest targeted routes through local educational blocks and training modules."
             },
             {
               num: "07",
-              title: "07. Mutual Role Alignment",
+              title: "Mutual Role Alignment",
               desc: "Evaluate active regional positions side-by-side with your profile context, bypassing biased, automated resume keyword filters."
             },
             {
               num: "08",
-              title: "08. Sustainable Last Mile",
+              title: "Sustainable Last Mile",
               desc: "Transition smoothly into your active role with continuous post-placement support and lifelong access to your guidance portal."
             }
-          ].map((card, i) => (
-            <motion.div
+          ].map((card) => (
+            <div
               key={card.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              whileHover={{ y: -6, boxShadow: "var(--panel-shadow)" }}
-              className="bg-[var(--surface)] rounded-2xl p-6 md:p-8 flex flex-col justify-between shadow-[var(--soft-shadow)] border border-[var(--line)] relative overflow-hidden transition-all duration-250"
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="space-y-4">
-                <span className="font-mono text-sm font-bold text-[var(--accent)] bg-[var(--accent-soft)] px-2.5 py-1 rounded-md inline-block">
-                  Step {card.num}
-                </span>
-                <h4 className="text-[var(--ink)] font-bold text-lg md:text-xl font-sans tracking-tight">
-                  {card.title.replace(/^\d+\.\s*/, '')}
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="font-mono text-xs font-bold text-[#0F1B2D]">Step {card.num}</span>
+                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                    PHASE {card.num}
+                  </span>
+                </div>
+                <h4 className="text-[#0F1B2D] font-bold text-base font-sans tracking-tight">
+                  {card.title}
                 </h4>
-                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans font-normal">
+                <p className="text-[#4B5563] text-xs leading-relaxed font-sans">
                   {card.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: DEEP ADVANCED EXPOSITION (BOTTOM HALF) */}
-      <section>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full bg-[var(--surface)] rounded-3xl p-8 md:p-14 lg:p-16 shadow-[var(--panel-shadow)] border border-[var(--line)] relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 w-full h-1.5 bg-[var(--accent)]" />
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+            Navigating Your Advanced Growth Pathways
+          </h3>
 
-          <div className="max-w-4xl mx-auto space-y-12">
-            <h3 className="text-center font-sans font-bold text-2xl md:text-3xl lg:text-4xl text-[var(--ink)] tracking-tight">
-              Navigating Your Advanced Growth Pathways
-            </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Adaptive Route Planning
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Explore individual Alignment Pathways™ that suggest flexible routes through educational blocks, local upskilling coursework, and community pilot programs. The roadmap dynamically updates and suggests fresh steps as your goals evolve.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-4">
-              <div className="space-y-4">
-                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
-                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
-                  Adaptive Route Planning
-                </h4>
-                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
-                  Explore individual Alignment Pathways™ that suggest flexible routes through educational blocks, local upskilling coursework, and community pilot programs. The roadmap dynamically updates and suggests fresh steps as your goals evolve.
-                </p>
-              </div>
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Mutual Role Alignment
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Evaluate open regional positions side-by-side with your active capability profile. Organizations cleanly express what a position requires, and you choose when to share your context—eliminating the bias of cold, automated resume filters.
+              </p>
+            </div>
 
-              <div className="space-y-4">
-                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
-                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
-                  Mutual Role Alignment
-                </h4>
-                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
-                  Evaluate open regional positions side-by-side with your active capability profile. Organizations cleanly express what a position requires, and you choose when to share your context—eliminating the bias of cold, automated resume filters.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-lg md:text-xl font-bold font-sans text-[var(--ink)] flex items-center gap-2">
-                  <span className="w-1.5 h-6 rounded-full bg-[var(--accent)]" />
-                  The Sustained Last Mile
-                </h4>
-                <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed font-sans">
-                  Transition smoothly into your active new role with continuous support. Your portal links remain fully operational post-placement, allowing you to log fresh milestones, track ongoing career momentum, and access lifelong guidance.
-                </p>
-              </div>
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                The Sustained Last Mile
+              </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Transition smoothly into your active new role with continuous support. Your portal links remain fully operational post-placement, allowing you to log fresh milestones, track ongoing career momentum, and access lifelong guidance.
+              </p>
             </div>
           </div>
-        </motion.div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3520,55 +3460,58 @@ function IndividualsWhoWeServe() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              TAILORED PARTICIPANT FOCUS
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Who We Serve
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            Dignified growth pathways designed for every stage of your life journey.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            The Capability Alignment System is built to serve individuals navigating critical life or career transitions. We recognize that highly valuable problem-solving, resilience, and operational skills are built across diverse backgrounds. CAS honors your unique trajectory without reducing you to a rigid application score.
-          </p>
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <Link
-              to="/contact"
-              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-            >
-              Connect With Us
-            </Link>
-          </div>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                TAILORED PARTICIPANT FOCUS
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Who We Serve
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Dignified growth pathways designed for every stage of your life journey.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                The Capability Alignment System is built to serve individuals navigating critical life or career transitions. We recognize that highly valuable problem-solving, resilience, and operational skills are built across diverse backgrounds. CAS honors your unique trajectory without reducing you to a rigid application score.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Connect With Us
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
-            <circle cx="160" cy="120" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-            <circle cx="160" cy="120" r="40" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-            <line x1="80" y1="120" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
-            <line x1="160" y1="120" x2="240" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
-            <line x1="160" y1="60" x2="160" y2="180" stroke="var(--accent)" strokeWidth="1.5" opacity="0.4" />
-            <circle cx="80" cy="120" r="6" fill="var(--accent)" />
-            <circle cx="160" cy="60" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-            <circle cx="240" cy="120" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-            <circle cx="160" cy="180" r="6" fill="var(--accent)" />
-            <circle cx="160" cy="120" r="12" fill="var(--accent)" opacity="0.2" />
-            <circle cx="160" cy="120" r="5" fill="var(--accent)" />
-          </svg>
-        </div>
-      </section>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <circle cx="160" cy="120" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <circle cx="160" cy="120" r="40" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
+                  <line x1="80" y1="120" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="160" y1="120" x2="240" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
+                  <line x1="160" y1="60" x2="160" y2="180" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
+                  <circle cx="80" cy="120" r="6" fill="#E2725B" />
+                  <circle cx="160" cy="60" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="240" cy="120" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="160" cy="180" r="6" fill="#E2725B" />
+                  <circle cx="160" cy="120" r="12" fill="#E2725B" opacity="0.2" />
+                  <circle cx="160" cy="120" r="5" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THE 10-AUDIENCE CARD MATRIX */}
-      <section className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <ScrollReveal>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {[
             {
               num: "01",
@@ -3623,70 +3566,64 @@ function IndividualsWhoWeServe() {
           ].map((card) => (
             <div
               key={card.num}
-              className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300"
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex justify-between items-start">
-                <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
+                <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
                   Focus {card.num}
                 </span>
               </div>
-              <h3 className="font-sans text-lg font-bold text-[var(--ink)] tracking-tight">
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D] tracking-tight">
                 {card.num}. {card.title}
               </h3>
-              <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
+              <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
                 {card.desc}
               </p>
             </div>
           ))}
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: BOTTOM EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             A System Built for Diverse Backgrounds
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Respecting Lived Experience
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                We recognize that elite management and problem-solving skills are built during non-linear paths outside traditional corporate employment.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              We recognize that elite management and problem-solving skills are built during non-linear paths outside traditional corporate employment.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Removing Stale Screeners
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Our dynamic process ensures that real human review and qualitative context override cold, automated resume keyword filters.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Our dynamic process ensures that real human review and qualitative context override cold, automated resume keyword filters.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Continuous Access Rights
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Your individual portal belongs to you permanently. You can update, scale, and carry your capability maps anywhere your career moves.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Your individual portal belongs to you permanently. You can update, scale, and carry your capability maps anywhere your career moves.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3695,136 +3632,135 @@ function IndividualsJobCorps() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              ACTIVE PILOT INTEGRATION — DEPLOYED APRIL 2026
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Job Corps Collaboration
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            Empowering our inaugural 14-student cohort with high-fidelity capability frameworks.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            Launched in April 2026, our specialized Job Corps pilot framework directly interfaces with active training cohorts to bridge the gap between technical classroom mastery and real-world workspace alignment. By monitoring and mapping a baseline group of 14 active students, this framework demonstrates how non-linear technical milestones cleanly convert into verified strengths local employers trust.
-          </p>
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <Link
-              to="/contact"
-              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-            >
-              Inquire About Pilots
-            </Link>
-          </div>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                ACTIVE PILOT INTEGRATION — DEPLOYED APRIL 2026
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Job Corps Collaboration
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Empowering our inaugural 14-student cohort with high-fidelity capability frameworks.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Launched in April 2026, our specialized Job Corps pilot framework directly interfaces with active training cohorts to bridge the gap between technical classroom mastery and real-world workspace alignment. By monitoring and mapping a baseline group of 14 active students using our earlier TalentScan™ language, this framework demonstrates how non-linear technical milestones cleanly convert into verified strengths local employers trust across our 8 Career Technical Training (CTT) pathways.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Inquire About Pilots
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
-            <rect x="50" y="170" width="40" height="15" fill="var(--accent)" opacity="0.2" rx="2" />
-            <rect x="100" y="140" width="40" height="15" fill="var(--accent)" opacity="0.4" rx="2" />
-            <rect x="150" y="110" width="40" height="15" fill="var(--accent)" opacity="0.6" rx="2" />
-            <rect x="200" y="80" width="40" height="15" fill="var(--accent)" opacity="0.8" rx="2" />
-            <rect x="250" y="50" width="40" height="15" fill="var(--accent)" rx="2" />
-            <path d="M 70 170 L 120 140 L 170 110 L 220 80 L 270 50" fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.5" strokeDasharray="3 3" />
-            <circle cx="270" cy="50" r="4" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <rect x="50" y="170" width="40" height="15" fill="#E2725B" opacity="0.2" rx="2" />
+                  <rect x="100" y="140" width="40" height="15" fill="#E2725B" opacity="0.4" rx="2" />
+                  <rect x="150" y="110" width="40" height="15" fill="#E2725B" opacity="0.6" rx="2" />
+                  <rect x="200" y="80" width="40" height="15" fill="#E2725B" opacity="0.8" rx="2" />
+                  <rect x="250" y="50" width="40" height="15" fill="#E2725B" rx="2" />
+                  <path d="M 70 170 L 120 140 L 170 110 L 220 80 L 270 50" fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.5" strokeDasharray="3 3" />
+                  <circle cx="270" cy="50" r="4" fill="#FFFFFF" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: THE PILOT TRACKING GRID (3 White Cards) */}
-      <section className="grid gap-6 md:grid-cols-3">
-        {/* Card 1 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              14-STUDENT COHORT METRICS
-            </span>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                14-STUDENT COHORT METRICS
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Technical Milestone Mapping</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Translates standard vocational training units, automotive logs, and hands-on mechanical fabrication projects directly into dynamic Capability Signals™.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Technical Milestone Mapping</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Translates standard vocational training units, automotive logs, and hands-on mechanical fabrication projects directly into dynamic Capability Signals™.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              PILOT SYNCHRONICITY
-            </span>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PILOT SYNCHRONICITY
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Advisor Observation Status</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Enables on-site Job Corps counselors and vocational instructors to directly input validated observational notes, updating the student's operational profile status in real-time.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Advisor Observation Status</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Enables on-site Job Corps counselors and vocational instructors to directly input validated observational notes, updating the student's operational profile status in real-time.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              APRIL 2026 TARGETS
-            </span>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                APRIL 2026 TARGETS
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Direct Pipeline Alignment</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Connects the active 14-student tracking pipeline directly with regional corporate buyers, bypassing arbitrary resume keyword filters entirely.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Direct Pipeline Alignment</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Connects the active 14-student tracking pipeline directly with regional corporate buyers, bypassing arbitrary resume keyword filters entirely.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: BOTTOM EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Strengthening Institutional Student Pipelines
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Accelerated Onboarding Status
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Gives partner companies deep visibility into a student's project work, allowing day-one operational trust.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Gives partner companies deep visibility into a student's project work, allowing day-one operational trust.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Dignity in Early Careers
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Ensures young professionals or tradespeople entering the market are judged by practical execution rather than background length.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Ensures young professionals or tradespeople entering the market are judged by practical execution rather than background length.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Localized Ecosystem Links
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Seamlessly integrates training center objectives with active, real-time municipal employer demands updated for April 2026.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Seamlessly integrates training center objectives with active, real-time municipal employer demands updated for April 2026.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3833,136 +3769,135 @@ function IndividualsPartnersPilots() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              REGIONAL IMPACT CLUSTERS
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Partners & Pilots
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            Real-world validation of human-centered alignment models in action.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            Explore the structural network driving active community pilot frameworks across selected municipal regions. These regional talent clusters bring together distinct ecosystem stakeholders to prove how qualitative capability models scale, entirely independent of individual corporate branding or isolated endorsements.
-          </p>
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <Link
-              to="/contact"
-              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-            >
-              Inquire to Partner
-            </Link>
-          </div>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                REGIONAL IMPACT CLUSTERS
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Partners & Pilots
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Real-world validation of human-centered alignment models in action.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Explore the structural network driving active community pilot frameworks across selected municipal regions. These regional talent clusters bring together distinct ecosystem stakeholders to prove how qualitative capability models scale, entirely independent of individual corporate branding or isolated endorsements.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Inquire to Partner
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
-            <circle cx="120" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-            <circle cx="200" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-            <circle cx="160" cy="160" r="45" fill="none" stroke="var(--accent)" strokeWidth="2" opacity="0.4" />
-            <circle cx="120" cy="110" r="4" fill="var(--accent)" />
-            <circle cx="200" cy="110" r="4" fill="var(--accent)" />
-            <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-            <circle cx="160" cy="110" r="4" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <circle cx="120" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+                  <circle cx="200" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+                  <circle cx="160" cy="160" r="45" fill="none" stroke="#E2725B" strokeWidth="2" opacity="0.4" />
+                  <circle cx="120" cy="110" r="4" fill="#E2725B" />
+                  <circle cx="200" cy="110" r="4" fill="#E2725B" />
+                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="160" cy="110" r="4" fill="#FFFFFF" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: CORE PARTNER CATEGORIES (3 White Cards / No Named Endorsements) */}
-      <section className="grid gap-6 md:grid-cols-3">
-        {/* Card 1 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              PARTNER CATEGORY A
-            </span>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PILOT PARTNER
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Philanthropic & Foundational Networks</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Regional foundations and civic funding networks that establish the baseline capital to deploy free, private scanning frameworks to local citizens.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Philanthropic & Foundational Networks</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Regional foundations and civic funding networks that establish the baseline capital to deploy free, private scanning frameworks to local citizens.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              PARTNER CATEGORY B
-            </span>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PROGRAM PARTNER
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Workforce Boards & Community Non-Profits</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Localized public agencies and frontline neighborhood operations responsible for onboarding trusted community coaches and managing active participant tracking.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Workforce Boards & Community Non-Profits</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Localized public agencies and frontline neighborhood operations responsible for onboarding trusted community coaches and managing active participant tracking.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              PARTNER CATEGORY C
-            </span>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                TECHNOLOGY PARTNER
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Institutional Regional Corporate Buyers</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Forward-thinking employer networks who format open roles around verified capability benchmarks, cleanly accepting dynamic snapshot profiles.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Institutional Regional Corporate Buyers</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Forward-thinking employer networks who format open roles around verified capability benchmarks, cleanly accepting dynamic snapshot profiles.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: BOTTOM EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Measurable Pilot Principles
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Hyper-Local Customization
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Every pilot cluster is customized to match the explicit economic needs and demographic realities of that specific regional ecosystem.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Every pilot cluster is customized to match the explicit economic needs and demographic realities of that specific regional ecosystem.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Verified Mobility Metrics
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                We measure success strictly through individual trajectory progress and sustainable career retention rates, never marketing clicks.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              We measure success strictly through individual trajectory progress and sustainable career retention rates, never marketing clicks.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Data Splitting Protocols
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Ensures workforce networks receive clean, macro-level impact metrics while keeping individual participant profiles completely private.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Ensures workforce networks receive clean, macro-level impact metrics while keeping individual participant profiles completely private.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -3971,137 +3906,136 @@ function IndividualsSupportMission() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              COMMUNITY CHAMPIONS & PHILANTHROPY
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Support the Mission
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            Invest in scaling an equitable, human-centered regional infrastructure.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            We invite philanthropic partners, civic networks, and regional foundation ecosystems to engage with our formal intake team to seed the Capability Alignment System. By supporting this foundational mission, you provide everyday citizens with free access to secure, dignified workspaces that bridge the gap between unrecognized life potential and active local career opportunities.
-          </p>
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <Link
-              to="/contact"
-              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-            >
-              Partner or Donate
-            </Link>
-          </div>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                COMMUNITY CHAMPIONS & PHILANTHROPY
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Support the Mission
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                Invest in scaling an equitable, human-centered regional infrastructure.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                We invite philanthropic partners, civic networks, and regional foundation ecosystems to engage with our formal intake team to seed the Capability Alignment System. By supporting this foundational mission, you provide everyday citizens with free access to secure, dignified workspaces that bridge the gap between unrecognized life potential and active local career opportunities.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Partner or Donate
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
-            <polygon points="160,50 90,170 230,170" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-            <circle cx="160" cy="50" r="6" fill="var(--accent)" />
-            <circle cx="90" cy="170" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-            <circle cx="230" cy="170" r="5" fill="#FFFFFF" stroke="var(--accent)" strokeWidth="2" />
-            <line x1="160" y1="50" x2="160" y2="120" stroke="var(--accent)" strokeWidth="2" />
-            <line x1="90" y1="170" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6" />
-            <line x1="230" y1="170" x2="160" y2="120" stroke="var(--accent)" strokeWidth="1.5" opacity="0.6" />
-            <circle cx="160" cy="120" r="7" fill="var(--accent)" />
-          </svg>
-        </div>
-      </section>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <polygon points="160,50 90,170 230,170" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
+                  <circle cx="160" cy="50" r="6" fill="#E2725B" />
+                  <circle cx="90" cy="170" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <circle cx="230" cy="170" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <line x1="160" y1="50" x2="160" y2="120" stroke="#E2725B" strokeWidth="2" />
+                  <line x1="90" y1="170" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.6" />
+                  <line x1="230" y1="170" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.6" />
+                  <circle cx="160" cy="120" r="7" fill="#E2725B" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: CORE PILLARS (3 White Cards) */}
-      <section className="grid gap-6 md:grid-cols-3">
-        {/* Card 1 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              FOUNDATION INTAKE PATH
-            </span>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                FOUNDATION INTAKE PATH
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Expand Free Access</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Your foundational alignment ensures that scanning tools and lifelong portal access remain permanently 100% free for all individual participants within your target municipality.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Expand Free Access</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Your foundational alignment ensures that scanning tools and lifelong portal access remain permanently 100% free for all individual participants within your target municipality.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              CIVIC ALLOCATION BLOCK
-            </span>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                CIVIC ALLOCATION BLOCK
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Empower Local Mentors</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Help scale specialized operational training cohorts for frontline community coaches, non-profit staff, and neighborhood advisors who securely guide participants.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Empower Local Mentors</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Help scale specialized operational training cohorts for frontline community coaches, non-profit staff, and neighborhood advisors who securely guide participants.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              INFRASTRUCTURE FUNDING
-            </span>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                INFRASTRUCTURE FUNDING
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Drive Local Pilots</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Sponsor hyper-targeted geographic alignment clusters that bring together municipal workgroups and regional corporate buyers under verified baseline data frameworks.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Drive Local Pilots</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Sponsor hyper-targeted geographic alignment clusters that bring together municipal workgroups and regional corporate buyers under verified baseline data frameworks.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: BOTTOM EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Ecosystem Alignment Protocols & Governance
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Formal Funder Contact Protocol
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                All foundational and philanthropic backing must be routed through our centralized compliance and engagement contact desk to ensure strategic regional alignment.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              All foundational and philanthropic backing must be routed through our centralized compliance and engagement contact desk to ensure strategic regional alignment.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Infrastructure Support No-Guarantees Statement
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Contributions are allocated strictly to maintain public utility deployment, security standards, and open access. Funding does not yield commercial placement guarantees, preferential ranking overrides, or custom algorithmic tuning.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Contributions are allocated strictly to maintain public utility deployment, security standards, and open access. Funding does not yield commercial placement guarantees, preferential ranking overrides, or custom algorithmic tuning.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Measurable Civic Trajectories
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                While individual placements are never commercially guaranteed, donor networks receive clean, macro-level regional ecosystem health metrics proving capital mobility impact.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              While individual placements are never commercially guaranteed, donor networks receive clean, macro-level regional ecosystem health metrics proving capital mobility impact.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -4110,133 +4044,132 @@ function IndividualsTrustGovernance() {
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[var(--midnight-ink)] text-white rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)] relative overflow-hidden border border-white/5">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full border border-[var(--accent)]/30 bg-[var(--accent-soft)]">
-            <span className="font-mono text-xs font-semibold tracking-wider text-[var(--accent)] uppercase">
-              SECURITY, PRIVACY & SYSTEM COMPLIANCE
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Trust & Governance
-          </h1>
-          <h2 className="text-xl md:text-2xl text-white/95 font-medium leading-relaxed">
-            An uncompromising commitment to personal privacy, system transparency, and data ethics.
-          </h2>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-            Trust is the foundational architecture of the Capability Alignment System. We hold ourselves to rigorous governance guidelines to ensure that individual data sovereignty is protected at every single turn. This framework is completely insulated from predictive algorithms, clinical scoring bias, or exploitative data networks.
-          </p>
-          <div className="flex flex-wrap gap-2.5 pt-2">
-            <Link
-              to="/contact"
-              className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
-            >
-              Inquire for Trust Docs
-            </Link>
-          </div>
-        </div>
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+                SECURITY, PRIVACY & SYSTEM COMPLIANCE
+              </span>
+              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Trust & Governance
+              </h2>
+              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+                An uncompromising commitment to personal privacy, system transparency, and data ethics.
+              </p>
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+                Trust is the foundational architecture of the Capability Alignment System. We hold ourselves to rigorous governance guidelines to ensure that individual data sovereignty is protected at every single turn. This framework is completely insulated from predictive algorithms, clinical scoring bias, or exploitative data networks.
+              </p>
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                >
+                  Inquire for Trust Docs
+                </Link>
+              </div>
+            </div>
 
-        {/* Right Column Media Graphic */}
-        <div className="lg:col-span-5 w-full flex justify-center items-center bg-[#162438]/40 border border-white/5 rounded-3xl p-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl pointer-events-none" />
-          <svg viewBox="0 0 320 240" className="w-full max-w-[340px] h-auto drop-shadow-md relative z-10" aria-hidden="true">
-            <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="var(--accent)" strokeWidth="2.5" />
-            <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="var(--accent)" strokeWidth="6" opacity="0.15" />
-            <circle cx="160" cy="115" r="14" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" />
-            <circle cx="160" cy="115" r="5" fill="#FFFFFF" />
-          </svg>
-        </div>
-      </section>
+            {/* Right Column Media Graphic */}
+            <div className="flex justify-center items-center p-4">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
+                  <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="#E2725B" strokeWidth="2.5" />
+                  <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="#E2725B" strokeWidth="6" opacity="0.15" />
+                  <circle cx="160" cy="115" r="14" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" />
+                  <circle cx="160" cy="115" r="5" fill="#FFFFFF" />
+                </svg>
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 2: CORE GOVERNANCE PILLARS (3 White Cards) */}
-      <section className="grid gap-6 md:grid-cols-3">
-        {/* Card 1 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              PRIVACY PROTOCOL
-            </span>
+      <ScrollReveal>
+        <section className="grid gap-6 md:grid-cols-3">
+          {/* Card 1 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                PRIVACY PROTOCOL
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Absolute Data Privacy</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Participants retain master key ownership of their content. Data is strictly segmented so corporate and donor entities can only view high-level, anonymized macro statistics, keeping personal profiles perfectly private.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">01. Absolute Data Privacy</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Participants retain master key ownership of their content. Data is strictly segmented so corporate and donor entities can only view high-level, anonymized macro statistics, keeping personal profiles perfectly private.
-          </p>
-        </div>
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              INCLUSION STANDARD
-            </span>
+          {/* Card 2 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                INCLUSION STANDARD
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Universal Accessibility</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              Engineered around a self-paced, zero-stress framework that completely eliminates timed countdowns, clinical assessments, or confusing quizzes, ensuring a dignified experience for all backgrounds.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">02. Universal Accessibility</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            Engineered around a self-paced, zero-stress framework that completely eliminates timed countdowns, clinical assessments, or confusing quizzes, ensuring a dignified experience for all backgrounds.
-          </p>
-        </div>
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-[24px] p-6 shadow-[var(--soft-shadow)] border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-all duration-300">
-          <div className="flex justify-between items-start">
-            <span className="inline-flex rounded-full bg-[var(--accent)] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase">
-              OVERSIGHT MANDATE
-            </span>
+          {/* Card 3 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start">
+              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                OVERSIGHT MANDATE
+              </span>
+            </div>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Independent System Oversight</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              System workflows are continuously validated by neutral compliance partners to strictly outlaw black-box predictive indexing, automated fit scores, and algorithmic background ranking mechanisms.
+            </p>
           </div>
-          <h3 className="font-sans text-xl font-bold text-[var(--ink)]">03. Independent System Oversight</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-            System workflows are continuously validated by neutral compliance partners to strictly outlaw black-box predictive indexing, automated fit scores, and algorithmic background ranking mechanisms.
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* SECTION 3: BOTTOM EXPOSITION */}
-      <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="text-center space-y-2">
-          <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[var(--ink)]">
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Structural Security Safeguards
           </h3>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Point 1 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+          <div className="grid gap-8 md:grid-cols-3">
+            {/* Point 1 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Revocable Permissions
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Individuals share profile access strictly on their own terms and can completely wipe or pull back viewing rights from any advisor or institution instantly.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Individuals share profile access strictly on their own terms and can completely wipe or pull back viewing rights from any advisor or institution instantly.
-            </p>
-          </div>
 
-          {/* Point 2 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 2 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Algorithmic Insulation
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Our governance code guarantees that human review and qualitative context override cold, automated resume keyword filters and predictive hiring models.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Our governance code guarantees that human review and qualitative context override cold, automated resume keyword filters and predictive hiring models.
-            </p>
-          </div>
 
-          {/* Point 3 */}
-          <div className="space-y-3">
-            <div className="pl-4 border-l-4 border-[var(--accent)]">
-              <h4 className="font-sans text-lg font-bold text-[var(--ink)]">
+            {/* Point 3 */}
+            <div className="space-y-3">
+              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Dignity-First Security
               </h4>
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
+                Every server, operational protocol, and code layer is engineered around safeguarding the participant's long-term career safety and absolute profile sovereignty.
+              </p>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[var(--muted)] font-sans">
-              Every server, operational protocol, and code layer is engineered around safeguarding the participant's long-term career safety and absolute profile sovereignty.
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
     </div>
   )
 }
@@ -4263,11 +4196,11 @@ function OrganizationsHome() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK (THE TECHNICAL WELCOME) */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[var(--line)] bg-[var(--surface)] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left Column Content */}
-            <div className="space-y-6">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
                 ENTERPRISE DEPLOYMENT & ALIGNMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -4276,13 +4209,13 @@ function OrganizationsHome() {
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
                 Shift your operational hiring from static keyword filtering to high-fidelity, private capability metrics.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl">
+              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
                 Traditional resume screeners leave massive talent pools completely unmapped, reducing diverse backgrounds to arbitrary metrics. The Capability Alignment System allows regional employers and corporate buyers to format roles around required behavioral baseline executions, unlocking highly capable hidden talent pipelines with total compliance and zero privacy friction.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/organizations/pricing-demo"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Request a Configured Demo
                 </Link>
@@ -4297,7 +4230,7 @@ function OrganizationsHome() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[380px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+              <div className="w-full max-w-[380px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 {/* SVG Technical Network Cluster Graphic */}
                 <svg viewBox="0 0 400 400" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   {/* Subtle grid lines background */}
@@ -4371,22 +4304,22 @@ function OrganizationsHome() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   01. Benchmark Positions
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
                   ROLE SPECIFICATIONS
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
                 Define your local team positions based on required day-one operational capability parameters, moving entirely away from restrictive and arbitrary college degree proxies.
               </p>
             </div>
-            <div className="pt-2">
-              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+            <div className="pt-2 border-t border-[#1B3A5C]/10">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-[#0F1B2D] transition-colors">
                 Configure parameters 
                 <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -4396,22 +4329,22 @@ function OrganizationsHome() {
           </div>
 
           {/* Card 02 */}
-          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   02. Access Macro Insights
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
                   ECOSYSTEM TRACKING
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
                 Monitor high-level regional talent trajectories, capability density maps, and upskilling alignment curves across your target municipal geographic clusters.
               </p>
             </div>
-            <div className="pt-2">
-              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+            <div className="pt-2 border-t border-[#1B3A5C]/10">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-[#0F1B2D] transition-colors">
                 View alignment curves
                 <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -4421,22 +4354,22 @@ function OrganizationsHome() {
           </div>
 
           {/* Card 03 */}
-          <div className="bg-[#1B3A5C] rounded-[24px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   03. Engage Pilot Pipelines
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
                   TARGETED INTEGRATION
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
                 Securely accept dynamic snapshot profiles from verified workforce programs, community cohorts, and local pilots without intrusive data collection friction.
               </p>
             </div>
-            <div className="pt-2">
-              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-white transition-colors">
+            <div className="pt-2 border-t border-[#1B3A5C]/10">
+              <span className="text-xs font-semibold text-[#0FA88A] inline-flex items-center gap-1 group-hover:text-[#0F1B2D] transition-colors">
                 Review pipelines
                 <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -4449,7 +4382,7 @@ function OrganizationsHome() {
 
       {/* SECTION 3: ENTERPRISE ENGAGEMENT COMPLIANCE (BOTTOM HALF) */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Structural Commitments to Systemic Stability
           </h3>
@@ -4459,7 +4392,7 @@ function OrganizationsHome() {
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Strict Anonymized Macro Tracking
               </h4>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
                 Organizations review aggregate regional talent data trends. Individual participant deep logs are protected by strict data-splitting protocols, ensuring zero security or privacy compliance risk.
               </p>
             </div>
@@ -4469,7 +4402,7 @@ function OrganizationsHome() {
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 De-Biased Ingestion Architecture
               </h4>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
                 Our layout outlaws traditional automated ranking filters, predictive black-box indices, and talent scoring systems. Alignment is based entirely on verified lifestyle and project milestones.
               </p>
             </div>
@@ -4479,7 +4412,7 @@ function OrganizationsHome() {
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Infrastructure Calibration Focus
               </h4>
-              <p className="text-sm leading-relaxed text-white/70">
+              <p className="text-sm leading-relaxed text-white/70 font-sans">
                 System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency without sacrificing individual user data sovereignty.
               </p>
             </div>
@@ -4495,11 +4428,11 @@ function OrganizationsSolutions() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
                 TARGETED INSTITUTIONAL ALIGNMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -4514,7 +4447,7 @@ function OrganizationsSolutions() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/organizations/pricing-demo"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Request a Configured Demo
                 </Link>
@@ -4529,7 +4462,7 @@ function OrganizationsSolutions() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 {/* SVG connection nodes */}
                 <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   {/* Grid background */}
@@ -4584,136 +4517,136 @@ function OrganizationsSolutions() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {/* Card 01 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   01. Regional Corporate Buyers
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   ENTERPRISE HIRING
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 For large employers looking to secure high-retention talent pipelines by formatting roles around baseline operational capabilities rather than stale credentials.
               </p>
             </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   02. Mid-Market Growth Firms
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   AGILE ACQUISITION
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Enables rapidly scaling companies to reduce onboarding friction and bad-hire costs by utilizing verified project and lifestyle milestones.
               </p>
             </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   03. Municipal Workforce Boards
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   PUBLIC INFRASTRUCTURE
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Empowers public agencies to orchestrate wide-scale geographic talent clusters, matching localized training allocations with active employer demand.
               </p>
             </div>
           </div>
 
           {/* Card 04 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   04. Economic Development Orgs
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   REGIONAL GROWTH
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Provides macro-level capability density mapping to attract outside industry investments by proving the region's operational readiness.
               </p>
             </div>
           </div>
 
           {/* Card 05 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   05. Philanthropic Foundations
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   IMPACT INVESTMENT
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Allows community and institutional funders to track the true systemic velocity of their capital injections via clean, aggregate mobility metrics.
               </p>
             </div>
           </div>
 
           {/* Card 06 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   06. Vocational & Technical Colleges
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   ACADEMIC SYNCHRONICITY
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Bridges the gap for institutional training centers by translating classroom units directly into dynamic Capability Signals™ recognized by buyers.
               </p>
             </div>
           </div>
 
           {/* Card 07 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   07. Community-Based Non-Profits
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   LOCALIZED COHORTS
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Equips frontline social impact teams with formal coaching frameworks to securely track, validate, and advocate for non-traditional talent.
               </p>
             </div>
           </div>
 
           {/* Card 08 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   08. Government & Civil Services
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   COMPLIANCE INTAKE
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Provides a secure, bias-insulated infrastructure to ingest community talent pipelines with total data privacy and zero background scoring friction.
               </p>
             </div>
@@ -4723,7 +4656,7 @@ function OrganizationsSolutions() {
 
       {/* SECTION 3: STRUTURAL COMMITMENTS */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Systemic Safeguards Across All Sectors
           </h3>
@@ -4769,11 +4702,11 @@ function OrganizationsImplementation() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
                 OPERATIONAL ROADMAP & DEPLOYMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -4788,7 +4721,7 @@ function OrganizationsImplementation() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Schedule implementation discovery
                 </Link>
@@ -4803,7 +4736,7 @@ function OrganizationsImplementation() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 {/* SVG sequential graphic */}
                 <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   {/* Grid background */}
@@ -4869,119 +4802,119 @@ function OrganizationsImplementation() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 01: Alignment Discovery
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 01
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Conduct initial ecosystem mapping to identify specific regional hiring needs, target municipalities, and existing workforce gaps.
               </p>
             </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 02: Benchmark Calibration
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 02
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Format open organizational positions around baseline operational execution parameters, replacing restrictive proxy degree requirements.
               </p>
             </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 03: System Configuration
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 03
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Set up secure enterprise portal access, configure data-splitting rules, and establish anonymized macro analytics dashboards.
               </p>
             </div>
           </div>
 
           {/* Card 04 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 04: Partner Network Sync
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 04
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Establish secure, compliant data handshakes with local non-profits, workforce boards, and regional vocational cohorts.
               </p>
             </div>
           </div>
 
           {/* Card 05 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 05: Advisor Onboarding
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 05
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Train and authorize frontline community coaches and program instructors on observational validation protocols.
               </p>
             </div>
           </div>
 
           {/* Card 06 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 06: Pilot Activation
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 06
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Launch targeted geographic alignment clusters, opening the pipeline for incoming verified Capability Signals™.
               </p>
             </div>
           </div>
 
           {/* Card 07 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group md:col-span-2 lg:col-span-3">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group md:col-span-2 lg:col-span-3">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   Stage 07: Live Capability Alignment
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   STAGE 07
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Transition into continuous operational mode, securely accepting dynamic participant profiles and monitoring regional trajectory metrics.
               </p>
             </div>
@@ -4991,7 +4924,7 @@ function OrganizationsImplementation() {
 
       {/* SECTION 3: DEPLOYMENT GUARANTEES & COMPLIANCE */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Enterprise Rollout Assurance
           </h3>
@@ -5037,11 +4970,11 @@ function OrganizationsPricingDemo() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
                 TAILORED ENTERPRISE DEPLOYMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -5056,7 +4989,7 @@ function OrganizationsPricingDemo() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Schedule Architectural Demo
                 </Link>
@@ -5071,7 +5004,7 @@ function OrganizationsPricingDemo() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 {/* SVG sequential configuration graphic */}
                 <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   {/* Grid background */}
@@ -5121,66 +5054,66 @@ function OrganizationsPricingDemo() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   01. Regional Pilot Cluster
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   INQUIRY & DISCOVERY
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Engineered for localized municipal pilots, initial 14-student Job Corps cohorts, or neighborhood workforce non-profits looking to test baseline capability matching.
               </p>
             </div>
-            <div className="pt-2 border-t border-white/5">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+            <div className="pt-2 border-t border-[#EBF1F5]">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
                 Contact for Pilot Scope →
               </Link>
             </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   02. Ecosystem Deployment
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   CUSTOM CONFIGURATION
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Designed for regional workforce boards, civic foundation networks, and municipal coalitions looking to unify cross-sector talent pipelines across an entire metropolitan area.
               </p>
             </div>
-            <div className="pt-2 border-t border-white/5">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+            <div className="pt-2 border-t border-[#EBF1F5]">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
                 Schedule Discovery Demo →
               </Link>
             </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   03. Enterprise Integration
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   TAILORED ENTERPRISE
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Built for large corporate buyer networks requiring custom role benchmarking, multi-zone macro analytics, and dedicated integration support.
               </p>
             </div>
-            <div className="pt-2 border-t border-white/5">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-white inline-flex items-center gap-1 transition-colors">
+            <div className="pt-2 border-t border-[#EBF1F5]">
+              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
                 Request Enterprise Consultation →
               </Link>
             </div>
@@ -5190,7 +5123,7 @@ function OrganizationsPricingDemo() {
 
       {/* SECTION 3: PRICING GOVERNANCE & POLICY */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Transparent Evaluation Framework
           </h3>
@@ -5236,11 +5169,11 @@ function OrganizationsSecurityTrust() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-white/10 bg-[#0F1B2D] p-[var(--panel-pad)] shadow-[var(--panel-shadow)] overflow-hidden">
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
                 ENTERPRISE COMPLIANCE & PRIVACY GUARANTEE
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -5255,7 +5188,7 @@ function OrganizationsSecurityTrust() {
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105"
+                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Schedule implementation discovery
                 </Link>
@@ -5264,7 +5197,7 @@ function OrganizationsSecurityTrust() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#1B3A5C] border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/30 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 {/* SVG sequential configuration graphic */}
                 <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   {/* Grid background */}
@@ -5312,51 +5245,51 @@ function OrganizationsSecurityTrust() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   01. Strict Data Sovereignty
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   DATA PRIVACY
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 Participants retain master key ownership of their data. Individual deep logs are completely insulated, allowing corporate buyers to view aggregate, anonymized macro trends only.
               </p>
             </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   02. Anti-Algorithmic Architecture
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   BIAS INSULATION
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 System workflows completely eliminate automated black-box predictive indexing, suitability indices, and screening algorithms, keeping human qualitative review at the center.
               </p>
             </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-[#1B3A5C] rounded-[20px] p-6 shadow-xl border border-white/10 flex flex-col justify-between space-y-6 hover:border-[#0FA88A]/40 hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-white tracking-wide">
+                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   03. Active Compliance Roadmap
                 </span>
                 <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
                   AUDIT STATUS: PENDING VERIFICATION
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-white/70 font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 System protocols are continuously evaluated against modern enterprise data security standards. Formal third-party certifications remain under active audit and pending verification.
               </p>
             </div>
@@ -5366,7 +5299,7 @@ function OrganizationsSecurityTrust() {
 
       {/* SECTION 3: GOVERNANCE & CERTIFICATION POLICY */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Our Strict Security & Verification Commitments
           </h3>
