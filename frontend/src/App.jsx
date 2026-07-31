@@ -490,7 +490,7 @@ function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 HUMAN-CENTERED CAPABILITY INFRASTRUCTURE
               </span>
               <h1 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -532,7 +532,7 @@ function HomePage() {
             <div className="flex justify-center items-center p-2 lg:p-4">
               <div className="w-full max-w-[380px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="flex items-center gap-1.5 font-mono text-[9px] text-white/70 font-medium">
@@ -874,7 +874,7 @@ function PlatformOverviewPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 SYSTEM ARCHITECTURE OVERVIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -900,7 +900,7 @@ function PlatformOverviewPage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -940,7 +940,7 @@ function PlatformOverviewPage() {
           {/* Card 1 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 01. INDIVIDUAL MODULE
               </span>
             </div>
@@ -953,7 +953,7 @@ function PlatformOverviewPage() {
           {/* Card 2 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 02. ADVISOR MODULE
               </span>
             </div>
@@ -966,7 +966,7 @@ function PlatformOverviewPage() {
           {/* Card 3 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 03. ENTERPRISE MODULE
               </span>
             </div>
@@ -1030,7 +1030,7 @@ function ParticipantPortalPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 INDIVIDUAL HOME BASE
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1045,7 +1045,7 @@ function ParticipantPortalPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Access Participant Demo
                 </Link>
@@ -1054,32 +1054,32 @@ function ParticipantPortalPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.9" />
                   <line x1="25" y1="35" x2="295" y2="35" stroke="#1B3A5C" strokeWidth="1.5" opacity="0.2" />
-                  <circle cx="35" cy="24" r="4" fill="#E2725B" />
+                  <circle cx="35" cy="24" r="4" fill="#0FA88A" />
                   <circle cx="48" cy="24" r="4" fill="#1B3A5C" opacity="0.3" />
                   <circle cx="61" cy="24" r="4" fill="#1B3A5C" opacity="0.3" />
 
                   <rect x="25" y="50" width="125" height="65" rx="6" fill="#F5EFE6" stroke="#1B3A5C" strokeWidth="1" opacity="0.4" />
-                  <rect x="165" y="50" width="130" height="65" rx="6" fill="#FFFFFF" stroke="#E2725B" strokeWidth="1.5" />
+                  <rect x="165" y="50" width="130" height="65" rx="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="1.5" />
 
                   <line x1="38" y1="70" x2="115" y2="70" stroke="#0F1B2D" strokeWidth="3" opacity="0.6" />
-                  <line x1="38" y1="85" x2="130" y2="85" stroke="#E2725B" strokeWidth="2" />
+                  <line x1="38" y1="85" x2="130" y2="85" stroke="#0FA88A" strokeWidth="2" />
 
                   <line x1="178" y1="70" x2="265" y2="70" stroke="#0F1B2D" strokeWidth="3" />
-                  <line x1="178" y1="85" x2="275" y2="85" stroke="#E2725B" strokeWidth="2" />
+                  <line x1="178" y1="85" x2="275" y2="85" stroke="#0FA88A" strokeWidth="2" />
 
                   <rect x="25" y="130" width="270" height="45" rx="6" fill="#1B3A5C" opacity="0.1" />
-                  <line x1="38" y1="150" x2="240" y2="150" stroke="#E2725B" strokeWidth="2.5" />
-                  <circle cx="255" cy="150" r="5" fill="#E2725B" />
+                  <line x1="38" y1="150" x2="240" y2="150" stroke="#0FA88A" strokeWidth="2.5" />
+                  <circle cx="255" cy="150" r="5" fill="#0FA88A" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1092,9 +1092,9 @@ function ParticipantPortalPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Module 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PORTAL MODULE 01
               </span>
             </div>
@@ -1105,9 +1105,9 @@ function ParticipantPortalPage() {
           </div>
 
           {/* Module 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PORTAL MODULE 02
               </span>
             </div>
@@ -1118,9 +1118,9 @@ function ParticipantPortalPage() {
           </div>
 
           {/* Module 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PORTAL MODULE 03
               </span>
             </div>
@@ -1142,7 +1142,7 @@ function ParticipantPortalPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Total Profile Sovereignty
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1152,7 +1152,7 @@ function ParticipantPortalPage() {
 
             {/* Point 2 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Non-Linear Experience Capture
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1162,7 +1162,7 @@ function ParticipantPortalPage() {
 
             {/* Point 3 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Continuous Reflection Cycles
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1184,7 +1184,7 @@ function CommunityIntelligenceConsolePage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 SYSTEM INTEL & MACRO VIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1210,7 +1210,7 @@ function CommunityIntelligenceConsolePage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -1254,7 +1254,7 @@ function CommunityIntelligenceConsolePage() {
           {/* Card 1 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 MACRO MODULE 01
               </span>
             </div>
@@ -1267,7 +1267,7 @@ function CommunityIntelligenceConsolePage() {
           {/* Card 2 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 MACRO MODULE 02
               </span>
             </div>
@@ -1280,7 +1280,7 @@ function CommunityIntelligenceConsolePage() {
           {/* Card 3 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 MACRO MODULE 03
               </span>
             </div>
@@ -1344,7 +1344,7 @@ function ElevIqAriaPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 INTERACTIVE REFLECTION PARTNER
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1359,7 +1359,7 @@ function ElevIqAriaPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Experience ARIA Demo
                 </Link>
@@ -1368,33 +1368,33 @@ function ElevIqAriaPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <circle cx="160" cy="100" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
-                  <circle cx="160" cy="100" r="45" fill="none" stroke="#E2725B" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
+                  <circle cx="160" cy="100" r="45" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
 
-                  <line x1="90" y1="65" x2="160" y2="40" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="90" y1="65" x2="160" y2="40" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
                   <line x1="160" y1="40" x2="230" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="230" y1="65" x2="230" y2="135" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="230" y1="65" x2="230" y2="135" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
                   <line x1="230" y1="135" x2="160" y2="160" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="160" y1="160" x2="90" y2="135" stroke="#E2725B" strokeWidth="2" opacity="0.8" />
+                  <line x1="160" y1="160" x2="90" y2="135" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
                   <line x1="90" y1="135" x2="90" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
 
-                  <circle cx="90" cy="65" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="160" cy="40" r="6" fill="#E2725B" />
-                  <circle cx="230" cy="65" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="230" cy="135" r="6" fill="#E2725B" />
-                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="90" cy="135" r="6" fill="#E2725B" />
+                  <circle cx="90" cy="65" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="160" cy="40" r="6" fill="#0FA88A" />
+                  <circle cx="230" cy="65" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="230" cy="135" r="6" fill="#0FA88A" />
+                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="90" cy="135" r="6" fill="#0FA88A" />
 
-                  <circle cx="160" cy="100" r="12" fill="#E2725B" opacity="0.2" />
-                  <circle cx="160" cy="100" r="6" fill="#E2725B" />
+                  <circle cx="160" cy="100" r="12" fill="#0FA88A" opacity="0.2" />
+                  <circle cx="160" cy="100" r="6" fill="#0FA88A" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1407,9 +1407,9 @@ function ElevIqAriaPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ARIA MODULE 01
               </span>
             </div>
@@ -1420,9 +1420,9 @@ function ElevIqAriaPage() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ARIA MODULE 02
               </span>
             </div>
@@ -1433,9 +1433,9 @@ function ElevIqAriaPage() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ARIA MODULE 03
               </span>
             </div>
@@ -1457,7 +1457,7 @@ function ElevIqAriaPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Qualitative Data Layer
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1467,7 +1467,7 @@ function ElevIqAriaPage() {
 
             {/* Point 2 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Uncovering Hidden Strengths
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1477,7 +1477,7 @@ function ElevIqAriaPage() {
 
             {/* Point 3 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero-Score Philosophy
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1499,7 +1499,7 @@ function ElevIqClaraPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 ADVISOR & COACH WORKSPACE
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1525,7 +1525,7 @@ function ElevIqClaraPage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -1559,7 +1559,7 @@ function ElevIqClaraPage() {
           {/* Card 1 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CLARA MODULE 01
               </span>
             </div>
@@ -1572,7 +1572,7 @@ function ElevIqClaraPage() {
           {/* Card 2 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CLARA MODULE 02
               </span>
             </div>
@@ -1585,7 +1585,7 @@ function ElevIqClaraPage() {
           {/* Card 3 */}
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CLARA MODULE 03
               </span>
             </div>
@@ -1649,7 +1649,7 @@ function CapabilitySignalsPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 DYNAMIC SKILL TRACKING
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1664,7 +1664,7 @@ function CapabilitySignalsPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Explore Signals Demo
                 </Link>
@@ -1673,20 +1673,20 @@ function CapabilitySignalsPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <rect x="10" y="10" width="300" height="180" rx="10" fill="#0F1B2D" opacity="0.9" />
                   <path d="M 30 100 Q 70 40 110 100 T 190 100 T 270 100" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.15" />
-                  <path d="M 30 100 Q 70 55 110 100 T 190 100 T 270 100" fill="none" stroke="#E2725B" strokeWidth="2.5" />
-                  <circle cx="110" cy="100" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="190" cy="100" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="70" cy="60" r="4" fill="#E2725B" />
+                  <path d="M 30 100 Q 70 55 110 100 T 190 100 T 270 100" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
+                  <circle cx="110" cy="100" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="190" cy="100" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="70" cy="60" r="4" fill="#0FA88A" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1698,9 +1698,9 @@ function CapabilitySignalsPage() {
       {/* SECTION 2: THREE CORE MODULES */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SIGNAL TYPE 01
               </span>
             </div>
@@ -1710,9 +1710,9 @@ function CapabilitySignalsPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SIGNAL TYPE 02
               </span>
             </div>
@@ -1722,9 +1722,9 @@ function CapabilitySignalsPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SIGNAL TYPE 03
               </span>
             </div>
@@ -1745,7 +1745,7 @@ function CapabilitySignalsPage() {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Capturing Hidden Growth
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1754,7 +1754,7 @@ function CapabilitySignalsPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Real-Time Skill Validation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1763,7 +1763,7 @@ function CapabilitySignalsPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero Test-Stress Framework
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1785,7 +1785,7 @@ function AlignmentSnapshotPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 HIGH-FIDELITY PROFILE VIEWER
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1800,7 +1800,7 @@ function AlignmentSnapshotPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   View Sample Snapshot
                 </Link>
@@ -1809,21 +1809,21 @@ function AlignmentSnapshotPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.9" />
                   <rect x="25" y="30" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.2" />
                   <rect x="170" y="30" width="125" height="60" rx="6" fill="#1B3A5C" opacity="0.2" />
                   <rect x="25" y="105" width="270" height="70" rx="6" fill="#1B3A5C" opacity="0.15" />
-                  <circle cx="45" cy="60" r="8" fill="#E2725B" />
+                  <circle cx="45" cy="60" r="8" fill="#0FA88A" />
                   <line x1="65" y1="60" x2="130" y2="60" stroke="#1B3A5C" strokeWidth="2.5" />
-                  <line x1="45" y1="140" x2="275" y2="140" stroke="#E2725B" strokeWidth="2.5" />
+                  <line x1="45" y1="140" x2="275" y2="140" stroke="#0FA88A" strokeWidth="2.5" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1835,9 +1835,9 @@ function AlignmentSnapshotPage() {
       {/* SECTION 2: THREE CORE MODULES */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SNAPSHOT FEATURE 01
               </span>
             </div>
@@ -1847,9 +1847,9 @@ function AlignmentSnapshotPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SNAPSHOT FEATURE 02
               </span>
             </div>
@@ -1859,9 +1859,9 @@ function AlignmentSnapshotPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SNAPSHOT FEATURE 03
               </span>
             </div>
@@ -1882,7 +1882,7 @@ function AlignmentSnapshotPage() {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Context Over Scoring
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1891,7 +1891,7 @@ function AlignmentSnapshotPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Secure Share Controls
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1900,7 +1900,7 @@ function AlignmentSnapshotPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Actionable Guidance Foundation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -1922,7 +1922,7 @@ function AlignmentPathwaysPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 DYNAMIC TRAJECTORY PLANNING
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -1937,7 +1937,7 @@ function AlignmentPathwaysPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Explore Pathways
                 </Link>
@@ -1946,18 +1946,18 @@ function AlignmentPathwaysPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <path d="M 30 150 C 100 150, 100 50, 170 50 S 240 150, 300 150" fill="none" stroke="#E2725B" strokeWidth="2.5" />
-                  <circle cx="30" cy="150" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="170" cy="50" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="300" cy="150" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
+                  <path d="M 30 150 C 100 150, 100 50, 170 50 S 240 150, 300 150" fill="none" stroke="#0FA88A" strokeWidth="2.5" />
+                  <circle cx="30" cy="150" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="170" cy="50" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
+                  <circle cx="300" cy="150" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1969,9 +1969,9 @@ function AlignmentPathwaysPage() {
       {/* SECTION 2: THREE CORE MODULES */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PATHWAY FEATURE 01
               </span>
             </div>
@@ -1981,9 +1981,9 @@ function AlignmentPathwaysPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PATHWAY FEATURE 02
               </span>
             </div>
@@ -1993,9 +1993,9 @@ function AlignmentPathwaysPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 PATHWAY FEATURE 03
               </span>
             </div>
@@ -2016,7 +2016,7 @@ function AlignmentPathwaysPage() {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Recommending, Never Dictating
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2025,7 +2025,7 @@ function AlignmentPathwaysPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Modular Skill Assembly
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2034,7 +2034,7 @@ function AlignmentPathwaysPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Advisor View Inclusion
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2056,7 +2056,7 @@ function RoleAlignmentPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 HUMAN-CENTERED ECOSYSTEM FIT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -2082,7 +2082,7 @@ function RoleAlignmentPage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -2109,7 +2109,7 @@ function RoleAlignmentPage() {
         <section className="grid gap-6 md:grid-cols-3">
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ROLE MODULE 01
               </span>
             </div>
@@ -2121,7 +2121,7 @@ function RoleAlignmentPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ROLE MODULE 02
               </span>
             </div>
@@ -2133,7 +2133,7 @@ function RoleAlignmentPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 ROLE MODULE 03
               </span>
             </div>
@@ -2194,7 +2194,7 @@ function DevelopmentOpportunitiesPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 ACTIONABLE SKILL GROWTH
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -2220,7 +2220,7 @@ function DevelopmentOpportunitiesPage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -2243,7 +2243,7 @@ function DevelopmentOpportunitiesPage() {
         <section className="grid gap-6 md:grid-cols-3">
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 GROWTH MODULE 01
               </span>
             </div>
@@ -2255,7 +2255,7 @@ function DevelopmentOpportunitiesPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 GROWTH MODULE 02
               </span>
             </div>
@@ -2267,7 +2267,7 @@ function DevelopmentOpportunitiesPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 GROWTH MODULE 03
               </span>
             </div>
@@ -2328,7 +2328,7 @@ function SupportConnectionsPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 HUMAN-CENTERED GUIDE HUBS
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -2354,7 +2354,7 @@ function SupportConnectionsPage() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
@@ -2383,7 +2383,7 @@ function SupportConnectionsPage() {
         <section className="grid gap-6 md:grid-cols-3">
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SUPPORT MODULE 01
               </span>
             </div>
@@ -2395,7 +2395,7 @@ function SupportConnectionsPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SUPPORT MODULE 02
               </span>
             </div>
@@ -2407,7 +2407,7 @@ function SupportConnectionsPage() {
 
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 SUPPORT MODULE 03
               </span>
             </div>
@@ -2468,7 +2468,7 @@ function ExperienceContextPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 BEYOND STALE BACKGROUNDS
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -2483,7 +2483,7 @@ function ExperienceContextPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Capture Context
                 </Link>
@@ -2492,16 +2492,16 @@ function ExperienceContextPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <rect x="25" y="30" width="110" height="60" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1" />
-                  <rect x="175" y="30" width="110" height="60" rx="8" fill="#E2725B" opacity="0.3" stroke="#E2725B" strokeWidth="1.5" />
+                  <rect x="175" y="30" width="110" height="60" rx="8" fill="#0FA88A" opacity="0.3" stroke="#0FA88A" strokeWidth="1.5" />
                   <rect x="25" y="110" width="260" height="60" rx="8" fill="#1B3A5C" opacity="0.3" stroke="#FFFFFF" strokeWidth="1.5" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
@@ -2514,9 +2514,9 @@ function ExperienceContextPage() {
       {/* SECTION 2: THREE CORE MODULES */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CONTEXT FEATURE 01
               </span>
             </div>
@@ -2526,9 +2526,9 @@ function ExperienceContextPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CONTEXT FEATURE 02
               </span>
             </div>
@@ -2538,9 +2538,9 @@ function ExperienceContextPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 CONTEXT FEATURE 03
               </span>
             </div>
@@ -2561,7 +2561,7 @@ function ExperienceContextPage() {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Validating Hidden Assets
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2570,7 +2570,7 @@ function ExperienceContextPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Removing Outdated Credentials
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2579,7 +2579,7 @@ function ExperienceContextPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Fostering True Representation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2601,7 +2601,7 @@ function LifeVectorPage() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 LONG-TERM TRAJECTORY HEURISTICS
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -2616,7 +2616,7 @@ function LifeVectorPage() {
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   View Life Vector Demo
                 </Link>
@@ -2625,18 +2625,18 @@ function LifeVectorPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
+              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                     CONFIGURED SAMPLE ENVIRONMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
                   <line x1="30" y1="170" x2="290" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
                   <line x1="30" y1="30" x2="30" y2="170" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.3" />
-                  <path d="M 30 170 Q 120 140 180 80 T 290 30" fill="none" stroke="#E2725B" strokeWidth="3" />
-                  <circle cx="290" cy="30" r="6" fill="#E2725B" />
+                  <path d="M 30 170 Q 120 140 180 80 T 290 30" fill="none" stroke="#0FA88A" strokeWidth="3" />
+                  <circle cx="290" cy="30" r="6" fill="#0FA88A" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -2648,9 +2648,9 @@ function LifeVectorPage() {
       {/* SECTION 2: THREE CORE MODULES */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 VECTOR FEATURE 01
               </span>
             </div>
@@ -2660,9 +2660,9 @@ function LifeVectorPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 VECTOR FEATURE 02
               </span>
             </div>
@@ -2672,9 +2672,9 @@ function LifeVectorPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 VECTOR FEATURE 03
               </span>
             </div>
@@ -2695,7 +2695,7 @@ function LifeVectorPage() {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Focusing on Flow, Not Scores
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2704,7 +2704,7 @@ function LifeVectorPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Visualizing Possibilities
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -2713,7 +2713,7 @@ function LifeVectorPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Strategic Support Insights
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
@@ -3001,7 +3001,7 @@ function IndividualsHome() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
                 A PLATFORM BUILT FOR YOUR JOURNEY
               </span>
               <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -3071,7 +3071,7 @@ function IndividualsHome() {
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
               <span className="font-mono text-xs font-bold text-[#0F1B2D]">01. Log & Reflect</span>
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 YOUR EXPERIENCES
               </span>
             </div>
@@ -3084,7 +3084,7 @@ function IndividualsHome() {
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
               <span className="font-mono text-xs font-bold text-[#0F1B2D]">02. Format & Verify</span>
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 YOUR STRENGTHS
               </span>
             </div>
@@ -3097,7 +3097,7 @@ function IndividualsHome() {
           <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start">
               <span className="font-mono text-xs font-bold text-[#0F1B2D]">03. Share & Align</span>
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                 YOUR OPPORTUNITIES
               </span>
             </div>
@@ -3317,136 +3317,154 @@ const InteractiveTimeline = () => {
 }
 
 function IndividualsHowItWorks() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Open Your Free Alignment Scan™',
+      desc: 'Access your private workspace from any web device. The ElevIQ Alignment Scan™ is always 100% free for individual participants, asking intuitive questions about your life context and experiences.',
+      bullets: ['No cost or hidden subscription fees', 'Zero multiple-choice testing stress', 'Instant private workspace creation'],
+      badge: 'STEP 01: DISCOVERY'
+    },
+    {
+      num: '02',
+      title: 'Capture Qualitative Context & Unmapped Skills',
+      desc: 'Document volunteer work, caregiving responsibilities, community leadership, and practical problem-solving experiences. The system translates non-linear background stories into visible capability points.',
+      bullets: ['Non-traditional experience capture', 'Plain-language reflection prompts', 'Honoring lived experiences'],
+      badge: 'STEP 02: REFLECTION'
+    },
+    {
+      num: '03',
+      title: 'Review Your Dynamic Alignment Snapshot™',
+      desc: 'Watch your strengths organize into a clean, high-fidelity visual dashboard. You hold full sovereignty over your snapshot data and decide explicitly who gets to view it.',
+      bullets: ['High-fidelity capability dashboard', 'Complete data privacy control', 'No automated black-box scoring'],
+      badge: 'STEP 03: VISUALIZATION'
+    },
+    {
+      num: '04',
+      title: 'Connect with Guidance & Action Pathways™',
+      desc: 'Share your snapshot with trusted mentors, workforce coaches, or regional training programs to co-create personalized roadmap steps that lead to real-world opportunities.',
+      bullets: ['Collaborative mentor guidance', 'Tailored local training tracks', 'Continuous agency protection'],
+      badge: 'STEP 04: ACTION'
+    }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: CENTERED HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                THE PARTICIPANT PIPELINE
-              </span>
-              <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                How It Works
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A dignified, self-paced framework built completely around your personal agency.
-              </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
-                Navigating your growth shouldn't feel like a stressful test. The Capability Alignment System (CAS) maps out a clear, supportive process that honors your lived experiences, transforms your stories into verified strengths, and connects you directly with regional opportunities—all while keeping you in absolute control of your data.
-              </p>
-            </div>
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-4 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <InteractiveTimeline />
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
+          <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+              PARTICIPANT GUIDANCE FLOW
+            </span>
+            <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              How the Alignment Scan Works
+            </h1>
+            <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
+              A simple, dignified 4-step process connecting your real-world experience to verified next steps.
+            </p>
+            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+              There are no rigid exams, scores, or diagnostic labels. You remain in complete control of your reflection journey at every phase.
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/platform/participant-portal"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
+              >
+                Start Your Free Scan →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE 8-CORE STEP PROGRESSION GRID */}
+      {/* SECTION 2: ALTERNATING Z-PATTERN ROWS */}
       <ScrollReveal>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              num: "01",
-              title: "Self-Guided Reflection",
-              desc: "Begin with stress-free, unpaced workspace logs to document your specialized life experiences, caregiving milestones, and volunteer efforts."
-            },
-            {
-              num: "02",
-              title: "Contextual Capture",
-              desc: "Use intuitive textual prompts to detail real-world problems you have naturally solved, preserving your true, authentic voice."
-            },
-            {
-              num: "03",
-              title: "Signal Formatting",
-              desc: "Watch your qualitative personal stories convert into professional, dynamic indicators known as Capability Signals™."
-            },
-            {
-              num: "04",
-              title: "Secure Storage",
-              desc: "Your emerging capability map is securely locked. You maintain absolute profile sovereignty and data ownership at all times."
-            },
-            {
-              num: "05",
-              title: "Advisor Invitation",
-              desc: "Choose exactly when to grant secure viewing access to trusted community coaches or frontline workforce mentors."
-            },
-            {
-              num: "06",
-              title: "Pathway Mapping",
-              desc: "Co-create flexible Alignment Pathways™ that suggest targeted routes through local educational blocks and training modules."
-            },
-            {
-              num: "07",
-              title: "Mutual Role Alignment",
-              desc: "Evaluate active regional positions side-by-side with your profile context, bypassing biased, automated resume keyword filters."
-            },
-            {
-              num: "08",
-              title: "Sustainable Last Mile",
-              desc: "Transition smoothly into your active role with continuous post-placement support and lifelong access to your guidance portal."
-            }
-          ].map((card) => (
-            <div
-              key={card.num}
-              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-mono text-xs font-bold text-[#0F1B2D]">Step {card.num}</span>
-                  <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                    PHASE {card.num}
-                  </span>
+        <section className="space-y-8">
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 0
+            return (
+              <div
+                key={step.num}
+                className="bg-white rounded-[28px] p-8 border border-[#1B3A5C] shadow-md hover:border-[#E2725B] transition-all duration-300"
+              >
+                <div className={`grid gap-8 lg:grid-cols-2 lg:items-center ${isEven ? '' : 'lg:grid-flow-dense'}`}>
+                  <div className={`space-y-5 ${isEven ? '' : 'lg:col-start-2'}`}>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#E2725B] text-sm font-bold text-white font-mono shadow-sm">
+                        {step.num}
+                      </span>
+                      <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                        {step.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-2xl font-bold text-[#0F1B2D] tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+                      {step.desc}
+                    </p>
+                    <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                      {step.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E2725B] shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={`flex justify-center items-center p-4 bg-[var(--surface-soft)]/40 rounded-2xl border border-[var(--line)]/20 ${isEven ? '' : 'lg:col-start-1'}`}>
+                    <div className="w-full max-w-[320px] bg-[#0F1B2D] border border-white/10 rounded-xl p-6 shadow-lg text-white space-y-4">
+                      <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-[#E2725B]">STEP {step.num} FLOW</span>
+                        <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-3 bg-white/20 rounded w-3/4" />
+                        <div className="h-2 bg-[#E2725B] rounded w-1/2" />
+                      </div>
+                      <div className="pt-2 flex justify-between items-center text-[10px] font-mono text-white/60">
+                        <span>FREE ACCESS</span>
+                        <span className="text-[#E2725B]">ACTIVE</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-[#0F1B2D] font-bold text-base font-sans tracking-tight">
-                  {card.title}
-                </h4>
-                <p className="text-[#4B5563] text-xs leading-relaxed font-sans">
-                  {card.desc}
-                </p>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: DEEP ADVANCED EXPOSITION (BOTTOM HALF) */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Navigating Your Advanced Growth Pathways
+            Participant Guarantees
           </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Adaptive Route Planning
+                Always Free to Individuals
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Explore individual Alignment Pathways™ that suggest flexible routes through educational blocks, local upskilling coursework, and community pilot programs. The roadmap dynamically updates and suggests fresh steps as your goals evolve.
+                You will never be asked to pay to build, maintain, or share your capability snapshots.
               </p>
             </div>
-
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Mutual Role Alignment
+                Zero Ranking or Judgement
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Evaluate open regional positions side-by-side with your active capability profile. Organizations cleanly express what a position requires, and you choose when to share your context—eliminating the bias of cold, automated resume filters.
+                The platform never compares you to others or generates algorithmic pass/fail test scores.
               </p>
             </div>
-
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                The Sustained Last Mile
+                Absolute Data Sovereignty
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Transition smoothly into your active new role with continuous support. Your portal links remain fully operational post-placement, allowing you to log fresh milestones, track ongoing career momentum, and access lifelong guidance.
+                Your data belongs to you permanently. Revoke sharing access whenever you choose.
               </p>
             </div>
           </div>
@@ -3456,127 +3474,64 @@ function IndividualsHowItWorks() {
   )
 }
 
+
 function IndividualsWhoWeServe() {
+  const cards = [
+    { badge: '01. YOUTH & STUDENTS', title: 'Vocational & High School Youth', desc: 'Students transitioning into trade programs or early workforce tracks seeking to turn hands-on skills into visible capability profiles.' },
+    { badge: '02. JOB CORPS COHORTS', title: 'Job Corps Participants', desc: 'Young adults developing specialized trades credentials and looking for direct employer pathway alignment.' },
+    { badge: '03. RURAL TALENT', title: 'Rural Workforce Members', desc: 'Overlooked talent in non-metropolitan areas whose specialized informal experiences are missed by traditional job boards.' },
+    { badge: '04. ADULT LEARNERS', title: 'Career Pivoters & Adult Learners', desc: 'Individuals building new skill sets through community college certificates or independent apprenticeships.' },
+    { badge: '05. COMMUNITY LEADERS', title: 'Volunteer & Civic Organizers', desc: 'Grassroots leaders who manage neighborhood initiatives, caregiving, and community projects without formal job titles.' },
+    { badge: '06. MILITARY VETERANS', title: 'Veterans & Service Leavers', desc: 'Service members translating complex tactical and logistical experiences into civilian capability signals.' },
+    { badge: '07. RE-ENTRY TALENT', title: 'Justice-Involved Individuals', desc: 'Participants building fresh pathways by documenting personal growth, accountability, and trade certifications.' },
+    { badge: '08. FRONTLINE WORKERS', title: 'Essential Service Personnel', desc: 'Hospitality, retail, and care workers demonstrating problem-solving capabilities under real-world pressure.' },
+    { badge: '09. DISPLACED WORKERS', title: 'Industry Transitioners', desc: 'Workers navigating economic shifts by identifying transferrable skills across adjacent regional sectors.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      {/* SECTION 1: COMPACT HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                TAILORED PARTICIPANT FOCUS
+        <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
+            <div className="space-y-3 max-w-3xl">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+                PARTICIPANT SPECTRUM & REACH
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
                 Who We Serve
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Dignified growth pathways designed for every stage of your life journey.
+              </h1>
+              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
+                The ElevIQ Capability Alignment System (CAS) is designed specifically for overlooked talent, non-traditional job seekers, and community builders.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Capability Alignment System is built to serve individuals navigating critical life or career transitions. We recognize that highly valuable problem-solving, resilience, and operational skills are built across diverse backgrounds. CAS honors your unique trajectory without reducing you to a rigid application score.
-              </p>
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Connect With Us
-                </Link>
-              </div>
             </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <circle cx="160" cy="120" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <circle cx="160" cy="120" r="40" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="80" y1="120" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="160" y1="120" x2="240" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="160" y1="60" x2="160" y2="180" stroke="#E2725B" strokeWidth="1.5" opacity="0.4" />
-                  <circle cx="80" cy="120" r="6" fill="#E2725B" />
-                  <circle cx="160" cy="60" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="240" cy="120" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="160" cy="180" r="6" fill="#E2725B" />
-                  <circle cx="160" cy="120" r="12" fill="#E2725B" opacity="0.2" />
-                  <circle cx="160" cy="120" r="5" fill="#E2725B" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+            <div className="shrink-0">
+              <Link
+                to="/platform/participant-portal"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              >
+                Access Free Scan →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE 10-AUDIENCE CARD MATRIX */}
+      {/* SECTION 2: 3x3 MATRIX CARD GRID */}
       <ScrollReveal>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {[
-            {
-              num: "01",
-              title: "Career Re-Enters",
-              desc: "Designed for individuals returning to full-time roles after periods of dedicated family caregiving, health recovery, or structural life breaks."
-            },
-            {
-              num: "02",
-              title: "Workforce Grads",
-              desc: "Built for participants finishing regional training pilots, local non-profit cohorts, or specialized municipal upskilling paths."
-            },
-            {
-              num: "03",
-              title: "Opportunity Youth",
-              desc: "Tailored for young adults (ages 16–24) looking for clear, non-linear career entry points to bypass strict resume experience gates."
-            },
-            {
-              num: "04",
-              title: "Displaced Workers",
-              desc: "For experienced professionals whose local industries have undergone sudden economic shifts, modern automation, or down-scaling."
-            },
-            {
-              num: "05",
-              title: "Military Veterans",
-              desc: "Translates specialized tactical operations, leadership high-fidelity milestones, and field execution into civilian Capability Signals™."
-            },
-            {
-              num: "06",
-              title: "Justice-Impacted",
-              desc: "Provides a private, stress-free space for re-entering citizens to document authentic strengths without being filtered out by legacy screening boxes."
-            },
-            {
-              num: "07",
-              title: "Adaptive Learners",
-              desc: "Perfect for self-taught professionals, community organizers, and individuals who naturally thrive outside rigid clinical testing parameters."
-            },
-            {
-              num: "08",
-              title: "Mature Workers",
-              desc: "Highlights deep behavioral wisdom, institutional knowledge, and operational execution capacity rather than historic graduation dates."
-            },
-            {
-              num: "09",
-              title: "Non-Traditional",
-              desc: "Enables independent contractors, freelance executors, and gig economy workers to build a single, unified, verified capability footprint."
-            },
-            {
-              num: "10",
-              title: "Underemployed",
-              desc: "For dedicated workers trapped in survival roles who possess advanced, unmapped skill sets ready to align with true regional career pathways."
-            }
-          ].map((card) => (
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card) => (
             <div
-              key={card.num}
-              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+              key={card.badge}
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex justify-between items-start">
-                <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                  Focus {card.num}
-                </span>
-              </div>
-              <h3 className="font-sans text-lg font-bold text-[#0F1B2D] tracking-tight">
-                {card.num}. {card.title}
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                {card.badge}
+              </span>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                {card.title}
               </h3>
-              <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
                 {card.desc}
               </p>
             </div>
@@ -3584,41 +3539,35 @@ function IndividualsWhoWeServe() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: BOTTOM EXPOSITION */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            A System Built for Diverse Backgrounds
+            Inclusion & Dignity Standards
           </h3>
-
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Respecting Lived Experience
+                No Background Exclusion
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                We recognize that elite management and problem-solving skills are built during non-linear paths outside traditional corporate employment.
+                Every individual has valuable capabilities regardless of formal degree status or non-linear career gaps.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Removing Stale Screeners
+                Zero Diagnostic Framing
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Our dynamic process ensures that real human review and qualitative context override cold, automated resume keyword filters.
+                We never apply psychological testing, clinical labels, or automated deficit scoring to participants.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Continuous Access Rights
+                Universal Free Access
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Your individual portal belongs to you permanently. You can update, scale, and carry your capability maps anywhere your career moves.
+                Individual participants will never be charged fees to capture, maintain, or share their capability data.
               </p>
             </div>
           </div>
@@ -3627,135 +3576,146 @@ function IndividualsWhoWeServe() {
     </div>
   )
 }
+
 
 function IndividualsJobCorps() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Student & Youth Cohort Onboarding',
+      desc: 'Job Corps participants enter a clean, supportive digital workspace designed specifically to capture vocational training milestones, hands-on trades experience, and teamwork skills.',
+      bullets: ['Vocational trade skill documentation', 'Youth-friendly reflection prompts', 'Cohort leader support integration'],
+      badge: 'YOUTH INTAKE'
+    },
+    {
+      num: '02',
+      title: 'Hands-On Milestone Verification',
+      desc: 'Instructors and student leads co-create verified action points for completed shop work, safety certifications, and collaborative projects, replacing flat resume bullets with dynamic evidence.',
+      bullets: ['Trade certification tracking', 'Instructor-verified milestones', 'Practical problem-solving proof'],
+      badge: 'MILESTONE PROOF'
+    },
+    {
+      num: '03',
+      title: 'Transition & Last Mile Placement',
+      desc: 'As students prepare to graduate, their capability snapshot bridges the gap between campus training and local employer apprenticeship programs via The ElevIQ Last Mile™.',
+      bullets: ['Employer pathway matching', 'Apprenticeship handoff coordination', 'Long-term career retention tracking'],
+      badge: 'CAREER HANDOFF'
+    }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      {/* SECTION 1: CENTERED HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                ACTIVE PILOT INTEGRATION — DEPLOYED APRIL 2026
-              </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Job Corps Collaboration
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Empowering our inaugural 14-student cohort with high-fidelity capability frameworks.
-              </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Launched in April 2026, our specialized Job Corps pilot framework directly interfaces with active training cohorts to bridge the gap between technical classroom mastery and real-world workspace alignment. By monitoring and mapping a baseline group of 14 active students using our earlier TalentScan™ language, this framework demonstrates how non-linear technical milestones cleanly convert into verified strengths local employers trust across our 8 Career Technical Training (CTT) pathways.
-              </p>
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Inquire About Pilots
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <rect x="50" y="170" width="40" height="15" fill="#E2725B" opacity="0.2" rx="2" />
-                  <rect x="100" y="140" width="40" height="15" fill="#E2725B" opacity="0.4" rx="2" />
-                  <rect x="150" y="110" width="40" height="15" fill="#E2725B" opacity="0.6" rx="2" />
-                  <rect x="200" y="80" width="40" height="15" fill="#E2725B" opacity="0.8" rx="2" />
-                  <rect x="250" y="50" width="40" height="15" fill="#E2725B" rx="2" />
-                  <path d="M 70 170 L 120 140 L 170 110 L 220 80 L 270 50" fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.5" strokeDasharray="3 3" />
-                  <circle cx="270" cy="50" r="4" fill="#FFFFFF" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
+          <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+              YOUTH & WORKFORCE INITIATIVE
+            </span>
+            <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              Job Corps & Youth Pathways
+            </h1>
+            <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
+              Empowering vocational students and Job Corps cohorts with human-centered capability tracking.
+            </p>
+            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+              CAS bridges technical training and real-world employer placement by turning hands-on trade skills into verified capability signals.
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/platform/participant-portal"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
+              >
+                Explore Youth Portal →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE PILOT TRACKING GRID (3 White Cards) */}
+      {/* SECTION 2: ALTERNATING Z-PATTERN ROWS */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                14-STUDENT COHORT METRICS
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Technical Milestone Mapping</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Translates standard vocational training units, automotive logs, and hands-on mechanical fabrication projects directly into dynamic Capability Signals™.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                PILOT SYNCHRONICITY
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Advisor Observation Status</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Enables on-site Job Corps counselors and vocational instructors to directly input validated observational notes, updating the student's operational profile status in real-time.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                APRIL 2026 TARGETS
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Direct Pipeline Alignment</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Connects the active 14-student tracking pipeline directly with regional corporate buyers, bypassing arbitrary resume keyword filters entirely.
-            </p>
-          </div>
+        <section className="space-y-8">
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 0
+            return (
+              <div
+                key={step.num}
+                className="bg-white rounded-[28px] p-8 border border-[#1B3A5C] shadow-md hover:border-[#E2725B] transition-all duration-300"
+              >
+                <div className={`grid gap-8 lg:grid-cols-2 lg:items-center ${isEven ? '' : 'lg:grid-flow-dense'}`}>
+                  <div className={`space-y-5 ${isEven ? '' : 'lg:col-start-2'}`}>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#E2725B] text-sm font-bold text-white font-mono shadow-sm">
+                        {step.num}
+                      </span>
+                      <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                        {step.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-2xl font-bold text-[#0F1B2D] tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+                      {step.desc}
+                    </p>
+                    <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                      {step.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#E2725B] shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={`flex justify-center items-center p-4 bg-[var(--surface-soft)]/40 rounded-2xl border border-[var(--line)]/20 ${isEven ? '' : 'lg:col-start-1'}`}>
+                    <div className="w-full max-w-[320px] bg-[#0F1B2D] border border-white/10 rounded-xl p-6 shadow-lg text-white space-y-4">
+                      <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-[#E2725B]">YOUTH PATHWAY {step.num}</span>
+                        <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-3 bg-white/20 rounded w-3/4" />
+                        <div className="h-2 bg-[#E2725B] rounded w-1/2" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: BOTTOM EXPOSITION */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Strengthening Institutional Student Pipelines
+            Job Corps Program Values
           </h3>
-
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Accelerated Onboarding Status
+                Honoring Trade Excellence
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Gives partner companies deep visibility into a student's project work, allowing day-one operational trust.
+                Hands-on technical mastery is highlighted with equal weight alongside academic credentials.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Dignity in Early Careers
+                Seamless Transition Handoff
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Ensures young professionals or tradespeople entering the market are judged by practical execution rather than background length.
+                Connects campus trade graduates directly to verified regional employer buyer pipelines.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Localized Ecosystem Links
+                Advisor-Supported Growth
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Seamlessly integrates training center objectives with active, real-time municipal employer demands updated for April 2026.
+                Cohort leads and career counselors work side-by-side with students throughout their transition.
               </p>
             </div>
           </div>
@@ -3764,135 +3724,101 @@ function IndividualsJobCorps() {
     </div>
   )
 }
+
 
 function IndividualsPartnersPilots() {
+  const cards = [
+    { badge: '01. RURAL WORKFORCE', title: 'Rural Workforce Innovation', desc: 'Community pilots extending capability alignment infrastructure to non-metropolitan towns and agricultural regions.' },
+    { badge: '02. CIVIC FOUNDATIONS', title: 'Mission-Driven Non-Profits', desc: 'Local community action agencies and non-profit coalitions coordinating participant guidance.' },
+    { badge: '03. TECHNICAL SCHOOLS', title: 'Community Colleges & Vocational', desc: 'Educational partners integrating trade skill signals into certificate programs.' },
+    { badge: '04. YOUTH INITIATIVES', title: 'Job Corps & Youth Centers', desc: 'Regional centers connecting vocational youth directly with localized employer buyer networks.' },
+    { badge: '05. MUNICIPAL BOARDS', title: 'Workforce Investment Boards', desc: 'City and county boards deploying macro capability analytics across municipal districts.' },
+    { badge: '06. REGIONAL EMPLOYERS', title: 'Inclusive Employer Alliances', desc: 'Forward-thinking corporate buyers committed to skills-first hiring and apprenticeship onboarding.' },
+    { badge: '07. RE-ENTRY PARTNERS', title: 'Justice & Re-Entry Networks', desc: 'Specialized organizations supporting re-entering individuals with verified milestone tracking.' },
+    { badge: '08. VETERAN HUBS', title: 'Military Transition Alliances', desc: 'Veteran support hubs translating tactical training into recognized civilian capability signals.' },
+    { badge: '09. PHILANTHROPIC FUNDS', title: 'Donor & Funder Alliances', desc: 'Philanthropic partners supporting mission access and pilot funding across underserved zones.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      {/* SECTION 1: COMPACT HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                REGIONAL IMPACT CLUSTERS
+        <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
+            <div className="space-y-3 max-w-3xl">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+                COMMUNITY ECOSYSTEM & PILOTS
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Partners & Pilots
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Real-world validation of human-centered alignment models in action.
+              <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
+                Partners & Pilot Networks
+              </h1>
+              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
+                ElevIQ Foundation collaborates with civic organizations, workforce boards, and educational partners to expand access.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Explore the structural network driving active community pilot frameworks across selected municipal regions. These regional talent clusters bring together distinct ecosystem stakeholders to prove how qualitative capability models scale, entirely independent of individual corporate branding or isolated endorsements.
-              </p>
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Inquire to Partner
-                </Link>
-              </div>
             </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <circle cx="120" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-                  <circle cx="200" cy="110" r="45" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-                  <circle cx="160" cy="160" r="45" fill="none" stroke="#E2725B" strokeWidth="2" opacity="0.4" />
-                  <circle cx="120" cy="110" r="4" fill="#E2725B" />
-                  <circle cx="200" cy="110" r="4" fill="#E2725B" />
-                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="160" cy="110" r="4" fill="#FFFFFF" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+            <div className="shrink-0">
+              <Link
+                to="/contact"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              >
+                Inquire for Pilot Scope →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: CORE PARTNER CATEGORIES (3 White Cards / No Named Endorsements) */}
+      {/* SECTION 2: 3x3 MATRIX CARD GRID */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                PILOT PARTNER
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card) => (
+            <div
+              key={card.badge}
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+            >
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                {card.badge}
               </span>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                {card.title}
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                {card.desc}
+              </p>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Philanthropic & Foundational Networks</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Regional foundations and civic funding networks that establish the baseline capital to deploy free, private scanning frameworks to local citizens.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                PROGRAM PARTNER
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Workforce Boards & Community Non-Profits</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Localized public agencies and frontline neighborhood operations responsible for onboarding trusted community coaches and managing active participant tracking.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                TECHNOLOGY PARTNER
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Institutional Regional Corporate Buyers</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Forward-thinking employer networks who format open roles around verified capability benchmarks, cleanly accepting dynamic snapshot profiles.
-            </p>
-          </div>
+          ))}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: BOTTOM EXPOSITION */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Our Measurable Pilot Principles
+            Pilot Principles & Oversight
           </h3>
-
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Hyper-Local Customization
+                Collaborative Design
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Every pilot cluster is customized to match the explicit economic needs and demographic realities of that specific regional ecosystem.
+                Pilots are co-designed alongside community leaders to respect local cultural and economic realities.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Verified Mobility Metrics
+                Transparent Impact Metrics
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                We measure success strictly through individual trajectory progress and sustainable career retention rates, never marketing clicks.
+                Evaluation focuses on participant retention, capability growth, and human coaching satisfaction.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Data Splitting Protocols
+                Sustainable Scaling
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Ensures workforce networks receive clean, macro-level impact metrics while keeping individual participant profiles completely private.
+                Successful regional pilots transition into permanent community infrastructure with long-term support.
               </p>
             </div>
           </div>
@@ -3901,136 +3827,221 @@ function IndividualsPartnersPilots() {
     </div>
   )
 }
+
 
 function IndividualsSupportMission() {
+  const [selectedRole, setSelectedRole] = useState('funder')
+
+  const roleDetails = {
+    funder: {
+      title: 'Philanthropic Funder / Donor',
+      desc: 'Support mission-driven pilot access and rural workforce expansion across underserved community districts.',
+      tag: 'PHILANTHROPIC SUPPORT',
+      action: 'Connect with Foundation Team'
+    },
+    partner: {
+      title: 'Community Partner / Non-Profit',
+      desc: 'Bring free capability alignment tools to your local youth programs, adult learning hubs, or re-entry initiatives.',
+      tag: 'COMMUNITY ALLIANCE',
+      action: 'Inquire for Non-Profit Access'
+    },
+    advocate: {
+      title: 'Participant / Individual Advocate',
+      desc: 'Spread awareness about free alignment tools and help participants take sovereignty over their true potential.',
+      tag: 'ADVOCACY ALLIANCE',
+      action: 'Access Free Participant Scan'
+    }
+  }
+
+  const currentRole = roleDetails[selectedRole] || roleDetails.funder
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      {/* SECTION 1: SPLIT HERO WITH EMBEDDED ROLE SELECTOR FORM */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                COMMUNITY CHAMPIONS & PHILANTHROPY
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+                MISSION-DRIVEN ACCESS & ADVOCACY
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              <h1 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Support the Mission
-              </h2>
+              </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Invest in scaling an equitable, human-centered regional infrastructure.
+                ElevIQ Foundation delivers mission-driven access, community pilots, and participant support.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                We invite philanthropic partners, civic networks, and regional foundation ecosystems to engage with our formal intake team to seed the Capability Alignment System. By supporting this foundational mission, you provide everyday citizens with free access to secure, dignified workspaces that bridge the gap between unrecognized life potential and active local career opportunities.
+                Help us expand access to free capability tools for youth, adult learners, and rural workforce members across regional networks.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Partner or Donate
+                  Get Involved Today →
                 </Link>
               </div>
             </div>
 
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <polygon points="160,50 90,170 230,170" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.15" />
-                  <circle cx="160" cy="50" r="6" fill="#E2725B" />
-                  <circle cx="90" cy="170" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="230" cy="170" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <line x1="160" y1="50" x2="160" y2="120" stroke="#E2725B" strokeWidth="2" />
-                  <line x1="90" y1="170" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.6" />
-                  <line x1="230" y1="170" x2="160" y2="120" stroke="#E2725B" strokeWidth="1.5" opacity="0.6" />
-                  <circle cx="160" cy="120" r="7" fill="#E2725B" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+            {/* Right Column: Embedded Role Selector Card */}
+            <div className="p-2">
+              <div className="bg-[#0F1B2D]/80 border border-white/15 rounded-2xl p-6 shadow-2xl text-white space-y-5">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#E2725B] block font-bold">
+                  SELECT HOW YOU CAN SUPPORT
+                </span>
+                
+                {/* Role Tabs */}
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('funder')}
+                    className={`px-2 py-2 rounded-xl text-[11px] font-mono text-center transition-all ${selectedRole === 'funder' ? 'bg-[#E2725B] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Funder / Donor
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('partner')}
+                    className={`px-2 py-2 rounded-xl text-[11px] font-mono text-center transition-all ${selectedRole === 'partner' ? 'bg-[#E2725B] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Partner Org
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('advocate')}
+                    className={`px-2 py-2 rounded-xl text-[11px] font-mono text-center transition-all ${selectedRole === 'advocate' ? 'bg-[#E2725B] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Advocate
+                  </button>
+                </div>
+
+                {/* Role Detail Box */}
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="font-mono text-[9px] font-bold text-[#E2725B] uppercase tracking-wider">{currentRole.tag}</span>
+                    <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">{currentRole.title}</h4>
+                  <p className="text-xs leading-relaxed text-white/80 font-sans">{currentRole.desc}</p>
+                </div>
+
+                <Link
+                  to="/contact"
+                  className="w-full rounded-xl border border-[#E2725B] bg-[#E2725B] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-md"
+                >
+                  {currentRole.action} →
+                </Link>
               </div>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: CORE PILLARS (3 White Cards) */}
+      {/* SECTION 2: 3 FLOATING OPTION COLUMNS */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                FOUNDATION INTAKE PATH
+          {/* Option 01 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="space-y-4">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                ALLIANCE 01: COMMUNITY PILOTS
               </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Rural & Youth Pilot Grants
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Fund localized capability alignment software access for Job Corps cohorts, agricultural youth, and rural non-profit partners.
+              </p>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Expand Free Access</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Your foundational alignment ensures that scanning tools and lifelong portal access remain permanently 100% free for all individual participants within your target municipality.
-            </p>
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#E2725B] bg-[#E2725B] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-sm"
+              >
+                Sponsor a Pilot →
+              </Link>
+            </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                CIVIC ALLOCATION BLOCK
+          {/* Option 02 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border-2 border-[#E2725B] flex flex-col justify-between space-y-6 hover:-translate-y-1 transition-all duration-300 relative shadow-xl">
+            <div className="space-y-4 pt-2">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                ALLIANCE 02: PARTICIPANT ACCESS
               </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Free Scan Endowment
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Ensure the ElevIQ Alignment Scan™ remains 100% free for individual participants permanently across all regional districts.
+              </p>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Empower Local Mentors</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Help scale specialized operational training cohorts for frontline community coaches, non-profit staff, and neighborhood advisors who securely guide participants.
-            </p>
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#E2725B] bg-[#E2725B] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-md"
+              >
+                Support Free Access →
+              </Link>
+            </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                INFRASTRUCTURE FUNDING
+          {/* Option 03 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="space-y-4">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                ALLIANCE 03: ADVISOR ENABLEMENT
               </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Coach & Advisor Training
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Underwrite training and enablement programs for frontline community mentors learning to deliver plain-language capability guidance.
+              </p>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Drive Local Pilots</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Sponsor hyper-targeted geographic alignment clusters that bring together municipal workgroups and regional corporate buyers under verified baseline data frameworks.
-            </p>
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#E2725B] bg-[#E2725B] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-sm"
+              >
+                Enable Local Advisors →
+              </Link>
+            </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: BOTTOM EXPOSITION */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Ecosystem Alignment Protocols & Governance
+            Foundation Governance Principles
           </h3>
-
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Formal Funder Contact Protocol
+                100% Mission Alignment
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                All foundational and philanthropic backing must be routed through our centralized compliance and engagement contact desk to ensure strategic regional alignment.
+                All philanthropic support goes directly toward expanding free participant tools and rural workforce access.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Infrastructure Support No-Guarantees Statement
+                No Deficit Labelling
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Contributions are allocated strictly to maintain public utility deployment, security standards, and open access. Funding does not yield commercial placement guarantees, preferential ranking overrides, or custom algorithmic tuning.
+                We never frame participants as disadvantaged or deficient, evaluating strengths strictly through authentic capability language.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Measurable Civic Trajectories
+                Community Accountability
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                While individual placements are never commercially guaranteed, donor networks receive clean, macro-level regional ecosystem health metrics proving capital mobility impact.
+                Foundation activities report transparently to community advisory boards and local workforce leaders.
               </p>
             </div>
           </div>
@@ -4039,132 +4050,93 @@ function IndividualsSupportMission() {
     </div>
   )
 }
+
 
 function IndividualsTrustGovernance() {
+  const metrics = [
+    { value: '100%', title: 'Participant Data Sovereignty', desc: 'You own your profile data permanently. Revoke sharing access from any organization or advisor instantly.' },
+    { value: '0', title: 'Black-Box AI Scores', desc: 'We outlaw automated ranking algorithms and diagnostic test scores. Your capabilities are represented in authentic language.' },
+    { value: 'HUMAN', title: 'Coaching Oversight First', desc: 'Trained human advisors review all shared milestone entries alongside you, ensuring guidance stays supportive.' },
+    { value: 'FREE', title: 'Always Free to Participants', desc: 'Individual job seekers, students, and community members never pay fees to build, store, or share snapshots.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HIGH-IMPACT HERO BLOCK */}
+      {/* SECTION 1: MINIMALIST HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B]/30 bg-[#E2725B]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#E2725B] font-bold">
-                SECURITY, PRIVACY & SYSTEM COMPLIANCE
-              </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Trust & Governance
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                An uncompromising commitment to personal privacy, system transparency, and data ethics.
-              </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Trust is the foundational architecture of the Capability Alignment System. We hold ourselves to rigorous governance guidelines to ensure that individual data sovereignty is protected at every single turn. This framework is completely insulated from predictive algorithms, clinical scoring bias, or exploitative data networks.
-              </p>
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Inquire for Trust Docs
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="#E2725B" strokeWidth="2.5" />
-                  <path d="M 160 50 C 200 50, 240 60, 240 100 C 240 150, 160 195, 160 195 C 160 195, 80 150, 80 100 C 80 60, 120 50, 160 50 Z" fill="none" stroke="#E2725B" strokeWidth="6" opacity="0.15" />
-                  <circle cx="160" cy="115" r="14" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.25" />
-                  <circle cx="160" cy="115" r="5" fill="#FFFFFF" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 2: CORE GOVERNANCE PILLARS (3 White Cards) */}
-      <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                PRIVACY PROTOCOL
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">01. Absolute Data Privacy</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Participants retain master key ownership of their content. Data is strictly segmented so corporate and donor entities can only view high-level, anonymized macro statistics, keeping personal profiles perfectly private.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                INCLUSION STANDARD
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">02. Universal Accessibility</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Engineered around a self-paced, zero-stress framework that completely eliminates timed countdowns, clinical assessments, or confusing quizzes, ensuring a dignified experience for all backgrounds.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full bg-[#E2725B] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
-                OVERSIGHT MANDATE
-              </span>
-            </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">03. Independent System Oversight</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              System workflows are continuously validated by neutral compliance partners to strictly outlaw black-box predictive indexing, automated fit scores, and algorithmic background ranking mechanisms.
+        <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
+          <div className="space-y-3 max-w-3xl text-white">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+              SECURITY & TRUST GOVERNANCE
+            </span>
+            <h1 className="font-sans text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
+              Trust, Agency & Data Governance
+            </h1>
+            <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
+              Building human-centered infrastructure requires uncompromised data sovereignty, strict privacy controls, and zero diagnostic pressure.
             </p>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: BOTTOM EXPOSITION */}
+      {/* SECTION 2: 4-COLUMN GOVERNANCE METRIC GRID */}
+      <ScrollReveal>
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {metrics.map((metric) => (
+            <div
+              key={metric.title}
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="space-y-3">
+                <span className="font-mono text-3xl font-bold text-[#E2725B] tracking-tight block">
+                  {metric.value}
+                </span>
+                <h3 className="font-sans text-base font-bold text-[#0F1B2D]">
+                  {metric.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                  {metric.desc}
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#EBF1F5]">
+                <span className="text-[10px] font-mono font-semibold text-[#E2725B] uppercase tracking-wider">
+                  Guaranteed Standard
+                </span>
+              </div>
+            </div>
+          ))}
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Our Structural Security Safeguards
+            Participant Governance Guarantees
           </h3>
-
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Revocable Permissions
+                No Data Monetization
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Individuals share profile access strictly on their own terms and can completely wipe or pull back viewing rights from any advisor or institution instantly.
+                We never sell, rent, or commercialize individual participant data or reflection entries to third-party advertisers.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Algorithmic Insulation
+                Transparent Permission Logs
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Our governance code guarantees that human review and qualitative context override cold, automated resume keyword filters and predictive hiring models.
+                Every view request and sharing authorization is logged transparently inside your private participant dashboard.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Dignity-First Security
+                Permanent Data Portability
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Every server, operational protocol, and code layer is engineered around safeguarding the participant's long-term career safety and absolute profile sovereignty.
+                Export your dynamic capability snapshot at any time in open, readable formats to share wherever you choose.
               </p>
             </div>
           </div>
@@ -4173,6 +4145,7 @@ function IndividualsTrustGovernance() {
     </div>
   )
 }
+
 
 function OrganizationsSection() {
   return (
@@ -4200,7 +4173,7 @@ function OrganizationsHome() {
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 ENTERPRISE DEPLOYMENT & ALIGNMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -4310,7 +4283,7 @@ function OrganizationsHome() {
                 <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   01. Benchmark Positions
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                   ROLE SPECIFICATIONS
                 </span>
               </div>
@@ -4335,7 +4308,7 @@ function OrganizationsHome() {
                 <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   02. Access Macro Insights
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                   ECOSYSTEM TRACKING
                 </span>
               </div>
@@ -4360,7 +4333,7 @@ function OrganizationsHome() {
                 <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
                   03. Engage Pilot Pipelines
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-1 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
                   TARGETED INTEGRATION
                 </span>
               </div>
@@ -4424,270 +4397,98 @@ function OrganizationsHome() {
 }
 
 function OrganizationsSolutions() {
+  const cards = [
+    { badge: '01. WORKFORCE BOARDS', title: 'Workforce Board Infrastructure', desc: 'Macro capability analytics and cross-sector pipeline visibility for regional workforce investment boards.' },
+    { badge: '02. EDUCATIONAL HUBS', title: 'Community College Solutions', desc: 'Trade skill tracking and student alignment dashboards connecting coursework to regional employer tracks.' },
+    { badge: '03. CORPORATE BUYERS', title: 'Skills-First Hiring Portals', desc: 'Direct access to verified candidate capability snapshots without relying on automated resume screening.' },
+    { badge: '04. ADVISOR WORKSPACES', title: 'ElevIQ CLARA™ Advisor Dashboards', desc: 'Dedicated workspaces for frontline coaches to deliver human guidance and co-create milestone roadmaps.' },
+    { badge: '05. COMMUNITY CONSOLES', title: 'Community Intelligence Console™', desc: 'Aggregated macro data layer isolating raw reflection entries while surfacing regional talent trends.' },
+    { badge: '06. ROLE BENCHMARKING', title: 'Human-Centered Role Alignment', desc: 'Translates corporate job requirements into qualitative capability criteria rather than rigid credential lists.' },
+    { badge: '07. ONBOARDING TRACKS', title: 'The ElevIQ Last Mile™', desc: 'Structured post-hire onboarding support and retention tracking to ensure long-term role alignment.' },
+    { badge: '08. CIVIC COALITIONS', title: 'Municipal Talent Alliances', desc: 'Unifies city-wide non-profits, training centers, and employers under a single capability framework.' },
+    { badge: '09. ENTERPRISE SECURITY', title: 'Sovereign Data Splitting', desc: 'Enterprise privacy architecture ensuring complete separation between participant reflections and buyer views.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: COMPACT HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column Content */}
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
-                TARGETED INSTITUTIONAL ALIGNMENT
+        <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
+            <div className="space-y-3 max-w-3xl">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+                ORGANIZATIONAL CAPABILITY SOLUTIONS
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Tailored Ecosystem Solutions
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A unified capability infrastructure calibrated for every regional stakeholder.
+              <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
+                Enterprise & Institutional Solutions
+              </h1>
+              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
+                STC Innovations licenses and configures the ElevIQ Capability Alignment System (CAS) for institutions and employers.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Capability Alignment System scales across the entire local economy by replacing fractured talent assumptions with a shared, high-fidelity data language. Our architecture is precision-built to serve 8 distinct buyer types, aligning institutional demand with verified human capabilities seamlessly.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/organizations/pricing-demo"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Request a Configured Demo
-                </Link>
-                <Link
-                  to="/organizations/implementation"
-                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
-                >
-                  Schedule implementation discovery
-                </Link>
-              </div>
             </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                {/* SVG connection nodes */}
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Grid background */}
-                  <defs>
-                    <pattern id="solutions-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
-                    </pattern>
-                  </defs>
-                  <rect width="320" height="240" fill="url(#solutions-grid)" fillOpacity="0.5" />
-
-                  {/* Connection lines */}
-                  <line x1="60" y1="40" x2="160" y2="80" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
-                  <line x1="160" y1="80" x2="260" y2="60" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
-                  <line x1="260" y1="60" x2="280" y2="160" stroke="rgba(15,168,138,0.3)" strokeWidth="2" />
-                  <line x1="280" y1="160" x2="180" y2="200" stroke="rgba(15,168,138,0.5)" strokeWidth="2.5" />
-                  <line x1="180" y1="200" x2="80" y2="170" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
-                  <line x1="80" y1="170" x2="60" y2="40" stroke="rgba(255,255,255,0.08)" strokeWidth="1.5" />
-
-                  <line x1="160" y1="80" x2="180" y2="130" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
-                  <line x1="80" y1="170" x2="180" y2="130" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
-                  <line x1="180" y1="200" x2="180" y2="130" stroke="rgba(15,168,138,0.6)" strokeWidth="2.5" />
-                  <line x1="280" y1="160" x2="180" y2="130" stroke="rgba(15,168,138,0.5)" strokeWidth="2" />
-                  <line x1="260" y1="60" x2="180" y2="130" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
-
-                  {/* Glow rings */}
-                  <g className="animate-pulse">
-                    <circle cx="180" cy="130" r="10" fill="#0FA88A" fillOpacity="0.15" />
-                    <circle cx="180" cy="200" r="12" fill="#0FA88A" fillOpacity="0.15" />
-                  </g>
-
-                  {/* Standard Nodes */}
-                  <circle cx="60" cy="40" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="160" cy="80" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="260" cy="60" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="2" />
-
-                  {/* Horizon Teal (#0FA88A) highlighted nodes */}
-                  <circle cx="180" cy="130" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="180" cy="200" r="7" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <circle cx="280" cy="160" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="80" cy="170" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-                </svg>
-
-                {/* Sub-card decorative glass reflection effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+            <div className="shrink-0">
+              <Link
+                to="/organizations/pricing-demo"
+                className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              >
+                Schedule Solution Demo →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE 8 BUYER-TYPE MATRIX */}
+      {/* SECTION 2: 3x3 MATRIX CARD GRID */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {/* Card 01 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  01. Regional Corporate Buyers
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  ENTERPRISE HIRING
-                </span>
-              </div>
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {cards.map((card) => (
+            <div
+              key={card.badge}
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300"
+            >
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                {card.badge}
+              </span>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                {card.title}
+              </h3>
               <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                For large employers looking to secure high-retention talent pipelines by formatting roles around baseline operational capabilities rather than stale credentials.
+                {card.desc}
               </p>
             </div>
-          </div>
-
-          {/* Card 02 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  02. Mid-Market Growth Firms
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  AGILE ACQUISITION
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Enables rapidly scaling companies to reduce onboarding friction and bad-hire costs by utilizing verified project and lifestyle milestones.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 03 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  03. Municipal Workforce Boards
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  PUBLIC INFRASTRUCTURE
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Empowers public agencies to orchestrate wide-scale geographic talent clusters, matching localized training allocations with active employer demand.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 04 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  04. Economic Development Orgs
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  REGIONAL GROWTH
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Provides macro-level capability density mapping to attract outside industry investments by proving the region's operational readiness.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 05 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  05. Philanthropic Foundations
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  IMPACT INVESTMENT
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Allows community and institutional funders to track the true systemic velocity of their capital injections via clean, aggregate mobility metrics.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 06 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  06. Vocational & Technical Colleges
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  ACADEMIC SYNCHRONICITY
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Bridges the gap for institutional training centers by translating classroom units directly into dynamic Capability Signals™ recognized by buyers.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 07 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  07. Community-Based Non-Profits
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  LOCALIZED COHORTS
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Equips frontline social impact teams with formal coaching frameworks to securely track, validate, and advocate for non-traditional talent.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 08 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  08. Government & Civil Services
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  COMPLIANCE INTAKE
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Provides a secure, bias-insulated infrastructure to ingest community talent pipelines with total data privacy and zero background scoring friction.
-              </p>
-            </div>
-          </div>
+          ))}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: STRUTURAL COMMITMENTS */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Systemic Safeguards Across All Sectors
+            Institutional Solution Architecture
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Anonymized Aggregate Metrics
+                No Black-Box Algorithms
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Institutional buyers review macro regional data trends. Deep participant profiles are entirely insulated behind strict data-splitting rules.
+                Outlaws automated candidate rejection models, ensuring human review remains active at every stage.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Anti-Algorithmic Baseline
+                Enterprise Privacy First
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Every solution strictly outlaws black-box predictive indexing, candidate suitability scores, and automated filters to ensure a pure capability match.
+                Raw participant reflections are isolated from corporate views through strict data-splitting protocols.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Zero Branding Endorsements
+                Proven Regional Impact
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                In compliance with system parameters, solutions focus exclusively on objective infrastructure alignment, featuring no named corporate brand logos.
+                Delivers verifiable retention improvements by aligning talent to roles based on genuine capability fit.
               </p>
             </div>
           </div>
@@ -4696,266 +4497,157 @@ function OrganizationsSolutions() {
     </div>
   )
 }
+
 
 function OrganizationsImplementation() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Ecosystem Architecture & Data Splitting Setup',
+      desc: 'Our deployment team configures sovereign data-splitting protocols, isolating raw participant reflection data from organizational analytics while establishing secure regional network boundaries.',
+      bullets: ['Sovereign data boundary configuration', 'Role-based access permissioning', 'Zero black-box scoring integration'],
+      badge: 'PHASE 01: ARCHITECTURE'
+    },
+    {
+      num: '02',
+      title: 'Advisor & Leadership Cohort Enablement',
+      desc: 'Frontline advisors, workforce coaches, and cohort leaders receive comprehensive enablement on ElevIQ CLARA™ dashboards to support participant reflection without clinical diagnostic pressure.',
+      bullets: ['ElevIQ CLARA™ advisor workspace training', 'Human-in-the-loop coaching protocols', 'Plain-language capability interpretation'],
+      badge: 'PHASE 02: ENABLEMENT'
+    },
+    {
+      num: '03',
+      title: 'Participant Portal & Scan Onboarding',
+      desc: 'Individual participants receive free, self-guided access to the ElevIQ Alignment Scan™ and Participant Portal to begin capturing non-linear experiences and qualitative capabilities.',
+      bullets: ['Free participant access activation', 'Self-guided experience capture', 'Participant privacy sovereignty'],
+      badge: 'PHASE 03: ONBOARDING'
+    },
+    {
+      num: '04',
+      title: 'Cross-Sector Pipeline Alignment & Analytics',
+      desc: 'Macro intelligence consoles (Community Intelligence Console™) aggregate verified capability signals across regional cohorts, enabling corporate buyers and municipal leads to align open tracks.',
+      bullets: ['Macro cohort capability analytics', 'Regional buyer pipeline matching', 'Transparent outcome tracking'],
+      badge: 'PHASE 04: ALIGNMENT'
+    }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: CENTERED HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column Content */}
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
-                OPERATIONAL ROADMAP & DEPLOYMENT
-              </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Implementation Sequence
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A structured, 7-stage roadmap for seamless enterprise and regional integration.
-              </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Deploying the Capability Alignment System into your existing workforce infrastructure is engineered to be frictionless, secure, and fully compliant. Our structured 7-stage deployment sequence guides organizations from initial alignment discovery all the way to active, real-time capability matching without disrupting current operations.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Schedule implementation discovery
-                </Link>
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
-                >
-                  Discuss a pilot
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                {/* SVG sequential graphic */}
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Grid background */}
-                  <defs>
-                    <pattern id="roadmap-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
-                    </pattern>
-                  </defs>
-                  <rect width="320" height="240" fill="url(#roadmap-grid)" fillOpacity="0.5" />
-
-                  {/* Connecting path for 7 steps */}
-                  <path d="M 30 120 Q 70 50 110 120 T 190 120 T 270 120" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
-                  <path d="M 30 120 Q 70 50 110 120 T 190 120 T 270 120" fill="none" stroke="#0FA88A" strokeWidth="3" strokeDasharray="160 300" />
-
-                  {/* Step Nodes */}
-                  {/* Step 1 */}
-                  <circle cx="30" cy="120" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <text x="30" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">1</text>
-
-                  {/* Step 2 */}
-                  <circle cx="72" cy="85" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <text x="72" y="88" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">2</text>
-
-                  {/* Step 3 */}
-                  <circle cx="110" cy="120" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <text x="110" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">3</text>
-
-                  {/* Step 4 */}
-                  <circle cx="150" cy="155" r="10" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <text x="150" y="158" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle">4</text>
-
-                  {/* Step 5 */}
-                  <circle cx="190" cy="120" r="10" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
-                  <text x="190" y="123" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle" opacity="0.6">5</text>
-
-                  {/* Step 6 */}
-                  <circle cx="230" cy="85" r="10" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
-                  <text x="230" y="88" fill="#FFFFFF" fontSize="9" fontWeight="bold" textAnchor="middle" opacity="0.6">6</text>
-
-                  {/* Step 7 */}
-                  <circle cx="270" cy="120" r="14" fill="#1B3A5C" stroke="#0FA88A" strokeWidth="2" />
-                  <text x="270" y="123" fill="#0FA88A" fontSize="10" fontWeight="bold" textAnchor="middle">7</text>
-
-                  {/* Labels */}
-                  <text x="30" y="145" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">DISCOVER</text>
-                  <text x="72" y="65" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">CALIBRATE</text>
-                  <text x="110" y="145" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">CONFIGURE</text>
-                  <text x="150" y="180" fill="rgba(255,255,255,0.5)" fontSize="7" textAnchor="middle">SYNC</text>
-                  <text x="190" y="145" fill="rgba(255,255,255,0.3)" fontSize="7" textAnchor="middle">ONBOARD</text>
-                  <text x="230" y="65" fill="rgba(255,255,255,0.3)" fontSize="7" textAnchor="middle">ACTIVATE</text>
-                  <text x="270" y="145" fill="#0FA88A" fontSize="7" fontWeight="bold" textAnchor="middle">LIVE</text>
-                </svg>
-
-                {/* Sub-card decorative glass reflection effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
+          <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
+            <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+              ENTERPRISE DEPLOYMENT ROADMAP
+            </span>
+            <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              Structured Implementation & Onboarding
+            </h1>
+            <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
+              A clear 4-phase deployment methodology designed for workforce boards, educational institutions, and regional employers.
+            </p>
+            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+              Deploying the ElevIQ Capability Alignment System (CAS) ensures seamless technical integration, complete data sovereignty, and immediate advisor readiness.
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/organizations/pricing-demo"
+                className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
+              >
+                Request Implementation Scope →
+              </Link>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE 7-STAGE DEPLOYMENT ROADMAP */}
+      {/* SECTION 2: ALTERNATING Z-PATTERN ROWS */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* Card 01 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 01: Alignment Discovery
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 01
-                </span>
+        <section className="space-y-8">
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 0
+            return (
+              <div
+                key={step.num}
+                className="bg-white rounded-[28px] p-8 border border-[#1B3A5C] shadow-md hover:border-[#0FA88A] transition-all duration-300"
+              >
+                <div className={`grid gap-8 lg:grid-cols-2 lg:items-center ${isEven ? '' : 'lg:grid-flow-dense'}`}>
+                  <div className={`space-y-5 ${isEven ? '' : 'lg:col-start-2'}`}>
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#0FA88A] text-sm font-bold text-white font-mono shadow-sm">
+                        {step.num}
+                      </span>
+                      <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                        {step.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-2xl font-bold text-[#0F1B2D] tracking-tight">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+                      {step.desc}
+                    </p>
+                    <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                      {step.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A] shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={`flex justify-center items-center p-4 bg-[var(--surface-soft)]/40 rounded-2xl border border-[var(--line)]/20 ${isEven ? '' : 'lg:col-start-1'}`}>
+                    <div className="w-full max-w-[320px] bg-[#0F1B2D] border border-white/10 rounded-xl p-6 shadow-lg text-white space-y-4">
+                      <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-[#0FA88A]">DEPLOYMENT STEP {step.num}</span>
+                        <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-3 bg-white/20 rounded w-3/4" />
+                        <div className="h-2 bg-[#0FA88A] rounded w-1/2" />
+                      </div>
+                      <div className="pt-2 flex justify-between items-center text-[10px] font-mono text-white/60">
+                        <span>STAGE: {step.badge}</span>
+                        <span className="text-[#0FA88A]">READY</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Conduct initial ecosystem mapping to identify specific regional hiring needs, target municipalities, and existing workforce gaps.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 02 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 02: Benchmark Calibration
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 02
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Format open organizational positions around baseline operational execution parameters, replacing restrictive proxy degree requirements.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 03 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 03: System Configuration
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 03
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Set up secure enterprise portal access, configure data-splitting rules, and establish anonymized macro analytics dashboards.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 04 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 04: Partner Network Sync
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 04
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Establish secure, compliant data handshakes with local non-profits, workforce boards, and regional vocational cohorts.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 05 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 05: Advisor Onboarding
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 05
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Train and authorize frontline community coaches and program instructors on observational validation protocols.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 06 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 06: Pilot Activation
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 06
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Launch targeted geographic alignment clusters, opening the pipeline for incoming verified Capability Signals™.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 07 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group md:col-span-2 lg:col-span-3">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  Stage 07: Live Capability Alignment
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  STAGE 07
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Transition into continuous operational mode, securely accepting dynamic participant profiles and monitoring regional trajectory metrics.
-              </p>
-            </div>
-          </div>
+            )
+          })}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: DEPLOYMENT GUARANTEES & COMPLIANCE */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Enterprise Rollout Assurance
+            Implementation Commitments
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Zero Operational Downtime
+                Dedicated Technical Lead
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Implementation runs parallel to existing enterprise workflows, requiring no invasive software installations or system overrides.
+                Every enterprise deployment receives a dedicated implementation engineer to manage data schema alignment and security protocols.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Turnkey Data Compliance
+                Rapid Advisor Readiness
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Every deployment step strictly enforces participant data sovereignty, ensuring zero legal or privacy liability for the host organization.
+                Intuitive advisor interfaces allow workforce coaches and cohort leaders to become fully proficient within hours, not weeks.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Continuous Support & Calibration
+                No Interrupted Access
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Dedicated technical and architectural advisors guide your team through each phase of the 7-stage sequence to guarantee long-term alignment success.
+                System updates occur seamlessly in the background without disturbing active participant reflection sessions or advisor reviews.
               </p>
             </div>
           </div>
@@ -4965,155 +4657,242 @@ function OrganizationsImplementation() {
   )
 }
 
+
 function OrganizationsPricingDemo() {
+  const [selectedRole, setSelectedRole] = useState('employer')
+
+  const roleDetails = {
+    advocate: {
+      title: 'Participant & Advisor Workspace',
+      desc: 'Free, sovereign access for job seekers, students, and community participants alongside dedicated advisor dashboards.',
+      tag: 'FREE FOR PARTICIPANTS',
+      action: 'Explore Participant Access'
+    },
+    school: {
+      title: 'Educational & Job Corps Pilots',
+      desc: 'Configured software licensing for vocational schools, Job Corps centers, and youth workforce cohorts testing trade skill alignment.',
+      tag: 'PILOT LICENSING',
+      action: 'Request School Pilot Scope'
+    },
+    employer: {
+      title: 'Enterprise Buyer & Employer Pipeline',
+      desc: 'Direct skills-first hiring access to verified candidate snapshots without automated black-box screening filters.',
+      tag: 'ENTERPRISE LICENSING',
+      action: 'Schedule Enterprise Demo'
+    },
+    funder: {
+      title: 'Philanthropic & Municipal Deployment',
+      desc: 'Macro capability analytics (Community Intelligence Console™) for workforce investment boards and civic foundations.',
+      tag: 'REGIONAL DEPLOYMENT',
+      action: 'Contact Deployment Team'
+    }
+  }
+
+  const currentRole = roleDetails[selectedRole]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: SPLIT HERO WITH EMBEDDED ROLE SELECTOR FORM */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
-                TAILORED ENTERPRISE DEPLOYMENT
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+                TRANSPARENT LICENSING & INTAKE
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Request a Configured Demo & Pricing
-              </h2>
+              <h1 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                Pricing, Pilots & Demo Inquiry
+              </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Calibrated to match the unique scale, population size, and needs of your regional ecosystem.
+                Transparent utility allocation designed for regional workforce boards, institutions, and employers.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Capability Alignment System is deployed as a public-private regional utility. Rather than imposing rigid, one-size-fits-all subscription tiers, our deployment models are custom-configured around your municipality's specific corporate buyer network, workforce cohort volume, and geographic reach. Contact our team to schedule an architectural demo and build a tailored deployment model.
+                Select your organization type on the right to view custom deployment options and initiate a formal intake consultation.
               </p>
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Schedule Architectural Demo
-                </Link>
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
-                >
-                  Contact Deployment Team
+                  Direct Inquiry Form →
                 </Link>
               </div>
             </div>
 
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                {/* SVG sequential configuration graphic */}
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Grid background */}
-                  <defs>
-                    <pattern id="pricing-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
-                    </pattern>
-                  </defs>
-                  <rect width="320" height="240" fill="url(#pricing-grid)" fillOpacity="0.5" />
+            {/* Right Column: Embedded Role Selector Card */}
+            <div className="p-2">
+              <div className="bg-[#0F1B2D]/80 border border-white/15 rounded-2xl p-6 shadow-2xl text-white space-y-5">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#0FA88A] block font-bold">
+                  SELECT YOUR ROLE / INQUIRY TYPE
+                </span>
+                
+                {/* Role Tabs */}
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('advocate')}
+                    className={`px-3 py-2 rounded-xl text-xs font-mono text-left transition-all ${selectedRole === 'advocate' ? 'bg-[#0FA88A] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Participant / Advocate
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('school')}
+                    className={`px-3 py-2 rounded-xl text-xs font-mono text-left transition-all ${selectedRole === 'school' ? 'bg-[#0FA88A] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    School / Vocational
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('employer')}
+                    className={`px-3 py-2 rounded-xl text-xs font-mono text-left transition-all ${selectedRole === 'employer' ? 'bg-[#0FA88A] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Employer / Buyer
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('funder')}
+                    className={`px-3 py-2 rounded-xl text-xs font-mono text-left transition-all ${selectedRole === 'funder' ? 'bg-[#0FA88A] text-white font-bold' : 'bg-white/5 text-white/70 hover:bg-white/10'}`}
+                  >
+                    Funder / Board
+                  </button>
+                </div>
 
-                  {/* Custom Parameter Slider 1 */}
-                  <text x="25" y="45" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">COHORT CAPACITY</text>
-                  <rect x="25" y="55" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
-                  <rect x="25" y="55" width="140" height="4" fill="#0FA88A" rx="2" />
-                  <circle cx="165" cy="57" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <text x="240" y="59" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">140 / MONTH</text>
+                {/* Role Detail Box */}
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="font-mono text-[9px] font-bold text-[#0FA88A] uppercase tracking-wider">{currentRole.tag}</span>
+                    <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                  </div>
+                  <h4 className="font-sans text-base font-bold text-white">{currentRole.title}</h4>
+                  <p className="text-xs leading-relaxed text-white/80 font-sans">{currentRole.desc}</p>
+                </div>
 
-                  {/* Custom Parameter Slider 2 */}
-                  <text x="25" y="95" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">GEOGRAPHIC CLUSTERS</text>
-                  <rect x="25" y="105" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
-                  <rect x="25" y="105" width="80" height="4" fill="#0FA88A" rx="2" />
-                  <circle cx="105" cy="107" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <text x="240" y="109" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">3 METROS</text>
-
-                  {/* Custom Parameter Slider 3 */}
-                  <text x="25" y="145" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="semibold" fontFamily="var(--font-sans)">BUYER PORTALS</text>
-                  <rect x="25" y="155" width="200" height="4" fill="rgba(255,255,255,0.1)" rx="2" />
-                  <rect x="25" y="155" width="170" height="4" fill="#0FA88A" rx="2" />
-                  <circle cx="195" cy="157" r="6" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <text x="240" y="159" fill="#0FA88A" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">ACTIVE</text>
-
-                  {/* Dial / Circular Indicator */}
-                  <circle cx="160" cy="205" r="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-                  <circle cx="160" cy="205" r="18" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="80 110" />
-                  <text x="160" y="208" fill="#FFFFFF" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-sans)">CALIBRATED</text>
-                </svg>
-
-                {/* Sub-card decorative glass reflection effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+                <Link
+                  to="/contact"
+                  className="w-full rounded-xl border border-[#0FA88A] bg-[#0FA88A] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-md"
+                >
+                  {currentRole.action} →
+                </Link>
               </div>
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: DEPLOYMENT DISCOVERY MODELS */}
+      {/* SECTION 2: 3 FLOATING OPTION COLUMNS */}
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 01 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
+          {/* Option 01 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  01. Regional Pilot Cluster
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  INQUIRY & DISCOVERY
-                </span>
-              </div>
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                OPTION 01: REGIONAL PILOT
+              </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Localized Pilot Cluster
+              </h3>
               <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Engineered for localized municipal pilots, initial 14-student Job Corps cohorts, or neighborhood workforce non-profits looking to test baseline capability matching.
+                Configured for initial Job Corps cohorts, municipal pilots, or neighborhood non-profits testing baseline capability matching.
               </p>
+              <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Up to 250 active participant profiles</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>ElevIQ CLARA™ advisor workspace included</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Always free for individual participants</span>
+                </li>
+              </ul>
             </div>
-            <div className="pt-2 border-t border-[#EBF1F5]">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
-                Contact for Pilot Scope →
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#0FA88A] bg-[#0FA88A] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-sm"
+              >
+                Inquire for Pilot Scope →
               </Link>
             </div>
           </div>
 
-          {/* Card 02 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  02. Ecosystem Deployment
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  CUSTOM CONFIGURATION
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Designed for regional workforce boards, civic foundation networks, and municipal coalitions looking to unify cross-sector talent pipelines across an entire metropolitan area.
-              </p>
+          {/* Option 02 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border-2 border-[#0FA88A] flex flex-col justify-between space-y-6 hover:-translate-y-1 transition-all duration-300 relative shadow-xl">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0FA88A] text-white font-mono text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold shadow-sm">
+              MOST REQUESTED
             </div>
-            <div className="pt-2 border-t border-[#EBF1F5]">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
-                Schedule Discovery Demo →
+            <div className="space-y-4 pt-2">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                OPTION 02: ECOSYSTEM DEPLOYMENT
+              </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Metropolitan Pipeline Network
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Built for regional workforce investment boards and civic coalitions unifying cross-sector talent pipelines across a metro zone.
+              </p>
+              <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Community Intelligence Console™ macro analytics</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Full data-splitting security protocols</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Dedicated implementation technical lead</span>
+                </li>
+              </ul>
+            </div>
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#0FA88A] bg-[#0FA88A] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-md"
+              >
+                Schedule Ecosystem Demo →
               </Link>
             </div>
           </div>
 
-          {/* Card 03 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
+          {/* Option 03 */}
+          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
             <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  03. Enterprise Integration
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  TAILORED ENTERPRISE
-                </span>
-              </div>
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                OPTION 03: ENTERPRISE BUYER
+              </span>
+              <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">
+                Corporate Buyer Integration
+              </h3>
               <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Built for large corporate buyer networks requiring custom role benchmarking, multi-zone macro analytics, and dedicated integration support.
+                Tailored for large corporate buyers requiring skills-first hiring portals, custom role benchmarks, and multi-zone analytics.
               </p>
+              <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Custom role alignment benchmarking</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>The ElevIQ Last Mile™ onboarding support</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0FA88A]" />
+                  <span>Multi-zone enterprise compliance dashboard</span>
+                </li>
+              </ul>
             </div>
-            <div className="pt-2 border-t border-[#EBF1F5]">
-              <Link to="/contact" className="text-xs font-semibold text-[#0FA88A] hover:text-[#1B3A5C] inline-flex items-center gap-1 transition-colors">
+            <div className="pt-3 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#0FA88A] bg-[#0FA88A] px-4 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 text-center block shadow-sm"
+              >
                 Request Enterprise Consultation →
               </Link>
             </div>
@@ -5121,40 +4900,35 @@ function OrganizationsPricingDemo() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: PRICING GOVERNANCE & POLICY */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Our Transparent Evaluation Framework
+            Licensing & Fiscal Principles
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Custom Utility Allocation
+                Infrastructure-Based Pricing
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Pricing is determined solely by infrastructure scope, geographic cluster density, and support requirements, ensuring complete fiscal responsibility.
+                Pricing is calculated strictly based on software configuration scope and support depth, never per-seat candidate tax.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Always Free for Participants
+                Always Free to Job Seekers
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Individual job seekers, students, and community members never pay any fees to build, maintain, or share their capability snapshots.
+                Participants, students, and community members never pay any fees to access or share their alignment snapshots.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Formal Intake Protocol
+                Direct Intake Protocol
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                All demo requests and pricing consultations are handled directly by our deployment team to ensure proper alignment before software activation.
+                All pricing inquiries are reviewed by our engineering leads to ensure proper pilot alignment prior to contract activation.
               </p>
             </div>
           </div>
@@ -5163,174 +4937,93 @@ function OrganizationsPricingDemo() {
     </div>
   )
 }
+
 
 function OrganizationsSecurityTrust() {
+  const metrics = [
+    { value: 'SOC2', title: 'Data Isolation Protocols', desc: 'Strict data-splitting architecture separates raw participant reflection entries from macro organizational analytics.' },
+    { value: '0%', title: 'Black-Box AI Rejection', desc: 'Outlaws automated candidate scoring and algorithmic rejection models to protect institutional integrity.' },
+    { value: '100%', title: 'Human Oversight First', desc: 'Trained workforce coaches and cohort leaders validate milestone data through transparent interfaces.' },
+    { value: 'FERPA+', title: 'Institutional Compliance', desc: 'Configured to meet strict educational, municipal, and institutional privacy standards across regional networks.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: MINIMALIST HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column Content */}
-            <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/30 bg-[#0FA88A]/15 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
-                ENTERPRISE COMPLIANCE & PRIVACY GUARANTEE
-              </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Security & Trust Architecture
-              </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                An uncompromising commitment to data sovereignty, system auditability, and total legal compliance.
-              </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Security is the core architectural foundation of the Capability Alignment System. Built to protect participant data while serving enterprise buyers, our infrastructure enforces strict data-splitting protocols, transparent verification standards, and de-biased data pipelines. We maintain absolute honesty regarding our compliance roadmap, providing clear, unembellished oversight parameters.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/contact"
-                  className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
-                >
-                  Schedule implementation discovery
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column Media Graphic */}
-            <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                {/* SVG sequential configuration graphic */}
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Grid background */}
-                  <defs>
-                    <pattern id="security-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" opacity="0.03" />
-                    </pattern>
-                  </defs>
-                  <rect width="320" height="240" fill="url(#security-grid)" fillOpacity="0.5" />
-
-                  {/* Shield Outline */}
-                  <path d="M 160 50 C 195 50 230 65 230 100 C 230 160 160 200 160 200 C 160 200 90 160 90 100 C 90 65 125 50 160 50 Z" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
-                  <path d="M 160 50 C 195 50 230 65 230 100 C 230 160 160 200 160 200" fill="none" stroke="#0FA88A" strokeWidth="3" strokeDasharray="80 180" />
-
-                  {/* Network nodes inside the shield */}
-                  <line x1="160" y1="80" x2="130" y2="120" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
-                  <line x1="160" y1="80" x2="190" y2="120" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
-                  <line x1="130" y1="120" x2="160" y2="160" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
-                  <line x1="190" y1="120" x2="160" y2="160" stroke="rgba(15,168,138,0.4)" strokeWidth="2" />
-                  <line x1="160" y1="80" x2="160" y2="160" stroke="rgba(15,168,138,0.3)" strokeWidth="1.5" />
-
-                  {/* Verification Nodes (Teal) */}
-                  <circle cx="160" cy="80" r="4.5" fill="#1B3A5C" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <circle cx="130" cy="120" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="190" cy="120" r="5" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-                  <circle cx="160" cy="160" r="6" fill="#0FA88A" stroke="#FFFFFF" strokeWidth="2" />
-
-                  {/* Radar sweep glow animation effect */}
-                  <g className="animate-pulse">
-                    <circle cx="160" cy="160" r="10" fill="#0FA88A" fillOpacity="0.15" />
-                    <circle cx="130" cy="120" r="8" fill="#0FA88A" fillOpacity="0.15" />
-                    <circle cx="190" cy="120" r="8" fill="#0FA88A" fillOpacity="0.15" />
-                  </g>
-                </svg>
-
-                {/* Sub-card decorative glass reflection effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
-              </div>
-            </div>
+        <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
+          <div className="space-y-3 max-w-3xl text-white">
+            <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+              ENTERPRISE SECURITY & GOVERNANCE
+            </span>
+            <h1 className="font-sans text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
+              Enterprise Security & Data Sovereignty
+            </h1>
+            <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
+              Deploying the ElevIQ Capability Alignment System (CAS) with uncompromised enterprise security, SOC2-grade data splitting, and compliance guarantees.
+            </p>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: CORE SECURITY SAFEGUARDS */}
+      {/* SECTION 2: 4-COLUMN GOVERNANCE METRIC GRID */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 01 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  01. Strict Data Sovereignty
+        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {metrics.map((metric) => (
+            <div
+              key={metric.title}
+              className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="space-y-3">
+                <span className="font-mono text-3xl font-bold text-[#0FA88A] tracking-tight block">
+                  {metric.value}
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  DATA PRIVACY
+                <h3 className="font-sans text-base font-bold text-[#0F1B2D]">
+                  {metric.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                  {metric.desc}
+                </p>
+              </div>
+              <div className="pt-2 border-t border-[#EBF1F5]">
+                <span className="text-[10px] font-mono font-semibold text-[#0FA88A] uppercase tracking-wider">
+                  Enterprise Compliance
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                Participants retain master key ownership of their data. Individual deep logs are completely insulated, allowing corporate buyers to view aggregate, anonymized macro trends only.
-              </p>
             </div>
-          </div>
-
-          {/* Card 02 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  02. Anti-Algorithmic Architecture
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  BIAS INSULATION
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                System workflows completely eliminate automated black-box predictive indexing, suitability indices, and screening algorithms, keeping human qualitative review at the center.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 03 */}
-          <div className="bg-white rounded-[20px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300 group">
-            <div className="space-y-4">
-              <div className="flex justify-between items-start gap-2">
-                <span className="font-mono text-sm font-bold text-[#0F1B2D] tracking-wide">
-                  03. Active Compliance Roadmap
-                </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
-                  AUDIT STATUS: PENDING VERIFICATION
-                </span>
-              </div>
-              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
-                System protocols are continuously evaluated against modern enterprise data security standards. Formal third-party certifications remain under active audit and pending verification.
-              </p>
-            </div>
-          </div>
+          ))}
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: GOVERNANCE & CERTIFICATION POLICY */}
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
+        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Our Strict Security & Verification Commitments
+            Institutional Privacy Principles
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Pending Verification Standard
+                Sovereign Data Splitting
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                All third-party security audits, enterprise compliance frameworks, and infrastructure validations are explicitly categorized under active 'Pending Verification' status until formal completion.
+                Raw participant context stays strictly in the user's private workspace; only explicitly approved snapshots are shared with enterprise buyers.
               </p>
             </div>
-
-            {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Zero False Certifications Guarantee
+                Role-Based Permission Logs
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                We strictly outlaw the display of unearned security badges, false SOC 2/ISO badges, or misleading compliance seals. Transparency and institutional truth are paramount.
+                Granular access controls ensure advisors and hiring leads view only the specific data layers necessary for current coaching or placement.
               </p>
             </div>
-
-            {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Revocable Data Handshakes
+                Auditable Governance Compliance
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Organizations and advisors interact with data under revocable access permissions, ensuring participants can instantly withdraw profile viewing rights at any moment.
+                Complete system transparency with audit logs available for institutional compliance reviews and municipal oversight boards.
               </p>
             </div>
           </div>
@@ -5339,6 +5032,7 @@ function OrganizationsSecurityTrust() {
     </div>
   )
 }
+
 
 function ResourcesPage() {
   return (
@@ -5349,7 +5043,7 @@ function ResourcesPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 KNOWLEDGE BASE & DOCUMENTATION
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -5430,7 +5124,7 @@ function ResourcesPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   01. CAS Architectural Brief
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   STATUS: IN DEVELOPMENT
                 </span>
               </div>
@@ -5452,7 +5146,7 @@ function ResourcesPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   02. Regional Pilot Frameworks
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   STATUS: PRODUCT DEVELOPMENT PREVIEW
                 </span>
               </div>
@@ -5474,7 +5168,7 @@ function ResourcesPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   03. Role Benchmarking Guide
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   STATUS: ROADMAP
                 </span>
               </div>
@@ -5543,7 +5237,7 @@ function AboutPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A]/20 bg-[#0FA88A]/10 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-[#0FA88A] font-bold">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
                 THE ELEVIQ ECOSYSTEM & GOVERNANCE
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -5614,7 +5308,7 @@ function AboutPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   01. ElevIQ Foundation
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   NONPROFIT MISSION ARM
                 </span>
               </div>
@@ -5631,7 +5325,7 @@ function AboutPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   02. STC Innovations
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   TECHNOLOGY & COMMERCIAL ENTITY
                 </span>
               </div>
@@ -5648,7 +5342,7 @@ function AboutPage() {
                 <span className="font-mono text-sm font-bold text-white tracking-wide">
                   03. ElevIQ CAS
                 </span>
-                <span className="inline-flex rounded-full bg-[#0FA88A] px-2.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-white uppercase shadow-sm shrink-0">
+                <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm shrink-0">
                   PRODUCT INFRASTRUCTURE
                 </span>
               </div>
@@ -5713,7 +5407,7 @@ function ElevIqLastMilePage() {
       {/* SECTION 1: HERO BLOCK */}
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             SUSTAINABLE ONBOARDING INFRASTRUCTURE
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -5847,7 +5541,7 @@ function ScreenshotsPreviewPage() {
       {/* SECTION 1: HERO BLOCK */}
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             PLATFORM INTERFACE PREVIEW
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -6024,7 +5718,7 @@ function InteractiveJourneyPage() {
       {/* SECTION 1: HERO BLOCK */}
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             STEP-BY-STEP SIMULATION
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -6070,7 +5764,7 @@ function InteractiveJourneyPage() {
       {/* INTERACTIVE CONTROLLER SECTION */}
       <section className="bg-white/5 border border-white/10 rounded-2xl p-6 grid gap-6 md:grid-cols-[1fr_1.5fr] items-center">
         <div className="space-y-4">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             Journey step {step + 1} of {steps.length}
           </span>
           <h3 className="font-sans text-xl font-bold text-white">
@@ -6226,7 +5920,7 @@ function FaqPage() {
       {/* SECTION 1: HERO BLOCK */}
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             SYSTEM CLARIFICATIONS & ANSWERS
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
@@ -6453,7 +6147,7 @@ function ContactFormPage() {
       {/* SECTION 1: HERO BLOCK */}
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--eleviq-teal)] font-bold">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
             ECOSYSTEM ACCESS POINTS
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
