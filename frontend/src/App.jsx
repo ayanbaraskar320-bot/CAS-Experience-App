@@ -59,12 +59,12 @@ const PLATFORM_TABS = [
 
 const INDIVIDUALS_TABS = [
   { label: 'Home', path: '/individuals' },
+  { label: 'Explore Your Path', path: '/individuals/explore-your-path' },
   { label: 'How It Works', path: '/individuals/how-it-works' },
-  { label: 'Who We Serve', path: '/individuals/who-we-serve' },
-  { label: 'Job Corps', path: '/individuals/job-corps' },
-  { label: 'Partners & Pilots', path: '/individuals/partners-pilots' },
+  { label: 'Programs & Partners', path: '/individuals/programs-partners' },
+  { label: 'For Schools & Workforce', path: '/individuals/schools-workforce' },
+  { label: 'Trust', path: '/individuals/trust' },
   { label: 'Support the Mission', path: '/individuals/support-the-mission' },
-  { label: 'Trust & Governance', path: '/individuals/trust-governance' },
 ]
 
 const ORGANIZATIONS_TABS = [
@@ -371,9 +371,66 @@ function AppShell() {
             </Routes>
           </main>
           <Footer />
+          <CookieConsentBanner />
         </div>
       </div>
     </SectionTheme>
+  )
+}
+
+function CookieConsentBanner() {
+  const [show, setShow] = useState(() => {
+    return !localStorage.getItem('eleviq_cookie_consent')
+  })
+
+  function handleConsent(choice) {
+    localStorage.setItem('eleviq_cookie_consent', choice)
+    setShow(false)
+  }
+
+  if (!show) return null
+
+  return (
+    <aside
+      role="region"
+      aria-label="Privacy and Cookie Consent"
+      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 rounded-[20px] bg-[#0F1B2D] border border-[#0FA88A]/40 p-5 shadow-2xl text-white space-y-3"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="space-y-1">
+          <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-[#0FA88A]">
+            PRIVACY & WCAG 2.1 AA COMPLIANT
+          </span>
+          <h4 className="font-sans text-sm font-bold text-white">
+            Privacy-First Analytics & Cookie Consent
+          </h4>
+        </div>
+        <button
+          onClick={() => handleConsent('essential')}
+          className="text-white/40 hover:text-white text-xs font-mono p-1"
+          aria-label="Close consent banner"
+        >
+          ✕
+        </button>
+      </div>
+      <p className="text-xs leading-relaxed text-white/75 font-sans">
+        ElevIQ respects individual sovereignty. We use only privacy-first, anonymized operational telemetry—never sell data or perform cross-site user tracking.
+      </p>
+      <div className="flex flex-wrap items-center gap-2 pt-1">
+        <button
+          onClick={() => handleConsent('anonymized_analytics')}
+          className="rounded-full bg-[#0FA88A] border border-[#0FA88A] px-4 py-2 text-xs font-semibold text-white transition hover:brightness-105 shadow-sm"
+        >
+          Accept Anonymized Insights
+        </button>
+        <button
+          onClick={() => handleConsent('essential_only')}
+          className="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-semibold text-white/80 transition hover:bg-white/10 hover:text-white"
+        >
+          Essential Only
+        </button>
+      </div>
+    </aside>
   )
 }
 
@@ -824,7 +881,7 @@ function HomePage() {
           <div className="space-y-4 relative pl-6 border-l-4 border-[var(--accent)]">
             <h3 className="font-sans text-xl font-semibold text-[var(--ink)]">Advisor & Support Guidance</h3>
             <p className="text-base leading-relaxed text-[var(--muted)]">
-              Mentors and cohort leaders coordinate follow-through by reviewing shared, participant-approved insights. By removing predictive scoring models, teams stay focused on personal pacing, role alignment, and local program handoffs.
+              Mentors and cohort leaders coordinate follow-through by reviewing shared, participant-approved insights. By removing designed to support participant reflection and pathway planning models, teams stay focused on personal pacing, role alignment, and local program handoffs.
             </p>
           </div>
           <div className="pl-6">
@@ -1650,7 +1707,7 @@ function CapabilitySignalsPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                DYNAMIC SKILL TRACKING
+                DYNAMIC SKILL ALIGNMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Capability Signals™
@@ -1855,7 +1912,7 @@ function AlignmentSnapshotPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Signal Aggregation</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Maps verified action indicators and dynamic capability tracking patterns onto an easy-to-read layout framework.
+              Maps verified action indicators and dynamic strengths-based capability alignment patterns onto an easy-to-read layout framework.
             </p>
           </div>
 
@@ -2852,6 +2909,24 @@ function Footer() {
   return (
     <footer className="mt-auto bg-[var(--midnight-ink)] text-white/95 border-t border-[var(--line)]/10 pt-16 pb-12 transition-all duration-300">
       <div className="mx-auto w-full max-w-[var(--shell-max)] px-6">
+          {/* Commercial Handoff Banner */}
+          <div className="mb-8 rounded-[20px] bg-[#0F1B2D] border border-[#0FA88A]/40 p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg text-white">
+            <div className="space-y-1 text-left">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[10px] py-[3px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0FA88A]">
+                COMMERCIAL & ENTERPRISE HANDOFF
+              </span>
+              <h4 className="font-sans text-base font-bold text-white">
+                Looking for commercial licensing, institutional pricing, or enterprise implementation?
+              </h4>
+            </div>
+            <Link
+              to="/organizations"
+              className="shrink-0 rounded-full border border-[#0FA88A] bg-[#0FA88A] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+            >
+              Visit STC Innovations →
+            </Link>
+          </div>
+
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-white/10">
 
           <div className="lg:col-span-2 space-y-4">
@@ -2901,23 +2976,38 @@ function Footer() {
             <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-white/40">For Individuals</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/individuals" className="text-white/60 hover:text-[var(--warm-coral)] transition-all duration-200">
+                <Link to="/individuals" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
                   Individuals Home
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/how-it-works" className="text-white/60 hover:text-[var(--warm-coral)] transition-all duration-200">
+                <Link to="/individuals/explore-your-path" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                  Explore Your Path
+                </Link>
+              </li>
+              <li>
+                <Link to="/individuals/how-it-works" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/who-we-serve" className="text-white/60 hover:text-[var(--warm-coral)] transition-all duration-200">
-                  Who We Serve
+                <Link to="/individuals/programs-partners" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                  Programs & Partners
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/job-corps" className="text-white/60 hover:text-[var(--warm-coral)] transition-all duration-200">
-                  Job Corps
+                <Link to="/individuals/schools-workforce" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                  For Schools & Workforce
+                </Link>
+              </li>
+              <li>
+                <Link to="/individuals/trust" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                  Trust
+                </Link>
+              </li>
+              <li>
+                <Link to="/individuals/support-the-mission" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                  Support the Mission
                 </Link>
               </li>
             </ul>
@@ -2952,6 +3042,24 @@ function Footer() {
         </div>
 
         <div className="pt-8 space-y-6">
+          {/* Official Dual-Entity Organizational Relationship Statement */}
+          <div className="pt-6 border-t border-white/10 space-y-4 text-xs text-white/70 font-sans">
+            <h4 className="font-sans text-sm font-bold text-white tracking-wide">
+              ElevIQ Foundation & STC Innovations
+            </h4>
+            <div className="grid gap-4 md:grid-cols-2">
+              <p className="leading-relaxed">
+                <strong className="text-white">Foundation Role:</strong> ElevIQ Foundation Inc. is an independent tax-exempt nonprofit dedicated to helping individuals discover, name, and connect their capabilities to opportunity free from testing pressure.
+              </p>
+              <p className="leading-relaxed">
+                <strong className="text-white">STC Innovations Role:</strong> STC Innovations is the commercial technology developer that licenses and configures the ElevIQ Capability Alignment System (CAS™) infrastructure for enterprise, institutional, and workforce partners.
+              </p>
+            </div>
+            <p className="text-[11px] text-[var(--eleviq-teal)] leading-relaxed font-mono">
+              Shared Technology Note: The Capability Alignment System powers both nonprofit community pathways and commercial enterprise solutions, connecting participant reflection to real-world opportunities.
+            </p>
+          </div>
+
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
             <p>© 2026 ElevIQ / STC Innovations. All rights reserved.</p>
             <p className="font-mono uppercase tracking-widest text-[var(--eleviq-teal)] text-[10px]">Capability Alignment Infrastructure</p>
@@ -2980,12 +3088,16 @@ function IndividualsSection() {
         <SubNav tabs={INDIVIDUALS_TABS} />
         <Routes>
           <Route index element={<IndividualsHome />} />
-          <Route path="how-it-works" element={<IndividualsHowItWorks />} />
+          <Route path="explore-your-path" element={<IndividualsWhoWeServe />} />
           <Route path="who-we-serve" element={<IndividualsWhoWeServe />} />
-          <Route path="job-corps" element={<IndividualsJobCorps />} />
+          <Route path="how-it-works" element={<IndividualsHowItWorks />} />
+          <Route path="programs-partners" element={<IndividualsPartnersPilots />} />
           <Route path="partners-pilots" element={<IndividualsPartnersPilots />} />
-          <Route path="support-the-mission" element={<IndividualsSupportMission />} />
+          <Route path="schools-workforce" element={<IndividualsJobCorps />} />
+          <Route path="job-corps" element={<IndividualsJobCorps />} />
+          <Route path="trust" element={<IndividualsTrustGovernance />} />
           <Route path="trust-governance" element={<IndividualsTrustGovernance />} />
+          <Route path="support-the-mission" element={<IndividualsSupportMission />} />
         </Routes>
       </div>
     </SectionTheme>
@@ -2993,6 +3105,42 @@ function IndividualsSection() {
 }
 
 function IndividualsHome() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Scan Capability Signals™',
+      desc: 'Reflect on your real-world experience, skills, and life story in a low-pressure, self-paced space.'
+    },
+    {
+      num: '02',
+      title: 'Alignment Snapshot™',
+      desc: 'Receive a clear summary that helps you recognize and name your core professional strengths.'
+    },
+    {
+      num: '03',
+      title: 'ElevIQ ARIA™',
+      desc: 'Explore interactive guidance and tailored insights designed to clarify potential career directions.'
+    },
+    {
+      num: '04',
+      title: 'Alignment Pathways™',
+      desc: 'Discover actionable training, educational options, and career tracks aligned with your unique capabilities.'
+    },
+    {
+      num: '05',
+      title: 'Support Connections / The ElevIQ Last Mile™',
+      desc: 'Connect directly with advisors, counselors, and community mentors to help you take your next real step.'
+    }
+  ]
+
+  const audiences = [
+    { tag: 'YOUTH & STUDENTS', title: 'Youth & High School Students', desc: 'Discovering strengths early and linking classroom interests to future pathways.' },
+    { tag: 'CTE & VOCATIONAL', title: 'CTE & Vocational Learners', desc: 'Translating hands-on technical skills into recognized capability credentials.' },
+    { tag: 'VETERANS & SERVICE', title: 'Veterans & Service Leavers', desc: 'Translating military leadership and tactical experience into civilian career roles.' },
+    { tag: 'JOB CORPS COHORTS', title: 'Job Corps Participants', desc: 'Connecting trade completion and campus learning with real-world support.' },
+    { tag: 'ADULT LEARNERS', title: 'Adult Learners & Pivoters', desc: 'Building new skills and career transitions based on authentic life experience.' }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
@@ -3004,27 +3152,27 @@ function IndividualsHome() {
               <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
                 A PLATFORM BUILT FOR YOUR JOURNEY
               </span>
-              <h2 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Your Capabilities Are More Than a Resume
-              </h2>
+              <h1 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+                See Your Strengths. Build Your Next Step.
+              </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A dignified, private workspace to discover, verify, and own your professional strengths.
+                ElevIQ Foundation helps overlooked talent discover, name, and connect their capabilities to meaningful opportunity through human-centered technology, advisor support, and community partnerships.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
-                Standard job applications limit you to employment dates and generic titles, ignoring the rich skills you have built through real-world life experience. The Capability Alignment System gives you a self-paced, secure environment to turn your unique personal stories into verified strengths, completely free from the stress of clinical testing.
+                ElevIQ helps close the gap between hidden capability and visible opportunity. The experience is about alignment, not limitation, and technology supports rather than replaces trusted human guidance.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
-                  to="/individuals/how-it-works"
+                  to="/individuals/explore-your-path"
                   className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
                   Explore Your Path
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/platform/participant-portal"
                   className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
                 >
-                  Request Information
+                  Use My Program Link
                 </Link>
               </div>
             </div>
@@ -3033,7 +3181,6 @@ function IndividualsHome() {
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
                 <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Grid lines */}
                   <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
                   <line x1="20" y1="80" x2="300" y2="80" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
                   <line x1="20" y1="120" x2="300" y2="120" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
@@ -3045,18 +3192,15 @@ function IndividualsHome() {
                   <line x1="180" y1="20" x2="180" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
                   <line x1="240" y1="20" x2="240" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
 
-                  {/* Rising trajectory wave path */}
                   <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="3" />
                   <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="8" opacity="0.15" />
 
-                  {/* Coordinate nodes */}
                   <circle cx="40" cy="180" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
                   <circle cx="100" cy="153" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
                   <circle cx="157" cy="98" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
                   <circle cx="218" cy="80" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
                   <circle cx="280" cy="60" r="6" fill="#E2725B" />
                 </svg>
-                {/* Sub-card decorative glass reflection effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
             </div>
@@ -3064,255 +3208,275 @@ function IndividualsHome() {
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: THE THREE SYSTEM GATEWAYS */}
+      {/* SECTION 2: PROBLEM & MISSION BLOCK */}
       <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="font-mono text-xs font-bold text-[#0F1B2D]">01. Log & Reflect</span>
-              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                YOUR EXPERIENCES
-              </span>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Document your specialized life paths, family caregiving milestones, volunteer leadership, and independent problem-solving using intuitive, non-linear text logs.
+        <section className="grid gap-6 md:grid-cols-2">
+          {/* Problem Card */}
+          <div className="bg-white rounded-[28px] p-8 shadow-md border border-[#1B3A5C] space-y-4 hover:border-[#E2725B] transition-all duration-300">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              THE CHALLENGE
+            </span>
+            <h3 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+              Unseen & Unconnected Capability
+            </h3>
+            <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+              Capability is real but often unseen, unnamed, or disconnected from opportunity. Traditional credentials reduce rich life experience to rigid degree requirements.
             </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="font-mono text-xs font-bold text-[#0F1B2D]">02. Format & Verify</span>
-              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                YOUR STRENGTHS
-              </span>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Watch your qualitative personal entries translate seamlessly into professional Capability Signals™ that highlight your verified real-world execution capacity.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start">
-              <span className="font-mono text-xs font-bold text-[#0F1B2D]">03. Share & Align</span>
-              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                YOUR OPPORTUNITIES
-              </span>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Securely link your profile with regional upskilling coursework, community coaching groups, or corporate role matches whenever you decide the timing is right.
+          {/* Mission Response Card */}
+          <div className="bg-white rounded-[28px] p-8 shadow-md border-2 border-[#E2725B] space-y-4 shadow-lg hover:border-[#E2725B] transition-all duration-300">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              OUR MISSION RESPONSE
+            </span>
+            <h3 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+              Strengths-Oriented Alignment
+            </h3>
+            <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+              Strengths-oriented capability alignment supported by people and human-centered technology—connecting individual reflection directly to real-world pathways.
             </p>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 3: INDIVIDUAL RIGHTS EXPOSITION */}
+      {/* SECTION 3: SIMPLE PARTICIPANT JOURNEY (5 STEPS WITH DESCRIPTIONS) */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl">
-          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Our Structural Core Commitments to You
-          </h3>
+        <section className="space-y-6">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              PARTICIPANT JOURNEY
+            </span>
+            <h2 className="font-sans text-3xl font-bold text-[#0F1B2D]">
+              5 Steps to Discover & Build Your Path
+            </h2>
+          </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {/* Point 1 */}
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Absolute Profile Sovereignty
-              </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
-                You maintain absolute master ownership of your capability map. No automated algorithms can rank you, no employers can view your drafts, and you can revoke access permissions instantly.
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {steps.map((step) => (
+              <div
+                key={step.num}
+                className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#E2725B] text-xs font-bold text-white font-mono shadow-sm">
+                      {step.num}
+                    </span>
+                    <span className="w-2 h-2 rounded-full bg-[#E2725B]/40" />
+                  </div>
+                  <h3 className="font-sans text-base font-bold text-[#0F1B2D]">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 4: WHO WE SERVE & HUMAN GUIDANCE */}
+      <ScrollReveal>
+        <section className="space-y-6">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              WHO WE SERVE
+            </span>
+            <h2 className="font-sans text-3xl font-bold text-[#0F1B2D]">
+              Built for People, Supported by Navigators
+            </h2>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {audiences.map((aud) => (
+              <div
+                key={aud.tag}
+                className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+              >
+                <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                  {aud.tag}
+                </span>
+                <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                  {aud.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                  {aud.desc}
+                </p>
+              </div>
+            ))}
+
+            {/* Human Guidance Card */}
+            <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                HUMAN-CENTERED CORE
+              </span>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                Human Advisors at the Center
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Human advisors, counselors, mentors, and navigators remain at the center of every capability journey. Technology supports, but never replaces, trusted human guidance.
+              </p>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* PROGRAM & PARTNER STATUS BLOCK (STEP 7) */}
+      <ScrollReveal>
+        <section className="space-y-6">
+          <div className="text-center space-y-2 max-w-2xl mx-auto">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              INITIATIVE STAGES
+            </span>
+            <h2 className="font-sans text-3xl font-bold text-[#0F1B2D]">
+              Program & Partner Deployment Status
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {/* Card 1 */}
+            <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+              <div className="flex justify-between items-center">
+                <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D]">
+                  IN TESTING
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
+              </div>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                Job Corps Alignment Configuration
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Configured for CSS/ESP counseling workflows and CTT trade pathways.
               </p>
             </div>
 
-            {/* Point 2 */}
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Zero Assessment Stress
-              </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
-                There are no automated screening countdowns, confusing personality quizzes, or high-pressure tests. Data accumulates entirely through your own self-driven, verified lifestyle milestones.
+            {/* Card 2 */}
+            <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+              <div className="flex justify-between items-center">
+                <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D]">
+                  IN DEVELOPMENT
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#E2725B]/60" />
+              </div>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                School & CTE Pathway Pilots
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Strengths-based career clarity modules for youth programs and high schools.
               </p>
             </div>
 
-            {/* Point 3 */}
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Permanent Lifelong Portability
-              </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Your workspace portal belongs to you permanently. Even after successfully matching into a local role, your portal links remain active so you can log ongoing career momentum.
+            {/* Card 3 */}
+            <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+              <div className="flex justify-between items-center">
+                <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D]">
+                  VALIDATED
+                </span>
+                <span className="w-2 h-2 rounded-full bg-[#0FA88A]" />
+              </div>
+              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                Rural Workforce Innovation
+              </h3>
+              <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                Community-rooted pilot models supporting local workforce ecosystems.
               </p>
             </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SUPPORT & PARTNERSHIP CTAS (STEP 9) */}
+      <ScrollReveal>
+        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl text-center text-white space-y-6">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+              MISSION ALLIANCE
+            </span>
+            <h2 className="font-sans text-3xl md:text-4xl font-semibold tracking-tight text-white">
+              Join Us in Closing the Capability Gap
+            </h2>
+            <p className="text-sm md:text-base text-white/80 font-sans leading-relaxed">
+              Whether you are a funder, school leader, workforce agency, or community advocate, there is a place for you.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <Link
+              to="/individuals/support-the-mission"
+              className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+            >
+              Support the Mission
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+            >
+              Become a Community Partner
+            </Link>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 5: TRUST BLOCK & COMMERCIAL HANDOFF */}
+      <ScrollReveal>
+        <section className="space-y-6">
+          {/* Trust Block Summary */}
+          <div className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+            <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
+              Foundation Trust, Privacy & Dignity Guarantees
+            </h3>
+            <div className="grid gap-8 md:grid-cols-3">
+              <div className="space-y-3">
+                <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                  Complete Data Privacy
+                </h4>
+                <p className="text-sm leading-relaxed text-white/70 font-sans">
+                  You own your profile data permanently. No third-party data sales or black-box algorithm scoring.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                  Dignity & Strengths Focus
+                </h4>
+                <p className="text-sm leading-relaxed text-white/70 font-sans">
+                  The experience focuses strictly on your verified strengths and alignment, avoiding clinical deficit framing.
+                </p>
+              </div>
+              <div className="space-y-3">
+                <h4 className="border-l-4 border-[#E2725B] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                  Responsible Technology
+                </h4>
+                <p className="text-sm leading-relaxed text-white/70 font-sans">
+                  Interactive AI tools serve as supportive sounding boards for self-reflection alongside human advisors.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* STC Innovations Commercial Handoff Banner */}
+          <div className="rounded-[24px] bg-[#0F1B2D] border border-[#0FA88A]/40 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl text-white">
+            <div className="space-y-2">
+              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0FA88A]">
+                COMMERCIAL & ENTERPRISE HANDOFF
+              </span>
+              <h4 className="font-sans text-lg font-bold text-white">
+                Looking for commercial licensing, institutional pricing, or enterprise implementation?
+              </h4>
+              <p className="text-xs text-white/70 font-sans">
+                STC Innovations licenses and configures the ElevIQ Capability Alignment System (CAS) for workforce boards, employers, and enterprise buyers.
+              </p>
+            </div>
+            <Link
+              to="/organizations"
+              className="shrink-0 rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-3 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+            >
+              Visit STC Innovations →
+            </Link>
           </div>
         </section>
       </ScrollReveal>
     </div>
-  )
-}
-
-const InteractiveTimeline = () => {
-  return (
-    <svg className="w-full h-full min-h-[300px] md:min-h-[400px]" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Gradients */}
-      <defs>
-        <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.8" />
-          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.1" />
-        </linearGradient>
-      </defs>
-
-      {/* Background glow lines */}
-      <motion.path
-        d="M 50 150 C 150 50, 250 250, 450 100"
-        stroke="url(#tealGrad)"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.7 }}
-        transition={{ duration: 2, ease: "easeInOut" }}
-      />
-      <motion.path
-        d="M 50 250 C 180 350, 320 150, 450 300"
-        stroke="url(#tealGrad)"
-        strokeWidth="2"
-        strokeDasharray="6,6"
-        strokeLinecap="round"
-        fill="none"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.4 }}
-        transition={{ duration: 2.5, ease: "easeInOut", delay: 0.3 }}
-      />
-      <motion.path
-        d="M 50 200 C 150 200, 300 200, 450 200"
-        stroke="url(#tealGrad)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        fill="none"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 0.3 }}
-        transition={{ duration: 1.8, ease: "easeInOut", delay: 0.6 }}
-      />
-
-      {/* Interactive Floating Nodes */}
-      <g>
-        <motion.circle
-          cx="100"
-          cy="115"
-          r="16"
-          fill="var(--accent)"
-          fillOpacity="0.15"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-        />
-        <circle cx="100" cy="115" r="7" fill="var(--accent)" />
-        <motion.circle
-          cx="100"
-          cy="115"
-          r="4"
-          fill="#FFFFFF"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        />
-        <text x="100" y="90" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">01. Reflect</text>
-      </g>
-
-      <g>
-        <motion.circle
-          cx="220"
-          cy="200"
-          r="20"
-          fill="var(--accent)"
-          fillOpacity="0.1"
-          animate={{ scale: [1, 1.3, 1] }}
-          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-        />
-        <circle cx="220" cy="200" r="8" fill="var(--accent)" />
-        <motion.circle
-          cx="220"
-          cy="200"
-          r="4"
-          fill="#FFFFFF"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 0.5 }}
-        />
-        <text x="220" y="175" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">03. Signals™</text>
-      </g>
-
-      <g>
-        <motion.circle
-          cx="340"
-          cy="225"
-          r="18"
-          fill="var(--accent)"
-          fillOpacity="0.12"
-          animate={{ scale: [1, 1.25, 1] }}
-          transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 2 }}
-        />
-        <circle cx="340" cy="225" r="7" fill="var(--accent)" />
-        <motion.circle
-          cx="340"
-          cy="225"
-          r="4"
-          fill="#FFFFFF"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 1 }}
-        />
-        <text x="340" y="252" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">06. Pathways™</text>
-      </g>
-
-      <g>
-        <motion.circle
-          cx="420"
-          cy="120"
-          r="24"
-          fill="var(--accent)"
-          fillOpacity="0.2"
-          animate={{ scale: [1, 1.35, 1] }}
-          transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 1.5 }}
-        />
-        <circle cx="420" cy="120" r="9" fill="var(--accent)" />
-        <motion.circle
-          cx="420"
-          cy="120"
-          r="5"
-          fill="#FFFFFF"
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 1.5 }}
-        />
-        <text x="420" y="95" fill="#FFFFFF" fontSize="11" fontFamily="Epilogue" fontWeight="600" textAnchor="middle" opacity="0.8">08. Align</text>
-      </g>
-
-      <motion.line
-        x1="100" y1="115" x2="220" y2="200"
-        stroke="var(--accent)"
-        strokeWidth="1"
-        strokeDasharray="4,4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ delay: 1 }}
-      />
-      <motion.line
-        x1="220" y1="200" x2="340" y2="225"
-        stroke="var(--accent)"
-        strokeWidth="1"
-        strokeDasharray="4,4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ delay: 1.5 }}
-      />
-      <motion.line
-        x1="340" y1="225" x2="420" y2="120"
-        stroke="var(--accent)"
-        strokeWidth="1"
-        strokeDasharray="4,4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        transition={{ delay: 2 }}
-      />
-    </svg>
   )
 }
 
@@ -3579,33 +3743,9 @@ function IndividualsWhoWeServe() {
 
 
 function IndividualsJobCorps() {
-  const steps = [
-    {
-      num: '01',
-      title: 'Student & Youth Cohort Onboarding',
-      desc: 'Job Corps participants enter a clean, supportive digital workspace designed specifically to capture vocational training milestones, hands-on trades experience, and teamwork skills.',
-      bullets: ['Vocational trade skill documentation', 'Youth-friendly reflection prompts', 'Cohort leader support integration'],
-      badge: 'YOUTH INTAKE'
-    },
-    {
-      num: '02',
-      title: 'Hands-On Milestone Verification',
-      desc: 'Instructors and student leads co-create verified action points for completed shop work, safety certifications, and collaborative projects, replacing flat resume bullets with dynamic evidence.',
-      bullets: ['Trade certification tracking', 'Instructor-verified milestones', 'Practical problem-solving proof'],
-      badge: 'MILESTONE PROOF'
-    },
-    {
-      num: '03',
-      title: 'Transition & Last Mile Placement',
-      desc: 'As students prepare to graduate, their capability snapshot bridges the gap between campus training and local employer apprenticeship programs via The ElevIQ Last Mile™.',
-      bullets: ['Employer pathway matching', 'Apprenticeship handoff coordination', 'Long-term career retention tracking'],
-      badge: 'CAREER HANDOFF'
-    }
-  ]
-
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: CENTERED HERO BLOCK */}
+      {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
           <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
@@ -3613,77 +3753,106 @@ function IndividualsJobCorps() {
               YOUTH & WORKFORCE INITIATIVE
             </span>
             <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-              Job Corps & Youth Pathways
+              Strengths-Based Alignment for Schools & Job Corps
             </h1>
             <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
-              Empowering vocational students and Job Corps cohorts with human-centered capability tracking.
+              Empowering educators, advisors, and counselors with human-centered capability alignment.
             </p>
             <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-              CAS bridges technical training and real-world employer placement by turning hands-on trade skills into verified capability signals.
+              Connecting classroom learning, vocational training, and life experience to verified capability signals without clinical testing pressure.
             </p>
-            <div className="pt-2">
-              <Link
-                to="/platform/participant-portal"
-                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
-              >
-                Explore Youth Portal →
-              </Link>
-            </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* SECTION 2: ALTERNATING Z-PATTERN ROWS */}
+      {/* SECTION 2: DUAL-AUDIENCE GRID SECTION */}
       <ScrollReveal>
-        <section className="space-y-8">
-          {steps.map((step, index) => {
-            const isEven = index % 2 === 0
-            return (
-              <div
-                key={step.num}
-                className="bg-white rounded-[28px] p-8 border border-[#1B3A5C] shadow-md hover:border-[#E2725B] transition-all duration-300"
+        <section className="grid gap-8 md:grid-cols-2">
+          {/* CARD A: Schools & Youth Programs */}
+          <div className="bg-white rounded-[28px] p-8 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="space-y-4">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                01. SCHOOLS & CTE
+              </span>
+              <h2 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+                Schools & Youth Programs
+              </h2>
+              <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+                Supports strengths-based career clarity, CTE advising, classroom conversations, and practical pathway mapping.
+              </p>
+              <ul className="space-y-2.5 text-xs font-sans text-[#4B5563] pt-2">
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Strengths-oriented career clarity without testing pressure</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Actionable insights to guide CTE advising conversations</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Direct connection from classroom learning to real-world options</span>
+                </li>
+              </ul>
+            </div>
+            <div className="pt-4 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-xs font-semibold text-white transition hover:brightness-105 shadow-md text-center block"
               >
-                <div className={`grid gap-8 lg:grid-cols-2 lg:items-center ${isEven ? '' : 'lg:grid-flow-dense'}`}>
-                  <div className={`space-y-5 ${isEven ? '' : 'lg:col-start-2'}`}>
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#E2725B] text-sm font-bold text-white font-mono shadow-sm">
-                        {step.num}
-                      </span>
-                      <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                        {step.badge}
-                      </span>
-                    </div>
-                    <h3 className="font-sans text-2xl font-bold text-[#0F1B2D] tracking-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
-                      {step.desc}
-                    </p>
-                    <ul className="space-y-2 text-xs font-sans text-[#4B5563]">
-                      {step.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#E2725B] shrink-0" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className={`flex justify-center items-center p-4 bg-[var(--surface-soft)]/40 rounded-2xl border border-[var(--line)]/20 ${isEven ? '' : 'lg:col-start-1'}`}>
-                    <div className="w-full max-w-[320px] bg-[#0F1B2D] border border-white/10 rounded-xl p-6 shadow-lg text-white space-y-4">
-                      <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-[#E2725B]">YOUTH PATHWAY {step.num}</span>
-                        <span className="w-2 h-2 rounded-full bg-[#E2725B] animate-pulse" />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="h-3 bg-white/20 rounded w-3/4" />
-                        <div className="h-2 bg-[#E2725B] rounded w-1/2" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+                Discuss a Program
+              </Link>
+            </div>
+          </div>
+
+          {/* CARD B: Job Corps Centers & Counselors */}
+          <div className="bg-white rounded-[28px] p-8 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-6 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
+            <div className="space-y-4">
+              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                02. JOB CORPS COHORTS
+              </span>
+              <h2 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+                Job Corps Centers & Counselors
+              </h2>
+              <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+                Supports participant reflection, CSS/ESP conversations, CTT pathway exploration, counselors, and Support Planning.
+              </p>
+              <ul className="space-y-2.5 text-xs font-sans text-[#4B5563] pt-2">
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Integrates with CSS/ESP counseling & participant reflection</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Translates hands-on CTT trade training into capability signals</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-[#E2725B] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Streamlines Support Planning and transition to employment</span>
+                </li>
+              </ul>
+            </div>
+            <div className="pt-4 border-t border-[#EBF1F5]">
+              <Link
+                to="/contact"
+                className="w-full rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-xs font-semibold text-white transition hover:brightness-105 shadow-md text-center block"
+              >
+                Discuss the Job Corps Configuration
+              </Link>
+            </div>
+          </div>
         </section>
       </ScrollReveal>
 
@@ -3691,7 +3860,7 @@ function IndividualsJobCorps() {
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Job Corps Program Values
+            Job Corps & Educational Program Values
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
@@ -3724,7 +3893,6 @@ function IndividualsJobCorps() {
     </div>
   )
 }
-
 
 function IndividualsPartnersPilots() {
   const cards = [
@@ -4309,7 +4477,7 @@ function OrganizationsHome() {
                   02. Access Macro Insights
                 </span>
                 <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                  ECOSYSTEM TRACKING
+                  ECOSYSTEM ALIGNMENT
                 </span>
               </div>
               <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
@@ -4363,7 +4531,7 @@ function OrganizationsHome() {
             {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Strict Anonymized Macro Tracking
+                Strict Anonymized Macro analytics
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
                 Organizations review aggregate regional talent data trends. Individual participant deep logs are protected by strict data-splitting protocols, ensuring zero security or privacy compliance risk.
@@ -4399,12 +4567,12 @@ function OrganizationsHome() {
 function OrganizationsSolutions() {
   const cards = [
     { badge: '01. WORKFORCE BOARDS', title: 'Workforce Board Infrastructure', desc: 'Macro capability analytics and cross-sector pipeline visibility for regional workforce investment boards.' },
-    { badge: '02. EDUCATIONAL HUBS', title: 'Community College Solutions', desc: 'Trade skill tracking and student alignment dashboards connecting coursework to regional employer tracks.' },
+    { badge: '02. EDUCATIONAL HUBS', title: 'Community College Solutions', desc: 'trade skill alignment and student alignment dashboards connecting coursework to regional employer tracks.' },
     { badge: '03. CORPORATE BUYERS', title: 'Skills-First Hiring Portals', desc: 'Direct access to verified candidate capability snapshots without relying on automated resume screening.' },
     { badge: '04. ADVISOR WORKSPACES', title: 'ElevIQ CLARA™ Advisor Dashboards', desc: 'Dedicated workspaces for frontline coaches to deliver human guidance and co-create milestone roadmaps.' },
     { badge: '05. COMMUNITY CONSOLES', title: 'Community Intelligence Console™', desc: 'Aggregated macro data layer isolating raw reflection entries while surfacing regional talent trends.' },
     { badge: '06. ROLE BENCHMARKING', title: 'Human-Centered Role Alignment', desc: 'Translates corporate job requirements into qualitative capability criteria rather than rigid credential lists.' },
-    { badge: '07. ONBOARDING TRACKS', title: 'The ElevIQ Last Mile™', desc: 'Structured post-hire onboarding support and retention tracking to ensure long-term role alignment.' },
+    { badge: '07. ONBOARDING TRACKS', title: 'The ElevIQ Last Mile™', desc: 'Structured post-hire onboarding support and retention alignment to ensure long-term role alignment.' },
     { badge: '08. CIVIC COALITIONS', title: 'Municipal Talent Alliances', desc: 'Unifies city-wide non-profits, training centers, and employers under a single capability framework.' },
     { badge: '09. ENTERPRISE SECURITY', title: 'Sovereign Data Splitting', desc: 'Enterprise privacy architecture ensuring complete separation between participant reflections and buyer views.' }
   ]
@@ -5354,6 +5522,40 @@ function AboutPage() {
         </section>
       </ScrollReveal>
 
+      {/* ORGANIZATIONAL RELATIONSHIP DISCLAIMER SECTION */}
+      <ScrollReveal>
+        <section className="w-full bg-[#1B3A5C] border border-[#0FA88A]/40 rounded-[32px] p-8 md:p-12 shadow-xl text-white space-y-6">
+          <div className="space-y-2">
+            <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0FA88A]">
+              ORGANIZATIONAL RELATIONSHIP
+            </span>
+            <h3 className="font-sans text-2xl md:text-3xl font-bold text-white tracking-tight">
+              ElevIQ Foundation & STC Innovations
+            </h3>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 text-sm text-white/80 font-sans leading-relaxed">
+            <div className="bg-[#0F1B2D]/60 p-6 rounded-2xl border border-white/10 space-y-2">
+              <h4 className="font-sans text-base font-bold text-white">ElevIQ Foundation Role</h4>
+              <p>
+                ElevIQ Foundation Inc. is an independent tax-exempt nonprofit dedicated to helping individuals discover, name, and connect their capabilities to opportunity free from testing pressure.
+              </p>
+            </div>
+
+            <div className="bg-[#0F1B2D]/60 p-6 rounded-2xl border border-white/10 space-y-2">
+              <h4 className="font-sans text-base font-bold text-white">STC Innovations Role</h4>
+              <p>
+                STC Innovations is the commercial technology developer that licenses and configures the ElevIQ Capability Alignment System (CAS™) infrastructure for enterprise, institutional, and workforce partners.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[#0FA88A]/15 border border-[#0FA88A]/40 text-xs text-white/90 font-mono leading-relaxed">
+            <strong>Shared Technology Note:</strong> The Capability Alignment System powers both nonprofit community pathways and commercial enterprise solutions, connecting participant reflection to real-world opportunities.
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* SECTION 3: SYSTEMIC PURPOSE & PRINCIPLES */}
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-white/10 rounded-[32px] p-8 md:p-12 shadow-[var(--panel-shadow)]">
@@ -5417,7 +5619,7 @@ function ElevIqLastMilePage() {
             Ensuring long-term community impact and sustainable role integration.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            The journey doesn't end when a participant aligns with a role or training pathway. The ElevIQ Last Mile™ is the execution layer of the platform, built to support active structural transitions, post-placement mentorship, and collective municipal feedback loop tracking.
+            The journey doesn't end when a participant aligns with a role or training pathway. The ElevIQ Last Mile™ is the execution layer of the platform, built to support active structural transitions, post-placement mentorship, and collective municipal feedback loop alignment.
           </p>
         </div>
 
@@ -5469,7 +5671,7 @@ function ElevIqLastMilePage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Macro Retention Tracking</h3>
+          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Macro retention alignment</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
             Provides program leaders with high-fidelity analytics regarding long-term pathway sustainability without encroaching on personal privacy.
           </p>
@@ -5551,7 +5753,7 @@ function ScreenshotsPreviewPage() {
             A transparent window into the Capability Alignment System workspace.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Explore the clean, intuitive layout architecture designed for participants, advisors, and corporate partners. All interface mock-ups focus entirely on tracking qualitative capability progress maps, avoiding clinical scoring mechanisms or black-box predictive automation graphs.
+            Explore the clean, intuitive layout architecture designed for participants, advisors, and corporate partners. All interface mock-ups focus entirely on mapping qualitative capability progress maps, avoiding clinical scoring mechanisms or black-box predictive automation graphs.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2 font-mono text-xs">
@@ -5638,7 +5840,7 @@ function ScreenshotsPreviewPage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Ecosystem Intelligence Preview</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Displays the secure, aggregate regional capability tracking maps utilized by municipal program orchestrators.
+            Displays the secure, aggregate regional strengths-based capability alignment maps utilized by municipal program orchestrators.
           </p>
         </div>
       </section>
@@ -6157,7 +6359,7 @@ function ContactFormPage() {
             Connect with our team to explore tailored capability alignment infrastructure for your region.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Whether you are a corporate buyer seeking to refine workspace role requirements, an institutional funder tracking municipal investments, or a non-profit organizer setting up a pilot, we can build a configured demo to match your exact structural needs.
+            Whether you are a corporate buyer seeking to refine workspace role requirements, an institutional funder monitoring municipal investments, or a non-profit organizer setting up a pilot, we can build a configured demo to match your exact structural needs.
           </p>
         </div>
 
