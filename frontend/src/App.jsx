@@ -548,13 +548,13 @@ function HomePage() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                HUMAN-CENTERED CAPABILITY INFRASTRUCTURE
+                PRODUCT DEVELOPMENT PREVIEW
               </span>
               <h1 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                One Platform for Capability, Alignment, and Action.
+                One Connected System for Capability, Alignment, and Practical Next Steps.
               </h1>
               <p className="text-base md:text-lg font-normal text-[#EBF1F5] leading-relaxed max-w-2xl font-sans opacity-90">
-                The ElevIQ Capability Alignment System™ connects participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure.
+                The ElevIQ Capability Alignment System™ is designed to connect participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence through human-centered infrastructure.
               </p>
               
               {/* Primary CTAs */}
@@ -564,7 +564,7 @@ function HomePage() {
                   to="/platform"
                   className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-105"
                 >
-                  See How CAS Works
+                  Explore How CAS Is Designed to Work
                 </Link>
 
                 {/* Button 2: Warm Coral Fill */}
@@ -580,7 +580,7 @@ function HomePage() {
                   to="/platform/participant-portal"
                   className="rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/10 hover:border-white"
                 >
-                  Access Portal
+                  Portal Access - Coming Soon or Program Access
                 </Link>
               </div>
             </div>
@@ -745,7 +745,7 @@ function HomePage() {
               </span>
             </div>
             <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              Real-time indicators that track dynamic, evolving strengths and verified action milestones instead of static resume bullet points.
+              Participant reflection and approved context translated into clear Capability Signals™ that can support advising and next-step conversations.
             </p>
           </div>
 
@@ -820,7 +820,7 @@ function HomePage() {
               </span>
             </div>
             <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              The final deployment phase focused on sustainable onboarding, role alignment, and long-term community impact.
+              the movement from insight toward practical next steps, which may include support planning, referrals, preparation, training, applications, onboarding preparation, and follow-up within a configured partner program.
             </p>
           </div>
         </div>
@@ -932,7 +932,7 @@ function PlatformOverviewPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                SYSTEM ARCHITECTURE OVERVIEW
+                PRODUCT DEVELOPMENT PREVIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 The Architecture of Capability Alignment
@@ -941,7 +941,7 @@ function PlatformOverviewPage() {
                 Moving beyond static resumes and rigid clinical assessments.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The ElevIQ Capability Alignment System (CAS) is human-centered infrastructure that connects personal reflection with real-world workforce paths. It creates a continuous, secure environment to translate non-linear life experience into verified Capability Signals™.
+                The ElevIQ Capability Alignment System (CAS) is human-centered infrastructure that is designed to connect personal reflection with education, workforce, and community pathway conversations.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -1003,7 +1003,7 @@ function PlatformOverviewPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Reflect & Discover</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Engages participants through intuitive tools to capture non-linear experiences, practical contexts, and true capability without clinical testing pressure.
+              help participants reflect on lived experience, context, strengths, and contribution.
             </p>
           </div>
 
@@ -1016,7 +1016,7 @@ function PlatformOverviewPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Support & Guide</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Empowers mentors and workforce coaches with transparent, data-driven dashboards (ElevIQ CLARA™) to deliver targeted human assistance.
+              participant-approved insights and structured workflows that can support human guidance.
             </p>
           </div>
 
@@ -1029,7 +1029,7 @@ function PlatformOverviewPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Align & Act</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Provides community networks and regional corporate buyers with macro intelligence to match talent to real developmental tracks and open roles.
+              configured information that can support pathway discussions and practical next-step planning.
             </p>
           </div>
         </section>
@@ -1046,10 +1046,10 @@ function PlatformOverviewPage() {
             {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Data Splitting Protocols
+                Granular Privacy Control
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Protects individual data sovereignty by separating raw reflection data from macro organizational intelligence.
+                participant consent and access controls are being designed into the configured experience. Final privacy language will reflect the verified production architecture.
               </p>
             </div>
 
@@ -1066,10 +1066,10 @@ function PlatformOverviewPage() {
             {/* Point 3 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Continuous Agency
+                Ecosystem Synchronization
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Participants own their snapshot data permanently and maintain explicit control over profile sharing permissions across regional networks.
+                The platform vision connects participant growth, advisor workflows, and local pathway information. Integration status should be identified by configuration.
               </p>
             </div>
           </div>
@@ -1088,23 +1088,23 @@ function ParticipantPortalPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                INDIVIDUAL HOME BASE
+                In Development / Configuration Required
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 A Dedicated Space for Personal Agency
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Your secure workspace built around dignity, continuous discovery, and absolute privacy.
+                a participant-centered workspace designed around dignity, reflection, appropriate access, and privacy-conscious workflows.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Participant Portal gives you full sovereignty over how your capabilities are mapped, stored, and shared. There are no rigid tests, scores, or black-box algorithms here—just an intuitive ecosystem designed to highlight your true potential.
+                The Participant Portal is being configured to help participants review their information, understand Capability Signals™, explore possible pathways, and share approved insight with authorized support.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Access Participant Demo
+                  Program Access / Portal Preview
                 </Link>
               </div>
             </div>
@@ -1114,7 +1114,7 @@ function ParticipantPortalPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    In Development / Configuration Required
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1168,9 +1168,9 @@ function ParticipantPortalPage() {
                 PORTAL MODULE 02
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Live Capability Mapping</h3>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Evolving Capability Reflection</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Watch your profile evolve in real time. Translate your qualitative life stories into visible, dynamic capability signals that showcase your active strengths to the world.
+              Review how your reflections and approved context may contribute to Capability Signals™ over time.
             </p>
           </div>
 
@@ -1181,7 +1181,7 @@ function ParticipantPortalPage() {
                 PORTAL MODULE 03
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Connection Hub</h3>
+            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Support Connections</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
               A secure, transparent interface to co-create pathway plans, review collaborative goals, and communicate directly with your dedicated coaches and support networks.
             </p>
@@ -1203,7 +1203,7 @@ function ParticipantPortalPage() {
                 Total Profile Sovereignty
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Participants maintain absolute control over their dynamic capability profiles. You decide exactly when your data is ready to be shared, which specific support networks or advisors can view your reflections, and you retain the ability to rescind access at any time.
+                Participant access, correction, and sharing controls will follow the verified production configuration and applicable program consent practices.
               </p>
             </div>
 
@@ -1223,7 +1223,7 @@ function ParticipantPortalPage() {
                 Continuous Reflection Cycles
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Unlike static, high-stakes annual evaluations, your portal grows alongside you. Update your capabilities, log new milestones, and adjust your personalized pathway targets whenever you acquire fresh real-world experience.
+                Participants may return to reflect, update information, and review next steps when the configured program allows.
               </p>
             </div>
           </div>
@@ -1242,23 +1242,23 @@ function CommunityIntelligenceConsolePage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                SYSTEM INTEL & MACRO VIEW
+                In Development / Configured Sample
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Community Intelligence Console™
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Transform fragmented regional workforce data into clear, actionable ecosystem coordination.
+                A configured organization workspace designed to help authorized staff review participant-approved and aggregate capability information.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Community Intelligence Console provides regional orchestrators, institutional funders, and community networks with macro-level visibility into active local capabilities. Make precision funding and training decisions without relying on legacy systems or compromising individual participant privacy.
+                The Community Intelligence Console™ is being developed to support authorized program staff with cohort views, workflow status, participant-approved insight, and configuration-specific reporting.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Request Console Access
+                  View the Console Preview
                 </Link>
               </div>
             </div>
@@ -1268,7 +1268,7 @@ function CommunityIntelligenceConsolePage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    PRODUCT DEVELOPMENT PREVIEW
+                    In Development / Configured Sample
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1317,7 +1317,7 @@ function CommunityIntelligenceConsolePage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Aggregate Insights</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Track broad capability trends across student blocks, training cohorts, or municipal initiatives. Understand collective strengths at scale without exposing private, individual identity details.
+              Configured cohort views may help organizations examine capability patterns without presenting individual data beyond approved access.
             </p>
           </div>
 
@@ -1330,7 +1330,7 @@ function CommunityIntelligenceConsolePage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Resource Deployment</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Pinpoint exact systemic gaps in regional support structures. Deploy targeted development opportunities, local pathways, and mentor systems precisely where they are required most.
+              May support planning discussions about development opportunities, local pathways, and support resources when approved data sources are configured.
             </p>
           </div>
 
@@ -1343,7 +1343,7 @@ function CommunityIntelligenceConsolePage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Ecosystem Health</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Evaluate the live alignment between active local roles, open community pathways, and the actual talent base of your region to build a highly synchronized workforce.
+              Designed to support discussion of participant pathways, program context, and community opportunity information. Data connections and reporting status must be labeled.
             </p>
           </div>
         </section>
@@ -1353,7 +1353,7 @@ function CommunityIntelligenceConsolePage() {
       <ScrollReveal>
         <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Enterprise-Grade Regional Coordination
+            Configured Organization and Community Coordination
           </h3>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -1363,7 +1363,7 @@ function CommunityIntelligenceConsolePage() {
                 Privacy-Preserving Architecture
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                The console operates entirely on aggregate capability metrics. It strips away personally identifiable tracking information to compile community patterns, ensuring your organization remains fully compliant with modern data protection standards while gaining rich regional insights.
+                Final privacy, permissions, aggregation, retention, and compliance language will be published only after technical and legal verification.
               </p>
             </div>
 
@@ -1373,7 +1373,7 @@ function CommunityIntelligenceConsolePage() {
                 Precision Labor-Market Mapping
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Move beyond standard regional vacancy data. CAS maps real-time emerging capability sets against specific municipal project needs and open training pathways, giving workforce coordinators an accurate radar for local investment.
+                Potential labor-market and pathway data connections are configuration-dependent and should be labeled In Development or In Testing until verified.
               </p>
             </div>
 
@@ -1383,7 +1383,7 @@ function CommunityIntelligenceConsolePage() {
                 Inter-Agency Synergy
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Break down regional communication silos. The console provides a unified, secure data layer that allows schools, non-profits, enterprise partners, and public services to view the same regional capability map and coordinate supportive handoffs seamlessly.
+                The product vision supports coordinated workflows among authorized partners. Cross-organization access is configuration-dependent.
               </p>
             </div>
           </div>
@@ -1402,7 +1402,7 @@ function ElevIqAriaPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                INTERACTIVE REFLECTION PARTNER
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 ElevIQ ARIA™
@@ -1411,14 +1411,14 @@ function ElevIqAriaPage() {
                 Human-centered guidance designed to elevate personal agency and deep reflection.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                ElevIQ ARIA™ acts as an interactive reflection collaborator within the participant framework. It works directly alongside individuals to help draw out unique life experiences, unmapped community contributions, and non-linear capabilities that traditional resumes and rigid testing models completely miss.
+                ElevIQ ARIA™ is the participant-facing guidance experience being designed to help participants understand information, reflect on context, and prepare for human-guided next steps.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Experience ARIA Demo
+                  Experience ARIA Preview
                 </Link>
               </div>
             </div>
@@ -1428,7 +1428,7 @@ function ElevIqAriaPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1472,7 +1472,7 @@ function ElevIqAriaPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Contextual Discovery</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Engages participants in thoughtful, open-ended dialogues to safely capture specialized skills, personal contexts, and real-world problems they have solved.
+              May support plain-language reflection prompts that help participants consider experience, context, strengths, and contribution.
             </p>
           </div>
 
@@ -1485,7 +1485,7 @@ function ElevIqAriaPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Collaborative Structuring</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Helps translate deep personal reflection into organized, visible capability points that can be seamlessly shared with advisors and workforce mentors.
+              Designed to help organize participant reflection into understandable language that the participant may review before approved sharing.
             </p>
           </div>
 
@@ -1498,7 +1498,7 @@ function ElevIqAriaPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Agency Protection</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Operates purely as a supportive mirror for the user, ensuring the data generation process remains entirely driven by the participant's own voice.
+              ARIA supports navigation and interpretation; it does not make final eligibility, hiring, placement, clinical, or psychological decisions.
             </p>
           </div>
         </section>
@@ -1518,7 +1518,7 @@ function ElevIqAriaPage() {
                 Qualitative Data Layer
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Instead of forcing users to fit into standardized multiple-choice slots, ARIA allows for unstructured, natural language inputs. It formats stories into professional, legible statements while preserving the user's authentic voice.
+                Can help participants organize reflection into clear, reviewable language.
               </p>
             </div>
 
@@ -1528,7 +1528,7 @@ function ElevIqAriaPage() {
                 Uncovering Hidden Strengths
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Many vital workforce skills—like community organization, crisis management, or multilingual navigation—go undocumented. ARIA prompts participants intentionally to reveal these hidden talents.
+                ARIA may prompt participants to consider capabilities developed through life, work, service, caregiving, learning, and community experience.
               </p>
             </div>
 
@@ -1538,7 +1538,7 @@ function ElevIqAriaPage() {
                 Zero-Score Philosophy
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                ARIA never grades, scores, or passes judgment. By removing predictive testing logic, it creates a safe environment that encourages complete honesty and deep, unstressed self-discovery.
+                ARIA is not intended to grade, rank, diagnose, or make final decisions about a participant.
               </p>
             </div>
           </div>
@@ -1557,7 +1557,7 @@ function ElevIqClaraPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                ADVISOR & COACH WORKSPACE
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 ElevIQ CLARA™
@@ -1566,7 +1566,7 @@ function ElevIqClaraPage() {
                 Empowering advisors and coaches with transparent, actionable context.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                ElevIQ CLARA™ is the dedicated workspace built specifically for frontline advisors, workforce coaches, and program administrators. Rather than hiding data behind black-box scoring systems or predictive automation, CLARA provides a clear, high-fidelity window into a participant's complete capability map and self-guided reflections.
+                ElevIQ CLARA™ is the organization-facing guidance experience being developed to help authorized staff interpret participant-approved information and plan human support.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -1583,7 +1583,7 @@ function ElevIqClaraPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    PRODUCT DEVELOPMENT PREVIEW
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1622,7 +1622,7 @@ function ElevIqClaraPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Deep-Dive Insights</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Review a participant's qualitative reflections, articulated goals, and situational contexts side-by-side to understand their true baseline.
+              Review participant-approved reflections, goals, and context within the permissions of the configured program.
             </p>
           </div>
 
@@ -1635,7 +1635,7 @@ function ElevIqClaraPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Targeted Collaboration</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Co-create actionable development plans, leave supportive guidance notes, and track individual progress milestones inside a shared secure interface.
+              Designed to support notes, next-step planning, and follow-up workflows when those functions are configured and tested.
             </p>
           </div>
 
@@ -1648,7 +1648,7 @@ function ElevIqClaraPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Cohort Management</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Seamlessly organize student blocks, training groups, or pilot cohorts to ensure no participant slips through the cracks.
+              Configured cohort views may help authorized staff organize participant workflows and identify follow-up needs.
             </p>
           </div>
         </section>
@@ -1668,7 +1668,7 @@ function ElevIqClaraPage() {
                 Eliminating Blind Automation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                CLARA rejects algorithmic sorting. It provides human advisors with raw, unaltered participant reflections, eliminating the bias introduced by traditional automated resume filters.
+                CLARA is designed to support human review rather than make final automated decisions. Do not claim bias elimination.
               </p>
             </div>
 
@@ -1678,7 +1678,7 @@ function ElevIqClaraPage() {
                 High-Fidelity Interaction Records
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Every note, collaborative pathway milestone, and advisor observation is saved chronologically, providing a comprehensive audit trail of personal development and supportive actions.
+                Recordkeeping, audit history, retention, and access controls are configuration-dependent and require verification before publication.
               </p>
             </div>
 
@@ -1688,7 +1688,7 @@ function ElevIqClaraPage() {
                 Optimized Cohort Navigation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Track macro milestone progress across your entire deployment group simultaneously, allowing program managers to step in with individual care the moment momentum stalls.
+                May support cohort workflow review when configured and tested.
               </p>
             </div>
           </div>
@@ -1707,16 +1707,16 @@ function CapabilitySignalsPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                DYNAMIC SKILL ALIGNMENT
+                IN DEVELOPMENT / VALIDATION PENDING
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Capability Signals™
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A dynamic, real-time alternative to flat resumes and static credentials.
+                Clear, strengths-oriented language designed to help participants and advisors discuss capability beyond resumes and credentials.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Capabilities aren't static boxes to check—they are active, evolving behaviors. Capability Signals™ capture real-time indicators of an individual's strengths, emerging skills, and practical problem-solving capacities as they engage with training pathways and community projects.
+                Capability Signals™ translate participant reflection and approved context into understandable capability language. They are directional and do not predict success.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -1733,7 +1733,7 @@ function CapabilitySignalsPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT / VALIDATION PENDING
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1763,7 +1763,7 @@ function CapabilitySignalsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Reflective Signals</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Captured directly from the participant's continuous self-assessments, contextual milestones, and self-guided workspace inputs.
+              Participant reflections and contextual information provided through the ElevIQ Alignment Scan™ and related program workflows.
             </p>
           </div>
 
@@ -1775,7 +1775,7 @@ function CapabilitySignalsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Verified Action</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Validated indicators generated through active milestone completions, peer support roles, and verified community-level project work.
+              Documented experience or milestones may be included when an approved verification method is configured.
             </p>
           </div>
 
@@ -1787,7 +1787,7 @@ function CapabilitySignalsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Observations</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Qualitative validation inputs from trusted program coaches, capturing soft skills, leadership traits, and accountability indicators.
+              Authorized staff observations may be included when permitted by the participant, program rules, and configured workflow.
             </p>
           </div>
         </section>
@@ -1815,7 +1815,7 @@ function CapabilitySignalsPage() {
                 Real-Time Skill Validation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Eliminates outdated annual check-ins. Signals adapt dynamically as the participant works, ensuring profile validity.
+                Supports updated reflection over time when the configured program allows.
               </p>
             </div>
 
@@ -1824,7 +1824,7 @@ function CapabilitySignalsPage() {
                 Zero Test-Stress Framework
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                No multiple-choice tests or clinical scores. Signals gather data organically from real actions, protecting participant dignity.
+                The ElevIQ Alignment Scan™ is not a clinical, diagnostic, psychological, personality, or hiring test.
               </p>
             </div>
           </div>
@@ -1843,16 +1843,16 @@ function AlignmentSnapshotPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                HIGH-FIDELITY PROFILE VIEWER
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Alignment Snapshot™
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                A comprehensive, high-fidelity visual summary of a participant’s dynamic capability landscape.
+                a clear, participant-centered summary of Capability Signals™, context, and possible next-step discussion points.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                The Alignment Snapshot™ brings together qualitative reflections, advisor notes, and dynamic capability signals into a single, clean visual dashboard. It allows trusted mentors and regional partners to see a participant's complete strengths immediately without reducing them to a single metric.
+                The Alignment Snapshot™ is designed to organize participant-approved information into a plain-language summary for participant review and human-guided conversation.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -1869,7 +1869,7 @@ function AlignmentSnapshotPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -1900,7 +1900,7 @@ function AlignmentSnapshotPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Qualitative Overlay</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Displays the participant's authentic voice, personal goals, and self-guided reflections right at the top of the interface.
+              Centers participant voice, goals, context, and self-reflection in the summary.
             </p>
           </div>
 
@@ -1912,7 +1912,7 @@ function AlignmentSnapshotPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Signal Aggregation</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Maps verified action indicators and dynamic strengths-based capability alignment patterns onto an easy-to-read layout framework.
+              Organizes available Capability Signals™ into a readable summary without reducing the participant to one score.
             </p>
           </div>
 
@@ -1924,7 +1924,7 @@ function AlignmentSnapshotPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Advisor Verification Space</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              A dedicated component housing qualitative coaching validation notes, milestone updates, and collaborative goals.
+              Advisor notes or observations may be included only within an approved, configured workflow.
             </p>
           </div>
         </section>
@@ -1952,7 +1952,7 @@ function AlignmentSnapshotPage() {
                 Secure Share Controls
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Built with strict data privacy rules. Participants control when, how, and with whom their active profile view is shared.
+                Sharing and permission controls are subject to final technical configuration, consent practices, and legal review.
               </p>
             </div>
 
@@ -1961,7 +1961,7 @@ function AlignmentSnapshotPage() {
                 Actionable Guidance Foundation
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Serves as a perfect launching pad for advisors to co-create tailored development tracks and career planning models.
+                Serves as a launching pad for advisors to co-create tailored development tracks and career planning models.
               </p>
             </div>
           </div>
@@ -1980,7 +1980,7 @@ function AlignmentPathwaysPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                DYNAMIC TRAJECTORY PLANNING
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Alignment Pathways™
@@ -1989,7 +1989,7 @@ function AlignmentPathwaysPage() {
                 Individualized, dynamic roadmaps connecting capability insight to practical workforce tracks.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Traditional mapping systems force users onto rigid, linear paths. Alignment Pathways™ leverage real-time capability insights to suggest adaptive, flexible routes through educational blocks, specialized training modules, and regional community pilots.
+                Alignment Pathways™ use available Capability Signals™ and participant goals to support exploration of flexible education, training, career, service, entrepreneurship, or community pathways.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2006,7 +2006,7 @@ function AlignmentPathwaysPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2034,7 +2034,7 @@ function AlignmentPathwaysPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Adaptive Route Adjustments</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Pathways automatically update and suggest new steps as participants log fresh capability signals or adjust personal goals.
+              Pathways may be reviewed and adjusted as participants add information, clarify goals, and work with trusted support.
             </p>
           </div>
 
@@ -2046,7 +2046,7 @@ function AlignmentPathwaysPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Hyper-Local Integration</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Directly connects pathway roadmaps with active localized municipal initiatives, training centers, and regional partners.
+              Local pathways and partner information may be added through approved program configuration. Do not imply a live integration until verified.
             </p>
           </div>
 
@@ -2058,7 +2058,7 @@ function AlignmentPathwaysPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Milestone Tracking</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Breaks broad, overwhelming long-term milestones down into manageable, self-paced progress steps to maintain growth momentum.
+              Can support practical next-step planning within a configured program.
             </p>
           </div>
         </section>
@@ -2086,7 +2086,7 @@ function AlignmentPathwaysPage() {
                 Modular Skill Assembly
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Focuses on stackable, practical blocks. Participants gather micro-milestones across different sectors to build custom strengths.
+                Participants may explore stackable learning, training, and development opportunities relevant to their goals.
               </p>
             </div>
 
@@ -2095,7 +2095,7 @@ function AlignmentPathwaysPage() {
                 Advisor View Inclusion
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Pathway maps link directly to the coach interface, allowing mentors to review, discuss, and refine milestones during touchpoints.
+                Authorized advisor access is configuration-dependent and requires participant/program permissions.
               </p>
             </div>
           </div>
@@ -2114,16 +2114,16 @@ function RoleAlignmentPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                HUMAN-CENTERED ECOSYSTEM FIT
+                DIRECTIONAL ROLE ALIGNMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Role Alignment
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Bridging the gap between individual capabilities and modern organizational requirements.
+                Supporting discussion between a participant’s current Capability Signals™ and a defined Role Benchmark.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Role Alignment inside CAS steps completely away from automated resume keyword parsing and cold compatibility scoring. Instead, it creates a transparent context ecosystem where organizations can cleanly express the actual capability requirements of a position, and participants can seamlessly align their mapped strengths against them.
+                Role Alignment is a directional comparison that supports discussion and planning. It does not determine qualification, eligibility, hiring, or job performance.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2140,7 +2140,7 @@ function RoleAlignmentPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    PRODUCT DEVELOPMENT PREVIEW
+                    In Development / Role Benchmarks Require Approval
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2172,7 +2172,7 @@ function RoleAlignmentPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Capability Requirement Outlining</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Allows regional partner organizations to define active roles by required behavioral strengths and context needs rather than strict credentials.
+              Authorized organizations may define a Role Benchmark describing relevant capabilities, experience, and context for discussion.
             </p>
           </div>
 
@@ -2184,7 +2184,7 @@ function RoleAlignmentPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Mutual Context View</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Provides a clean, collaborative view where a participant's snapshot and an organization's role framework can be evaluated side-by-side transparently.
+              May present a participant’s current signals alongside a Role Benchmark for human review.
             </p>
           </div>
 
@@ -2196,7 +2196,7 @@ function RoleAlignmentPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Growth Focus Mapping</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Highlights areas for onboarding preparation, identifying exactly which training pathways can support a participant's long-term integration into the role.
+              May identify Development Opportunities for discussion without labeling the participant as deficient.
             </p>
           </div>
         </section>
@@ -2215,7 +2215,7 @@ function RoleAlignmentPage() {
                 Scrubbing Algorithmic Rejection
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Rejects automated screening filters. The alignment framework ensures individual context is always honored, creating room for overlooked talent.
+                CAS is not designed to make final automated hiring or rejection decisions.
               </p>
             </div>
 
@@ -2224,7 +2224,7 @@ function RoleAlignmentPage() {
                 Targeted Onboarding Insight
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Identifies development focuses early, allowing companies to tailor proactive workspace support from the very first day.
+                May support onboarding preparation and development conversations when configured for an employer program.
               </p>
             </div>
 
@@ -2252,7 +2252,7 @@ function DevelopmentOpportunitiesPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                ACTIONABLE SKILL GROWTH
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Development Opportunities
@@ -2261,7 +2261,7 @@ function DevelopmentOpportunitiesPage() {
                 Connecting capability alignment maps with personalized growth ecosystems.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Discovering current capabilities is only the first step. The Development Opportunities module seamlessly bridges the gap between where a participant stands today and where they want to grow, highlighting actionable pathways, local coursework, and targeted mentorship programs.
+                helps participants and authorized support consider possible learning, training, practice, and experience-building options relevant to their goals.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2278,7 +2278,7 @@ function DevelopmentOpportunitiesPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    PRODUCT DEVELOPMENT PREVIEW
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2306,7 +2306,7 @@ function DevelopmentOpportunitiesPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Targeted Training Integration</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Directly maps specific educational blocks and technical skills workshops onto the user's active capability timeline.
+              Configured programs may present relevant training or learning options. Do not imply live integration until verified.
             </p>
           </div>
 
@@ -2318,7 +2318,7 @@ function DevelopmentOpportunitiesPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Ecosystem Project Sync</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Connects participants with localized community initiatives, regional pilots, and real-world micro-assignments to build stackable strengths.
+              Approved community or program opportunities may be added through configuration.
             </p>
           </div>
 
@@ -2330,7 +2330,7 @@ function DevelopmentOpportunitiesPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Adaptive Skill Recommendations</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Dynamically flags relevant upskilling modules based on the participant's self-guided reflections and evolving goals.
+              May present development options based on participant goals and available program information.
             </p>
           </div>
         </section>
@@ -2358,7 +2358,7 @@ function DevelopmentOpportunitiesPage() {
                 Continuous Optimization
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                As new skills are verified, the development module automatically updates, offering fresh, specialized paths.
+                Development Opportunities may be updated through participant and advisor review when the configured workflow allows.
               </p>
             </div>
 
@@ -2367,7 +2367,7 @@ function DevelopmentOpportunitiesPage() {
                 Advisor Collaboration Support
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Allows mentors to directly tag, suggest, and track growth opportunities alongside the individual in real time.
+                Authorized advisors may discuss and document development options when collaboration and tracking functions are configured.
               </p>
             </div>
           </div>
@@ -2386,16 +2386,16 @@ function SupportConnectionsPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                HUMAN-CENTERED GUIDE HUBS
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Support Connections
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Linking participants directly with trusted frontline networks and regional advisors.
+                Helping participants identify trusted people, programs, and resources that may support practical next steps.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                No one achieves alignment in isolation. The Support Connections space is the collaborative nerve center of the platform, bringing together frontline mentors, workforce coaches, and community support systems into a single transparent interface.
+                Support Connections represents the human and community support layer of CAS. Available workflows depend on partner configuration and testing.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2412,7 +2412,7 @@ function SupportConnectionsPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    PRODUCT DEVELOPMENT PREVIEW
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2446,7 +2446,7 @@ function SupportConnectionsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Direct Mentorship Windows</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              A secure communication link connecting participants to regional coaches for high-fidelity guidance touchpoints.
+              Direct communication features are in development and should not be presented as live until tested.
             </p>
           </div>
 
@@ -2458,7 +2458,7 @@ function SupportConnectionsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Resource Network Mapping</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Provides a clean directory of localized community support services, childcare networks, and transport assistance tools.
+              Configured programs may provide approved resource and referral information.
             </p>
           </div>
 
@@ -2470,7 +2470,7 @@ function SupportConnectionsPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Shared Progress Workspaces</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Allows users and advisors to co-sign collaborative goals, build roadmap targets, and update progress timelines transparently.
+              Shared planning and progress functions are configuration-dependent.
             </p>
           </div>
         </section>
@@ -2489,7 +2489,7 @@ function SupportConnectionsPage() {
                 Eliminating Siloed Guidance
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Creates a unified collaborative layer so all approved support agencies can check progress milestones concurrently.
+                Cross-agency access is not assumed. Authorized access depends on consent, agreements, permissions, and technical configuration.
               </p>
             </div>
 
@@ -2498,7 +2498,7 @@ function SupportConnectionsPage() {
                 Dignified Interaction History
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Saves collaborative goals chronologically, moving far away from rigid, clinical case-management logs.
+                Recordkeeping, retention, and interaction-history functions require technical and legal verification.
               </p>
             </div>
 
@@ -2507,7 +2507,7 @@ function SupportConnectionsPage() {
                 Participant Sovereignty Hub
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                The user remains completely in charge of who belongs in their mentor network, controlling access permissions directly.
+                Participant consent, correction, and sharing practices will follow the verified production configuration and program requirements.
               </p>
             </div>
           </div>
@@ -2526,16 +2526,16 @@ function ExperienceContextPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                BEYOND STALE BACKGROUNDS
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Experience & Context
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Honoring the complete human journey by capturing unmapped life contexts.
+                recognizing experience and context that may not appear in a traditional resume.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Standard platforms only look at official employment titles, completely ignoring the rich skills developed outside traditional structures. The Experience & Context layer allows individuals to capture non-linear life pathways, proving that real capability exists far beyond formal resumes.
+                helping participants describe capabilities developed through work, learning, caregiving, service, community involvement, and life experience.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2552,7 +2552,7 @@ function ExperienceContextPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2579,7 +2579,7 @@ function ExperienceContextPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Non-Linear Path Tracking</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Provides natural workspaces to easily document volunteer leadership, family caregiving, community organization, and independent problem-solving.
+              Provides reflection prompts that may help participants describe non-linear experience and contribution.
             </p>
           </div>
 
@@ -2591,7 +2591,7 @@ function ExperienceContextPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Situational Reality Mapping</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Captures structural realities and regional environments so advisors fully understand a participant's baseline context.
+              May capture participant-provided context relevant to practical pathway and support conversations.
             </p>
           </div>
 
@@ -2622,7 +2622,7 @@ function ExperienceContextPage() {
                 Validating Hidden Assets
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Translates everyday problem-solving and lived experiences into dynamic, actionable capability metrics.
+                Helps translate lived experience into clear capability language. Do not call it validated unless an approved method exists.
               </p>
             </div>
 
@@ -2631,7 +2631,7 @@ function ExperienceContextPage() {
                 Removing Outdated Credentials
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Focuses entirely on what an individual can actually do, bypassing the rigid bias of traditional background scanning.
+                Broadens the information considered beyond credentials and job titles while preserving human review.
               </p>
             </div>
 
@@ -2659,16 +2659,16 @@ function LifeVectorPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                LONG-TERM TRAJECTORY HEURISTICS
+                IN DEVELOPMENT / FUTURE-STATE MODULE
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Life Vector™
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Mapping the direction and long-term momentum of personal growth frameworks.
+                DIRECTION AND MOMENTUM
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Growth is a direction, not a destination. The Life Vector™ module visualizes the active momentum of a participant's collective learning curves, milestone accomplishments, and evolving pathways, helping long-term planning remain perfectly aligned with personal agency.
+                Life Vector™ is a developing visual concept intended to help participants reflect on direction, goals, milestones, and changing possibilities over time.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2685,7 +2685,7 @@ function LifeVectorPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
                   <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
-                    CONFIGURED SAMPLE ENVIRONMENT
+                    IN DEVELOPMENT / FUTURE-STATE MODULE
                   </span>
                   <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
                 </div>
@@ -2713,7 +2713,7 @@ function LifeVectorPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Active Momentum Analysis</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Aggregates continuous capability signals to visually trace the trajectory of an individual's emerging strengths over time.
+              May display participant-reviewed milestones or updates when configured.
             </p>
           </div>
 
@@ -2725,7 +2725,7 @@ function LifeVectorPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Long-Range Goal Orientation</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Maps macro-level personal aspirations onto localized workforce infrastructure, showing multiple viable growth avenues.
+              Supports long-range goal conversation and exploration of multiple possible pathways.
             </p>
           </div>
 
@@ -2737,7 +2737,7 @@ function LifeVectorPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Dynamic Future Adaptations</h3>
             <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
-              Automatically shifts trajectory options as the user gathers new capabilities, avoiding rigid professional lock-ins.
+              Possible pathways may be revisited as participants add information and clarify goals.
             </p>
           </div>
         </section>
@@ -2774,7 +2774,7 @@ function LifeVectorPage() {
                 Strategic Support Insights
               </h4>
               <p className="text-sm leading-relaxed text-white/70 font-sans">
-                Helps community networks anticipate future ecosystem training and funding allocations based on macro timeline directions.
+                Aggregate planning use is a future-state concept and must be labeled In Development until data sources and methods are approved.
               </p>
             </div>
           </div>
@@ -3047,21 +3047,13 @@ function Footer() {
             <h4 className="font-sans text-sm font-bold text-white tracking-wide">
               ElevIQ Foundation & STC Innovations
             </h4>
-            <div className="grid gap-4 md:grid-cols-2">
-              <p className="leading-relaxed">
-                <strong className="text-white">Foundation Role:</strong> ElevIQ Foundation Inc. is an independent tax-exempt nonprofit dedicated to helping individuals discover, name, and connect their capabilities to opportunity free from testing pressure.
-              </p>
-              <p className="leading-relaxed">
-                <strong className="text-white">STC Innovations Role:</strong> STC Innovations is the commercial technology developer that licenses and configures the ElevIQ Capability Alignment System (CAS™) infrastructure for enterprise, institutional, and workforce partners.
-              </p>
-            </div>
-            <p className="text-[11px] text-[var(--eleviq-teal)] leading-relaxed font-mono">
-              Shared Technology Note: The Capability Alignment System powers both nonprofit community pathways and commercial enterprise solutions, connecting participant reflection to real-world opportunities.
+            <p className="leading-relaxed">
+              STC Innovations owns, develops, configures, licenses, and commercializes the ElevIQ Capability Alignment System™. ElevIQ Foundation applies CAS through mission-driven access, community programs, pilots, partnerships, and participant support. ElevIQ Foundation receives CAS access at no cost for approved mission-aligned nonprofit use, and the ElevIQ Alignment Scan™ remains free for individual participants.
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
-            <p>© 2026 ElevIQ / STC Innovations. All rights reserved.</p>
+            <p>© 2026 STC Innovations. ElevIQ Capability Alignment System™ and related product intellectual property are owned by STC Innovations. ElevIQ Foundation is a separate nonprofit organization authorized to use CAS for approved mission-aligned programming.</p>
             <p className="font-mono uppercase tracking-widest text-[var(--eleviq-teal)] text-[10px]">Capability Alignment Infrastructure</p>
           </div>
 
@@ -3887,6 +3879,11 @@ function IndividualsJobCorps() {
                 Cohort leads and career counselors work side-by-side with students throughout their transition.
               </p>
             </div>
+          </div>
+          <div className="mt-8 pt-6 border-t border-white/10 text-center">
+            <p className="text-xs text-white/50 font-mono">
+              Historical Reference (April 2026): Initial Job Corps cohort documentation referenced early tooling as TalentScan™, now formally integrated into the ElevIQ Alignment Scan™.
+            </p>
           </div>
         </section>
       </ScrollReveal>
@@ -5610,16 +5607,19 @@ function ElevIqLastMilePage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center bg-[var(--midnight-ink)] text-white p-8 rounded-[32px] border border-white/5 relative overflow-hidden shadow-[var(--panel-shadow)]">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-            SUSTAINABLE ONBOARDING INFRASTRUCTURE
+            IN DEVELOPMENT / FUTURE-STATE ELEMENTS
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             The ElevIQ Last Mile™
           </h2>
+          <p className="text-lg font-medium text-white/90 leading-relaxed font-mono text-xs uppercase tracking-wider text-[#0FA88A]">
+            FROM INSIGHT TO PRACTICAL NEXT STEPS
+          </p>
           <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Ensuring long-term community impact and sustainable role integration.
+            Supporting the movement from capability insight toward practical, human-guided next steps.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            The journey doesn't end when a participant aligns with a role or training pathway. The ElevIQ Last Mile™ is the execution layer of the platform, built to support active structural transitions, post-placement mentorship, and collective municipal feedback loop alignment.
+            Depending on the configured partner program, The ElevIQ Last Mile™ may include support planning, referrals, preparation, training options, applications, interviews, onboarding preparation, and follow-up.
           </p>
         </div>
 
@@ -5639,8 +5639,8 @@ function ElevIqLastMilePage() {
         </div>
       </section>
 
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <section className="grid gap-6 md:grid-cols-3 mt-4">
+      {/* SECTION 2: 2 FLOATING CARDS */}
+      <section className="grid gap-6 md:grid-cols-2 mt-4">
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
           <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -5649,7 +5649,7 @@ function ElevIqLastMilePage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Structured Transitions</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Manages the practical workflows required to transition a participant smoothly from a training ecosystem into an active organizational role.
+            May support practical transition planning within an approved program.
           </p>
         </div>
 
@@ -5661,24 +5661,12 @@ function ElevIqLastMilePage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Post-Placement Mentorship</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Maintains continuous connection bridges between the individual, active supervisors, and regional advisors to safeguard initial job integration.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
-          <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Macro retention alignment</h3>
-          <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Provides program leaders with high-fidelity analytics regarding long-term pathway sustainability without encroaching on personal privacy.
+            Post-placement support is program-dependent and should not be presented as live unless a partner workflow has been configured and tested.
           </p>
         </div>
       </section>
 
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
+      {/* SECTION 3: BOTTOM 2-POINT GRID */}
       <section className="bg-white rounded-[32px] p-8 border border-[var(--line)] shadow-sm space-y-8">
         <div className="text-center space-y-2">
           <h3 className="font-sans text-3xl font-bold tracking-[-0.04em] text-[#0F1B2D]">
@@ -5686,7 +5674,7 @@ function ElevIqLastMilePage() {
           </h3>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
@@ -5697,7 +5685,7 @@ function ElevIqLastMilePage() {
               </h4>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Helps networks spot early alignment friction or workplace disconnects, allowing support teams to step in before retention breaks.
+              May support follow-up conversations about alignment and support needs within an approved program.
             </p>
           </div>
 
@@ -5707,25 +5695,11 @@ function ElevIqLastMilePage() {
                 02
               </span>
               <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
-                Continuous Feedback Integration
-              </h4>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Gathers operational data from workplaces to refine upstream capability roadmaps and municipal training focus points.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#EAF3F3] text-xs font-bold text-[#1E7F82] shrink-0 font-sans border border-[#d2dfdf]">
-                03
-              </span>
-              <h4 className="font-sans text-lg font-bold text-[#0F1B2D]">
                 Sustained Career Growth
               </h4>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Keeps individual portal links active post-placement, encouraging lifelong capability adjustments and ongoing career planning.
+              Participants may revisit goals and next steps when continued access is part of the configured program.
             </p>
           </div>
         </div>
@@ -5744,16 +5718,16 @@ function ScreenshotsPreviewPage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-            PLATFORM INTERFACE PREVIEW
+            Configured Sample Environment / Product Development Preview / In Sandbox Testing
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             Screenshots & Product Preview
           </h2>
           <p className="text-lg font-medium text-white/90 leading-relaxed">
-            A transparent window into the Capability Alignment System workspace.
+            All screen previews utilize mockups and fictional data for illustrative purposes. Features shown reflect configured sample environments and may require custom deployment.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Explore the clean, intuitive layout architecture designed for participants, advisors, and corporate partners. All interface mock-ups focus entirely on mapping qualitative capability progress maps, avoiding clinical scoring mechanisms or black-box predictive automation graphs.
+            Explore configured sample screens illustrating the intended participant, advisor, and organization experience. Visible screens do not imply that every feature, report, integration, or button is connected.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2 font-mono text-xs">
@@ -5816,7 +5790,7 @@ function ScreenshotsPreviewPage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Participant Dashboard Preview</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Visualizes the self-guided reflection logs, evolving signal lists, and direct communication hubs accessible to individuals.
+            Configured sample mockup demonstrating reflection logs, signal summaries, and guidance options.
           </p>
         </div>
 
@@ -5828,19 +5802,19 @@ function ScreenshotsPreviewPage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Advisor Workspace Preview</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Showcases the cohort summary streams, chronological touchpoint note systems, and path coordination maps built for mentors.
+            Configured sample mockup displaying staff notes, approved signal views, and goal planning space.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
+        <div className="bg-white rounded-2xl p-6 shadow-md border border-[var(--line)] flex flex-col justify-start space-y-4 hover:shadow-md transition-shadow duration-300">
           <div className="w-10 h-10 rounded-xl bg-[#EAF3F3] flex items-center justify-center text-[#1E7F82] shrink-0">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2m0 0V9a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
-          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Ecosystem Intelligence Preview</h3>
+          <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Community Intelligence Console™ Preview</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Displays the secure, aggregate regional strengths-based capability alignment maps utilized by municipal program orchestrators.
+            Configured sample mockup depicting anonymized aggregate program views for approved administrators.
           </p>
         </div>
       </section>
@@ -5878,7 +5852,7 @@ function ScreenshotsPreviewPage() {
               </h4>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Every visual layout frame is clearly tagged with live operational and system stage indicators to show real-time platform statuses.
+              show the current development or testing status of each preview.
             </p>
           </div>
 
@@ -5903,12 +5877,12 @@ function ScreenshotsPreviewPage() {
 
 function InteractiveJourneyPage() {
   const steps = [
-    'Participant opens the ElevIQ Alignment Scan™.',
-    'Experience & Context shapes the capability language.',
+    'Participant begins through an approved program route or individual access path.',
+    'Participant-provided Experience & Context helps inform capability language.',
     'Capability Signals™ and Alignment Snapshot™ are reviewed.',
     'ElevIQ ARIA™ supports reflection on the current step.',
     'Alignment Pathways™ and Support Connections shape next moves.',
-    'The ElevIQ Last Mile™ closes the handoff.'
+    'The ElevIQ Last Mile™ supports movement toward a practical next step.'
   ]
   const [step, setStep] = useState(0)
 
@@ -5921,16 +5895,16 @@ function InteractiveJourneyPage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-            STEP-BY-STEP SIMULATION
+            Product Development Simulation
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             Interactive Journey
           </h2>
           <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Experience the systematic alignment process from start to finish.
+            Walk through a product-development simulation showing the intended CAS journey. This simulation is illustrative and is not the authenticated Participant Portal.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Walk through a live, step-by-step interactive walkthrough detailing how a single qualitative life experience is safely captured by the system, verified as a Capability Signal, and translated into a concrete, localized career development pathway.
+            This walkthrough demonstrates the workflow from initial participant reflection to advisor touchpoints and pathway alignment.
           </p>
         </div>
 
@@ -6000,12 +5974,12 @@ function InteractiveJourneyPage() {
             System State Log
           </p>
           <p className="text-xs text-white/80 font-sans leading-relaxed">
-            {step === 0 && "Initializing reflection log module. Awaiting participant inputs."}
-            {step === 1 && "Translating qualitative textual entries into non-linear signal clusters. No automated score generated."}
-            {step === 2 && "Compiling snapshot layout frame. Verifying secure sharing protocols."}
-            {step === 3 && "Opening ARIA conversational mirror mode. Guiding self-paced trajectory adjustments."}
-            {step === 4 && "Checking localized training and open community placement nodes. Mapping route options."}
-            {step === 5 && "Handoff complete. Direct mentor-participant communication channel active."}
+            {step === 0 && "Participant begins through an approved program route or individual access path."}
+            {step === 1 && "Participant-provided Experience & Context helps inform capability language."}
+            {step === 2 && "Preparing the Alignment Snapshot™ for participant review. Sharing controls remain subject to final configuration."}
+            {step === 3 && "Previewing how ElevIQ ARIA™ may support participant reflection and preparation."}
+            {step === 4 && "Previewing possible Alignment Pathways™ and Support Connections available through an approved program configuration."}
+            {step === 5 && "Illustrative journey complete. Actual follow-up and communication depend on the configured program workflow."}
           </p>
         </div>
       </section>
@@ -6110,8 +6084,9 @@ function FaqPage() {
   const faqs = [
     { question: 'Is CAS a test or a quiz?', answer: 'No. CAS is capability-alignment infrastructure that supports participant reflection, staff interpretation, and practical next steps.' },
     { question: 'Does CAS guarantee any outcome?', answer: 'No. It does not guarantee employment, hiring, wages, admissions, or clinical or psychological outcomes.' },
-    { question: 'Who can use the shared information?', answer: 'Only the people and partners the participant has approved for the current context should see the shared insight.' },
-    { question: 'What happens after a participant reviews a snapshot?', answer: 'They can move into Alignment Pathways™, Support Connections, and The ElevIQ Last Mile™ to coordinate the next step.' },
+    { question: 'Who can use shared information?', answer: 'Access depends on participant consent, program rules, legal agreements, and the verified production permissions model.' },
+    { question: 'Is the ElevIQ Alignment Scan™ free?', answer: 'The ElevIQ Alignment Scan™ remains free for individual participants. Program services, institutional implementation, and commercial licensing are separate.' },
+    { question: 'How is system documentation updated?', answer: 'Product and public documentation will be updated as configuration, testing, validation, and launch status changes.' },
   ]
 
   return (
@@ -6123,7 +6098,7 @@ function FaqPage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-            SYSTEM CLARIFICATIONS & ANSWERS
+            Current FAQ / Update With Verified Privacy Language
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             Frequently Asked Questions
@@ -6132,7 +6107,7 @@ function FaqPage() {
             Clear, straightforward answers regarding CAS mechanics, architecture, and deployment models.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Find comprehensive explanations covering system compliance, data handling, and the core differences between capability alignment infrastructure and legacy workforce assessments.
+            product purpose, participant experience, human oversight, data practices, and current development status.
           </p>
         </div>
 
@@ -6281,7 +6256,7 @@ function FaqPage() {
 }
 
 function ContactFormPage() {
-  const [form, setForm] = useState({ name: '', organization: '', email: '', phone: '', role: '', interestArea: '', message: '' })
+  const [form, setForm] = useState({ name: '', organization: '', email: '', phone: '', role: '', interestArea: '', entityRoute: 'ElevIQ Foundation', message: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -6302,6 +6277,7 @@ function ContactFormPage() {
     else if (form.phone.replace(/\D/g, '').length < 7) nextErrors.phone = 'Enter a valid phone number.'
     if (!form.role.trim()) nextErrors.role = 'Role is required.'
     if (!form.interestArea.trim()) nextErrors.interestArea = 'Interest area is required.'
+    if (!form.entityRoute.trim()) nextErrors.entityRoute = 'Primary contact entity is required.'
     if (!form.message.trim()) nextErrors.message = 'Message is required.'
 
     return nextErrors
@@ -6350,16 +6326,16 @@ function ContactFormPage() {
       <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-            ECOSYSTEM ACCESS POINTS
+            Contact Routing Live Only After Testing
           </span>
           <h2 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
             Request a Configured Demo
           </h2>
           <p className="text-lg font-medium text-white/90 leading-relaxed">
-            Connect with our team to explore tailored capability alignment infrastructure for your region.
+            Choose the inquiry path that matches your role so your request reaches the correct organization.
           </p>
           <p className="text-sm leading-relaxed text-white/75">
-            Whether you are a corporate buyer seeking to refine workspace role requirements, an institutional funder monitoring municipal investments, or a non-profit organizer setting up a pilot, we can build a configured demo to match your exact structural needs.
+            Inquiries are routed for personal follow-up by the appropriate ElevIQ Foundation or STC Innovations contact. Individual access and program registration will be available through approved routes when the backend and portal configuration are ready.
           </p>
         </div>
 
@@ -6390,7 +6366,7 @@ function ContactFormPage() {
             </div>
             <h3 className="font-sans text-xl font-bold text-white">Submission received</h3>
             <p className="text-sm text-white/70">
-              Thank you. Our team is active and reviewing inquiries. We will follow up directly with current information.
+              Inquiries are routed for personal follow-up by the appropriate {form.entityRoute || 'ElevIQ Foundation or STC Innovations'} contact.
             </p>
             <div className="flex justify-center gap-2 pt-2">
               <Link to="/" className="px-4 py-2 bg-white/10 hover:bg-white/20 text-xs font-mono text-white rounded-full transition">
@@ -6403,6 +6379,17 @@ function ContactFormPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate className="grid gap-6 sm:grid-cols-2">
+            <Field label="Primary Contact Entity / Route" error={errors.entityRoute} className="sm:col-span-2">
+              <select
+                value={form.entityRoute}
+                onChange={(event) => updateField('entityRoute', event.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white/90 focus:outline-none focus:border-[var(--eleviq-teal)] [&>option]:bg-[#0F1B2D]"
+              >
+                <option value="ElevIQ Foundation">ElevIQ Foundation: participant/program information, schools, Job Corps, workforce and community partnerships, funders, donors, volunteers, and mission support.</option>
+                <option value="STC Innovations">STC Innovations: CAS licensing, configuration, commercial pilots, employers, institutional implementation, technical partnerships, and pricing.</option>
+              </select>
+            </Field>
+
             <Field label="Name" error={errors.name}>
               <input
                 value={form.name}
@@ -6491,7 +6478,7 @@ function ContactFormPage() {
                 disabled={isSubmitting}
                 className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Submitting...' : 'Submit inquiry'}
+                {isSubmitting ? 'Submitting...' : `Submit to ${form.entityRoute || 'ElevIQ Foundation'}`}
               </button>
               <Link
                 to="/platform"

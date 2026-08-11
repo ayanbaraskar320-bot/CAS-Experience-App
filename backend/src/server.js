@@ -63,7 +63,7 @@ function writeInquiry(record) {
 
 // API Routes
 app.post('/api/inquiry', (req, res) => {
-  const { name, organization, email, phone, role, interestArea, message } = req.body;
+  const { name, organization, email, phone, role, interestArea, message, entityRoute } = req.body;
   const errors = {};
 
   // Handoff Section 14 required field validations
@@ -97,11 +97,16 @@ app.post('/api/inquiry', (req, res) => {
     return res.status(400).json({ success: false, errors });
   }
 
+  const selectedEntityRoute = entityRoute === 'stc' || entityRoute === 'STC Innovations' 
+    ? 'STC Innovations' 
+    : 'ElevIQ Foundation';
+
   // Create submission record
   const record = {
     id: `inquiry_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
     submittedAt: new Date().toISOString(),
     clientIp: req.ip || req.headers['x-forwarded-for'] || 'unknown',
+    entityRoute: selectedEntityRoute,
     data: {
       name: name.trim(),
       organization: organization.trim(),
@@ -109,7 +114,8 @@ app.post('/api/inquiry', (req, res) => {
       phone: phone.trim(),
       role: role.trim(),
       interestArea: interestArea.trim(),
-      message: message.trim()
+      message: message.trim(),
+      entityRoute: selectedEntityRoute
     }
   };
 
@@ -118,12 +124,13 @@ app.post('/api/inquiry', (req, res) => {
     return res.status(500).json({ success: false, error: 'Database storage error.' });
   }
 
-  console.log(`[API] Success: Recorded new inquiry from ${record.data.name} (${record.data.organization})`);
+  console.log(`[API] Success: Recorded new inquiry for [${selectedEntityRoute}] from ${record.data.name} (${record.data.organization})`);
 
   // Exact confirmation response copy from Handoff document Section 14
   return res.status(201).json({
     success: true,
-    message: 'Thank you. Our team is active and reviewing inquiries. We will follow up directly with current information.'
+    message: 'Thank you. Our team is active and reviewing inquiries. We will follow up directly with current information.',
+    entityRoute: selectedEntityRoute
   });
 });
 
