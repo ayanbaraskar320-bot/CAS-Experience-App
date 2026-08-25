@@ -284,8 +284,8 @@ function AppShell() {
           <header className="sticky top-0 z-40 bg-[var(--midnight-ink)] text-white border-b border-white/10 shadow-sm py-4 px-6 transition-all duration-200">
             <div className="mx-auto w-full max-w-[var(--shell-max)] flex items-center justify-between">
               {/* Brand Logo Link */}
-              <Link to="/" className="font-sans text-xl font-bold tracking-tight text-white hover:opacity-90">
-                CAS Experience
+              <Link to="/" className="font-sans text-base sm:text-lg font-bold tracking-tight text-white hover:opacity-90">
+                ElevIQ Capability Alignment System™ | CAS Experience
               </Link>
 
               {/* Desktop Nav - Static Underline active state, no float overlays */}
@@ -327,7 +327,7 @@ function AppShell() {
           {isMobileMenuOpen && (
             <div className="fixed inset-0 z-50 bg-[var(--midnight-ink)] p-6 md:hidden flex flex-col gap-6 text-white animate-in fade-in duration-200">
               <div className="flex items-center justify-between">
-                <span className="text-lg font-bold">CAS Experience</span>
+                <span className="text-sm font-bold">ElevIQ Capability Alignment System™ | CAS Experience</span>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -594,7 +594,7 @@ function HomePage() {
                   </span>
                   <span className="flex items-center gap-1.5 font-mono text-[9px] text-white/70 font-medium">
                     <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
-                    LIVE ECOSYSTEM
+                    CONFIGURED PREVIEW
                   </span>
                 </div>
 
@@ -633,7 +633,7 @@ function HomePage() {
                   <rect x="170" y="124" width="160" height="76" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.3" />
                   <text x="182" y="142" fill="#FFFFFF" opacity="0.9" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">ALIGNMENT PATHWAYS™</text>
                   <rect x="182" y="152" width="136" height="16" rx="4" fill="#0FA88A" opacity="0.2" />
-                  <text x="190" y="163" fill="#FFFFFF" fontSize="8" fontFamily="sans-serif">Verified Ecosystem Fit</text>
+                  <text x="190" y="163" fill="#FFFFFF" fontSize="8" fontFamily="sans-serif">Configured Alignment Pathway</text>
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -642,7 +642,7 @@ function HomePage() {
         </section>
       </ScrollReveal>
 
-      {/* Re-formatted Relationship Statement Section */}
+      {/* Approved Relationship Statement Section */}
       <section
         className="rounded-[28px] border border-[#d2dfdf] p-8 shadow-[var(--soft-shadow)]"
         style={{ backgroundColor: '#EAF3F3', color: '#0F1B2D' }}
@@ -654,7 +654,7 @@ function HomePage() {
               Commercial Infrastructure
             </h4>
             <p className="text-sm leading-relaxed opacity-85 font-medium">
-              STC Innovations develops, owns, configures, licenses, and commercializes the ElevIQ Capability Alignment System.
+              STC Innovations owns, develops, configures, licenses, and commercializes the ElevIQ Capability Alignment System™.
             </p>
           </div>
 
@@ -664,17 +664,17 @@ function HomePage() {
               Social Impact & Access
             </h4>
             <p className="text-sm leading-relaxed opacity-85 font-medium">
-              ElevIQ Foundation applies CAS through mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation.
+              ElevIQ Foundation applies CAS through mission-driven access, community programs, pilots, partnerships, and participant support.
             </p>
           </div>
 
           {/* Column 3 */}
           <div className="space-y-2">
             <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
-              Public Utility
+              Public Utility & Access
             </h4>
             <p className="text-sm leading-relaxed opacity-85 font-medium">
-              The ElevIQ Alignment Scan remains free for individual participants.
+              ElevIQ Foundation receives CAS access at no cost for approved mission-aligned nonprofit use, and the ElevIQ Alignment Scan™ remains free for individual participants.
             </p>
           </div>
         </div>
@@ -2956,7 +2956,7 @@ function Footer() {
               </li>
               <li>
                 <Link to="/platform/community-intelligence-console" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
-                  Community Console
+                  Community Intelligence Console™
                 </Link>
               </li>
               <li>
@@ -3042,8 +3042,23 @@ function Footer() {
         </div>
 
         <div className="pt-8 space-y-6">
+          {/* Required Footer Navigation Links */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs text-white/70 font-sans border-b border-white/5 pb-4">
+            <Link to="/about" className="hover:text-[var(--eleviq-teal)] transition-colors">ElevIQ Foundation</Link>
+            <span className="text-white/20">|</span>
+            <Link to="/organizations" className="hover:text-[var(--eleviq-teal)] transition-colors">STC Innovations</Link>
+            <span className="text-white/20">|</span>
+            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Privacy</Link>
+            <span className="text-white/20">|</span>
+            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Terms</Link>
+            <span className="text-white/20">|</span>
+            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Accessibility</Link>
+            <span className="text-white/20">|</span>
+            <Link to="/contact" className="hover:text-[var(--eleviq-teal)] transition-colors">Contact</Link>
+          </div>
+
           {/* Official Dual-Entity Organizational Relationship Statement */}
-          <div className="pt-6 border-t border-white/10 space-y-4 text-xs text-white/70 font-sans">
+          <div className="space-y-3 text-xs text-white/70 font-sans">
             <h4 className="font-sans text-sm font-bold text-white tracking-wide">
               ElevIQ Foundation & STC Innovations
             </h4>
@@ -3142,29 +3157,35 @@ function IndividualsHome() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-                A PLATFORM BUILT FOR YOUR JOURNEY
+                FOUNDATION PROGRAM INFORMATION
               </span>
               <h1 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                See Your Strengths. Build Your Next Step.
+                From the ElevIQ Alignment Scan™ to practical next steps
               </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
                 ElevIQ Foundation helps overlooked talent discover, name, and connect their capabilities to meaningful opportunity through human-centered technology, advisor support, and community partnerships.
               </p>
               <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
-                ElevIQ helps close the gap between hidden capability and visible opportunity. The experience is about alignment, not limitation, and technology supports rather than replaces trusted human guidance.
+                ElevIQ Foundation programs are designed to support a guided flow that keeps human support central. The experience is about alignment, not limitation, and technology supports rather than replaces trusted human guidance.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
-                  to="/individuals/explore-your-path"
+                  to="/individuals/how-it-works"
                   className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Explore Your Path
+                  Explore What to Expect
+                </Link>
+                <Link
+                  to="/individuals/support-the-mission"
+                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                >
+                  Partner With or Support ElevIQ Foundation
                 </Link>
                 <Link
                   to="/platform/participant-portal"
                   className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
                 >
-                  Use My Program Link
+                  Use My Approved Program Link
                 </Link>
               </div>
             </div>
@@ -3386,11 +3407,11 @@ function IndividualsHome() {
             <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
               MISSION ALLIANCE
             </span>
-            <h2 className="font-sans text-3xl md:text-4xl font-semibold tracking-tight text-white">
-              Join Us in Closing the Capability Gap
+            <h2 className="font-sans text-2xl md:text-3xl font-semibold tracking-tight text-white max-w-2xl mx-auto">
+              Invite participants, families, schools, community partners, and mission-aligned supporters into an approved program or partnership conversation.
             </h2>
             <p className="text-sm md:text-base text-white/80 font-sans leading-relaxed">
-              Whether you are a funder, school leader, workforce agency, or community advocate, there is a place for you.
+              Whether you are a funder, school leader, workforce agency, or community advocate, there is a place for you in the ElevIQ Foundation ecosystem.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
@@ -3398,13 +3419,13 @@ function IndividualsHome() {
               to="/individuals/support-the-mission"
               className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
             >
-              Support the Mission
+              Partner With or Support ElevIQ Foundation
             </Link>
             <Link
               to="/contact"
               className="rounded-full border border-white/20 bg-white/5 px-6 py-3 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
             >
-              Become a Community Partner
+              Ask About a Program
             </Link>
           </div>
         </section>
@@ -3511,23 +3532,30 @@ function IndividualsHowItWorks() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
           <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
             <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-              PARTICIPANT GUIDANCE FLOW
+              FOUNDATION JOURNEY OVERVIEW
             </span>
             <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
               How the Alignment Scan Works
             </h1>
             <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
-              A simple, dignified 4-step process connecting your real-world experience to verified next steps.
+              Participants can move through the configured CAS journey toward practical support and next-step planning.
             </p>
-            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-              There are no rigid exams, scores, or diagnostic labels. You remain in complete control of your reflection journey at every phase.
-            </p>
-            <div className="pt-2">
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 max-w-2xl text-left text-xs font-mono text-[#E2725B] leading-relaxed">
+              <span className="font-bold text-white block mb-1 uppercase tracking-wider text-[10px]">The Configured Journey Flow:</span>
+              Program Entry → Welcome & Trust → Starting Point → Readiness & Access → ElevIQ Alignment Scan™ → Guided Interpretation → Alignment Pathways™ → Support Connections → The ElevIQ Last Mile™ → Progress & Proof.
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Link
-                to="/platform/participant-portal"
+                to="/individuals/support-the-mission"
                 className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
               >
-                Start Your Free Scan →
+                Support ElevIQ Foundation
+              </Link>
+              <Link
+                to="/contact"
+                className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30 inline-flex items-center gap-2"
+              >
+                Ask About a Program
               </Link>
             </div>
           </div>
@@ -3652,21 +3680,24 @@ function IndividualsWhoWeServe() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
             <div className="space-y-3 max-w-3xl">
               <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-                PARTICIPANT SPECTRUM & REACH
+                FOUNDATION AUDIENCE OVERVIEW
               </span>
               <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
                 Who We Serve
               </h1>
-              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
-                The ElevIQ Capability Alignment System (CAS) is designed specifically for overlooked talent, non-traditional job seekers, and community builders.
+              <p className="text-sm leading-relaxed text-white/90 font-sans max-w-2xl">
+                ElevIQ Foundation serves young people ages 13+, high school and postsecondary learners, Job Corps participants, rural job seekers, veterans and military-connected individuals, career changers, workforce program participants, people navigating reentry, and others overlooked by traditional systems.
+              </p>
+              <p className="text-xs text-white/70 font-sans italic">
+                Were you referred by Job Corps, a school, workforce partner, employer, or another program? Use the link or invitation they provided so you enter the correct experience.
               </p>
             </div>
             <div className="shrink-0">
               <Link
-                to="/platform/participant-portal"
+                to="/individuals/explore-your-path"
                 className="rounded-full border border-[#E2725B] bg-[#E2725B] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
               >
-                Access Free Scan →
+                Find the Right Program Route →
               </Link>
             </div>
           </div>
@@ -3742,7 +3773,7 @@ function IndividualsJobCorps() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
           <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
             <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-              YOUTH & WORKFORCE INITIATIVE
+              HISTORICAL BASELINE / IN DEVELOPMENT AND VALIDATION
             </span>
             <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
               Strengths-Based Alignment for Schools & Job Corps
@@ -3750,9 +3781,17 @@ function IndividualsJobCorps() {
             <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
               Empowering educators, advisors, and counselors with human-centered capability alignment.
             </p>
-            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-              Connecting classroom learning, vocational training, and life experience to verified capability signals without clinical testing pressure.
+            <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+              Initial implementation occurred in April 2026 with 14 students using the earlier TalentScan™ experience. Job Corps-specific CAS, Evaluation of Student Progress (ESP), Career Success Standards (CSS), eight Career Technical Training (CTT) pathways, and Counselor workflows are in development and validation.
             </p>
+            <div className="pt-2">
+              <Link
+                to="/platform/participant-portal"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
+              >
+                Use My Approved Program Link →
+              </Link>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -3912,13 +3951,13 @@ function IndividualsPartnersPilots() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
             <div className="space-y-3 max-w-3xl">
               <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-                COMMUNITY ECOSYSTEM & PILOTS
+                RELATIONSHIP STATUS REQUIRED
               </span>
               <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
                 Partners & Pilot Networks
               </h1>
-              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
-                ElevIQ Foundation collaborates with civic organizations, workforce boards, and educational partners to expand access.
+              <p className="text-sm leading-relaxed text-white/90 font-sans max-w-2xl">
+                Every organization, logo, or initiative must be labeled by relationship and status, such as initial implementation, program partner, technology provider, membership, supporter, configuring, in validation, pilot-ready, or live. Do not imply endorsement without approval.
               </p>
             </div>
             <div className="shrink-0">
@@ -3926,7 +3965,7 @@ function IndividualsPartnersPilots() {
                 to="/contact"
                 className="rounded-full border border-[#E2725B] bg-[#E2725B] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
               >
-                Inquire for Pilot Scope →
+                Discuss a Mission-Aligned Partnership →
               </Link>
             </div>
           </div>
@@ -4029,7 +4068,7 @@ function IndividualsSupportMission() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-                MISSION-DRIVEN ACCESS & ADVOCACY
+                ELEVIQ FOUNDATION
               </span>
               <h1 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Support the Mission
@@ -4037,15 +4076,18 @@ function IndividualsSupportMission() {
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
                 ElevIQ Foundation delivers mission-driven access, community pilots, and participant support.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Help us expand access to free capability tools for youth, adult learners, and rural workforce members across regional networks.
+              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+                Your support can help expand approved mission-driven access, paper materials, digital access, advisor preparation, pilot implementation, and partner-delivered support. Gifts do not guarantee individual outcomes.
+              </p>
+              <p className="text-xs text-white/60 font-mono">
+                Donations are made to ElevIQ Foundation Inc. and support its nonprofit mission and approved programs.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Get Involved Today →
+                  Support ElevIQ Foundation →
                 </Link>
               </div>
             </div>
@@ -4232,14 +4274,25 @@ function IndividualsTrustGovernance() {
         <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
           <div className="space-y-3 max-w-3xl text-white">
             <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
-              SECURITY & TRUST GOVERNANCE
+              POLICY FRAMEWORK / TECHNICAL VERIFICATION PENDING
             </span>
             <h1 className="font-sans text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
               Trust, Agency & Data Governance
             </h1>
-            <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
-              Building human-centered infrastructure requires uncompromised data sovereignty, strict privacy controls, and zero diagnostic pressure.
+            <p className="text-sm leading-relaxed text-white/90 font-sans max-w-2xl">
+              CAS is being designed with human oversight, participant consent, correction pathways, accessibility, safeguarding, and privacy-conscious workflows. Final technical and legal claims will reflect the verified production configuration.
             </p>
+            <p className="text-xs text-white/70 font-mono">
+              AI supports navigation and interpretation; it does not make final eligibility, hiring, placement, clinical, or psychological decisions.
+            </p>
+            <div className="pt-2">
+              <Link
+                to="/contact"
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-5 py-2 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              >
+                Ask About Trust and Governance →
+              </Link>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -4339,7 +4392,7 @@ function OrganizationsHome() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                ENTERPRISE DEPLOYMENT & ALIGNMENT
+                COMMERCIAL OVERVIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Align Local Talent Through Verified Capabilities
@@ -4347,8 +4400,11 @@ function OrganizationsHome() {
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
                 Shift your operational hiring from static keyword filtering to high-fidelity, private capability metrics.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Traditional resume screeners leave massive talent pools completely unmapped, reducing diverse backgrounds to arbitrary metrics. The Capability Alignment System allows regional employers and corporate buyers to format roles around required behavioral baseline executions, unlocking highly capable hidden talent pipelines with total compliance and zero privacy friction.
+              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+                STC Innovations owns, develops, licenses, and configures CAS for commercial and institutional use. Available workflows and features depend on the approved implementation scope and product status.
+              </p>
+              <p className="text-xs text-white/70 font-mono">
+                Request a configured demonstration to review current, in-development, and planned capabilities for your use case.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
@@ -4361,7 +4417,7 @@ function OrganizationsHome() {
                   to="/organizations/implementation"
                   className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
                 >
-                  Schedule implementation discovery
+                  Schedule an Implementation Discovery Conversation
                 </Link>
               </div>
             </div>
@@ -4582,13 +4638,13 @@ function OrganizationsSolutions() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white">
             <div className="space-y-3 max-w-3xl">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                ORGANIZATIONAL CAPABILITY SOLUTIONS
+                USE-CASE OVERVIEW
               </span>
               <h1 className="font-sans text-3xl font-semibold tracking-[-0.04em] text-white md:text-4xl leading-tight">
                 Enterprise & Institutional Solutions
               </h1>
-              <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
-                STC Innovations licenses and configures the ElevIQ Capability Alignment System (CAS) for institutions and employers.
+              <p className="text-sm leading-relaxed text-white/90 font-sans max-w-2xl">
+                Each buyer type can review a potential use case. Every solution page must identify whether the workflow is Preview, In Development, Configured, In Testing, Validated, or Live.
               </p>
             </div>
             <div className="shrink-0">
@@ -4703,23 +4759,23 @@ function OrganizationsImplementation() {
         <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-8 md:p-12 shadow-xl overflow-hidden text-center">
           <div className="max-w-3xl mx-auto flex flex-col items-center space-y-6 text-white text-center">
             <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-              ENTERPRISE DEPLOYMENT ROADMAP
+              IMPLEMENTATION FRAMEWORK
             </span>
             <h1 className="font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
               Structured Implementation & Onboarding
             </h1>
             <p className="text-lg font-medium text-white/90 leading-relaxed max-w-2xl">
-              A clear 4-phase deployment methodology designed for workforce boards, educational institutions, and regional employers.
+              STC uses a staged implementation process: Discover → Configure → Sandbox → Test → Train → Launch → Measure. No workflow should be described as launched or measurable until acceptance criteria are confirmed.
             </p>
-            <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-              Deploying the ElevIQ Capability Alignment System (CAS) ensures seamless technical integration, complete data sovereignty, and immediate advisor readiness.
+            <p className="text-xs leading-relaxed text-white/80 max-w-2xl font-mono bg-white/5 p-4 rounded-xl border border-white/10 text-left">
+              <strong>Acceptance Criteria Requirement:</strong> A written scope, data-responsibility map, status matrix, testing plan, training plan, and launch approval are required for each implementation.
             </p>
             <div className="pt-2">
               <Link
                 to="/organizations/pricing-demo"
                 className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-2"
               >
-                Request Implementation Scope →
+                Schedule an Implementation Discovery Conversation →
               </Link>
             </div>
           </div>
@@ -4864,23 +4920,23 @@ function OrganizationsPricingDemo() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                TRANSPARENT LICENSING & INTAKE
+                COMMERCIAL INQUIRY
               </span>
               <h1 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 Pricing, Pilots & Demo Inquiry
               </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Transparent utility allocation designed for regional workforce boards, institutions, and employers.
+                Commercial pricing is provided for the approved configuration and implementation scope.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Select your organization type on the right to view custom deployment options and initiate a formal intake consultation.
+              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+                ElevIQ Foundation participant access and mission programs are separate from STC commercial licensing. Select your organization type on the right to review customized configuration parameters.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
                   className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
                 >
-                  Direct Inquiry Form →
+                  Discuss CAS Licensing →
                 </Link>
               </div>
             </div>
@@ -5106,10 +5162,10 @@ function OrganizationsPricingDemo() {
 
 function OrganizationsSecurityTrust() {
   const metrics = [
-    { value: 'SOC2', title: 'Data Isolation Protocols', desc: 'Strict data-splitting architecture separates raw participant reflection entries from macro organizational analytics.' },
-    { value: '0%', title: 'Black-Box AI Rejection', desc: 'Outlaws automated candidate scoring and algorithmic rejection models to protect institutional integrity.' },
-    { value: '100%', title: 'Human Oversight First', desc: 'Trained workforce coaches and cohort leaders validate milestone data through transparent interfaces.' },
-    { value: 'FERPA+', title: 'Institutional Compliance', desc: 'Configured to meet strict educational, municipal, and institutional privacy standards across regional networks.' }
+    { value: 'SOVEREIGN', title: 'Data Isolation Protocols', desc: 'Strict data-splitting architecture separates raw participant reflection entries from macro organizational analytics.' },
+    { value: 'HUMAN-LED', title: 'No Black-Box AI Rejection', desc: 'Outlaws automated candidate scoring and algorithmic rejection models to protect institutional integrity.' },
+    { value: 'OVERSIGHT', title: 'Human Oversight First', desc: 'Trained workforce coaches and cohort leaders validate milestone data through transparent interfaces.' },
+    { value: 'AUDITABLE', title: 'Institutional Compliance', desc: 'Configured to meet strict educational, municipal, and institutional privacy standards across regional networks.' }
   ]
 
   return (
@@ -5119,14 +5175,22 @@ function OrganizationsSecurityTrust() {
         <section className="rounded-[28px] border border-[#1B3A5C] bg-[#1B3A5C] p-6 md:p-8 shadow-xl overflow-hidden">
           <div className="space-y-3 max-w-3xl text-white">
             <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-              ENTERPRISE SECURITY & GOVERNANCE
+              VERIFICATION IN PROGRESS
             </span>
             <h1 className="font-sans text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              Enterprise Security & Data Sovereignty
+              Security and Trust Information - Verification in Progress
             </h1>
-            <p className="text-sm leading-relaxed text-white/80 font-sans max-w-2xl">
-              Deploying the ElevIQ Capability Alignment System (CAS) with uncompromised enterprise security, SOC2-grade data splitting, and compliance guarantees.
+            <p className="text-sm leading-relaxed text-white/90 font-sans max-w-2xl">
+              Security, privacy, storage, encryption, access, logging, retention, subprocessors, incident response, and education/workforce compliance language will be published only after technical evidence, scope, dates, and legal review are complete.
             </p>
+            <div className="pt-2">
+              <Link
+                to="/contact"
+                className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-5 py-2 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              >
+                Discuss Security and Implementation Requirements →
+              </Link>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -5209,7 +5273,7 @@ function ResourcesPage() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                KNOWLEDGE BASE & DOCUMENTATION
+                IN DEVELOPMENT
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 System Resources & Publications
@@ -5217,9 +5281,17 @@ function ResourcesPage() {
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
                 Architectural documentation, pilot frameworks, and ecosystem insights.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                Explore our evolving library of product briefs, implementation roadmaps, and alignment research. As the ElevIQ Capability Alignment System™ (CAS) expands across municipal pilots, our resource center provides verified documentation to support enterprise buyers, workforce boards, and community partners.
+              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+                This area will provide approved guides, frequently asked questions, product-status information, program resources, and organization materials. Do not publish internal or unapproved working documents.
               </p>
+              <div className="pt-2">
+                <Link
+                  to="/contact"
+                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-5 py-2 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+                >
+                  Contact the Appropriate Team →
+                </Link>
+              </div>
             </div>
 
             {/* Right Column Media Graphic */}
@@ -5403,16 +5475,16 @@ function AboutPage() {
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
-                THE ELEVIQ ECOSYSTEM & GOVERNANCE
+                RELATIONSHIP OVERVIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Human-Centered Capability Infrastructure
+                How ElevIQ Foundation, STC Innovations, and CAS Work Together
               </h2>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Connecting insight to action across participants, advisors, and regional organizations.
+                ElevIQ Foundation, STC Innovations, and CAS are distinct organizations and product infrastructure working through one connected CAS ecosystem.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
-                STC Innovations develops, owns, configures, licenses, and commercializes the ElevIQ Capability Alignment System™. ElevIQ Foundation applies CAS through mission-driven access, pilots, community partnerships, participant support, and rural workforce innovation. The ElevIQ Alignment Scan™ remains permanently free for individual participants.
+              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
+                STC Innovations owns, develops, configures, licenses, and commercializes the ElevIQ Capability Alignment System™. ElevIQ Foundation applies CAS through mission-driven access, community programs, pilots, partnerships, and participant support. ElevIQ Foundation receives CAS access at no cost for approved mission-aligned nonprofit use, and the ElevIQ Alignment Scan™ remains free for individual participants. This connected site experience routes visitors to the appropriate Foundation, STC Innovations, or CAS information while preserving clear legal, financial, and operating boundaries.
               </p>
             </div>
 
@@ -6182,7 +6254,7 @@ function FaqPage() {
           </div>
           <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">Bypassing Legacy Testing</h3>
           <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-            Clarifies exactly how CAS operates without assigning clinical test grades, personality profiles, or automated fit score numbers.
+            Clarifies exactly how CAS operates without assigning clinical test grades, personality profiles, or automated scoring models.
           </p>
         </div>
 
@@ -6218,7 +6290,7 @@ function FaqPage() {
               </h4>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Explicitly reinforces that the basic Alignment Scan remains completely free for individual users globally.
+              The ElevIQ Alignment Scan™ remains free for individual participants. Program services, institutional implementation, and commercial licensing are separate.
             </p>
           </div>
 
@@ -6246,7 +6318,7 @@ function FaqPage() {
               </h4>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-[#6B7280] font-sans">
-              Highlights that all documentation is periodically reviewed to maintain structural accuracy alongside regional pilot updates.
+              Product and public documentation will be updated as configuration, testing, validation, and launch status changes.
             </p>
           </div>
         </div>
