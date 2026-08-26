@@ -247,6 +247,8 @@ function App() {
 function AppShell() {
   const location = useLocation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState(null)
+  const [mobileExpanded, setMobileExpanded] = useState({ cas: false, solutions: false })
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -256,6 +258,11 @@ function AppShell() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    setActiveDropdown(null)
+    setIsMobileMenuOpen(false)
+  }, [location.pathname])
 
   const variant = useMemo(() => {
     if (location.pathname.startsWith('/individuals')) return 'individuals'
@@ -280,44 +287,251 @@ function AppShell() {
         }}
       >
         <div className="relative flex-grow flex flex-col">
-          {/* Main Site Header - Solid Dark Navy matching Wix exactly */}
-          <header className="sticky top-0 z-40 bg-[var(--midnight-ink)] text-white border-b border-white/10 shadow-sm py-4 px-6 transition-all duration-200">
-            <div className="mx-auto w-full max-w-[var(--shell-max)] flex items-center justify-between">
-              {/* Brand Logo Link */}
-              <Link to="/" className="font-sans text-base sm:text-lg font-bold tracking-tight text-white hover:opacity-90">
-                ElevIQ Capability Alignment System™ | CAS Experience
+          <header className="sticky top-0 z-40 bg-[var(--midnight-ink)]/95 backdrop-blur-md text-white border-b border-white/10 shadow-sm py-3 px-4 sm:px-6 transition-all duration-200">
+            <div className="mx-auto w-full max-w-[var(--shell-max)] flex items-center justify-between gap-4">
+              {/* LEFT: Brand Logo Block */}
+              <Link
+                to="/"
+                className="flex items-center gap-2.5 text-white hover:opacity-90 transition-opacity shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--midnight-ink)] rounded-lg py-1 px-1.5"
+                aria-label="ElevIQ Capability Alignment System™ Home"
+              >
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--eleviq-teal)] to-[var(--deep-lake-blue)] flex items-center justify-center shadow-sm border border-white/20 group-hover:scale-105 transition-transform">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-sans text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-1">
+                    ElevIQ CAS<span className="text-[10px] text-[var(--eleviq-teal)] font-mono align-super">™</span>
+                  </span>
+                  <span className="hidden xl:block font-mono text-[9px] text-white/50 tracking-wider uppercase">
+                    Capability Alignment System
+                  </span>
+                </div>
               </Link>
 
-              {/* Desktop Nav - Static Underline active state, no float overlays */}
-              <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-6">
-                {TOP_NAV.map((item) => (
-                  <NavLink
-                    key={item.path}
-                    to={item.path}
-                    end={item.path === '/'}
-                    className={({ isActive }) =>
-                      `text-sm font-medium transition-colors hover:text-[var(--eleviq-teal)] py-1 ${isActive
-                        ? 'text-white border-b-2 border-[var(--eleviq-teal)]'
-                        : 'text-white/70'
-                      }`
-                    }
+              {/* CENTER: Desktop Nav with Interactive Dropdowns */}
+              <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 lg:gap-2">
+                {/* Dropdown 1: ElevIQ CAS */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown('cas')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
+                    aria-expanded={activeDropdown === 'cas'}
+                    className={`px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
+                      location.pathname.startsWith('/platform') || activeDropdown === 'cas'
+                        ? 'text-white bg-white/10'
+                        : 'text-white/75 hover:text-white hover:bg-white/5'
+                    }`}
                   >
-                    {item.label}
-                  </NavLink>
-                ))}
+                    <span>ElevIQ CAS</span>
+                    <svg
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'cas' ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/60'}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {activeDropdown === 'cas' && (
+                    <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="rounded-2xl bg-[#0F1B2D] border border-white/15 p-2 shadow-2xl backdrop-blur-xl">
+                        <Link
+                          to="/platform"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Platform Overview</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">The architecture of capability alignment</div>
+                        </Link>
+                        <Link
+                          to="/platform/eleviq-aria"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">ElevIQ ARIA™</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Participant-facing guidance experience</div>
+                        </Link>
+                        <Link
+                          to="/platform/eleviq-clara"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">ElevIQ CLARA™</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Organization & advisor intelligence</div>
+                        </Link>
+                        <Link
+                          to="/platform/capability-signals"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Capability Signals™</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Strengths-oriented capability indicators</div>
+                        </Link>
+                        <Link
+                          to="/platform/participant-portal"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Participant Portal</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Reflection & personal agency workspace</div>
+                        </Link>
+                        <Link
+                          to="/platform/community-intelligence-console"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Community Intelligence Console™</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Configured organization workspace</div>
+                        </Link>
+                        <Link
+                          to="/platform/last-mile"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">The ElevIQ Last Mile™</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">From insight to practical next steps</div>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Dropdown 2: Solutions */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown('solutions')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setActiveDropdown(activeDropdown === 'solutions' ? null : 'solutions')}
+                    aria-expanded={activeDropdown === 'solutions'}
+                    className={`px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
+                      location.pathname.startsWith('/organizations') || activeDropdown === 'solutions'
+                        ? 'text-white bg-white/10'
+                        : 'text-white/75 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    <span>Solutions</span>
+                    <svg
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'solutions' ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/60'}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown Menu */}
+                  {activeDropdown === 'solutions' && (
+                    <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="rounded-2xl bg-[#0F1B2D] border border-white/15 p-2 shadow-2xl backdrop-blur-xl">
+                        <Link
+                          to="/organizations"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Employers & Commercial</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Workforce alignment & organizational intelligence</div>
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Workforce Organizations</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Regional coordination & talent tracks</div>
+                        </Link>
+                        <Link
+                          to="/individuals/schools-workforce"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Education & Training</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Youth, CTE & student progress pathways</div>
+                        </Link>
+                        <Link
+                          to="/individuals/programs-partners"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                        >
+                          <div className="text-xs font-semibold">Community & Economic Mobility</div>
+                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Mission-driven community access</div>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Nav Item: How It Works */}
+                <NavLink
+                  to="/individuals/how-it-works"
+                  className={({ isActive }) =>
+                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
+                      isActive ? 'text-white bg-white/10' : 'text-white/75 hover:text-white hover:bg-white/5'
+                    }`
+                  }
+                >
+                  How It Works
+                </NavLink>
+
+                {/* Nav Item: About */}
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
+                      isActive ? 'text-white bg-white/10' : 'text-white/75 hover:text-white hover:bg-white/5'
+                    }`
+                  }
+                >
+                  About
+                </NavLink>
+
+                {/* Nav Item: ElevIQ Foundation (External/Distinct Tab) */}
+                <NavLink
+                  to="/individuals"
+                  className={({ isActive }) =>
+                    `px-3 py-1.5 text-xs lg:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E2725B] ${
+                      isActive
+                        ? 'text-[#E2725B] bg-[#E2725B]/15 border border-[#E2725B]/30 font-semibold'
+                        : 'text-[#E2725B] hover:text-white hover:bg-[#E2725B]/20 border border-[#E2725B]/25'
+                    }`
+                  }
+                  title="ElevIQ Foundation - Nonprofit Community Access"
+                >
+                  <span>ElevIQ Foundation</span>
+                  <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </NavLink>
               </nav>
 
-              {/* Mobile Menu Button */}
-              <div className="md:hidden">
+              {/* RIGHT: Primary Action CTA & Mobile Toggle */}
+              <div className="flex items-center gap-3 shrink-0">
+                <Link
+                  to="/contact"
+                  className="hidden sm:inline-flex items-center justify-center rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-5 py-2 text-xs lg:text-sm font-semibold text-white shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--midnight-ink)]"
+                >
+                  Book a Demo
+                </Link>
+
+                {/* Mobile Menu Button */}
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="inline-flex items-center justify-center p-2 rounded-full border border-white/20 bg-white/5 text-white/80 hover:text-white focus:outline-none transition-all duration-200"
+                  className="md:hidden inline-flex items-center justify-center p-2 rounded-xl border border-white/20 bg-white/5 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] transition-all duration-200"
                   aria-label="Toggle navigation menu"
+                  aria-expanded={isMobileMenuOpen}
                 >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  {isMobileMenuOpen ? (
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  )}
                 </button>
               </div>
             </div>
@@ -325,36 +539,104 @@ function AppShell() {
 
           {/* Mobile Menu Drawer */}
           {isMobileMenuOpen && (
-            <div className="fixed inset-0 z-50 bg-[var(--midnight-ink)] p-6 md:hidden flex flex-col gap-6 text-white animate-in fade-in duration-200">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold">ElevIQ Capability Alignment System™ | CAS Experience</span>
+            <div className="fixed inset-0 z-50 bg-[var(--midnight-ink)]/98 backdrop-blur-2xl p-6 md:hidden flex flex-col gap-6 text-white overflow-y-auto animate-in fade-in duration-200">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[var(--eleviq-teal)] flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-bold">ElevIQ CAS™</span>
+                </Link>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 rounded-full border border-white/20 bg-white/5 text-white/75 hover:text-white"
                   aria-label="Close navigation menu"
                 >
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M6 18L18 6M6 6l12 12" />
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <nav className="flex flex-col gap-4 mt-6">
-                {TOP_NAV.map((item) => (
-                  <NavLink
-                    key={item.path}
-                    to={item.path}
-                    end={item.path === '/'}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `text-lg font-medium py-3 border-b border-white/5 transition-colors ${isActive ? 'text-[var(--eleviq-teal)]' : 'text-white/70 hover:text-white'
-                      }`
-                    }
+
+              {/* Mobile Accordion Navigation */}
+              <nav className="flex flex-col gap-2">
+                {/* ElevIQ CAS Section */}
+                <div className="border-b border-white/10 pb-2">
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpanded((prev) => ({ ...prev, cas: !prev.cas }))}
+                    className="w-full py-2.5 text-base font-semibold flex items-center justify-between text-white/90"
                   >
-                    {item.label}
-                  </NavLink>
-                ))}
+                    <span>ElevIQ CAS</span>
+                    <svg className={`w-4 h-4 transition-transform ${mobileExpanded.cas ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {mobileExpanded.cas && (
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[var(--eleviq-teal)]/30 ml-2 mt-1">
+                      <Link to="/platform" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Platform Overview</Link>
+                      <Link to="/platform/eleviq-aria" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">ElevIQ ARIA™</Link>
+                      <Link to="/platform/eleviq-clara" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">ElevIQ CLARA™</Link>
+                      <Link to="/platform/capability-signals" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Capability Signals™</Link>
+                      <Link to="/platform/participant-portal" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Participant Portal</Link>
+                      <Link to="/platform/community-intelligence-console" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Community Intelligence Console™</Link>
+                      <Link to="/platform/last-mile" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">The ElevIQ Last Mile™</Link>
+                    </div>
+                  )}
+                </div>
+
+                {/* Solutions Section */}
+                <div className="border-b border-white/10 pb-2">
+                  <button
+                    type="button"
+                    onClick={() => setMobileExpanded((prev) => ({ ...prev, solutions: !prev.solutions }))}
+                    className="w-full py-2.5 text-base font-semibold flex items-center justify-between text-white/90"
+                  >
+                    <span>Solutions</span>
+                    <svg className={`w-4 h-4 transition-transform ${mobileExpanded.solutions ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {mobileExpanded.solutions && (
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[var(--eleviq-teal)]/30 ml-2 mt-1">
+                      <Link to="/organizations" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Employers & Commercial</Link>
+                      <Link to="/organizations/solutions" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Workforce Organizations</Link>
+                      <Link to="/individuals/schools-workforce" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Education & Training</Link>
+                      <Link to="/individuals/programs-partners" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Community & Economic Mobility</Link>
+                    </div>
+                  )}
+                </div>
+
+                {/* Direct Links */}
+                <NavLink to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-white border-b border-white/10">
+                  How It Works
+                </NavLink>
+
+                <NavLink to="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-white border-b border-white/10">
+                  About
+                </NavLink>
+
+                <NavLink to="/individuals" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-[#E2725B]/40 bg-[#E2725B]/15 text-[#E2725B] text-base font-semibold flex items-center justify-between mt-2">
+                  <span>ElevIQ Foundation</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </NavLink>
               </nav>
+
+              {/* Mobile CTA Button */}
+              <div className="mt-auto pt-4">
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] py-3 text-sm font-semibold text-white shadow-md hover:brightness-110"
+                >
+                  Book a Demo
+                </Link>
+              </div>
             </div>
           )}
 
@@ -580,7 +862,7 @@ function HomePage() {
                   to="/platform/participant-portal"
                   className="rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/10 hover:border-white"
                 >
-                  Portal Access - Coming Soon or Program Access
+                  Portal Access - Coming Soon
                 </Link>
               </div>
             </div>
@@ -745,7 +1027,7 @@ function HomePage() {
               </span>
             </div>
             <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              Participant reflection and approved context translated into clear Capability Signals™ that can support advising and next-step conversations.
+              Participant reflection and approved context translated into clear Capability Signals that can support advising and next-step conversations.
             </p>
           </div>
 
@@ -2931,7 +3213,7 @@ function Footer() {
 
           <div className="lg:col-span-2 space-y-4">
             <h3 className="font-sans text-xl font-semibold tracking-[-0.03em] text-white">
-              CAS Experience
+              ElevIQ Capability Alignment System™ | CAS Experience
             </h3>
             <p className="font-mono text-xs uppercase tracking-widest text-[var(--eleviq-teal)]">
               ElevIQ Capability Alignment System™
@@ -3068,7 +3350,7 @@ function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
-            <p>© 2026 STC Innovations. ElevIQ Capability Alignment System™ and related product intellectual property are owned by STC Innovations. ElevIQ Foundation is a separate nonprofit organization authorized to use CAS for approved mission-aligned programming.</p>
+            <p>© 2026 STC Innovations. ElevIQ Capability Alignment System and related product intellectual property are owned by STC Innovations. ElevIQ Foundation is a separate nonprofit organization authorized to use CAS for approved mission-aligned programming.</p>
             <p className="font-mono uppercase tracking-widest text-[var(--eleviq-teal)] text-[10px]">Capability Alignment Infrastructure</p>
           </div>
 
@@ -3080,6 +3362,20 @@ function Footer() {
                   {item}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Bottom Trust Logo Strip */}
+          <div className="pt-6 border-t border-white/5 space-y-3">
+            <p className="text-center text-xs text-white/50 font-sans">
+              Trusted by organizations committed to developing people and strengthening their communities.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-white/60">
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Employers</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Workforce Organizations</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Education & Training</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Community Organizations</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Government & Public Sector</span>
             </div>
           </div>
         </div>
@@ -4623,7 +4919,7 @@ function OrganizationsSolutions() {
     { badge: '02. EDUCATIONAL HUBS', title: 'Community College Solutions', desc: 'trade skill alignment and student alignment dashboards connecting coursework to regional employer tracks.' },
     { badge: '03. CORPORATE BUYERS', title: 'Skills-First Hiring Portals', desc: 'Direct access to verified candidate capability snapshots without relying on automated resume screening.' },
     { badge: '04. ADVISOR WORKSPACES', title: 'ElevIQ CLARA™ Advisor Dashboards', desc: 'Dedicated workspaces for frontline coaches to deliver human guidance and co-create milestone roadmaps.' },
-    { badge: '05. COMMUNITY CONSOLES', title: 'Community Intelligence Console™', desc: 'Aggregated macro data layer isolating raw reflection entries while surfacing regional talent trends.' },
+    { badge: '05. COMMUNITY INTELLIGENCE CONSOLES', title: 'Community Intelligence Console™', desc: 'Aggregated macro data layer isolating raw reflection entries while surfacing regional talent trends.' },
     { badge: '06. ROLE BENCHMARKING', title: 'Human-Centered Role Alignment', desc: 'Translates corporate job requirements into qualitative capability criteria rather than rigid credential lists.' },
     { badge: '07. ONBOARDING TRACKS', title: 'The ElevIQ Last Mile™', desc: 'Structured post-hire onboarding support and retention alignment to ensure long-term role alignment.' },
     { badge: '08. CIVIC COALITIONS', title: 'Municipal Talent Alliances', desc: 'Unifies city-wide non-profits, training centers, and employers under a single capability framework.' },
@@ -4926,10 +5222,7 @@ function OrganizationsPricingDemo() {
                 Pricing, Pilots & Demo Inquiry
               </h1>
               <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
-                Commercial pricing is provided for the approved configuration and implementation scope.
-              </p>
-              <p className="text-sm leading-relaxed text-white/80 max-w-2xl font-sans">
-                ElevIQ Foundation participant access and mission programs are separate from STC commercial licensing. Select your organization type on the right to review customized configuration parameters.
+                Commercial pricing is provided for the approved configuration and implementation scope. ElevIQ Foundation participant access and mission programs are separate from STC commercial licensing.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -6338,26 +6631,31 @@ function ContactFormPage() {
     setErrors((current) => ({ ...current, [field]: undefined }))
   }
 
-  function validate() {
+  function validate(data = form) {
     const nextErrors = {}
 
-    if (!form.name.trim()) nextErrors.name = 'Name is required.'
-    if (!form.organization.trim()) nextErrors.organization = 'Organization is required.'
-    if (!form.email.trim()) nextErrors.email = 'Email is required.'
-    else if (!/^\S+@\S+\.\S+$/.test(form.email)) nextErrors.email = 'Enter a valid email address.'
-    if (!form.phone.trim()) nextErrors.phone = 'Phone is required.'
-    else if (form.phone.replace(/\D/g, '').length < 7) nextErrors.phone = 'Enter a valid phone number.'
-    if (!form.role.trim()) nextErrors.role = 'Role is required.'
-    if (!form.interestArea.trim()) nextErrors.interestArea = 'Interest area is required.'
-    if (!form.entityRoute.trim()) nextErrors.entityRoute = 'Primary contact entity is required.'
-    if (!form.message.trim()) nextErrors.message = 'Message is required.'
+    if (!data.name.trim()) nextErrors.name = 'Name is required.'
+    if (!data.organization.trim()) nextErrors.organization = 'Organization is required.'
+    if (!data.email.trim()) nextErrors.email = 'Email is required.'
+    else if (!/^\S+@\S+\.\S+$/.test(data.email)) nextErrors.email = 'Enter a valid email address.'
+    if (!data.phone.trim()) nextErrors.phone = 'Phone is required.'
+    else if (data.phone.replace(/\D/g, '').length < 7) nextErrors.phone = 'Enter a valid phone number.'
+    if (!data.role.trim()) nextErrors.role = 'Role is required.'
+    if (!data.interestArea.trim()) nextErrors.interestArea = 'Interest area is required.'
+    if (!data.entityRoute.trim()) nextErrors.entityRoute = 'Primary contact entity is required.'
+    if (!data.message.trim()) nextErrors.message = 'Message is required.'
 
     return nextErrors
   }
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    const nextErrors = validate()
+  function handleSubmit(event, explicitRoute) {
+    if (event && event.preventDefault) event.preventDefault()
+    const targetRoute = explicitRoute || form.entityRoute
+    const updatedForm = { ...form, entityRoute: targetRoute }
+    if (explicitRoute && explicitRoute !== form.entityRoute) {
+      setForm(updatedForm)
+    }
+    const nextErrors = validate(updatedForm)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length === 0) {
       setIsSubmitting(true)
@@ -6367,7 +6665,7 @@ function ContactFormPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(updatedForm),
       })
         .then((response) => {
           if (!response.ok) {
@@ -6544,17 +6842,26 @@ function ContactFormPage() {
               </div>
             ) : null}
 
-            <div className="sm:col-span-2 flex flex-wrap gap-2 pt-2">
+            <div className="sm:col-span-2 flex flex-wrap gap-3 pt-2">
               <button
-                type="submit"
+                type="button"
+                onClick={(e) => handleSubmit(e, 'ElevIQ Foundation')}
                 disabled={isSubmitting}
-                className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
               >
-                {isSubmitting ? 'Submitting...' : `Submit to ${form.entityRoute || 'ElevIQ Foundation'}`}
+                {isSubmitting && form.entityRoute === 'ElevIQ Foundation' ? 'Submitting...' : 'Submit to ElevIQ Foundation'}
+              </button>
+              <button
+                type="button"
+                onClick={(e) => handleSubmit(e, 'STC Innovations')}
+                disabled={isSubmitting}
+                className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
+              >
+                {isSubmitting && form.entityRoute === 'STC Innovations' ? 'Submitting...' : 'Submit to STC Innovations'}
               </button>
               <Link
                 to="/platform"
-                className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white/80 transition hover:text-white"
+                className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white/80 transition hover:text-white flex items-center justify-center"
               >
                 Review how CAS works
               </Link>
