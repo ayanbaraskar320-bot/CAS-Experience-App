@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState, useEffect, useRef, Children, cloneElement } from 'react'
-import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
+import { Link, NavLink, Route, Routes, useLocation, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import './App.css'
 import AnimatedBackground from '@/components/ui/animated-background'
@@ -113,55 +113,55 @@ function SectionTheme({ variant = 'platform', children }) {
     switch (variant) {
       case 'individuals':
         return {
-          '--page-bg': '#F5EFE6',
-          '--surface': '#FFFFFF',
-          '--panel': '#FFFFFF',
-          '--accent': '#E2725B',
-          '--accent-soft': 'rgba(226, 114, 91, 0.12)',
-          '--surface-soft': '#F5EFE6',
-          '--line': '#1B3A5C',
-          '--ink': '#0F1B2D',
-          '--muted': '#4B5563',
-          '--hero-bg-from': '#1B3A5C',
-          '--hero-bg-to': '#1B3A5C',
-          '--bg-glow-1': 'rgba(226, 114, 91, 0.16)',
-          '--bg-glow-2': 'rgba(226, 114, 91, 0.13)',
-          '--bg-glow-3': 'rgba(15, 27, 45, 0.08)',
+          '--page-bg': '#030B1E',
+          '--surface': '#0B1936',
+          '--panel': '#0B1936',
+          '--accent': '#00D2FF',
+          '--accent-soft': 'rgba(0, 210, 255, 0.15)',
+          '--surface-soft': '#0F224A',
+          '--line': 'rgba(0, 210, 255, 0.25)',
+          '--ink': '#FFFFFF',
+          '--muted': '#94A3B8',
+          '--hero-bg-from': '#0B1936',
+          '--hero-bg-to': '#030B1E',
+          '--bg-glow-1': 'rgba(0, 210, 255, 0.18)',
+          '--bg-glow-2': 'rgba(0, 82, 204, 0.22)',
+          '--bg-glow-3': 'rgba(29, 78, 216, 0.15)',
         }
       case 'organizations':
         return {
-          '--page-bg': '#EBF1F5',
-          '--surface': '#FFFFFF',
-          '--panel': '#FFFFFF',
-          '--accent': '#0FA88A',
-          '--accent-soft': 'rgba(15, 168, 138, 0.12)',
-          '--surface-soft': '#EBF1F5',
-          '--line': '#1B3A5C',
-          '--ink': '#0F1B2D',
-          '--muted': '#4B5563',
-          '--hero-bg-from': '#1B3A5C',
-          '--hero-bg-to': '#1B3A5C',
-          '--bg-glow-1': 'rgba(30, 127, 130, 0.08)',
-          '--bg-glow-2': 'rgba(27, 58, 92, 0.06)',
-          '--bg-glow-3': 'rgba(15, 27, 45, 0.04)',
+          '--page-bg': '#030B1E',
+          '--surface': '#0B1936',
+          '--panel': '#0B1936',
+          '--accent': '#00D2FF',
+          '--accent-soft': 'rgba(0, 210, 255, 0.15)',
+          '--surface-soft': '#0F224A',
+          '--line': 'rgba(0, 210, 255, 0.25)',
+          '--ink': '#FFFFFF',
+          '--muted': '#94A3B8',
+          '--hero-bg-from': '#0B1936',
+          '--hero-bg-to': '#030B1E',
+          '--bg-glow-1': 'rgba(0, 210, 255, 0.18)',
+          '--bg-glow-2': 'rgba(0, 82, 204, 0.22)',
+          '--bg-glow-3': 'rgba(29, 78, 216, 0.15)',
         }
       case 'platform':
       default:
         return {
-          '--page-bg': '#EBF1F5',
-          '--surface': '#FFFFFF',
-          '--panel': '#FFFFFF',
-          '--accent': '#0FA88A',
-          '--accent-soft': 'rgba(15, 168, 138, 0.12)',
-          '--surface-soft': '#EBF1F5',
-          '--line': '#1B3A5C',
-          '--ink': '#0F1B2D',
-          '--muted': '#4B5563',
-          '--hero-bg-from': '#1B3A5C',
-          '--hero-bg-to': '#1B3A5C',
-          '--bg-glow-1': 'rgba(34, 180, 168, 0.16)',
-          '--bg-glow-2': 'rgba(0, 87, 128, 0.13)',
-          '--bg-glow-3': 'rgba(196, 114, 85, 0.12)',
+          '--page-bg': '#030B1E',
+          '--surface': '#0B1936',
+          '--panel': '#0B1936',
+          '--accent': '#00D2FF',
+          '--accent-soft': 'rgba(0, 210, 255, 0.15)',
+          '--surface-soft': '#0F224A',
+          '--line': 'rgba(0, 210, 255, 0.25)',
+          '--ink': '#FFFFFF',
+          '--muted': '#94A3B8',
+          '--hero-bg-from': '#0B1936',
+          '--hero-bg-to': '#030B1E',
+          '--bg-glow-1': 'rgba(0, 210, 255, 0.18)',
+          '--bg-glow-2': 'rgba(0, 82, 204, 0.22)',
+          '--bg-glow-3': 'rgba(29, 78, 216, 0.15)',
         }
     }
   }, [variant])
@@ -287,24 +287,30 @@ function AppShell() {
         }}
       >
         <div className="relative flex-grow flex flex-col">
-          <header className="sticky top-0 z-40 bg-[var(--midnight-ink)]/95 backdrop-blur-md text-white border-b border-white/10 shadow-sm py-3 px-4 sm:px-6 transition-all duration-200">
+          <header className="sticky top-0 z-40 bg-[#030B1E]/90 backdrop-blur-md text-white border-b border-cyan-500/20 shadow-[0_4px_20px_rgba(0,0,0,0.5)] py-3 px-4 sm:px-6 transition-all duration-200">
             <div className="mx-auto w-full max-w-[var(--shell-max)] flex items-center justify-between gap-4">
-              {/* LEFT: Brand Logo Block */}
+              {/* LEFT: Brand Logo Block with Mascot Emblem */}
               <Link
                 to="/"
-                className="flex items-center gap-2.5 text-white hover:opacity-90 transition-opacity shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--midnight-ink)] rounded-lg py-1 px-1.5"
+                className="flex items-center gap-3 text-white hover:opacity-90 transition-opacity shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030B1E] rounded-xl py-1 px-1.5"
                 aria-label="ElevIQ Capability Alignment System™ Home"
               >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--eleviq-teal)] to-[var(--deep-lake-blue)] flex items-center justify-center shadow-sm border border-white/20 group-hover:scale-105 transition-transform">
-                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.5)] group-hover:scale-105 transition-transform bg-[#0B1936] flex items-center justify-center">
+                  <img
+                    src="/mascot.jpg"
+                    alt="ElevIQ Mascot"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/favicon.svg';
+                    }}
+                  />
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-1">
-                    ElevIQ CAS<span className="text-[10px] text-[var(--eleviq-teal)] font-mono align-super">™</span>
+                    ElevIQ CAS<span className="text-[10px] text-[#00D2FF] font-mono align-super">™</span>
                   </span>
-                  <span className="hidden xl:block font-mono text-[9px] text-white/50 tracking-wider uppercase">
+                  <span className="hidden xl:block font-mono text-[9px] text-[#BAE6FD]/70 tracking-wider uppercase">
                     Capability Alignment System
                   </span>
                 </div>
@@ -322,15 +328,15 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
                     aria-expanded={activeDropdown === 'cas'}
-                    className={`px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
+                    className={`px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] ${
                       location.pathname.startsWith('/platform') || activeDropdown === 'cas'
-                        ? 'text-white bg-white/10'
-                        : 'text-white/75 hover:text-white hover:bg-white/5'
+                        ? 'text-[#00D2FF] bg-[#00D2FF]/10 border border-[#00D2FF]/30'
+                        : 'text-white/80 hover:text-white hover:bg-white/5'
                     }`}
                   >
                     <span>ElevIQ CAS</span>
                     <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'cas' ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/60'}`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'cas' ? 'rotate-180 text-[#00D2FF]' : 'text-white/60'}`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -343,120 +349,51 @@ function AppShell() {
                   {/* Dropdown Menu */}
                   {activeDropdown === 'cas' && (
                     <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="rounded-2xl bg-[#0F1B2D] border border-white/15 p-2 shadow-2xl backdrop-blur-xl">
+                      <div className="rounded-2xl bg-[#0B1936] border border-cyan-500/30 p-2 shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_20px_rgba(0,210,255,0.15)] backdrop-blur-xl">
                         <Link
                           to="/platform"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
                         >
                           <div className="text-xs font-semibold">Platform Overview</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">The architecture of capability alignment</div>
-                        </Link>
-                        <Link
-                          to="/platform/eleviq-aria"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">ElevIQ ARIA™</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Participant-facing guidance experience</div>
-                        </Link>
-                        <Link
-                          to="/platform/eleviq-clara"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">ElevIQ CLARA™</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Organization & advisor intelligence</div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">The architecture of capability alignment</div>
                         </Link>
                         <Link
                           to="/platform/capability-signals"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
                         >
                           <div className="text-xs font-semibold">Capability Signals™</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Strengths-oriented capability indicators</div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">Strengths-oriented capability indicators</div>
+                        </Link>
+                        <Link
+                          to="/platform/eleviq-aria"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
+                        >
+                          <div className="text-xs font-semibold flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF] animate-pulse" />
+                            ElevIQ ARIA™
+                          </div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">Participant-facing guidance experience</div>
+                        </Link>
+                        <Link
+                          to="/platform/eleviq-clara"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
+                        >
+                          <div className="text-xs font-semibold">ElevIQ CLARA™</div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">Organization & advisor intelligence</div>
                         </Link>
                         <Link
                           to="/platform/participant-portal"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
                         >
                           <div className="text-xs font-semibold">Participant Portal</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Reflection & personal agency workspace</div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">Reflection & personal agency workspace</div>
                         </Link>
                         <Link
                           to="/platform/community-intelligence-console"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
+                          className="block px-3 py-2 rounded-xl transition-all hover:bg-[#00D2FF]/10 text-white/90 hover:text-[#00D2FF]"
                         >
                           <div className="text-xs font-semibold">Community Intelligence Console™</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Configured organization workspace</div>
-                        </Link>
-                        <Link
-                          to="/platform/last-mile"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">The ElevIQ Last Mile™</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">From insight to practical next steps</div>
-                        </Link>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Dropdown 2: Solutions */}
-                <div
-                  className="relative"
-                  onMouseEnter={() => setActiveDropdown('solutions')}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setActiveDropdown(activeDropdown === 'solutions' ? null : 'solutions')}
-                    aria-expanded={activeDropdown === 'solutions'}
-                    className={`px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
-                      location.pathname.startsWith('/organizations') || activeDropdown === 'solutions'
-                        ? 'text-white bg-white/10'
-                        : 'text-white/75 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    <span>Solutions</span>
-                    <svg
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'solutions' ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/60'}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  {/* Dropdown Menu */}
-                  {activeDropdown === 'solutions' && (
-                    <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="rounded-2xl bg-[#0F1B2D] border border-white/15 p-2 shadow-2xl backdrop-blur-xl">
-                        <Link
-                          to="/organizations"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">Employers & Commercial</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Workforce alignment & organizational intelligence</div>
-                        </Link>
-                        <Link
-                          to="/organizations/solutions"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">Workforce Organizations</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Regional coordination & talent tracks</div>
-                        </Link>
-                        <Link
-                          to="/individuals/schools-workforce"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">Education & Training</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Youth, CTE & student progress pathways</div>
-                        </Link>
-                        <Link
-                          to="/individuals/programs-partners"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-white/5 text-white/80 hover:text-white"
-                        >
-                          <div className="text-xs font-semibold">Community & Economic Mobility</div>
-                          <div className="text-[10px] text-white/50 font-sans mt-0.5">Mission-driven community access</div>
+                          <div className="text-[10px] text-[#BAE6FD]/60 font-sans mt-0.5">Configured organization workspace</div>
                         </Link>
                       </div>
                     </div>
@@ -467,40 +404,52 @@ function AppShell() {
                 <NavLink
                   to="/individuals/how-it-works"
                   className={({ isActive }) =>
-                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
-                      isActive ? 'text-white bg-white/10' : 'text-white/75 hover:text-white hover:bg-white/5'
+                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] ${
+                      isActive ? 'text-[#00D2FF] bg-[#00D2FF]/10 border border-[#00D2FF]/30' : 'text-white/80 hover:text-white hover:bg-white/5'
                     }`
                   }
                 >
                   How It Works
                 </NavLink>
 
+                {/* Nav Item: For Individuals */}
+                <NavLink
+                  to="/individuals"
+                  className={({ isActive }) =>
+                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] ${
+                      isActive ? 'text-[#00D2FF] bg-[#00D2FF]/10 border border-[#00D2FF]/30' : 'text-white/80 hover:text-white hover:bg-white/5'
+                    }`
+                  }
+                >
+                  For Individuals
+                </NavLink>
+
                 {/* Nav Item: About */}
                 <NavLink
                   to="/about"
                   className={({ isActive }) =>
-                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] ${
-                      isActive ? 'text-white bg-white/10' : 'text-white/75 hover:text-white hover:bg-white/5'
+                    `px-3 py-2 text-xs lg:text-sm font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] ${
+                      isActive ? 'text-[#00D2FF] bg-[#00D2FF]/10 border border-[#00D2FF]/30' : 'text-white/80 hover:text-white hover:bg-white/5'
                     }`
                   }
                 >
                   About
                 </NavLink>
 
-                {/* Nav Item: ElevIQ Foundation (External/Distinct Tab) */}
+                {/* Nav Item: STC Innovations (Prominent External Tab Badge replacing ElevIQ Foundation) */}
                 <NavLink
-                  to="/individuals"
+                  to="/organizations"
                   className={({ isActive }) =>
-                    `px-3 py-1.5 text-xs lg:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E2725B] ${
+                    `px-3 py-1.5 text-xs lg:text-sm font-bold rounded-xl transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] ${
                       isActive
-                        ? 'text-[#E2725B] bg-[#E2725B]/15 border border-[#E2725B]/30 font-semibold'
-                        : 'text-[#E2725B] hover:text-white hover:bg-[#E2725B]/20 border border-[#E2725B]/25'
+                        ? 'text-[#00D2FF] bg-[#00D2FF]/20 border border-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.35)]'
+                        : 'text-[#BAE6FD] hover:text-white bg-[#0B1936] hover:bg-[#00D2FF]/15 border border-cyan-500/30 hover:border-[#00D2FF] shadow-[0_0_10px_rgba(0,210,255,0.15)]'
                     }`
                   }
-                  title="ElevIQ Foundation - Nonprofit Community Access"
+                  title="STC Innovations - Commercial IP Owner & Enterprise Solutions"
                 >
-                  <span>ElevIQ Foundation</span>
-                  <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <span>STC Innovations</span>
+                  <svg className="w-3.5 h-3.5 text-[#00D2FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </NavLink>
@@ -508,9 +457,10 @@ function AppShell() {
 
               {/* RIGHT: Primary Action CTA & Mobile Toggle */}
               <div className="flex items-center gap-3 shrink-0">
+                {/* Primary Button: Book a Demo */}
                 <Link
                   to="/contact"
-                  className="hidden sm:inline-flex items-center justify-center rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] px-5 py-2 text-xs lg:text-sm font-semibold text-white shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--midnight-ink)]"
+                  className="hidden sm:inline-flex items-center justify-center rounded-full border border-[#00D2FF] bg-[#00D2FF] px-5 py-2 text-xs lg:text-sm font-bold text-[#030B1E] shadow-[0_0_18px_rgba(0,210,255,0.4)] transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#030B1E]"
                 >
                   Book a Demo
                 </Link>
@@ -519,7 +469,7 @@ function AppShell() {
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="md:hidden inline-flex items-center justify-center p-2 rounded-xl border border-white/20 bg-white/5 text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--eleviq-teal)] transition-all duration-200"
+                  className="md:hidden inline-flex items-center justify-center p-2 rounded-xl border border-cyan-500/30 bg-[#0B1936] text-white/90 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00D2FF] transition-all duration-200"
                   aria-label="Toggle navigation menu"
                   aria-expanded={isMobileMenuOpen}
                 >
@@ -539,20 +489,18 @@ function AppShell() {
 
           {/* Mobile Menu Drawer */}
           {isMobileMenuOpen && (
-            <div className="fixed inset-0 z-50 bg-[var(--midnight-ink)]/98 backdrop-blur-2xl p-6 md:hidden flex flex-col gap-6 text-white overflow-y-auto animate-in fade-in duration-200">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-[var(--eleviq-teal)] flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+            <div className="fixed inset-0 z-50 bg-[#030B1E]/98 backdrop-blur-2xl p-6 md:hidden flex flex-col gap-6 text-white overflow-y-auto animate-in fade-in duration-200">
+              <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#00D2FF] shadow-[0_0_10px_rgba(0,210,255,0.4)]">
+                    <img src="/mascot.jpg" alt="Mascot Logo" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-sm font-bold">ElevIQ CAS™</span>
                 </Link>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-full border border-white/20 bg-white/5 text-white/75 hover:text-white"
+                  className="p-2 rounded-full border border-cyan-500/30 bg-[#0B1936] text-white/80 hover:text-white"
                   aria-label="Close navigation menu"
                 >
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
@@ -564,64 +512,45 @@ function AppShell() {
               {/* Mobile Accordion Navigation */}
               <nav className="flex flex-col gap-2">
                 {/* ElevIQ CAS Section */}
-                <div className="border-b border-white/10 pb-2">
+                <div className="border-b border-cyan-500/20 pb-2">
                   <button
                     type="button"
                     onClick={() => setMobileExpanded((prev) => ({ ...prev, cas: !prev.cas }))}
                     className="w-full py-2.5 text-base font-semibold flex items-center justify-between text-white/90"
                   >
                     <span>ElevIQ CAS</span>
-                    <svg className={`w-4 h-4 transition-transform ${mobileExpanded.cas ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-4 h-4 transition-transform ${mobileExpanded.cas ? 'rotate-180 text-[#00D2FF]' : 'text-white/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   {mobileExpanded.cas && (
-                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[var(--eleviq-teal)]/30 ml-2 mt-1">
-                      <Link to="/platform" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Platform Overview</Link>
-                      <Link to="/platform/eleviq-aria" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">ElevIQ ARIA™</Link>
-                      <Link to="/platform/eleviq-clara" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">ElevIQ CLARA™</Link>
-                      <Link to="/platform/capability-signals" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Capability Signals™</Link>
-                      <Link to="/platform/participant-portal" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Participant Portal</Link>
-                      <Link to="/platform/community-intelligence-console" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Community Intelligence Console™</Link>
-                      <Link to="/platform/last-mile" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">The ElevIQ Last Mile™</Link>
-                    </div>
-                  )}
-                </div>
-
-                {/* Solutions Section */}
-                <div className="border-b border-white/10 pb-2">
-                  <button
-                    type="button"
-                    onClick={() => setMobileExpanded((prev) => ({ ...prev, solutions: !prev.solutions }))}
-                    className="w-full py-2.5 text-base font-semibold flex items-center justify-between text-white/90"
-                  >
-                    <span>Solutions</span>
-                    <svg className={`w-4 h-4 transition-transform ${mobileExpanded.solutions ? 'rotate-180 text-[var(--eleviq-teal)]' : 'text-white/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {mobileExpanded.solutions && (
-                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[var(--eleviq-teal)]/30 ml-2 mt-1">
-                      <Link to="/organizations" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Employers & Commercial</Link>
-                      <Link to="/organizations/solutions" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Workforce Organizations</Link>
-                      <Link to="/individuals/schools-workforce" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Education & Training</Link>
-                      <Link to="/individuals/programs-partners" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-white">Community & Economic Mobility</Link>
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[#00D2FF]/40 ml-2 mt-1">
+                      <Link to="/platform" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">Platform Overview</Link>
+                      <Link to="/platform/capability-signals" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">Capability Signals™</Link>
+                      <Link to="/platform/eleviq-aria" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">ElevIQ ARIA™</Link>
+                      <Link to="/platform/eleviq-clara" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">ElevIQ CLARA™</Link>
+                      <Link to="/platform/participant-portal" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">Participant Portal</Link>
+                      <Link to="/platform/community-intelligence-console" onClick={() => setIsMobileMenuOpen(false)} className="block py-1.5 text-sm text-white/70 hover:text-[#00D2FF]">Community Intelligence Console™</Link>
                     </div>
                   )}
                 </div>
 
                 {/* Direct Links */}
-                <NavLink to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-white border-b border-white/10">
+                <NavLink to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-[#00D2FF] border-b border-cyan-500/20">
                   How It Works
                 </NavLink>
 
-                <NavLink to="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-white border-b border-white/10">
+                <NavLink to="/individuals" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-[#00D2FF] border-b border-cyan-500/20">
+                  For Individuals
+                </NavLink>
+
+                <NavLink to="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-2.5 text-base font-semibold text-white/90 hover:text-[#00D2FF] border-b border-cyan-500/20">
                   About
                 </NavLink>
 
-                <NavLink to="/individuals" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-[#E2725B]/40 bg-[#E2725B]/15 text-[#E2725B] text-base font-semibold flex items-center justify-between mt-2">
-                  <span>ElevIQ Foundation</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                <NavLink to="/organizations" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-cyan-500/30 bg-[#0B1936] text-[#BAE6FD] text-sm font-semibold flex items-center justify-between mt-2">
+                  <span>STC Innovations Commercial Platform</span>
+                  <svg className="w-4 h-4 text-[#00D2FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </NavLink>
@@ -632,7 +561,7 @@ function AppShell() {
                 <Link
                   to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center rounded-full border border-[var(--eleviq-teal)] bg-[var(--eleviq-teal)] py-3 text-sm font-semibold text-white shadow-md hover:brightness-110"
+                  className="w-full flex items-center justify-center rounded-full border border-[#00D2FF] bg-[#00D2FF] py-3 text-sm font-bold text-[#030B1E] shadow-[0_0_20px_rgba(0,210,255,0.4)] hover:brightness-110"
                 >
                   Book a Demo
                 </Link>
@@ -643,13 +572,15 @@ function AppShell() {
           <main className="mx-auto flex w-full max-w-[var(--shell-max)] flex-col gap-[var(--section-gap)] px-6 py-6 pb-16 flex-grow">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/index.html" element={<Navigate to="/" replace />} />
               <Route path="/platform/*" element={<PlatformSection />} />
               <Route path="/individuals/*" element={<IndividualsSection />} />
               <Route path="/organizations/*" element={<OrganizationsSection />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="*" element={<NotFoundPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
           <Footer />
@@ -821,103 +752,110 @@ function CopyBlock({ title, body, eyebrow, bullets, action, meta }) {
 }
 
 function HomePage() {
+  const journeyNodes = [
+    {
+      num: '01',
+      stage: 'DISCOVER',
+      title: 'Explore Technology & Insights',
+      desc: 'Explore technology, capability insights, and opportunities.'
+    },
+    {
+      num: '02',
+      stage: 'LEARN',
+      title: 'Build Self-Knowledge & Context',
+      desc: 'Build self-knowledge, context, and confidence.'
+    },
+    {
+      num: '03',
+      stage: 'GROW',
+      title: 'Develop Skills & Signals',
+      desc: 'Develop skills, capability signals, and potential.'
+    },
+    {
+      num: '04',
+      stage: 'SUCCEED',
+      title: 'Elevate Career Pathways',
+      desc: 'Achieve goals and elevate personal and career pathways.'
+    },
+    {
+      num: '05',
+      stage: 'GIVE BACK',
+      title: 'Strengthen Community Support',
+      desc: 'Strengthen community support and pay it forward.'
+    }
+  ]
+
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* Option A (Hybrid Slate Variant) Hero Section */}
+      {/* Hero Section with Official Visual Identity & Mascot Avatar */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="rounded-[32px] border border-cyan-500/30 bg-gradient-to-b from-[#0B1936] to-[#030B1E] p-[var(--panel-pad)] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,210,255,0.12)] overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D2FF]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.25)]">
                 PRODUCT DEVELOPMENT PREVIEW
               </span>
               <h1 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 One Connected System for Capability, Alignment, and Practical Next Steps.
               </h1>
-              <p className="text-base md:text-lg font-normal text-[#EBF1F5] leading-relaxed max-w-2xl font-sans opacity-90">
+              <p className="text-base md:text-lg font-normal text-[#BAE6FD] leading-relaxed max-w-2xl font-sans">
                 The ElevIQ Capability Alignment System™ is designed to connect participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence through human-centered infrastructure.
               </p>
               
               {/* Primary CTAs */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                {/* Button 1: Horizon Teal Fill */}
+                {/* Button 1: Neon Cyan Glow Fill */}
                 <Link
                   to="/platform"
-                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-105"
+                  className="rounded-full border border-[#00D2FF] bg-[#00D2FF] px-6 py-3 text-sm font-bold text-[#030B1E] shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-110"
                 >
                   Explore How CAS Is Designed to Work
                 </Link>
 
-                {/* Button 2: Warm Coral Fill */}
-                <Link
-                  to="/organizations/pricing-demo"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-105"
-                >
-                  Request Demo
-                </Link>
-
-                {/* Button 3: Transparent Outline */}
+                {/* Button 2: Transparent Neon Outline */}
                 <Link
                   to="/platform/participant-portal"
-                  className="rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-white/10 hover:border-white"
+                  className="rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/10 px-6 py-3 text-sm font-semibold text-[#BAE6FD] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:bg-[#00D2FF]/20 hover:border-[#00D2FF] hover:text-white"
                 >
                   Portal Access - Coming Soon
                 </Link>
               </div>
             </div>
 
-            {/* Right Column: Visual Inset Dashboard Mockup */}
+            {/* Right Column: Mascot Visual with Glowing Matrix */}
             <div className="flex justify-center items-center p-2 lg:p-4">
-              <div className="w-full max-w-[380px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
-                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <div className="w-full max-w-[380px] rounded-3xl bg-[#0B1936]/90 border border-cyan-500/30 p-6 shadow-[0_0_30px_rgba(0,210,255,0.18)] relative overflow-hidden group hover:border-[#00D2FF]/60 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-3">
+                  <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                     PRODUCT DEVELOPMENT PREVIEW
                   </span>
-                  <span className="flex items-center gap-1.5 font-mono text-[9px] text-white/70 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                  <span className="flex items-center gap-1.5 font-mono text-[9px] text-[#BAE6FD] font-medium">
+                    <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
                     CONFIGURED PREVIEW
                   </span>
                 </div>
 
-                <svg viewBox="0 0 340 210" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  {/* Header Bar */}
-                  <rect x="10" y="10" width="320" height="24" rx="4" fill="#1B3A5C" opacity="0.8" />
-                  <circle cx="25" cy="22" r="4" fill="#E2725B" />
-                  <circle cx="40" cy="22" r="4" fill="#0FA88A" />
-                  <circle cx="55" cy="22" r="4" fill="#FFFFFF" opacity="0.6" />
-                  
-                  {/* Left Panel: Alignment Matrix */}
-                  <rect x="10" y="42" width="150" height="158" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#0FA88A" strokeWidth="1" />
-                  <text x="22" y="60" fill="#0FA88A" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">ALIGNMENT MATRIX</text>
-                  
-                  {/* Node Diagram */}
-                  <circle cx="85" cy="115" r="28" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="3 3" />
-                  <circle cx="85" cy="115" r="8" fill="#0FA88A" />
-                  <circle cx="55" cy="85" r="6" fill="#E2725B" />
-                  <circle cx="115" cy="85" r="6" fill="#FFFFFF" />
-                  <circle cx="55" cy="145" r="6" fill="#FFFFFF" />
-                  <circle cx="115" cy="145" r="6" fill="#E2725B" />
-                  
-                  <line x1="85" y1="115" x2="55" y2="85" stroke="#0FA88A" strokeWidth="1.5" />
-                  <line x1="85" y1="115" x2="115" y2="85" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
-                  <line x1="85" y1="115" x2="55" y2="145" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.6" />
-                  <line x1="85" y1="115" x2="115" y2="145" stroke="#E2725B" strokeWidth="1.5" />
-
-                  {/* Right Panel: Active Signals & Pathways */}
-                  <rect x="170" y="42" width="160" height="74" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#E2725B" strokeWidth="1" />
-                  <text x="182" y="60" fill="#E2725B" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">CAPABILITY SIGNALS™</text>
-                  <rect x="182" y="70" width="136" height="8" rx="4" fill="#E2725B" opacity="0.4" />
-                  <rect x="182" y="70" width="95" height="8" rx="4" fill="#E2725B" />
-                  <rect x="182" y="86" width="136" height="8" rx="4" fill="#0FA88A" opacity="0.4" />
-                  <rect x="182" y="86" width="112" height="8" rx="4" fill="#0FA88A" />
-
-                  <rect x="170" y="124" width="160" height="76" rx="6" fill="#1B3A5C" opacity="0.6" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.3" />
-                  <text x="182" y="142" fill="#FFFFFF" opacity="0.9" fontSize="9" fontFamily="IBM Plex Mono" fontWeight="bold">ALIGNMENT PATHWAYS™</text>
-                  <rect x="182" y="152" width="136" height="16" rx="4" fill="#0FA88A" opacity="0.2" />
-                  <text x="190" y="163" fill="#FFFFFF" fontSize="8" fontFamily="sans-serif">Configured Alignment Pathway</text>
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+                <div className="relative flex flex-col items-center text-center space-y-4 py-2">
+                  <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00D2FF] shadow-[0_0_25px_rgba(0,210,255,0.6)] bg-[#030B1E]">
+                    <img src="/mascot.jpg" alt="ElevIQ Mascot" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="font-sans text-base font-bold text-white tracking-tight">ElevIQ Guidance Assistant</h4>
+                    <p className="text-xs text-[#BAE6FD]/80 font-sans">Empowering self-reflection & dignified alignment pathways</p>
+                  </div>
+                  <div className="w-full grid grid-cols-2 gap-2 pt-2 border-t border-cyan-500/20 text-left">
+                    <div className="p-2.5 rounded-xl bg-[#030B1E]/60 border border-cyan-500/20">
+                      <span className="font-mono text-[9px] text-[#00D2FF] uppercase font-bold block">CAPABILITY SIGNALS™</span>
+                      <span className="text-[11px] text-white/90 font-medium">Directional Insight</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-[#030B1E]/60 border border-cyan-500/20">
+                      <span className="font-mono text-[9px] text-[#00D2FF] uppercase font-bold block">ALIGNMENT MATRIX</span>
+                      <span className="text-[11px] text-white/90 font-medium">Connected Ecosystem</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -926,36 +864,36 @@ function HomePage() {
 
       {/* Approved Relationship Statement Section */}
       <section
-        className="rounded-[28px] border border-[#d2dfdf] p-8 shadow-[var(--soft-shadow)]"
-        style={{ backgroundColor: '#EAF3F3', color: '#0F1B2D' }}
+        className="rounded-[28px] border border-cyan-500/25 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+        style={{ backgroundColor: '#0B1936', color: '#FFFFFF' }}
       >
         <div className="grid gap-6 md:grid-cols-3">
           {/* Column 1 */}
           <div className="space-y-2">
-            <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
+            <h4 className="font-sans text-xs uppercase tracking-wider font-bold text-[#00D2FF]">
               Commercial Infrastructure
             </h4>
-            <p className="text-sm leading-relaxed opacity-85 font-medium">
+            <p className="text-sm leading-relaxed text-[#BAE6FD]/90 font-medium">
               STC Innovations owns, develops, configures, licenses, and commercializes the ElevIQ Capability Alignment System™.
             </p>
           </div>
 
           {/* Column 2 */}
           <div className="space-y-2">
-            <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
+            <h4 className="font-sans text-xs uppercase tracking-wider font-bold text-[#00D2FF]">
               Social Impact & Access
             </h4>
-            <p className="text-sm leading-relaxed opacity-85 font-medium">
+            <p className="text-sm leading-relaxed text-[#BAE6FD]/90 font-medium">
               ElevIQ Foundation applies CAS through mission-driven access, community programs, pilots, partnerships, and participant support.
             </p>
           </div>
 
           {/* Column 3 */}
           <div className="space-y-2">
-            <h4 className="font-sans text-xs uppercase tracking-wider font-bold opacity-90">
+            <h4 className="font-sans text-xs uppercase tracking-wider font-bold text-[#00D2FF]">
               Public Utility & Access
             </h4>
-            <p className="text-sm leading-relaxed opacity-85 font-medium">
+            <p className="text-sm leading-relaxed text-[#BAE6FD]/90 font-medium">
               ElevIQ Foundation receives CAS access at no cost for approved mission-aligned nonprofit use, and the ElevIQ Alignment Scan™ remains free for individual participants.
             </p>
           </div>
@@ -978,7 +916,6 @@ function HomePage() {
             body: 'STC Innovations helps organizations configure the ElevIQ Capability Alignment System to support participant pathways, advisor workflows, and organizational intelligence.',
             action: { label: 'For Organizations', to: '/organizations' },
             variant: 'organizations',
-            bgWhite: true,
           },
           {
             icon: PLATFORM_ICON,
@@ -990,118 +927,54 @@ function HomePage() {
         ]}
       />
 
-      {/* Rebuilt Journey Progression Grid Timeline */}
-      <section className="rounded-[32px] border border-[var(--line)] bg-white p-[var(--panel-pad)] shadow-[var(--soft-shadow)] space-y-8">
-        <div className="space-y-1">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--muted)]">Progressive Alignment</span>
-          <h3 className="font-sans text-2xl font-bold tracking-[-0.03em] text-[#0F1B2D]">
-            The Capability Journey Timeline
+      {/* 5-Stage Connected Journey Section */}
+      <section className="rounded-[32px] border border-cyan-500/30 bg-[#0B1936]/80 p-[var(--panel-pad)] shadow-[0_10px_35px_rgba(0,0,0,0.5),0_0_25px_rgba(0,210,255,0.1)] space-y-8">
+        <div className="space-y-2 text-center max-w-2xl mx-auto">
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">5-Stage Connected Journey</span>
+          <h3 className="font-sans text-3xl font-bold tracking-[-0.03em] text-white md:text-4xl">
+            From Reflection to Community Impact
           </h3>
+          <p className="text-sm text-[#BAE6FD]/80 font-sans">
+            An illuminated progression designed to support personal discovery, skill growth, and community uplift.
+          </p>
         </div>
 
-        {/* Spacious 3-column / 4-column layout */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Step 1 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                01
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                Alignment Scan™
-              </span>
+        {/* 5-Node Progression Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {journeyNodes.map((node) => (
+            <div
+              key={node.num}
+              className="flex flex-col space-y-3 p-5 rounded-2xl bg-[#030B1E]/70 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_20px_rgba(0,210,255,0.2)] transition-all duration-300 group"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00D2FF]/20 text-xs font-bold text-[#00D2FF] border border-[#00D2FF]/40 font-mono shadow-[0_0_10px_rgba(0,210,255,0.2)]">
+                  {node.num}
+                </span>
+                <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF]">
+                  {node.stage}
+                </span>
+              </div>
+              <h4 className="font-sans text-sm font-bold text-white group-hover:text-[#00D2FF] transition-colors">
+                {node.title}
+              </h4>
+              <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
+                {node.desc}
+              </p>
             </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              A free, intuitive reflection tool for individuals to safely capture their life context and specialized capabilities.
+          ))}
+        </div>
+
+        {/* Supporting Details */}
+        <div className="grid gap-4 md:grid-cols-2 pt-2">
+          <div className="p-5 rounded-2xl bg-[#030B1E]/60 border border-cyan-500/20">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF] block mb-1">Capability Signals™</span>
+            <p className="text-xs text-[#BAE6FD]/90 font-sans leading-relaxed">
+              Participant reflection and approved context translated into clear Capability Signals™ that can support advising and next-step conversations.
             </p>
           </div>
-
-          {/* Step 2 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                02
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                Capability Signals™
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              Participant reflection and approved context translated into clear Capability Signals that can support advising and next-step conversations.
-            </p>
-          </div>
-
-          {/* Step 3 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                03
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                Alignment Snapshot™
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              A clear, high-fidelity visual summary of a participant’s current capability landscape shared securely with trusted mentors.
-            </p>
-          </div>
-
-          {/* Step 4 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                04
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                ElevIQ ARIA™
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              An interactive, human-centered reflection collaborator that helps participants draw out unmapped community contributions.
-            </p>
-          </div>
-
-          {/* Step 5 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                05
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                Alignment Pathways™
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              Dynamic, individualized roadmaps that map out practical training tracks and localized workforce opportunities.
-            </p>
-          </div>
-
-          {/* Step 6 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                06
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                Support Connections
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
-              A collaborative connection hub linking participants directly with frontline advisors, coaches, and resources.
-            </p>
-          </div>
-
-          {/* Step 7 */}
-          <div className="flex flex-col space-y-3 p-5 rounded-2xl bg-[var(--surface-soft)]/20 border border-[var(--line)]/40 hover:border-[#1E7F82]/30 transition-all duration-300 sm:col-span-2 lg:col-span-2">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#1E7F82] text-xs font-bold text-white shrink-0 font-sans">
-                07
-              </span>
-              <span className="font-sans text-base font-bold text-[#0F1B2D]">
-                The ElevIQ Last Mile™
-              </span>
-            </div>
-            <p className="text-xs leading-relaxed text-[#6B7280] font-sans">
+          <div className="p-5 rounded-2xl bg-[#030B1E]/60 border border-cyan-500/20">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF] block mb-1">The ElevIQ Last Mile™</span>
+            <p className="text-xs text-[#BAE6FD]/90 font-sans leading-relaxed">
               the movement from insight toward practical next steps, which may include support planning, referrals, preparation, training, applications, onboarding preparation, and follow-up within a configured partner program.
             </p>
           </div>
@@ -1678,64 +1551,52 @@ function CommunityIntelligenceConsolePage() {
 function ElevIqAriaPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
+      {/* SECTION 1: HERO BLOCK WITH MASCOT ASSET */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="rounded-[32px] border border-cyan-500/30 bg-gradient-to-b from-[#0B1936] to-[#030B1E] p-[var(--panel-pad)] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,210,255,0.12)] overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D2FF]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.25)]">
                 IN DEVELOPMENT
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              <h2 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 ElevIQ ARIA™
               </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+              <p className="text-lg font-medium text-[#BAE6FD] leading-relaxed max-w-xl">
                 Human-centered guidance designed to elevate personal agency and deep reflection.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 max-w-2xl font-sans">
                 ElevIQ ARIA™ is the participant-facing guidance experience being designed to help participants understand information, reflect on context, and prepare for human-guided next steps.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#00D2FF] bg-[#00D2FF] px-6 py-2.5 text-xs font-bold text-[#030B1E] shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-110"
                 >
                   Experience ARIA Preview
                 </Link>
               </div>
             </div>
 
-            {/* Right Column Media Graphic */}
+            {/* Right Column Mascot Integration */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <div className="w-full max-w-[340px] rounded-3xl bg-[#0B1936]/90 border border-cyan-500/30 p-6 shadow-[0_0_30px_rgba(0,210,255,0.2)] relative overflow-hidden group hover:border-[#00D2FF]/60 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
+                  <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                     IN DEVELOPMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
                 </div>
-                <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <circle cx="160" cy="100" r="70" fill="none" stroke="#FFFFFF" strokeWidth="1" opacity="0.1" />
-                  <circle cx="160" cy="100" r="45" fill="none" stroke="#0FA88A" strokeWidth="1.5" strokeDasharray="4 4" opacity="0.5" />
-
-                  <line x1="90" y1="65" x2="160" y2="40" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-                  <line x1="160" y1="40" x2="230" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="230" y1="65" x2="230" y2="135" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-                  <line x1="230" y1="135" x2="160" y2="160" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-                  <line x1="160" y1="160" x2="90" y2="135" stroke="#0FA88A" strokeWidth="2" opacity="0.8" />
-                  <line x1="90" y1="135" x2="90" y2="65" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.4" />
-
-                  <circle cx="90" cy="65" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <circle cx="160" cy="40" r="6" fill="#0FA88A" />
-                  <circle cx="230" cy="65" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <circle cx="230" cy="135" r="6" fill="#0FA88A" />
-                  <circle cx="160" cy="160" r="5" fill="#FFFFFF" stroke="#0FA88A" strokeWidth="2" />
-                  <circle cx="90" cy="135" r="6" fill="#0FA88A" />
-
-                  <circle cx="160" cy="100" r="12" fill="#0FA88A" opacity="0.2" />
-                  <circle cx="160" cy="100" r="6" fill="#0FA88A" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+                <div className="flex flex-col items-center text-center space-y-4 py-2">
+                  <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00D2FF] shadow-[0_0_25px_rgba(0,210,255,0.6)] bg-[#030B1E]">
+                    <img src="/mascot.jpg" alt="ElevIQ ARIA Mascot" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF]">PARTICIPANT COMPANION</span>
+                    <h4 className="font-sans text-base font-bold text-white tracking-tight">Interactive Reflection Support</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1746,40 +1607,40 @@ function ElevIqAriaPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 ARIA MODULE 01
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Contextual Discovery</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Contextual Discovery</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               May support plain-language reflection prompts that help participants consider experience, context, strengths, and contribution.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 ARIA MODULE 02
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Collaborative Structuring</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Collaborative Structuring</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Designed to help organize participant reflection into understandable language that the participant may review before approved sharing.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 ARIA MODULE 03
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Agency Protection</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Agency Protection</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               ARIA supports navigation and interpretation; it does not make final eligibility, hiring, placement, clinical, or psychological decisions.
             </p>
           </div>
@@ -1788,7 +1649,7 @@ function ElevIqAriaPage() {
 
       {/* SECTION 3: THE DEPTH & SHIFT EXPOSITION */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+        <section className="w-full bg-[#0B1936] border border-cyan-500/30 rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             How ARIA Reframes Personal Capability
           </h3>
@@ -1796,30 +1657,30 @@ function ElevIqAriaPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Qualitative Data Layer
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 Can help participants organize reflection into clear, reviewable language.
               </p>
             </div>
 
             {/* Point 2 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Uncovering Hidden Strengths
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 ARIA may prompt participants to consider capabilities developed through life, work, service, caregiving, learning, and community experience.
               </p>
             </div>
 
             {/* Point 3 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Zero-Score Philosophy
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 ARIA is not intended to grade, rank, diagnose, or make final decisions about a participant.
               </p>
             </div>
@@ -1835,25 +1696,26 @@ function ElevIqClaraPage() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="rounded-[32px] border border-cyan-500/30 bg-gradient-to-b from-[#0B1936] to-[#030B1E] p-[var(--panel-pad)] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,210,255,0.12)] overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D2FF]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0FA88A] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.25)]">
                 IN DEVELOPMENT
               </span>
-              <h2 className="max-w-2xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              <h2 className="max-w-2xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 ElevIQ CLARA™
               </h2>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+              <p className="text-lg font-medium text-[#BAE6FD] leading-relaxed max-w-xl">
                 Empowering advisors and coaches with transparent, actionable context.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-2xl font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 max-w-2xl font-sans">
                 ElevIQ CLARA™ is the organization-facing guidance experience being developed to help authorized staff interpret participant-approved information and plan human support.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/contact"
-                  className="rounded-full border border-[#0FA88A] bg-[#0FA88A] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#00D2FF] bg-[#00D2FF] px-6 py-2.5 text-xs font-bold text-[#030B1E] shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-110"
                 >
                   Request CLARA Access
                 </Link>
@@ -1862,28 +1724,28 @@ function ElevIqClaraPage() {
 
             {/* Right Column Media Graphic */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#0FA88A]/40 transition-all duration-300">
-                <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
-                  <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <div className="w-full max-w-[340px] rounded-3xl bg-[#0B1936]/90 border border-cyan-500/30 p-6 shadow-[0_0_30px_rgba(0,210,255,0.2)] relative overflow-hidden group hover:border-[#00D2FF]/60 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
+                  <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                     IN DEVELOPMENT
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-[#0FA88A] animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
                 </div>
                 <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#FFFFFF" opacity="0.95" />
-                  <rect x="10" y="10" width="300" height="30" rx="10" fill="#0F1B2D" />
-                  <circle cx="25" cy="25" r="4" fill="#0FA88A" />
+                  <rect x="10" y="10" width="300" height="180" rx="10" fill="#030B1E" stroke="#00D2FF" strokeWidth="1" opacity="0.95" />
+                  <rect x="10" y="10" width="300" height="30" rx="10" fill="#0B1936" />
+                  <circle cx="25" cy="25" r="4" fill="#00D2FF" />
                   <circle cx="38" cy="25" r="4" fill="#FFFFFF" opacity="0.5" />
                   <circle cx="51" cy="25" r="4" fill="#FFFFFF" opacity="0.5" />
 
-                  <rect x="25" y="55" width="110" height="120" rx="6" fill="#1B3A5C" opacity="0.1" />
-                  <circle cx="80" cy="85" r="14" fill="#0FA88A" opacity="0.2" />
-                  <circle cx="80" cy="85" r="7" fill="#0FA88A" />
+                  <rect x="25" y="55" width="110" height="120" rx="6" fill="#0B1936" stroke="#00D2FF" strokeWidth="0.5" />
+                  <circle cx="80" cy="85" r="14" fill="#00D2FF" opacity="0.2" />
+                  <circle cx="80" cy="85" r="7" fill="#00D2FF" />
 
-                  <rect x="150" y="55" width="145" height="120" rx="6" fill="#1B3A5C" opacity="0.1" />
-                  <line x1="165" y1="75" x2="275" y2="75" stroke="#0F1B2D" strokeWidth="2" opacity="0.7" />
-                  <line x1="165" y1="95" x2="250" y2="95" stroke="#0FA88A" strokeWidth="2" />
-                  <line x1="165" y1="115" x2="280" y2="115" stroke="#0F1B2D" strokeWidth="1.5" opacity="0.5" />
+                  <rect x="150" y="55" width="145" height="120" rx="6" fill="#0B1936" stroke="#00D2FF" strokeWidth="0.5" />
+                  <line x1="165" y1="75" x2="275" y2="75" stroke="#BAE6FD" strokeWidth="2" opacity="0.7" />
+                  <line x1="165" y1="95" x2="250" y2="95" stroke="#00D2FF" strokeWidth="2" />
+                  <line x1="165" y1="115" x2="280" y2="115" stroke="#BAE6FD" strokeWidth="1.5" opacity="0.5" />
                 </svg>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
               </div>
@@ -1896,40 +1758,40 @@ function ElevIqClaraPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 1 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 CLARA MODULE 01
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Deep-Dive Insights</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Deep-Dive Insights</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Review participant-approved reflections, goals, and context within the permissions of the configured program.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 CLARA MODULE 02
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Targeted Collaboration</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Targeted Collaboration</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Designed to support notes, next-step planning, and follow-up workflows when those functions are configured and tested.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-start space-y-4 hover:border-[#0FA88A] hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-lg border border-cyan-500/25 flex flex-col justify-start space-y-4 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300">
             <div className="flex justify-between items-start">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 CLARA MODULE 03
               </span>
             </div>
-            <h3 className="font-sans text-xl font-bold text-[#0F1B2D]">Cohort Management</h3>
-            <p className="text-xs md:text-sm leading-relaxed text-[#4B5563] font-sans">
+            <h3 className="font-sans text-xl font-bold text-white">Cohort Management</h3>
+            <p className="text-xs md:text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Configured cohort views may help authorized staff organize participant workflows and identify follow-up needs.
             </p>
           </div>
@@ -1938,7 +1800,7 @@ function ElevIqClaraPage() {
 
       {/* SECTION 3: THE DEPTH & SHIFT EXPOSITION */}
       <ScrollReveal>
-        <section className="w-full bg-[#1B3A5C] border border-[#1B3A5C] rounded-[32px] p-8 md:p-12 shadow-xl text-white">
+        <section className="w-full bg-[#0B1936] border border-cyan-500/30 rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
             Empowering Frontline Mentors
           </h3>
@@ -1946,30 +1808,30 @@ function ElevIqClaraPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Eliminating Blind Automation
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 CLARA is designed to support human review rather than make final automated decisions. Do not claim bias elimination.
               </p>
             </div>
 
             {/* Point 2 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 High-Fidelity Interaction Records
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 Recordkeeping, audit history, retention, and access controls are configuration-dependent and require verification before publication.
               </p>
             </div>
 
             {/* Point 3 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-[#0FA88A] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+              <h4 className="border-l-4 border-[#00D2FF] pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
                 Optimized Cohort Navigation
               </h4>
-              <p className="text-sm leading-relaxed text-white/70 font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
                 May support cohort workflow review when configured and tested.
               </p>
             </div>
@@ -3189,12 +3051,12 @@ function Footer() {
   ]
 
   return (
-    <footer className="mt-auto bg-[var(--midnight-ink)] text-white/95 border-t border-[var(--line)]/10 pt-16 pb-12 transition-all duration-300">
+    <footer className="mt-auto bg-[#030B1E] text-white/95 border-t border-cyan-500/20 pt-16 pb-12 transition-all duration-300">
       <div className="mx-auto w-full max-w-[var(--shell-max)] px-6">
           {/* Commercial Handoff Banner */}
-          <div className="mb-8 rounded-[20px] bg-[#0F1B2D] border border-[#0FA88A]/40 p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg text-white">
+          <div className="mb-8 rounded-3xl bg-[#0B1936] border border-cyan-500/30 p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-[0_4px_25px_rgba(0,0,0,0.5),0_0_20px_rgba(0,210,255,0.1)] text-white">
             <div className="space-y-1 text-left">
-              <span className="inline-flex rounded-full border border-[#0FA88A] bg-[#0FA88A]/20 px-[10px] py-[3px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#0FA88A]">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[3px] font-mono text-[10px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 COMMERCIAL & ENTERPRISE HANDOFF
               </span>
               <h4 className="font-sans text-base font-bold text-white">
@@ -3203,51 +3065,56 @@ function Footer() {
             </div>
             <Link
               to="/organizations"
-              className="shrink-0 rounded-full border border-[#0FA88A] bg-[#0FA88A] px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md inline-flex items-center gap-1.5"
+              className="shrink-0 rounded-full border border-[#00D2FF] bg-[#00D2FF] px-5 py-2.5 text-xs font-bold text-[#030B1E] transition hover:brightness-110 shadow-[0_0_15px_rgba(0,210,255,0.3)] inline-flex items-center gap-1.5"
             >
               Visit STC Innovations →
             </Link>
           </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-white/10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5 pb-12 border-b border-cyan-500/20">
 
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="font-sans text-xl font-semibold tracking-[-0.03em] text-white">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#00D2FF] shadow-[0_0_10px_rgba(0,210,255,0.4)]">
+                <img src="/mascot.jpg" alt="ElevIQ Logo" className="w-full h-full object-cover" />
+              </div>
+              <h3 className="font-sans text-xl font-bold tracking-tight text-white">
+                ElevIQ CAS<span className="text-[10px] text-[#00D2FF] font-mono align-super">™</span>
+              </h3>
+            </div>
+            <p className="font-mono text-xs uppercase tracking-widest text-[#00D2FF]">
               ElevIQ Capability Alignment System™ | CAS Experience
-            </h3>
-            <p className="font-mono text-xs uppercase tracking-widest text-[var(--eleviq-teal)]">
-              ElevIQ Capability Alignment System™
             </p>
-            <p className="max-w-sm text-sm leading-7 text-white/60">
+            <p className="max-w-sm text-sm leading-7 text-[#BAE6FD]/70">
               Connecting participant reflection, capability insight, advisor support, pathway planning, and organizational intelligence in one human-centered infrastructure.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-white/40">Platform (CAS)</h4>
+            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-[#00D2FF]">Platform (CAS)</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/platform" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/platform" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Platform Overview
                 </Link>
               </li>
               <li>
-                <Link to="/platform/participant-portal" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/platform/participant-portal" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Participant Portal
                 </Link>
               </li>
               <li>
-                <Link to="/platform/community-intelligence-console" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/platform/community-intelligence-console" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Community Intelligence Console™
                 </Link>
               </li>
               <li>
-                <Link to="/platform/eleviq-aria" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/platform/eleviq-aria" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   ElevIQ ARIA™
                 </Link>
               </li>
               <li>
-                <Link to="/platform/eleviq-clara" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/platform/eleviq-clara" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   ElevIQ CLARA™
                 </Link>
               </li>
@@ -3255,40 +3122,40 @@ function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-white/40">For Individuals</h4>
+            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-[#00D2FF]">For Individuals</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/individuals" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Individuals Home
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/explore-your-path" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/explore-your-path" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Explore Your Path
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/how-it-works" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/how-it-works" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/programs-partners" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/programs-partners" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Programs & Partners
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/schools-workforce" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/schools-workforce" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   For Schools & Workforce
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/trust" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/trust" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Trust
                 </Link>
               </li>
               <li>
-                <Link to="/individuals/support-the-mission" className="text-white/60 hover:text-[#E2725B] transition-all duration-200">
+                <Link to="/individuals/support-the-mission" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Support the Mission
                 </Link>
               </li>
@@ -3296,25 +3163,25 @@ function Footer() {
           </div>
 
           <div className="space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-white/40">Company & Nav</h4>
+            <h4 className="text-xs font-mono uppercase tracking-[0.25em] text-[#00D2FF]">Company & Nav</h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/organizations" className="text-white/60 hover:text-[var(--horizon-teal)] transition-all duration-200">
+                <Link to="/organizations" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Organizations Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/about" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/contact" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Contact / Demo
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-white/60 hover:text-[var(--eleviq-teal)] transition-all duration-200">
+                <Link to="/resources" className="text-[#BAE6FD]/70 hover:text-[#00D2FF] transition-all duration-200">
                   Resources
                 </Link>
               </li>
@@ -3325,23 +3192,23 @@ function Footer() {
 
         <div className="pt-8 space-y-6">
           {/* Required Footer Navigation Links */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs text-white/70 font-sans border-b border-white/5 pb-4">
-            <Link to="/about" className="hover:text-[var(--eleviq-teal)] transition-colors">ElevIQ Foundation</Link>
-            <span className="text-white/20">|</span>
-            <Link to="/organizations" className="hover:text-[var(--eleviq-teal)] transition-colors">STC Innovations</Link>
-            <span className="text-white/20">|</span>
-            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Privacy</Link>
-            <span className="text-white/20">|</span>
-            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Terms</Link>
-            <span className="text-white/20">|</span>
-            <Link to="/individuals/trust" className="hover:text-[var(--eleviq-teal)] transition-colors">Accessibility</Link>
-            <span className="text-white/20">|</span>
-            <Link to="/contact" className="hover:text-[var(--eleviq-teal)] transition-colors">Contact</Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-xs text-[#BAE6FD]/80 font-sans border-b border-cyan-500/20 pb-4">
+            <Link to="/about" className="hover:text-[#00D2FF] transition-colors">ElevIQ Foundation</Link>
+            <span className="text-cyan-500/30">|</span>
+            <Link to="/organizations" className="hover:text-[#00D2FF] transition-colors">STC Innovations</Link>
+            <span className="text-cyan-500/30">|</span>
+            <Link to="/individuals/trust" className="hover:text-[#00D2FF] transition-colors">Privacy</Link>
+            <span className="text-cyan-500/30">|</span>
+            <Link to="/individuals/trust" className="hover:text-[#00D2FF] transition-colors">Terms</Link>
+            <span className="text-cyan-500/30">|</span>
+            <Link to="/individuals/trust" className="hover:text-[#00D2FF] transition-colors">Accessibility</Link>
+            <span className="text-cyan-500/30">|</span>
+            <Link to="/contact" className="hover:text-[#00D2FF] transition-colors">Contact</Link>
           </div>
 
           {/* Official Dual-Entity Organizational Relationship Statement */}
-          <div className="space-y-3 text-xs text-white/70 font-sans">
-            <h4 className="font-sans text-sm font-bold text-white tracking-wide">
+          <div className="p-5 rounded-2xl bg-[#0B1936] border border-cyan-500/25 space-y-2 text-xs text-[#BAE6FD]/90 font-sans">
+            <h4 className="font-sans text-sm font-bold text-[#00D2FF] tracking-wide">
               ElevIQ Foundation & STC Innovations
             </h4>
             <p className="leading-relaxed">
@@ -3349,16 +3216,16 @@ function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-white/40">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-[#BAE6FD]/50">
             <p>© 2026 STC Innovations. ElevIQ Capability Alignment System and related product intellectual property are owned by STC Innovations. ElevIQ Foundation is a separate nonprofit organization authorized to use CAS for approved mission-aligned programming.</p>
-            <p className="font-mono uppercase tracking-widest text-[var(--eleviq-teal)] text-[10px]">Capability Alignment Infrastructure</p>
+            <p className="font-mono uppercase tracking-widest text-[#00D2FF] text-[10px]">Capability Alignment Infrastructure</p>
           </div>
 
           <div className="space-y-2.5">
-            <p className="font-mono text-[9px] uppercase tracking-widest text-white/30">Trademark Lock Terminology</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-[#BAE6FD]/40">Trademark Lock Terminology</p>
             <div className="flex flex-wrap gap-2">
               {trademarkList.map((item) => (
-                <span key={item} className="rounded-md border border-white/20 bg-white/[0.07] px-2 py-0.5 font-mono text-[9px] text-white/70 tracking-wider">
+                <span key={item} className="rounded-md border border-cyan-500/20 bg-[#0B1936]/60 px-2 py-0.5 font-mono text-[9px] text-[#BAE6FD]/80 tracking-wider">
                   {item}
                 </span>
               ))}
@@ -3366,16 +3233,16 @@ function Footer() {
           </div>
 
           {/* Bottom Trust Logo Strip */}
-          <div className="pt-6 border-t border-white/5 space-y-3">
-            <p className="text-center text-xs text-white/50 font-sans">
+          <div className="pt-6 border-t border-cyan-500/20 space-y-3">
+            <p className="text-center text-xs text-[#BAE6FD]/60 font-sans">
               Trusted by organizations committed to developing people and strengthening their communities.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-white/60">
-              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Employers</span>
-              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Workforce Organizations</span>
-              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Education & Training</span>
-              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Community Organizations</span>
-              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[var(--eleviq-teal)]" /> Government & Public Sector</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-[#BAE6FD]/70">
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" /> Employers</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" /> Workforce Organizations</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" /> Education & Training</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" /> Community Organizations</span>
+              <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-[#00D2FF]" /> Government & Public Sector</span>
             </div>
           </div>
         </div>
@@ -3448,69 +3315,63 @@ function IndividualsHome() {
     <div className="space-y-[var(--section-gap)]">
       {/* SECTION 1: HERO BLOCK */}
       <ScrollReveal>
-        <section className="rounded-[32px] border border-[#1B3A5C] bg-[#1B3A5C] p-[var(--panel-pad)] shadow-xl overflow-hidden">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="rounded-[32px] border border-cyan-500/30 bg-gradient-to-b from-[#0B1936] to-[#030B1E] p-[var(--panel-pad)] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,210,255,0.12)] overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D2FF]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
             {/* Left Column Content */}
             <div className="space-y-6 text-white">
-              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/20 px-[12px] py-[5px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#E2725B] shadow-sm">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[#00D2FF] shadow-[0_0_15px_rgba(0,210,255,0.25)]">
                 FOUNDATION PROGRAM INFORMATION
               </span>
-              <h1 className="max-w-xl font-sans text-4xl font-semibold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
+              <h1 className="max-w-xl font-sans text-4xl font-bold tracking-[-0.04em] text-white md:text-5xl lg:text-6xl leading-[1.1]">
                 From the ElevIQ Alignment Scan™ to practical next steps
               </h1>
-              <p className="text-lg font-medium text-white/90 leading-relaxed max-w-xl">
+              <p className="text-lg font-medium text-[#BAE6FD] leading-relaxed max-w-xl">
                 ElevIQ Foundation helps overlooked talent discover, name, and connect their capabilities to meaningful opportunity through human-centered technology, advisor support, and community partnerships.
               </p>
-              <p className="text-sm leading-relaxed text-white/70 max-w-xl font-sans">
+              <p className="text-sm leading-relaxed text-[#BAE6FD]/80 max-w-xl font-sans">
                 ElevIQ Foundation programs are designed to support a guided flow that keeps human support central. The experience is about alignment, not limitation, and technology supports rather than replaces trusted human guidance.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
                   to="/individuals/how-it-works"
-                  className="rounded-full border border-[#E2725B] bg-[#E2725B] px-6 py-2.5 text-xs font-semibold text-white transition hover:brightness-105 shadow-md"
+                  className="rounded-full border border-[#00D2FF] bg-[#00D2FF] px-6 py-2.5 text-xs font-bold text-[#030B1E] shadow-[0_0_20px_rgba(0,210,255,0.4)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] hover:brightness-110"
                 >
                   Explore What to Expect
                 </Link>
                 <Link
                   to="/individuals/support-the-mission"
-                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                  className="rounded-full border border-cyan-500/30 bg-[#0B1936] px-6 py-2.5 text-xs font-semibold text-[#BAE6FD] transition hover:bg-[#00D2FF]/10 hover:border-[#00D2FF]"
                 >
                   Partner With or Support ElevIQ Foundation
                 </Link>
                 <Link
                   to="/platform/participant-portal"
-                  className="rounded-full border border-white/20 bg-white/5 px-6 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 hover:border-white/30"
+                  className="rounded-full border border-cyan-500/30 bg-[#0B1936] px-6 py-2.5 text-xs font-semibold text-[#BAE6FD] transition hover:bg-[#00D2FF]/10 hover:border-[#00D2FF]"
                 >
                   Use My Approved Program Link
                 </Link>
               </div>
             </div>
 
-            {/* Right Column Media Graphic */}
+            {/* Right Column Mascot Integration */}
             <div className="flex justify-center items-center p-4">
-              <div className="w-full max-w-[340px] rounded-2xl bg-[#0F1B2D]/40 border border-white/10 p-6 shadow-2xl relative overflow-hidden group hover:border-[#E2725B]/40 transition-all duration-300">
-                <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                  <line x1="20" y1="40" x2="300" y2="40" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="20" y1="80" x2="300" y2="80" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="20" y1="120" x2="300" y2="120" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="20" y1="160" x2="300" y2="160" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="20" y1="200" x2="300" y2="200" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  
-                  <line x1="60" y1="20" x2="60" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="120" y1="20" x2="120" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="180" y1="20" x2="180" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-                  <line x1="240" y1="20" x2="240" y2="220" stroke="#FFFFFF" strokeWidth="1" opacity="0.05" />
-
-                  <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="3" />
-                  <path d="M 40 180 Q 100 160 140 110 T 280 60" fill="none" stroke="#E2725B" strokeWidth="8" opacity="0.15" />
-
-                  <circle cx="40" cy="180" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="100" cy="153" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="157" cy="98" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="218" cy="80" r="5" fill="#FFFFFF" stroke="#E2725B" strokeWidth="2" />
-                  <circle cx="280" cy="60" r="6" fill="#E2725B" />
-                </svg>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30 pointer-events-none rounded-2xl" />
+              <div className="w-full max-w-[340px] rounded-3xl bg-[#0B1936]/90 border border-cyan-500/30 p-6 shadow-[0_0_30px_rgba(0,210,255,0.2)] relative overflow-hidden group hover:border-[#00D2FF]/60 transition-all duration-300">
+                <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
+                  <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
+                    PARTICIPANT WORKSPACE
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
+                </div>
+                <div className="flex flex-col items-center text-center space-y-4 py-2">
+                  <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00D2FF] shadow-[0_0_25px_rgba(0,210,255,0.6)] bg-[#030B1E]">
+                    <img src="/mascot.jpg" alt="ElevIQ Mascot Guide" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF]">PARTICIPANT COMPANION</span>
+                    <h4 className="font-sans text-base font-bold text-white tracking-tight">Guided Pathway Discovery</h4>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -3521,27 +3382,27 @@ function IndividualsHome() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-2">
           {/* Problem Card */}
-          <div className="bg-white rounded-[28px] p-8 shadow-md border border-[#1B3A5C] space-y-4 hover:border-[#E2725B] transition-all duration-300">
-            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+          <div className="bg-[#0B1936]/90 rounded-[28px] p-8 shadow-lg border border-cyan-500/25 space-y-4 hover:border-[#00D2FF] transition-all duration-300">
+            <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               THE CHALLENGE
             </span>
-            <h3 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+            <h3 className="font-sans text-2xl font-bold text-white">
               Unseen & Unconnected Capability
             </h3>
-            <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+            <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Capability is real but often unseen, unnamed, or disconnected from opportunity. Traditional credentials reduce rich life experience to rigid degree requirements.
             </p>
           </div>
 
           {/* Mission Response Card */}
-          <div className="bg-white rounded-[28px] p-8 shadow-md border-2 border-[#E2725B] space-y-4 shadow-lg hover:border-[#E2725B] transition-all duration-300">
-            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+          <div className="bg-[#0B1936]/90 rounded-[28px] p-8 shadow-lg border-2 border-cyan-500/40 space-y-4 hover:border-[#00D2FF] transition-all duration-300">
+            <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               OUR MISSION RESPONSE
             </span>
-            <h3 className="font-sans text-2xl font-bold text-[#0F1B2D]">
+            <h3 className="font-sans text-2xl font-bold text-white">
               Strengths-Oriented Alignment
             </h3>
-            <p className="text-sm leading-relaxed text-[#4B5563] font-sans">
+            <p className="text-sm leading-relaxed text-[#BAE6FD]/80 font-sans">
               Strengths-oriented capability alignment supported by people and human-centered technology—connecting individual reflection directly to real-world pathways.
             </p>
           </div>
@@ -3552,10 +3413,10 @@ function IndividualsHome() {
       <ScrollReveal>
         <section className="space-y-6">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+            <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               PARTICIPANT JOURNEY
             </span>
-            <h2 className="font-sans text-3xl font-bold text-[#0F1B2D]">
+            <h2 className="font-sans text-3xl font-bold text-white">
               5 Steps to Discover & Build Your Path
             </h2>
           </div>
@@ -3564,19 +3425,19 @@ function IndividualsHome() {
             {steps.map((step) => (
               <div
                 key={step.num}
-                className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] flex flex-col justify-between space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-md border border-cyan-500/25 flex flex-col justify-between space-y-3 hover:border-[#00D2FF] hover:shadow-[0_0_20px_rgba(0,210,255,0.2)] transition-all duration-300"
               >
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#E2725B] text-xs font-bold text-white font-mono shadow-sm">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#00D2FF]/20 text-xs font-bold text-[#00D2FF] border border-[#00D2FF]/40 font-mono shadow-sm">
                       {step.num}
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-[#E2725B]/40" />
+                    <span className="w-2 h-2 rounded-full bg-[#00D2FF]/40" />
                   </div>
-                  <h3 className="font-sans text-base font-bold text-[#0F1B2D]">
+                  <h3 className="font-sans text-base font-bold text-white">
                     {step.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                  <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
                     {step.desc}
                   </p>
                 </div>
@@ -3590,10 +3451,10 @@ function IndividualsHome() {
       <ScrollReveal>
         <section className="space-y-6">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+            <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               WHO WE SERVE
             </span>
-            <h2 className="font-sans text-3xl font-bold text-[#0F1B2D]">
+            <h2 className="font-sans text-3xl font-bold text-white">
               Built for People, Supported by Navigators
             </h2>
           </div>
@@ -3602,26 +3463,26 @@ function IndividualsHome() {
             {audiences.map((aud) => (
               <div
                 key={aud.tag}
-                className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-md border border-cyan-500/25 space-y-3 hover:border-[#00D2FF] hover:shadow-[0_0_20px_rgba(0,210,255,0.2)] transition-all duration-300"
               >
-                <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+                <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                   {aud.tag}
                 </span>
-                <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+                <h3 className="font-sans text-lg font-bold text-white">
                   {aud.title}
                 </h3>
-                <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
+                <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
                   {aud.desc}
                 </p>
               </div>
             ))}
 
             {/* Human Guidance Card */}
-            <div className="bg-white rounded-[24px] p-6 shadow-md border border-[#1B3A5C] space-y-3 hover:border-[#E2725B] hover:-translate-y-1 transition-all duration-300">
-              <span className="inline-flex rounded-full border border-[#E2725B] bg-[#E2725B]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#0F1B2D] shadow-sm">
+            <div className="bg-[#0B1936]/90 rounded-[24px] p-6 shadow-md border border-cyan-500/25 space-y-3 hover:border-[#00D2FF] hover:shadow-[0_0_20px_rgba(0,210,255,0.2)] transition-all duration-300">
+              <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
                 HUMAN-CENTERED CORE
               </span>
-              <h3 className="font-sans text-lg font-bold text-[#0F1B2D]">
+              <h3 className="font-sans text-lg font-bold text-white">
                 Human Advisors at the Center
               </h3>
               <p className="text-xs leading-relaxed text-[#4B5563] font-sans">
