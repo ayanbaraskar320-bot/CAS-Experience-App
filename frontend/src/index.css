@@ -65,73 +65,74 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight-navy: #030B1E;
-  --color-midnight-ink: #030B1E;
-  --color-dark-panel: #0B1936;
-  --color-deep-lake-blue: #0B1936;
-  --color-sapphire-blue: #0052CC;
-  --color-royal-blue: #1D4ED8;
-  --color-electric-cyan: #00D2FF;
-  --color-eleviq-teal: #00D2FF;
-  --color-horizon-teal: #00D2FF;
-  --color-sky-mist: #BAE6FD;
-  --color-soft-sand: #0B1936;
-  --color-driftwood-gray: #94A3B8;
-  --color-warm-coral: #00D2FF;
+  --color-midnight-navy: #0F172A;
+  --color-midnight-ink: #0F172A;
+  --color-dark-panel: #FFFFFF;
+  --color-deep-lake-blue: #0284C7;
+  --color-sapphire-blue: #0284C7;
+  --color-royal-blue: #0369A1;
+  --color-electric-cyan: #0284C7;
+  --color-eleviq-teal: #0284C7;
+  --color-horizon-teal: #0284C7;
+  --color-sky-mist: #475569;
+  --color-soft-sand: #F8FAFC;
+  --color-driftwood-gray: #64748B;
+  --color-warm-coral: #0284C7;
 
-  --font-sans: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
+  --font-sans: 'Inter', 'Epilogue', 'Aptos', sans-serif;
+  --font-display: '"Plus Jakarta Sans"', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-serif: '"Playfair Display"', 'Georgia', 'serif';
   --font-mono: '"IBM Plex Mono"', 'Consolas', monospace;
 }
 
 :root {
-  /* Official ElevIQ Foundation Color Tokens */
-  --midnight-navy: #030B1E;
-  --dark-panel: #0B1936;
-  --sapphire-blue: #0052CC;
-  --royal-blue: #1D4ED8;
-  --electric-cyan: #00D2FF;
-  --sky-mist: #BAE6FD;
-  --midnight-ink: #030B1E;
-  --deep-lake-blue: #0B1936;
-  --horizon-teal: #00D2FF;
-  --eleviq-teal: #00D2FF;
-  --soft-sand: #0B1936;
-  --driftwood-gray: #94A3B8;
-  --warm-coral: #00D2FF;
+  /* Official ElevIQ Modern Enterprise Light Tokens */
+  --midnight-navy: #0F172A;
+  --dark-panel: #FFFFFF;
+  --sapphire-blue: #0284C7;
+  --royal-blue: #0369A1;
+  --electric-cyan: #0284C7;
+  --sky-mist: #475569;
+  --midnight-ink: #0F172A;
+  --deep-lake-blue: #0284C7;
+  --horizon-teal: #0284C7;
+  --eleviq-teal: #0284C7;
+  --soft-sand: #F8FAFC;
+  --driftwood-gray: #64748B;
+  --warm-coral: #0284C7;
 
-  /* Functional Variable Mappings */
-  --ink: #FFFFFF;
-  --muted: #94A3B8;
-  --page-bg: #030B1E;
-  --surface: #0B1936;
-  --panel: #0B1936;
-  --surface-soft: #0F224A;
-  --line: rgba(0, 210, 255, 0.25);
-  --accent: #00D2FF;
-  --accent-soft: rgba(0, 210, 255, 0.15);
-  --warm: #00D2FF;
-  --shadow-color: rgba(0, 210, 255, 0.15);
-  --panel-shadow: 0 0 30px rgba(0, 210, 255, 0.12);
-  --soft-shadow: 0 10px 25px -10px rgba(0, 210, 255, 0.15);
-  --heading-font: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
-  --sans-font: 'Epilogue', 'Aptos', 'Helvetica', 'Arial', sans-serif;
-  --mono-font: 'IBM Plex Mono', 'Consolas', monospace;
-  color-scheme: dark;
+  /* Functional Variable Mappings (Light Slate Canvas #FAFBFF with Ambient Aura) */
+  --ink: #0F172A;
+  --muted: #475569;
+  --page-bg: #FAFBFF;
+  --surface: #FFFFFF;
+  --panel: #FFFFFF;
+  --surface-soft: #F1F5F9;
+  --line: rgba(226, 232, 240, 0.85);
+  --accent: #0284C7;
+  --accent-soft: rgba(2, 132, 199, 0.10);
+  --warm: #0284C7;
+  --shadow-color: rgba(15, 23, 42, 0.06);
+  --panel-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 0 1px rgba(15, 23, 42, 0.1);
+  --soft-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  --heading-font: '"Plus Jakarta Sans"', 'Inter', sans-serif;
+  --sans-font: 'Inter', sans-serif;
+  --mono-font: '"IBM Plex Mono"', 'Consolas', monospace;
+  color-scheme: light;
   font-family: var(--sans-font);
   font-size: 16px;
   line-height: 1.6;
-  color: #FFFFFF;
+  color: #0F172A;
   
-  --bg-glow-1: rgba(0, 210, 255, 0.18);
-  --bg-glow-2: rgba(0, 82, 204, 0.22);
-  --bg-glow-3: rgba(29, 78, 216, 0.15);
+  --bg-glow-1: rgba(224, 231, 255, 0.30); /* Soft Indigo #E0E7FF @ 30% */
+  --bg-glow-2: rgba(224, 242, 254, 0.30); /* Soft Sky #E0F2FE @ 30% */
+  --bg-glow-3: rgba(241, 245, 249, 0.40);
   
   background:
-    radial-gradient(circle at 50% 0%, var(--bg-glow-1), transparent 35%),
-    radial-gradient(circle at 100% 50%, var(--bg-glow-2), transparent 45%),
-    radial-gradient(circle at 0% 100%, var(--bg-glow-3), transparent 45%),
-    linear-gradient(180deg, #030B1E 0%, #061129 50%, #030B1E 100%);
+    radial-gradient(circle at 15% 10%, var(--bg-glow-1), transparent 45%),
+    radial-gradient(circle at 85% 15%, var(--bg-glow-2), transparent 45%),
+    linear-gradient(180deg, #FAFBFF 0%, #F8FAFC 50%, #FAFBFF 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -139,18 +140,18 @@
 }
 
 .glow-cyan {
-  box-shadow: 0 0 24px rgba(0, 210, 255, 0.25);
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.2);
 }
 
 .glow-border-cyan {
-  border-color: rgba(0, 210, 255, 0.4);
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.1);
 }
 
 .card-luminous {
-  background: linear-gradient(135deg, rgba(11, 25, 54, 0.95) 0%, rgba(7, 18, 41, 0.95) 100%);
-  border: 1px solid rgba(0, 210, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 20px rgba(0, 210, 255, 0.08);
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
 * {
@@ -230,17 +231,20 @@ a {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Redesigned Premium CSS Effects */
 .hero-bg-pattern {
   position: absolute;
   inset: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 30%, rgba(30, 127, 130, 0.22) 0%, transparent 60%),
     radial-gradient(circle at 80% 75%, rgba(15, 168, 138, 0.12) 0%, transparent 60%);
   z-index: 1;
@@ -283,4 +287,37 @@ a {
   box-shadow: 0 4px 12px rgba(15, 27, 45, 0.08);
 }
 
+/* STC Innovations Enterprise Design System Classes */
+.font-stc-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
+.font-stc-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.stc-text-gradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #0052CC 60%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stc-cyan-wave-gradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #1D4ED8 100%);
+}
+
+.stc-surface-mesh {
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 82, 204, 0.05) 0%, transparent 40%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.stc-card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+}
+
+.stc-card-shadow-hover {
+  box-shadow: 0 10px 30px -5px rgba(0, 82, 204, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}

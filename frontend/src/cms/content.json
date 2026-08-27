@@ -14,21 +14,21 @@
       "badge": "In Testing",
       "title": "Job Corps Alignment Configuration",
       "description": "Configured for CSS/ESP counseling workflows and CTT trade pathways.",
-      "statusDot": "bg-[#E2725B]"
+      "statusDot": "bg-sky-500"
     },
     {
       "id": "school-cte-pilots",
       "badge": "In Development",
       "title": "School & CTE Pathway Pilots",
       "description": "Strengths-based career clarity modules for youth programs and high schools.",
-      "statusDot": "bg-[#E2725B]/60"
+      "statusDot": "bg-sky-400/60"
     },
     {
       "id": "rural-workforce-innovation",
       "badge": "Validated",
       "title": "Rural Workforce Innovation",
       "description": "Community-rooted pilot models supporting local workforce ecosystems.",
-      "statusDot": "bg-[#0FA88A]"
+      "statusDot": "bg-cyan-400"
     }
   ],
   "routingEndpoints": {
