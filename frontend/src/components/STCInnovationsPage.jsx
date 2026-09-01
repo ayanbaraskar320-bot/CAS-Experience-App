@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import STCDashboardMockup from './STCDashboardMockup'
 import STCDemoModal from './STCDemoModal'
+import EcosystemRelationship from './EcosystemRelationship'
 
 export default function STCInnovationsPage() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
@@ -908,116 +909,11 @@ export default function STCInnovationsPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════════════ */}
-        {/* SECTION 6: DUAL-ENTITY FOOTER & TRUST BANNER */}
+        {/* SECTION 6: ONE MISSION. DISTINCT ROLES. SHARED INFRASTRUCTURE. */}
         {/* ═══════════════════════════════════════════════════════════════════ */}
         <section id="about-stc" className="py-16 sm:py-20 lg:py-24 bg-white border-t border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            {/* Relationship Card (Dark Slate Container) */}
-            <div className="rounded-3xl bg-[#0B1936] border border-slate-700/80 p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
-              {/* Glow Accent */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="relative z-10 space-y-8">
-                {/* Header Tag */}
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-700/60">
-                  <div className="space-y-1">
-                    <span className="font-mono text-xs uppercase tracking-widest text-[#00D2FF] font-bold block">
-                      ECOSYSTEM RELATIONSHIP & INTELLECTUAL PROPERTY
-                    </span>
-                    <h3 className="font-stc-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                      Two Distinct Entities. One Unified Capability Vision.
-                    </h3>
-                  </div>
-
-                  <Link
-                    to="/about"
-                    className="text-xs font-mono font-semibold text-[#00D2FF] hover:text-white transition-colors"
-                  >
-                    Review Legal Operating Charter →
-                  </Link>
-                </div>
-
-                {/* Left Node | Center Bridge (+) | Right Node */}
-                <div className="grid grid-cols-1 lg:grid-cols-11 gap-6 items-center">
-                  {/* Left Node: STC Innovations (Commercial) */}
-                  <div className="lg:col-span-5 bg-slate-900/90 rounded-2xl border border-slate-700 p-6 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#00D2FF] to-[#0052CC] flex items-center justify-center text-white font-bold text-sm">
-                        STC
-                      </div>
-                      <div>
-                        <h4 className="font-stc-heading text-lg font-bold text-white">
-                          STC Innovations + ElevIQ CAS™
-                        </h4>
-                        <span className="text-xs font-mono text-[#00D2FF]">Technology for organizations</span>
-                      </div>
-                    </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                      The technology and product company that owns, develops, licenses, configures, and commercializes the ElevIQ Capability Alignment System™ intellectual property.
-                    </p>
-                    <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-300 font-mono pt-2 border-t border-slate-800">
-                      <div>• Human-skills intelligence</div>
-                      <div>• Workforce alignment</div>
-                      <div>• Talent development</div>
-                      <div>• Implementation support</div>
-                    </div>
-                  </div>
-
-                  {/* Center Bridge: Connected '+' icon */}
-                  <div className="lg:col-span-1 flex justify-center items-center py-2 lg:py-0">
-                    <div className="w-12 h-12 rounded-full bg-slate-800 border border-cyan-400/40 text-[#00D2FF] flex items-center justify-center font-mono font-extrabold text-2xl shadow-[0_0_20px_rgba(0,210,255,0.3)]">
-                      +
-                    </div>
-                  </div>
-
-                  {/* Right Node: ElevIQ Foundation Inc. (Nonprofit) */}
-                  <div className="lg:col-span-5 bg-slate-900/90 rounded-2xl border border-slate-700 p-6 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-400 to-emerald-600 flex items-center justify-center text-white font-bold text-sm">
-                        EF
-                      </div>
-                      <div>
-                        <h4 className="font-stc-heading text-lg font-bold text-white">
-                          ElevIQ Foundation Inc.
-                        </h4>
-                        <span className="text-xs font-mono text-emerald-400">Opportunity for people & communities</span>
-                      </div>
-                    </div>
-                    <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                      The mission-driven 501(c)(3) nonprofit applying CAS through zero-cost access for individuals, community pilots, Job Corps, rural youth, and mission partners.
-                    </p>
-                    <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-300 font-mono pt-2 border-t border-slate-800">
-                      <div>• Technology access</div>
-                      <div>• Education & training</div>
-                      <div>• Career development</div>
-                      <div>• Community partnerships</div>
-                    </div>
-                    <div className="pt-2">
-                      <Link
-                        to="/individuals"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-all shadow-sm"
-                      >
-                        <span>Visit ElevIQ Foundation ↗</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Operating Principle Strip */}
-                <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800 text-xs text-slate-400 font-mono leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                  <div>
-                    <strong className="text-slate-200">Legal Boundary Notice:</strong> STC Innovations and ElevIQ Foundation Inc. maintain independent legal and fiscal governance while collaborating on human-skills intelligence.
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => openDemoModal()}
-                    className="shrink-0 text-xs text-[#00D2FF] hover:text-white font-bold underline"
-                  >
-                    Contact Enterprise Sales →
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <EcosystemRelationship variant="dark" />
           </div>
         </section>
       </main>

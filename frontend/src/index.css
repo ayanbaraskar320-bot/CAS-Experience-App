@@ -65,42 +65,43 @@
 @import "tailwindcss";
 
 @theme {
-  --color-midnight-navy: #0F172A;
-  --color-midnight-ink: #0F172A;
+  --color-midnight-navy: #0F1B2D;
+  --color-midnight-ink: #0F1B2D;
   --color-dark-panel: #FFFFFF;
-  --color-deep-lake-blue: #0284C7;
-  --color-sapphire-blue: #0284C7;
-  --color-royal-blue: #0369A1;
-  --color-electric-cyan: #0284C7;
-  --color-eleviq-teal: #0284C7;
-  --color-horizon-teal: #0284C7;
-  --color-sky-mist: #475569;
-  --color-soft-sand: #F8FAFC;
-  --color-driftwood-gray: #64748B;
-  --color-warm-coral: #0284C7;
+  --color-deep-lake-blue: #1B3A5C;
+  --color-sapphire-blue: #1B3A5C;
+  --color-royal-blue: #1E7F82;
+  --color-electric-cyan: #00D2FF;
+  --color-eleviq-teal: #0FA88A;
+  --color-horizon-teal: #1E7F82;
+  --color-sky-mist: #EAF3F3;
+  --color-soft-sand: #F5EFE6;
+  --color-driftwood-gray: #6B7280;
+  --color-warm-coral: #E8734A;
 
-  --font-sans: 'Inter', 'Epilogue', 'Aptos', sans-serif;
+  --font-sans: 'Epilogue', 'Inter', 'Aptos', sans-serif;
   --font-display: '"Plus Jakarta Sans"', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-body: 'Epilogue', sans-serif;
   --font-serif: '"Playfair Display"', 'Georgia', 'serif';
   --font-mono: '"IBM Plex Mono"', 'Consolas', monospace;
 }
 
 :root {
-  /* Official ElevIQ Modern Enterprise Light Tokens */
-  --midnight-navy: #0F172A;
+  /* Official ElevIQ Master Alignment Tokens */
+  --midnight-navy: #0F1B2D;
+  --midnight-ink: #0F1B2D;
   --dark-panel: #FFFFFF;
-  --sapphire-blue: #0284C7;
-  --royal-blue: #0369A1;
-  --electric-cyan: #0284C7;
-  --sky-mist: #475569;
-  --midnight-ink: #0F172A;
-  --deep-lake-blue: #0284C7;
-  --horizon-teal: #0284C7;
-  --eleviq-teal: #0284C7;
-  --soft-sand: #F8FAFC;
-  --driftwood-gray: #64748B;
-  --warm-coral: #0284C7;
+  --sapphire-blue: #1B3A5C;
+  --royal-blue: #1E7F82;
+  --electric-cyan: #00D2FF;
+  --sky-mist: #EAF3F3;
+  --deep-lake-blue: #1B3A5C;
+  --horizon-teal: #1E7F82;
+  --eleviq-teal: #0FA88A;
+  --soft-sand: #F5EFE6;
+  --driftwood-gray: #6B7280;
+  --warm-coral: #E8734A;
+  --white: #FFFFFF;
 
   /* Functional Variable Mappings (Light Slate Canvas #FAFBFF with Ambient Aura) */
   --ink: #0F172A;
