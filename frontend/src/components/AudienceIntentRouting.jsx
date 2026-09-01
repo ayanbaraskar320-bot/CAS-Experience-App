@@ -188,6 +188,7 @@ export const AUDIENCE_PATHS = [
 
 export default function AudienceIntentRouting({
   variant = 'dark',
+  showGrid = true,
   showForm = true,
   initialAudienceId = null,
 }) {
@@ -214,7 +215,7 @@ export default function AudienceIntentRouting({
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Listen to hash changes and initial hash deep-linking
+  // Listen to hash changes, initial hash deep-linking, and cross-component event syncing
   useEffect(() => {
     function handleHashCheck() {
       const hash = window.location.hash.replace('#', '')
@@ -236,7 +237,7 @@ export default function AudienceIntentRouting({
           entityRoute: matchedPath.entityRoute,
         }))
         const targetEl = document.getElementById(`path-${matchedPath.id}`)
-        if (targetEl) {
+        if (targetEl && showGrid) {
           targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
         }
       } else if (hash === 'contact-inquiry' || hash === 'smart-contact-form') {
@@ -247,10 +248,26 @@ export default function AudienceIntentRouting({
       }
     }
 
+    function handleCustomEvent(e) {
+      if (e?.detail) {
+        const matchedPath = e.detail
+        setSelectedAudience(matchedPath)
+        setForm((prev) => ({
+          ...prev,
+          audienceIntent: matchedPath.intent,
+          entityRoute: matchedPath.entityRoute,
+        }))
+      }
+    }
+
     handleHashCheck()
     window.addEventListener('hashchange', handleHashCheck)
-    return () => window.removeEventListener('hashchange', handleHashCheck)
-  }, [])
+    window.addEventListener('eleviq-audience-select', handleCustomEvent)
+    return () => {
+      window.removeEventListener('hashchange', handleHashCheck)
+      window.removeEventListener('eleviq-audience-select', handleCustomEvent)
+    }
+  }, [showGrid])
 
   function handleAudienceSelect(path, shouldScrollToForm = true) {
     setSelectedAudience(path)
@@ -261,7 +278,10 @@ export default function AudienceIntentRouting({
     }))
     setErrors((prev) => ({ ...prev, audienceIntent: undefined }))
 
-    if (shouldScrollToForm && showForm) {
+    // Dispatch global event so decoupled Form component syncs immediately
+    window.dispatchEvent(new CustomEvent('eleviq-audience-select', { detail: path }))
+
+    if (shouldScrollToForm) {
       const formEl = document.getElementById('contact-inquiry') || document.getElementById('smart-contact-form')
       if (formEl) {
         formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -346,144 +366,150 @@ export default function AudienceIntentRouting({
 
   return (
     <div className="space-y-12" id="audience-routing">
-      {/* SECTION CONTAINER */}
-      <div
-        className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-6 sm:p-10 shadow-xl space-y-10 text-white relative overflow-hidden"
-      >
-        {/* HEADER BLOCK */}
-        <div className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/60 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-cyan-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            10-Path Audience Intent Routing & Smart Contact
+      {/* SECTION CONTAINER (GRID) */}
+      {showGrid && (
+        <div
+          className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-6 sm:p-10 shadow-xl space-y-10 text-white relative overflow-hidden"
+        >
+          {/* HEADER BLOCK */}
+          <div className="space-y-4 max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/60 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-cyan-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              10-Path Audience Intent Routing
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+              Find Your Path with ElevIQ
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
+              Connect directly with the resources, cohort configurations, or team members designed for your role.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-            Find Your Path with ElevIQ
-          </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-            Connect directly with the resources, cohort configurations, or team members designed for your role.
-          </p>
-        </div>
 
-        {/* 10 AUDIENCE INTENT CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
-          {AUDIENCE_PATHS.map((path) => {
-            const isSelected = selectedAudience.id === path.id
-            return (
-              <div
-                key={path.id}
-                id={`path-${path.id}`}
-                data-path-number={path.number}
-                onClick={() => handleAudienceSelect(path, true)}
-                className={`group relative rounded-2xl p-5 border transition-all duration-300 cursor-pointer flex flex-col justify-between scroll-mt-28 ${
-                  isSelected
-                    ? 'border-cyan-400 bg-slate-900/95 shadow-[0_0_25px_rgba(0,210,255,0.25)] ring-1 ring-cyan-400 scale-[1.01]'
-                    : path.isCommercial
-                    ? 'border-purple-500/30 bg-[#0A0D28]/80 hover:border-purple-400/60 hover:bg-slate-900/90'
-                    : 'border-slate-800/80 bg-slate-900/50 hover:border-cyan-500/40 hover:bg-slate-900/80'
-                }`}
-                tabIndex={0}
-                role="button"
-                aria-pressed={isSelected}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    handleAudienceSelect(path, true)
-                  }
-                }}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-colors ${
-                          isSelected
-                            ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300'
-                            : path.isCommercial
-                            ? 'border-purple-500/40 bg-purple-500/10 text-purple-300'
-                            : 'border-slate-700 bg-slate-800/80 text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-500/40'
-                        }`}
-                      >
-                        {path.icon}
-                      </div>
-                      <div>
-                        <span className="font-mono text-[10px] text-cyan-400 font-semibold block">
-                          PATH {path.number} • {path.category}
-                        </span>
-                        <h3 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
-                          "{path.intent}"
-                        </h3>
+          {/* 10 AUDIENCE INTENT CARDS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
+            {AUDIENCE_PATHS.map((path) => {
+              const isSelected = selectedAudience.id === path.id
+              return (
+                <div
+                  key={path.id}
+                  id={`path-${path.id}`}
+                  data-path-number={path.number}
+                  onClick={() => handleAudienceSelect(path, true)}
+                  className={`group relative rounded-2xl p-5 border transition-all duration-300 cursor-pointer flex flex-col justify-between scroll-mt-28 ${
+                    isSelected
+                      ? 'border-cyan-400 bg-slate-900/95 shadow-[0_0_25px_rgba(0,210,255,0.25)] ring-1 ring-cyan-400 scale-[1.01]'
+                      : path.isCommercial
+                      ? 'border-purple-500/30 bg-[#0A0D28]/80 hover:border-purple-400/60 hover:bg-slate-900/90'
+                      : 'border-slate-800/80 bg-slate-900/50 hover:border-cyan-500/40 hover:bg-slate-900/80'
+                  }`}
+                  tabIndex={0}
+                  role="button"
+                  aria-pressed={isSelected}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      handleAudienceSelect(path, true)
+                    }
+                  }}
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-colors ${
+                            isSelected
+                              ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300'
+                              : path.isCommercial
+                              ? 'border-purple-500/40 bg-purple-500/10 text-purple-300'
+                              : 'border-slate-700 bg-slate-800/80 text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-500/40'
+                          }`}
+                        >
+                          {path.icon}
+                        </div>
+                        <div>
+                          <span className="font-mono text-[10px] text-cyan-400 font-semibold block">
+                            PATH {path.number} • {path.category}
+                          </span>
+                          <h3 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                            "{path.intent}"
+                          </h3>
+                        </div>
                       </div>
                     </div>
+
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans pl-0.5">
+                      {path.description}
+                    </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans pl-0.5">
-                    {path.description}
-                  </p>
-                </div>
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                    <span
+                      className={`inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border ${path.badgeColor}`}
+                    >
+                      {path.badge}
+                    </span>
 
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-                  <span
-                    className={`inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border ${path.badgeColor}`}
-                  >
-                    {path.badge}
-                  </span>
-
-                  <div className="flex items-center gap-2">
-                    {path.id === 'individual' ? (
-                      /* Card 01: Routes directly to participant portal / scan */
-                      <Link
-                        to="/platform/participant-portal"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 hover:text-white transition-all duration-200 shadow-sm"
-                      >
-                        <span>Begin Free Scan</span>
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    ) : path.isCommercial ? (
-                      /* Card 10: Routes to STC Commercial Portal */
-                      <Link
-                        to="/stc"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-500/50 bg-purple-950/70 hover:bg-purple-900 text-purple-300 hover:text-purple-100 transition-all duration-200 shadow-sm"
-                      >
-                        <span>Commercial CAS → STC</span>
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </Link>
-                    ) : (
-                      /* Cards 02 through 09: Auto-selects and smooth scrolls down to inquiry form */
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleAudienceSelect(path, true)
-                        }}
-                        className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                          isSelected
-                            ? 'border border-cyan-400 bg-cyan-500/30 text-cyan-200 font-bold shadow-sm'
-                            : 'border border-cyan-500/30 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 hover:text-white'
-                        }`}
-                      >
-                        <span>{path.actionLabel}</span>
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    )}
+                    <div className="flex items-center gap-2">
+                      {path.id === 'individual' ? (
+                        /* Card 01: Routes directly to participant portal / scan */
+                        <Link
+                          to="/platform/participant-portal"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 hover:text-white transition-all duration-200 shadow-sm"
+                        >
+                          <span>Begin Free Scan</span>
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      ) : path.isCommercial ? (
+                        /* Card 10: Routes to STC Commercial Portal */
+                        <Link
+                          to="/stc"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-500/50 bg-purple-950/70 hover:bg-purple-900 text-purple-300 hover:text-purple-100 transition-all duration-200 shadow-sm"
+                        >
+                          <span>Commercial CAS → STC</span>
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </Link>
+                      ) : (
+                        /* Cards 02 through 09: Auto-selects and smooth scrolls down to inquiry form */
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleAudienceSelect(path, true)
+                          }}
+                          className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
+                            isSelected
+                              ? 'border border-cyan-400 bg-cyan-500/30 text-cyan-200 font-bold shadow-sm'
+                              : 'border border-cyan-500/30 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 hover:text-white'
+                          }`}
+                        >
+                          <span>{path.actionLabel}</span>
+                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
+      )}
 
-        {/* SMART INQUIRY FORM */}
-        {showForm && (
-          <div id="contact-inquiry" className="scroll-mt-28">
-            <div id="smart-contact-form" className="pt-6 border-t border-cyan-500/20 space-y-6">
+      {/* SMART INQUIRY FORM */}
+      {showForm && (
+        <div
+          id="contact-inquiry"
+          className="scroll-mt-28 rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-6 sm:p-10 shadow-xl space-y-8 text-white relative overflow-hidden"
+        >
+          <div id="smart-contact-form" className="space-y-6">
               <div className="max-w-2xl space-y-2">
                 <span className="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider block">
                   Direct Team & Partner Inquiry
@@ -733,7 +759,6 @@ export default function AudienceIntentRouting({
             </div>
           </div>
         )}
-      </div>
     </div>
   )
 }

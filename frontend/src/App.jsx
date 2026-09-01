@@ -1611,7 +1611,7 @@ function HomePage() {
       </ScrollReveal>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 2. PROBLEM SECTION: THE RECOGNITION GAP */}
+      {/* 2. PROBLEM STATEMENT & FOUNDING INSIGHT */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-cyan-500/25 bg-[#0B1936]/90 p-8 sm:p-12 shadow-xl text-white space-y-8">
@@ -1630,8 +1630,11 @@ function HomePage() {
               <p>
                 Too many people have real capability, experience, judgment, creativity, resilience, service, and problem-solving ability that traditional systems do not fully see. A resume can show where someone has worked. A credential can show what someone has completed. A job title can show what someone has been called. None of those things, by themselves, tell the whole story of what a person can contribute.
               </p>
-              <div className="p-5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-white font-medium text-base sm:text-lg shadow-inner">
+              <div className="p-5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-white font-medium text-base sm:text-lg shadow-inner space-y-2">
                 <span className="text-[#0FA88A] font-bold">ElevIQ helps make more of that capability visible</span> and then works with people and trusted partners to connect insight to practical next steps.
+                <p className="font-serif italic text-cyan-200 text-sm sm:text-base pt-1 border-t border-cyan-500/20">
+                  "What someone has done before doesn't always tell us what they're capable of doing next."
+                </p>
               </div>
             </div>
 
@@ -1724,151 +1727,111 @@ function HomePage() {
             </div>
           </section>
         </ScrollReveal>
-
-        {/* Audience Pathways Grid */}
-        <SectionGrid
-          cards={[
-            {
-              icon: INDIVIDUALS_ICON,
-              title: 'For Individuals',
-              body: 'The ElevIQ Foundation addresses capability alignment through participant-centered support, Rural Workforce Innovation, and mission-driven community partnerships.',
-              action: { label: 'For Individuals', to: '/individuals' },
-              variant: 'individuals',
-            },
-            {
-              icon: ORGANIZATIONS_ICON,
-              title: 'For Organizations',
-              body: 'STC Innovations helps organizations configure the ElevIQ Capability Alignment System to support participant pathways, advisor workflows, and organizational intelligence.',
-              action: { label: 'For Organizations', to: '/organizations' },
-              variant: 'organizations',
-            },
-            {
-              icon: PLATFORM_ICON,
-              title: 'See the Platform',
-              body: 'The ElevIQ Capability Alignment System connects participant reflection, capability insight, advisor support, and pathway planning in one infrastructure.',
-              action: { label: 'CAS Preview', to: '/platform' },
-              variant: 'platform',
-            },
-          ]}
-        />
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 4. WHO ELEVIQ SERVES (7 POPULATIONS) */}
+      {/* 4. SERVICE MODEL & PARTICIPANT JOURNEY */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <WhoElevIqServes variant="dark" showPartnerBanner={true} showCtas={true} />
-      </ScrollReveal>
+      <div id="service-model-journey" className="scroll-mt-24 space-y-[var(--section-gap)]">
+        {/* Stages 0–7 Organizational Delivery Model */}
+        <ScrollReveal>
+          <section id="delivery-model" className="scroll-mt-24 rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
+            <div className="space-y-2 text-center max-w-3xl mx-auto">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">
+                ORGANIZATIONAL COLLABORATION
+              </span>
+              <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+                How We Work With Communities and Organizations
+              </h2>
+              <p className="text-base font-semibold text-[#00D2FF] font-sans">
+                "We don't begin with software. We begin with the problem."
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mx-auto">
+                A structured 8-stage methodology designed to embed capability infrastructure alongside local mentors, educational institutions, and regional workforce partners.
+              </p>
+            </div>
 
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 5. WHAT ELEVIQ CAN HELP DELIVER (9 SERVICE LANES) */}
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <WhatElevIqDelivers variant="dark" showCtas={true} />
-      </ScrollReveal>
-
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 6. ORGANIZATIONAL SERVICE DELIVERY MODEL (STAGES 0–7) */}
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <section id="delivery-model" className="scroll-mt-24 rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
-          <div className="space-y-2 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">
-              ORGANIZATIONAL COLLABORATION
-            </span>
-            <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              How We Work With Communities and Organizations
-            </h2>
-            <p className="text-base font-semibold text-[#00D2FF] font-sans">
-              "We don't begin with software. We begin with the problem."
-            </p>
-            <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mx-auto">
-              A structured 8-stage methodology designed to embed capability infrastructure alongside local mentors, educational institutions, and regional workforce partners.
-            </p>
-          </div>
-
-          {/* 8-Stage Grid (Stages 0–7) */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {deliveryStages.map((stg) => (
-              <div
-                key={stg.stage}
-                className="flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
-                      {stg.stage}
-                    </span>
-                    <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
-                      {stg.tag}
-                    </span>
+            {/* 8-Stage Grid (Stages 0–7) */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {deliveryStages.map((stg) => (
+                <div
+                  key={stg.stage}
+                  className="flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
+                        {stg.stage}
+                      </span>
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
+                        {stg.tag}
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {stg.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
+                      {stg.desc}
+                    </p>
                   </div>
-                  <h3 className="font-sans text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {stg.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
-                    {stg.desc}
-                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
 
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 5. PARTICIPANT JOURNEY (6-STEP PUBLIC FLOW) */}
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <section className="rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
-          <div className="space-y-2 text-center max-w-3xl mx-auto">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#0FA88A]">
-              PARTICIPANT EXPERIENCE
-            </span>
-            <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-              What the Participant Experiences
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 font-sans">
-              A dignified, 6-step progression that turns reflective self-discovery into real-world momentum.
-            </p>
-          </div>
+        {/* 6-Step Participant Journey */}
+        <ScrollReveal>
+          <section className="rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
+            <div className="space-y-2 text-center max-w-3xl mx-auto">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#0FA88A]">
+                PARTICIPANT EXPERIENCE
+              </span>
+              <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+                What the Participant Experiences
+              </h2>
+              <p className="text-sm sm:text-base text-slate-300 font-sans">
+                A dignified, 6-step progression that turns reflective self-discovery into real-world momentum.
+              </p>
+            </div>
 
-          {/* 6 Sequential Step Cards Grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {participantSteps.map((stp) => (
-              <div
-                key={stp.step}
-                className="flex flex-col justify-between p-6 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#0FA88A] hover:shadow-[0_0_30px_rgba(15,168,138,0.25)] transition-all duration-300 group space-y-4"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0FA88A]/20 text-xs font-bold text-[#0FA88A] border border-[#0FA88A]/30 font-mono">
-                      {stp.step}
-                    </span>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-cyan-300">
-                      {stp.tag}
-                    </span>
+            {/* 6 Sequential Step Cards Grid */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {participantSteps.map((stp) => (
+                <div
+                  key={stp.step}
+                  className="flex flex-col justify-between p-6 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#0FA88A] hover:shadow-[0_0_30px_rgba(15,168,138,0.25)] transition-all duration-300 group space-y-4"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#0FA88A]/20 text-xs font-bold text-[#0FA88A] border border-[#0FA88A]/30 font-mono">
+                        {stp.step}
+                      </span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-cyan-300">
+                        {stp.tag}
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-lg font-bold text-white group-hover:text-[#0FA88A] transition-colors">
+                      {stp.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
+                      {stp.desc}
+                    </p>
                   </div>
-                  <h3 className="font-sans text-lg font-bold text-white group-hover:text-[#0FA88A] transition-colors">
-                    {stp.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
-                    {stp.desc}
-                  </p>
-                </div>
 
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                  <span className="text-[#0FA88A]">Human-Centered</span>
-                  <span>Free of Test Pressure</span>
+                  <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono text-slate-400">
+                    <span className="text-[#0FA88A]">Human-Centered</span>
+                    <span>Free of Test Pressure</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
+              ))}
+            </div>
+          </section>
+        </ScrollReveal>
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 6. HUMAN GUIDANCE VALUE PROPOSITION */}
+      {/* 5. HUMAN GUIDANCE LAYER */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-cyan-500/25 bg-[#0B1936]/90 p-8 sm:p-12 shadow-xl text-white space-y-8">
@@ -1919,7 +1882,7 @@ function HomePage() {
                   <span className="text-[#0FA88A]">●</span> Empowering Frontline Advisors
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                  Technology eliminates administrative burden, organizing scenario reflections so mentors can focus entirely on high-trust advising conversations.
+                  Technology eliminates administrative burden, organizing scenario reflections with CLARA™ intelligence so mentors can focus entirely on high-trust advising conversations.
                 </p>
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -1927,7 +1890,7 @@ function HomePage() {
                   <span className="text-[#0FA88A]">●</span> Full Participant Agency
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                  Participants maintain total ownership of their reflection data, choosing what to share, when to proceed, and which pathways to pursue.
+                  Participants maintain total ownership of their reflection data with ARIA™ conversational guidance, choosing what to share, when to proceed, and which pathways to pursue.
                 </p>
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
@@ -1944,18 +1907,13 @@ function HomePage() {
       </ScrollReveal>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 7. CAS TECHNOLOGY SUMMARY LAYER */}
+      {/* 7. 10-PATH AUDIENCE INTENT ROUTING GRID */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <CasTechnologyTeaser />
-      </ScrollReveal>
-
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 8. 3-ENTITY ECOSYSTEM RELATIONSHIP */}
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <EcosystemRelationship variant="dark" />
-      </ScrollReveal>
+      <div id="audience-routing" className="scroll-mt-24">
+        <ScrollReveal>
+          <AudienceIntentRouting variant="dark" showGrid={true} showForm={false} />
+        </ScrollReveal>
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 8. FOUNDER PERSPECTIVE: WHY I BUILT ELEVIQ */}
@@ -1976,11 +1934,29 @@ function HomePage() {
       </div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 10. FIND YOUR PATH WITH ELEVIQ: 10-PATH AUDIENCE INTENT ROUTING */}
+      {/* 10. TECHNOLOGY SUMMARY LAYER */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <div id="audience-routing" className="scroll-mt-24">
+      <div id="cas-technology-summary" className="scroll-mt-24">
         <ScrollReveal>
-          <AudienceIntentRouting variant="dark" showForm={true} />
+          <CasTechnologyTeaser />
+        </ScrollReveal>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      {/* 11. THREE-ENTITY ECOSYSTEM & GOVERNANCE */}
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      <div id="ecosystem-governance" className="scroll-mt-24">
+        <ScrollReveal>
+          <EcosystemRelationship variant="dark" />
+        </ScrollReveal>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      {/* 12. SMART CONTACT & INQUIRY FORM */}
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      <div id="contact-inquiry-section" className="scroll-mt-24">
+        <ScrollReveal>
+          <AudienceIntentRouting variant="dark" showGrid={false} showForm={true} />
         </ScrollReveal>
       </div>
     </div>
