@@ -12,4 +12,7 @@ export default defineConfig({
     },
     dedupe: ['react', 'react-dom', 'react-router', 'react-router-dom'],
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+  },
 })

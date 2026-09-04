@@ -163,7 +163,7 @@ export default function CasTechnologyPreview() {
     {
       badge: 'Active / Free for Individuals',
       meaning:
-        'Fully implemented in production. Free and open to all individual participants at zero cost, with absolute personal data sovereignty.',
+        'Fully implemented in production. Free and open to all individual participants at zero cost, with participant data sovereignty & privacy controls.',
       color: 'border-emerald-500/40 text-emerald-300 bg-emerald-950/50'
     },
     {

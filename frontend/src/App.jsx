@@ -301,28 +301,18 @@ function AppShell() {
               {/* LEFT: Brand Logo Block */}
               <Link
                 to="/"
-                className="flex items-center gap-2 sm:gap-2.5 text-white hover:opacity-90 transition-opacity flex-shrink-0 mr-1 2xl:mr-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0FA88A] rounded-xl py-1 px-1"
+                className="flex items-center text-white hover:opacity-95 transition-opacity flex-shrink-0 mr-1 2xl:mr-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0FA88A] rounded-xl py-0.5 px-0.5"
                 aria-label="ElevIQ Foundation Home"
               >
-                <div className="relative w-8 h-8 2xl:w-9 2xl:h-9 rounded-full overflow-hidden border-2 border-[#0FA88A] shadow-[0_0_10px_rgba(15,168,138,0.4)] group-hover:scale-105 transition-transform bg-slate-950 flex items-center justify-center flex-shrink-0">
-                  <img
-                    src="/mascot.jpg"
-                    alt="ElevIQ Emblem"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/favicon.svg';
-                    }}
-                  />
-                </div>
-                <div className="flex flex-col whitespace-nowrap">
-                  <span className="font-sans text-xs sm:text-sm 2xl:text-base font-bold tracking-tight text-white flex items-center gap-1">
-                    ElevIQ Foundation
-                  </span>
-                  <span className="hidden 2xl:block font-mono text-[8.5px] text-[#0FA88A] tracking-wider uppercase">
-                    MISSION & SERVICE
-                  </span>
-                </div>
+                <img
+                  src="/ElevIQ Foundation Horizontal Lockup Approved Sep 2026.png"
+                  alt="ElevIQ Foundation logo"
+                  className="h-8 sm:h-9 2xl:h-10 w-auto object-contain rounded-lg bg-white/95 px-2.5 py-0.5 shadow-sm border border-cyan-500/20 group-hover:border-[#0FA88A]/60 transition-all"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/eleviq-foundation-horizontal-lockup.png';
+                  }}
+                />
               </Link>
 
               {/* CENTER: Desktop Nav with Interactive Dropdowns (Section 22 Navigation) */}
@@ -898,11 +888,16 @@ function AppShell() {
           {isMobileMenuOpen && (
             <div className="fixed inset-0 z-50 bg-[#030B1E]/98 backdrop-blur-2xl p-6 xl:hidden flex flex-col gap-6 text-white overflow-y-auto animate-in fade-in duration-200">
               <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#0FA88A] shadow-sm">
-                    <img src="/mascot.jpg" alt="ElevIQ Logo" className="w-full h-full object-cover" />
-                  </div>
-                  <span className="text-sm font-bold text-white">ElevIQ Foundation</span>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center" aria-label="ElevIQ Foundation Home">
+                  <img
+                    src="/ElevIQ Foundation Horizontal Lockup Approved Sep 2026.png"
+                    alt="ElevIQ Foundation logo"
+                    className="h-8 w-auto object-contain rounded-lg bg-white/95 px-2.5 py-0.5 shadow-sm border border-cyan-500/20"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/eleviq-foundation-horizontal-lockup.png';
+                    }}
+                  />
                 </Link>
                 <button
                   type="button"
@@ -1205,68 +1200,12 @@ function AppShell() {
             </Routes>
           </main>
           <Footer />
-          <CookieConsentBanner />
         </div>
       </div>
     </SectionTheme>
   )
 }
 
-function CookieConsentBanner() {
-  const [show, setShow] = useState(() => {
-    return !localStorage.getItem('eleviq_cookie_consent')
-  })
-
-  function handleConsent(choice) {
-    localStorage.setItem('eleviq_cookie_consent', choice)
-    setShow(false)
-  }
-
-  if (!show) return null
-
-  return (
-    <aside
-      role="region"
-      aria-label="Privacy and Cookie Consent"
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 rounded-[20px] bg-slate-900 border border-cyan-500/30 p-5 shadow-2xl text-white space-y-3"
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="space-y-1">
-          <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-cyan-300">
-            PRIVACY & WCAG 2.1 AA COMPLIANT
-          </span>
-          <h4 className="font-sans text-sm font-bold text-white">
-            Privacy-First Analytics & Cookie Consent
-          </h4>
-        </div>
-        <button
-          onClick={() => handleConsent('essential')}
-          className="text-white/40 hover:text-white text-xs font-mono p-1"
-          aria-label="Close consent banner"
-        >
-          ✕
-        </button>
-      </div>
-      <p className="text-xs leading-relaxed text-slate-300 font-sans">
-        ElevIQ respects individual sovereignty. We use only privacy-first, anonymized operational telemetry—never sell data or perform cross-site user tracking.
-      </p>
-      <div className="flex flex-wrap items-center gap-2 pt-1">
-        <button
-          onClick={() => handleConsent('anonymized_analytics')}
-          className="rounded-full bg-cyan-500 hover:bg-cyan-400 px-4 py-2 text-xs font-semibold text-slate-950 transition shadow-sm"
-        >
-          Accept Anonymized Insights
-        </button>
-        <button
-          onClick={() => handleConsent('essential_only')}
-          className="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-semibold text-white/80 transition hover:bg-white/10 hover:text-white"
-        >
-          Essential Only
-        </button>
-      </div>
-    </aside>
-  )
-}
 
 function SectionShell({ eyebrow, title, lead, actions = [], ribbon, children, extra }) {
   return (
@@ -1602,7 +1541,7 @@ function HomePage() {
                 <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span className="text-[#0FA88A] font-semibold">✓ No Test Pressure</span>
                   <span>•</span>
-                  <span className="text-cyan-300 font-semibold">✓ Total Data Sovereignty</span>
+                  <span className="text-cyan-300 font-semibold">✓ Participant Data Sovereignty & Privacy Controls</span>
                 </div>
               </div>
             </div>
@@ -1751,18 +1690,61 @@ function HomePage() {
               </p>
             </div>
 
+            {/* Connected Stage Rail (Section 3: Organizational Service-Delivery Flow) */}
+            <div className="space-y-3 pt-2">
+              <div className="flex items-center justify-between px-1 text-slate-300">
+                <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#00D2FF] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
+                  ORGANIZATIONAL SERVICE-DELIVERY PROGRESSION RAIL
+                </span>
+                <span className="hidden sm:inline-block font-mono text-[10px] text-slate-400">
+                  Sequential Institutional Delivery Pipeline
+                </span>
+              </div>
+
+              {/* Connected Stage Pipeline Rail */}
+              <div className="hidden lg:grid grid-cols-8 gap-2 p-3 rounded-2xl bg-[#07132D]/90 border border-cyan-500/20 shadow-inner">
+                {deliveryStages.map((stg, idx) => (
+                  <div key={stg.stage} className="relative flex flex-col items-center text-center group">
+                    <div className="flex items-center w-full">
+                      {idx > 0 && (
+                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-500/30 to-cyan-400/60" />
+                      )}
+                      <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center font-mono text-[10px] font-bold text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)] shrink-0 mx-auto group-hover:border-[#00D2FF] group-hover:bg-cyan-500/30 transition-all">
+                        {idx}
+                      </div>
+                      {idx < deliveryStages.length - 1 && (
+                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-400/60 to-cyan-500/30" />
+                      )}
+                    </div>
+                    <span className="mt-1.5 font-mono text-[9px] font-bold text-slate-300 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
+                      {stg.tag}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* 8-Stage Grid (Stages 0–7) */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {deliveryStages.map((stg) => (
+              {deliveryStages.map((stg, idx) => (
                 <div
                   key={stg.stage}
-                  className="flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group"
+                  className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group overflow-hidden"
                 >
+                  {/* Top Sequential Accent Line */}
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/30 via-[#00D2FF] to-cyan-500/30 opacity-70 group-hover:opacity-100 transition-opacity" />
+
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
-                        {stg.stage}
-                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
+                          {stg.stage}
+                        </span>
+                        <span className="text-[11px] font-mono text-cyan-400/70 font-semibold" aria-hidden="true">
+                          {idx < 7 ? '→' : '✓'}
+                        </span>
+                      </div>
                       <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
                         {stg.tag}
                       </span>
@@ -1773,6 +1755,13 @@ function HomePage() {
                     <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
                       {stg.desc}
                     </p>
+                  </div>
+
+                  <div className="mt-4 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
+                    <span className="text-cyan-400/80">Org Phase {idx + 1} of 8</span>
+                    <span className="text-slate-500 group-hover:text-cyan-300 transition-colors">
+                      {idx < 7 ? `Stage ${idx + 1} →` : 'Sustained Delivery'}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -2289,7 +2278,7 @@ function CommunityIntelligenceConsolePage() {
 function ElevIqAriaPage() {
   return (
     <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK WITH MASCOT ASSET */}
+      {/* SECTION 1: HERO BLOCK WITH CAS GUIDANCE CHARACTER */}
       <ScrollReveal>
         <section className="rounded-[32px] border border-cyan-500/30 bg-gradient-to-b from-[#0B1936] to-[#030B1E] p-[var(--panel-pad)] shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(0,210,255,0.12)] overflow-hidden relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D2FF]/10 rounded-full blur-3xl pointer-events-none" />
@@ -2317,7 +2306,7 @@ function ElevIqAriaPage() {
               </div>
             </div>
 
-            {/* Right Column Mascot Integration */}
+            {/* Right Column Character Integration */}
             <div className="flex justify-center items-center p-4">
               <div className="w-full max-w-[340px] rounded-3xl bg-[#0B1936]/90 border border-cyan-500/30 p-6 shadow-[0_0_30px_rgba(0,210,255,0.2)] relative overflow-hidden group hover:border-[#00D2FF]/60 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
@@ -2328,7 +2317,7 @@ function ElevIqAriaPage() {
                 </div>
                 <div className="flex flex-col items-center text-center space-y-4 py-2">
                   <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00D2FF] shadow-[0_0_25px_rgba(0,210,255,0.6)] bg-[#030B1E]">
-                    <img src="/mascot.jpg" alt="ElevIQ ARIA™ Mascot" className="w-full h-full object-cover" />
+                    <img src="/cas-character.jpg" alt="ElevIQ ARIA™ Reflective Guide" className="w-full h-full object-cover" onError={(e) => { e.target.onerror = null; e.target.src = '/favicon.svg'; }} />
                   </div>
                   <div className="space-y-1">
                     <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#00D2FF]">PARTICIPANT COMPANION</span>
@@ -3863,18 +3852,21 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-slate-800/80">
           {/* Column 1: ElevIQ Foundation (Col 1-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full overflow-hidden border border-cyan-400 shadow-md">
-                <img src="/mascot.jpg" alt="ElevIQ Foundation Mascot" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <h3 className="font-sans text-xl font-bold tracking-tight text-white">
-                  ElevIQ Foundation
-                </h3>
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-300 block">
-                  MISSION & SERVICE
-                </span>
-              </div>
+            <Link to="/" className="inline-block hover:opacity-95 transition-opacity" aria-label="ElevIQ Foundation Home">
+              <img
+                src="/ElevIQ Foundation Primary Logo Approved Sep 2026.png"
+                alt="ElevIQ Foundation logo"
+                className="h-14 sm:h-16 w-auto object-contain rounded-xl bg-white/95 p-2 shadow-lg border border-cyan-500/30"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/eleviq-foundation-primary-logo.png';
+                }}
+              />
+            </Link>
+            <div className="space-y-1">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-300 block">
+                MISSION & SERVICE
+              </span>
             </div>
             <p className="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans max-w-sm">
               Bridging human capability and meaningful life and career pathways through strengths-based discovery and trusted community support.
@@ -4178,8 +4170,8 @@ function IndividualsHome() {
                     <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-xl scale-110" />
                     <div className="relative w-36 h-36 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.4)] bg-slate-950 flex items-center justify-center">
                       <img
-                        src="/mascot.jpg"
-                        alt="ElevIQ Mascot Guide"
+                        src="/cas-character.jpg"
+                        alt="ElevIQ Participant Guide"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           e.target.onerror = null;
@@ -4582,7 +4574,7 @@ function IndividualsHowItWorks() {
             </div>
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Absolute Data Sovereignty
+                Participant Data Sovereignty & Privacy Controls
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 Your data belongs to you permanently. Revoke sharing access whenever you choose.
@@ -6395,7 +6387,7 @@ function AboutPage() {
             {/* Point 2 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Absolute Participant Data Sovereignty
+                Participant Data Sovereignty & Privacy Controls
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 Individual records are owned strictly by the participant. Data splitting protocols ensure organizations only view aggregate, anonymized regional metrics.

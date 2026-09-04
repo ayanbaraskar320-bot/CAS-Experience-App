@@ -144,10 +144,10 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
                     The Nonprofit Foundation Mandate
                   </div>
                   <h4 className="font-sans text-base font-bold text-white">
-                    100% Free Participant Access & Low-Barrier Pilots
+                    Free Individual Participant Access & Low-Barrier Pilot Design
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This guarantees that individual participants always complete the ElevIQ Alignment Scan™ at zero cost, with zero advertisements, and complete personal data privacy.
+                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This guarantees that the ElevIQ Alignment Scan™ remains 100% free for individual participants with complete data privacy, while organizational implementation, configuration, and pilots reflect partner scoping.
                   </p>
                 </div>
 
