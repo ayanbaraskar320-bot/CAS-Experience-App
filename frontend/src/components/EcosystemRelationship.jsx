@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import StcLink from './StcLink'
 
 export default function EcosystemRelationship({ className = '', variant = 'dark' }) {
   const isLight = variant === 'light'
@@ -253,8 +254,7 @@ export default function EcosystemRelationship({ className = '', variant = 'dark'
             </div>
 
             <div className="pt-2">
-              <Link
-                to="/stc"
+              <StcLink
                 className="w-full inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all duration-200 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   backgroundColor: '#1E7F82',
@@ -262,7 +262,7 @@ export default function EcosystemRelationship({ className = '', variant = 'dark'
                 }}
               >
                 <span>Commercial CAS Solutions →</span>
-              </Link>
+              </StcLink>
             </div>
           </article>
         </div>
