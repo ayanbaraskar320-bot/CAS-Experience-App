@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* STC Innovations Enterprise Design System Classes */
+.font-stc-heading {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-stc-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.stc-text-gradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #0052CC 60%, #1D4ED8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stc-cyan-wave-gradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #1D4ED8 100%);
+}
+
+.stc-surface-mesh {
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 82, 204, 0.05) 0%, transparent 40%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.stc-card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+}
+
+.stc-card-shadow-hover {
+  box-shadow: 0 10px 30px -5px rgba(0, 82, 204, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
