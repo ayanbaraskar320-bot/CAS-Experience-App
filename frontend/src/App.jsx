@@ -11,6 +11,7 @@ import AudienceIntentRouting from './components/AudienceIntentRouting'
 import FounderStory from './components/FounderStory'
 import RuralWorkforce from './components/RuralWorkforce'
 import CasTechnologyPreview, { CasTechnologyTeaser } from './components/CasTechnologyPreview'
+import StcLink from './components/StcLink'
 
 const TOP_NAV = [
   { label: 'Home', path: '/' },
@@ -837,21 +838,17 @@ function AppShell() {
               {/* RIGHT: Persistent Action Items (Far-Right Header) */}
               <div className="flex items-center gap-x-1.5 2xl:gap-x-2.5 flex-shrink-0">
                 {/* External Handoff Link: Strictly Commercial CAS Solutions → STC Innovations */}
-                <NavLink
-                  to="/stc"
-                  className={({ isActive }) =>
-                    `hidden xl:inline-flex border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 px-2 2xl:px-2.5 py-1 text-[11px] 2xl:text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg ${
-                      isActive ? 'bg-cyan-900/60 border-cyan-400 text-white' : ''
-                    }`
-                  }
+                <StcLink
+                  className="hidden xl:inline-flex border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 px-2 2xl:px-2.5 py-1 text-[11px] 2xl:text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
                   title="Commercial CAS Solutions → STC Innovations"
+                  label="Commercial CAS Solutions → STC Innovations"
                 >
                   <span className="hidden 2xl:inline">Commercial CAS Solutions → STC Innovations</span>
                   <span className="inline 2xl:hidden">Commercial CAS → STC</span>
                   <svg className="w-3 h-3 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </NavLink>
+                </StcLink>
 
                 {/* Primary Button: Strictly 'Begin Free Scan' */}
                 <Link
@@ -1157,12 +1154,12 @@ function AppShell() {
                 </div>
 
                 {/* Handoff item */}
-                <NavLink to="/stc" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-cyan-500/40 bg-cyan-950/40 text-cyan-200 text-sm font-semibold flex items-center justify-between mt-2">
+                <StcLink onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-cyan-500/40 bg-cyan-950/40 text-cyan-200 text-sm font-semibold flex items-center justify-between mt-2">
                   <span>Commercial CAS Solutions → STC Innovations</span>
                   <svg className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
-                </NavLink>
+                </StcLink>
               </nav>
 
               {/* Mobile CTA Button */}
@@ -3839,13 +3836,12 @@ function Footer() {
               Commercial licensing and private enterprise deployments of the ElevIQ Capability Alignment System™ are managed directly by STC Innovations.
             </p>
           </div>
-          <Link
-            to="/stc"
+          <StcLink
             className="shrink-0 rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] px-6 py-3 text-xs sm:text-sm font-bold text-slate-950 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(0,210,255,0.3)] inline-flex items-center gap-2"
           >
             <span>Commercial Solutions → STC Innovations</span>
             <span aria-hidden="true">↗</span>
-          </Link>
+          </StcLink>
         </div>
 
         {/* Master 4-Column Ecosystem Grid */}
@@ -3972,10 +3968,10 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/stc" className="text-cyan-300 hover:text-white font-semibold transition-colors flex items-center gap-1">
+                <StcLink className="text-cyan-300 hover:text-white font-semibold transition-colors flex items-center gap-1">
                   <span>Commercial Solutions</span>
                   <span aria-hidden="true">↗</span>
-                </Link>
+                </StcLink>
               </li>
               <li>
                 <Link to="/individuals/trust" className="text-slate-300 hover:text-cyan-300 transition-colors">
@@ -5276,12 +5272,11 @@ function OrganizationsHome() {
                 Request a configured demonstration to review current, in-development, and planned capabilities for your use case.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/stc"
+                <StcLink
                   className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Visit Standalone STC Innovations Portal ↗
-                </Link>
+                </StcLink>
                 <Link
                   to="/organizations/pricing-demo"
                   className="rounded-full border border-sky-400/30 bg-sky-950/40 hover:bg-sky-900/60 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white transition shadow-sm"

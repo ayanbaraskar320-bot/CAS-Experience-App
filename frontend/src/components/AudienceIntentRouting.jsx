@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import StcLink from './StcLink'
 
 export const AUDIENCE_PATHS = [
   {
@@ -464,16 +465,15 @@ export default function AudienceIntentRouting({
                         </Link>
                       ) : path.isCommercial ? (
                         /* Card 10: Routes to STC Commercial Portal */
-                        <Link
-                          to="/stc"
+                        <StcLink
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-500/50 bg-purple-950/70 hover:bg-purple-900 text-purple-300 hover:text-purple-100 transition-all duration-200 shadow-sm"
                         >
                           <span>Commercial CAS → STC</span>
                           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
-                        </Link>
+                        </StcLink>
                       ) : (
                         /* Cards 02 through 09: Auto-selects and smooth scrolls down to inquiry form */
                         <button
@@ -540,13 +540,12 @@ export default function AudienceIntentRouting({
                       </p>
                     </div>
                   </div>
-                  <Link
-                    to="/stc"
+                  <StcLink
                     className="rounded-full bg-purple-500 hover:bg-purple-400 text-slate-950 px-5 py-2.5 text-xs font-bold whitespace-nowrap transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:scale-105 flex-shrink-0 self-stretch sm:self-auto text-center inline-flex items-center justify-center gap-1.5"
                   >
                     <span>Visit STC Innovations Commercial Portal</span>
                     <span>→</span>
-                  </Link>
+                  </StcLink>
                 </div>
               )}
 
@@ -726,13 +725,12 @@ export default function AudienceIntentRouting({
                         {selectedAudience.isCommercial ? (
                           /* Commercial intent actions */
                           <>
-                            <Link
-                              to="/stc"
+                            <StcLink
                               className="rounded-full bg-purple-500 hover:bg-purple-400 text-slate-950 px-6 py-2.5 text-xs sm:text-sm font-bold transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2"
                             >
                               <span>Visit STC Innovations Commercial Portal</span>
                               <span>→</span>
-                            </Link>
+                            </StcLink>
                             <button
                               type="submit"
                               disabled={isSubmitting}
