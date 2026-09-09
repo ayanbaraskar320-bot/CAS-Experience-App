@@ -135,12 +135,12 @@ export default function STCDemoModal({ isOpen, onClose, initialInterest = '' }) 
         {/* Top Header Strip */}
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* STC Stylized Ribbon Delta Mark */}
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00D2FF] via-[#0052CC] to-[#1D4ED8] flex items-center justify-center shadow-md shadow-blue-500/20 text-white shrink-0">
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
+            {/* STC Ribbon Delta Mark */}
+            <img
+              src="/stc-mark.png"
+              alt="STC Innovations Mark"
+              className="w-10 h-10 object-contain drop-shadow-sm shrink-0"
+            />
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-stc-heading font-extrabold text-base tracking-tight text-slate-900">

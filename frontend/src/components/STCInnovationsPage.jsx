@@ -37,23 +37,14 @@ export default function STCInnovationsPage() {
           {/* Left: STC Innovations Official Logo */}
           <Link
             to="/stc"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC] rounded-xl p-1 shrink-0"
+            className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC] rounded-xl p-1 shrink-0"
             aria-label="STC Innovations Homepage"
           >
-            {/* Stylized Blue Ribbon Delta Mark */}
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#00D2FF] via-[#0052CC] to-[#1D4ED8] flex items-center justify-center shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
-              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-stc-heading text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5">
-                STC Innovations
-              </span>
-              <span className="text-[10px] font-mono font-semibold text-slate-500 tracking-wider uppercase">
-                Innovate. Empower. Elevate.
-              </span>
-            </div>
+            <img
+              src="/stc-innovations-logo.png"
+              alt="STC Innovations - Innovate. Empower. Elevate."
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            />
           </Link>
 
           {/* Center Links (Desktop Nav with Dropdowns) */}
@@ -927,19 +918,13 @@ export default function STCInnovationsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
             {/* Brand Column */}
             <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00D2FF] via-[#0052CC] to-[#1D4ED8] flex items-center justify-center text-white font-bold text-sm">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <span className="font-stc-heading text-xl font-extrabold tracking-tight text-white">
-                  STC Innovations
-                </span>
-              </div>
-              <p className="font-mono text-xs uppercase tracking-wider text-[#00D2FF]">
-                "Innovate. Empower. Elevate."
-              </p>
+              <Link to="/stc" className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg" aria-label="STC Innovations">
+                <img
+                  src="/stc-innovations-logo-white.png"
+                  alt="STC Innovations - Innovate. Empower. Elevate."
+                  className="h-11 sm:h-12 w-auto object-contain"
+                />
+              </Link>
               <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
                 Developer and commercial licensor of the ElevIQ Capability Alignment System™ (CAS). Transforming organizational human-skills intelligence.
               </p>
