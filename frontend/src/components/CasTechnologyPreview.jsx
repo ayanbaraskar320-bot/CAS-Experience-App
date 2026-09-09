@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import StcLink from './StcLink'
 
 export function ProductStatusBadge({ status, size = 'sm' }) {
   switch (status) {
@@ -237,12 +238,11 @@ export default function CasTechnologyPreview() {
               >
                 Begin Free Scan
               </Link>
-              <Link
-                to="/stc"
+              <StcLink
                 className="rounded-full border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 px-4 py-2 text-xs font-semibold transition"
               >
                 Commercial CAS → STC ↗
-              </Link>
+              </StcLink>
             </div>
           </div>
         </div>
