@@ -1,56 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import StcLink from './StcLink'
 
 export const AUDIENCE_PATHS = [
   {
-    id: 'individual',
+    id: 'youth-exploration',
     number: '01',
-    intent: "I'm here for myself or my family",
-    category: 'Individuals & Families',
-    description: 'Free self-discovery, strengths-based reflection, and personalized education or career pathway exploration.',
-    routePath: '/platform/participant-portal',
-    actionLabel: 'Begin Free Scan',
+    intent: "I'm exploring interests, strengths, and early pathways (Ages 13–15)",
+    name: 'Youth Exploration — Ages 13–15',
+    category: 'Ages 13–15',
+    description: 'Early awareness, interest discovery, informal problem-solving, and personal strength exploration free from testing pressure.',
+    routePath: '/platform/participant-portal?entry=youth-exploration',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: '100% Free Participant Scan',
+    badge: 'Youth Exploration (13–15)',
     badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-    anchorIds: ['path-individual', 'path-01'],
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'advisor',
-    number: '02',
-    intent: 'I support students or participants',
-    category: 'Advisors & Navigators',
-    description: 'Counselor, coach, navigator, and case manager enablement tools with CLARA™ intelligence.',
-    routePath: '/platform/eleviq-clara',
-    actionLabel: 'Advisor Resources',
-    entityRoute: 'ElevIQ Foundation',
-    badge: 'Advisor Enablement',
-    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
-    anchorIds: ['path-advisor', 'path-02'],
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'school',
-    number: '03',
-    intent: 'I lead a school or CTE program',
-    category: 'K-12 & CTE Leadership',
-    description: 'Youth Exploration (13–15) and High School / CTE (16–18) career readiness, student agency, and pathway alignment.',
-    routePath: '/individuals/schools-workforce',
-    actionLabel: 'K-12 / CTE Cohorts',
-    entityRoute: 'ElevIQ Foundation',
-    badge: 'Youth & CTE Tracks',
-    badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
-    anchorIds: ['path-school', 'path-03', 'path-schools-cte'],
+    anchorIds: ['path-youth', 'path-01', 'path-individual'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -59,35 +23,18 @@ export const AUDIENCE_PATHS = [
     ),
   },
   {
-    id: 'jobcorps',
-    number: '04',
-    intent: 'I work in Job Corps',
-    category: 'Job Corps Centers',
-    description: 'Vocational trade completion, transition readiness, and counselor-guided capability translation for graduates.',
-    routePath: '/individuals/job-corps',
-    actionLabel: 'Job Corps Guidance',
+    id: 'high-school-cte',
+    number: '02',
+    intent: "I'm preparing for graduation, CTE training, or next steps (Ages 16–18)",
+    name: 'High School / CTE — Ages 16–18',
+    category: 'Ages 16–18',
+    description: 'Career and technical education alignment, practical credential exploration, and post-graduation transition readiness.',
+    routePath: '/platform/participant-portal?entry=high-school-cte',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: 'Vocational Transition',
-    badgeColor: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
-    anchorIds: ['path-jobcorps', 'path-04'],
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'workforce',
-    number: '05',
-    intent: 'I lead a workforce board, NCWorks office, or workforce organization',
-    category: 'Workforce Systems',
-    description: 'Regional workforce board infrastructure, WIOA alignment, adult learner entry, and experienced worker transition.',
-    routePath: '/organizations/solutions',
-    actionLabel: 'Workforce Solutions',
-    entityRoute: 'ElevIQ Foundation',
-    badge: 'Regional Board Infrastructure',
-    badgeColor: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
-    anchorIds: ['path-workforce', 'path-05', 'path-ncworks'],
+    badge: 'High School & CTE (16–18)',
+    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+    anchorIds: ['path-school', 'path-02', 'path-high-school-cte', 'path-cte', 'path-jobcorps'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -95,17 +42,18 @@ export const AUDIENCE_PATHS = [
     ),
   },
   {
-    id: 'college',
-    number: '06',
-    intent: 'I lead a college or adult-learning program',
-    category: 'Higher Ed & Adult Learning',
-    description: 'Community colleges, postsecondary emerging careers, adult basic education, and skills-to-degree bridge models.',
-    routePath: '/organizations/solutions',
-    actionLabel: 'Adult Learning Tracks',
+    id: 'postsecondary',
+    number: '03',
+    intent: "I'm enrolled in or exploring college, technical degrees, or emerging careers",
+    name: 'Postsecondary / Emerging Career',
+    category: 'Emerging Career',
+    description: 'Community college, four-year university, and emerging technical careers, connecting studies to practical real-world roles.',
+    routePath: '/platform/participant-portal?entry=postsecondary',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: 'Postsecondary / Adult Ed',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
-    anchorIds: ['path-college', 'path-06', 'path-community-colleges'],
+    badge: 'Postsecondary / Emerging',
+    badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
+    anchorIds: ['path-college', 'path-03', 'path-postsecondary'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
@@ -113,35 +61,37 @@ export const AUDIENCE_PATHS = [
     ),
   },
   {
-    id: 'nonprofit',
-    number: '07',
-    intent: 'I represent a nonprofit or community organization',
-    category: 'Community & Nonprofits',
-    description: 'Reentry, veteran reintegration, rural initiative cohorts, and strengths-based community partner pilots.',
-    routePath: '/individuals/programs-partners',
-    actionLabel: 'Community Cohorts',
+    id: 'adult-learner',
+    number: '04',
+    intent: "I'm building core capabilities, entering the workforce, or returning to work",
+    name: 'Adult Learner / Workforce Entry',
+    category: 'Workforce Entry',
+    description: 'Foundational literacy, digital capability recognition, up-skilling, and entering or returning to the workforce with confidence.',
+    routePath: '/platform/participant-portal?entry=adult-learner',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: 'Mission Partnerships',
-    badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-    anchorIds: ['path-nonprofit', 'path-07', 'path-community'],
+    badge: 'Adult Learner / Entry',
+    badgeColor: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
+    anchorIds: ['path-workforce', 'path-04', 'path-adult-learner', 'path-ncworks'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
       </svg>
     ),
   },
   {
-    id: 'employer',
-    number: '08',
-    intent: "I'm an employer or regional partner",
-    category: 'Employers & Industry',
-    description: 'Skills-first hiring, Role Alignment™, hidden talent discovery, and regional workforce pipeline collaborations.',
-    routePath: '/platform/role-alignment',
-    actionLabel: 'Talent & Role Alignment',
+    id: 'experienced-worker',
+    number: '05',
+    intent: "I'm navigating an industry transition, technology shift, or mid-career pivot",
+    name: 'Experienced Worker / Career Transition',
+    category: 'Career Transition',
+    description: 'Mid-career pivoting, naming transferable capabilities, and navigating industry transitions or technology adoption.',
+    routePath: '/platform/participant-portal?entry=experienced-worker',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: 'Skills-First Alignment',
-    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
-    anchorIds: ['path-employer', 'path-08', 'path-employers'],
+    badge: 'Experienced / Transition',
+    badgeColor: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
+    anchorIds: ['path-experienced', 'path-05', 'path-employer'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -149,42 +99,60 @@ export const AUDIENCE_PATHS = [
     ),
   },
   {
-    id: 'funder',
-    number: '09',
-    intent: "I'm a funder or foundation",
-    category: 'Philanthropy & Grants',
-    description: 'Philanthropic partnerships, cohort sponsorship, rural opportunity investment, and systemic workforce equity.',
-    routePath: '/individuals/support-the-mission',
-    actionLabel: 'Grant & Mission Alignment',
+    id: 'veteran',
+    number: '06',
+    intent: "I'm transitioning from military service to civilian education or career pathways",
+    name: 'Veteran / Military Transition',
+    category: 'Military Transition',
+    description: 'Translating military specialty codes, tactical leadership, discipline, and operational execution into recognized civilian capability signals.',
+    routePath: '/platform/participant-portal?entry=veteran',
+    actionLabel: 'Begin Alignment Scan',
     entityRoute: 'ElevIQ Foundation',
-    badge: 'Philanthropic Alignment',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    anchorIds: ['path-funder', 'path-09', 'path-funders'],
+    badge: 'Military Transition',
+    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+    anchorIds: ['path-veteran', 'path-06', 'path-military'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
   },
   {
-    id: 'commercial',
-    number: '10',
-    intent: "I'm exploring commercial CAS deployment",
-    category: 'Commercial / Enterprise',
-    description: 'Commercial enterprise licensing, customized proprietary integrations, private cloud deployment, and commercial pricing.',
-    routePath: '/stc',
-    actionLabel: 'Commercial CAS → STC',
-    entityRoute: 'STC Innovations',
-    badge: 'STC Innovations Commercial Handoff',
-    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-    isCommercial: true,
-    anchorIds: ['path-commercial', 'path-10', 'path-stc'],
+    id: 'reentry',
+    number: '07',
+    intent: "I'm rebuilding my career path, overcoming barriers, or re-entering the workforce",
+    name: 'Reentry / Career Rebuilding',
+    category: 'Career Rebuilding',
+    description: 'Overcoming employment gaps or justice-impacted barriers, validating personal resilience, structured support, and fresh career starts.',
+    routePath: '/platform/participant-portal?entry=reentry',
+    actionLabel: 'Begin Alignment Scan',
+    entityRoute: 'ElevIQ Foundation',
+    badge: 'Restorative Reentry',
+    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    anchorIds: ['path-reentry', 'path-07', 'path-nonprofit'],
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
     ),
   },
+]
+
+export const PARTICIPANT_ENTRY_POINTS = AUDIENCE_PATHS
+
+export const PROGRAM_CONTEXT_OPTIONS = [
+  { id: 'general', label: 'None / General Individual Participant' },
+  { id: 'jobcorps', label: 'Job Corps Center / Cohort' },
+  { id: 'ncworks', label: 'NCWorks / Regional Career Center' },
+  { id: 'school', label: 'K-12 School / District' },
+  { id: 'cte', label: 'CTE Program / Vocational Center' },
+  { id: 'community-college', label: 'Community College / Technical Institute' },
+  { id: 'college', label: 'Four-Year College / University' },
+  { id: 'workforce-board', label: 'Workforce Development Board' },
+  { id: 'employer', label: 'Employer / Industry Partner' },
+  { id: 'nonprofit', label: 'Nonprofit / Community Organization' },
+  { id: 'rural-initiative', label: 'Rural / Regional Workforce Initiative' },
+  { id: 'cohort', label: 'Community / Partner Pilot Cohort' },
 ]
 
 export default function AudienceIntentRouting({
@@ -208,7 +176,8 @@ export default function AudienceIntentRouting({
     phone: '',
     role: '',
     audienceIntent: selectedAudience.intent,
-    entityRoute: selectedAudience.entityRoute,
+    programContext: 'None / General Individual Participant',
+    entityRoute: selectedAudience.entityRoute || 'ElevIQ Foundation',
     message: '',
   })
 
@@ -321,7 +290,7 @@ export default function AudienceIntentRouting({
     if (!data.name.trim()) nextErrors.name = 'Full name is required.'
     if (!data.email.trim()) nextErrors.email = 'Email address is required.'
     else if (!/^\S+@\S+\.\S+$/.test(data.email)) nextErrors.email = 'Enter a valid email address.'
-    if (!data.audienceIntent.trim()) nextErrors.audienceIntent = 'Please select your inquiry intent.'
+    if (!data.audienceIntent.trim()) nextErrors.audienceIntent = 'Please select your participant entry point.'
     if (!data.message.trim()) nextErrors.message = 'Please provide details about your inquiry.'
     return nextErrors
   }
@@ -345,6 +314,7 @@ export default function AudienceIntentRouting({
           phone: form.phone || '',
           role: form.role || form.audienceIntent,
           interestArea: form.audienceIntent,
+          programContext: form.programContext,
           entityRoute: form.entityRoute,
           message: form.message,
         }),
@@ -376,17 +346,17 @@ export default function AudienceIntentRouting({
           <div className="space-y-4 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/60 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider text-cyan-300">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              10-Path Audience Intent Routing
+              7 Participant Entry Points
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
               Find Your Path with ElevIQ
             </h2>
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans">
-              Connect directly with the resources, cohort configurations, or team members designed for your role.
+              Choose your entry point to begin the free ElevIQ Alignment Scan™ or connect with advisor guidance.
             </p>
           </div>
 
-          {/* 10 AUDIENCE INTENT CARDS GRID */}
+          {/* 7 PARTICIPANT ENTRY POINT CARDS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
             {AUDIENCE_PATHS.map((path) => {
               const isSelected = selectedAudience.id === path.id
@@ -399,8 +369,6 @@ export default function AudienceIntentRouting({
                   className={`group relative rounded-2xl p-5 border transition-all duration-300 cursor-pointer flex flex-col justify-between scroll-mt-28 ${
                     isSelected
                       ? 'border-cyan-400 bg-slate-900/95 shadow-[0_0_25px_rgba(0,210,255,0.25)] ring-1 ring-cyan-400 scale-[1.01]'
-                      : path.isCommercial
-                      ? 'border-purple-500/30 bg-[#0A0D28]/80 hover:border-purple-400/60 hover:bg-slate-900/90'
                       : 'border-slate-800/80 bg-slate-900/50 hover:border-cyan-500/40 hover:bg-slate-900/80'
                   }`}
                   tabIndex={0}
@@ -420,8 +388,6 @@ export default function AudienceIntentRouting({
                           className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-colors ${
                             isSelected
                               ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300'
-                              : path.isCommercial
-                              ? 'border-purple-500/40 bg-purple-500/10 text-purple-300'
                               : 'border-slate-700 bg-slate-800/80 text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-500/40'
                           }`}
                         >
@@ -429,10 +395,10 @@ export default function AudienceIntentRouting({
                         </div>
                         <div>
                           <span className="font-mono text-[10px] text-cyan-400 font-semibold block">
-                            PATH {path.number} • {path.category}
+                            ENTRY POINT {path.number} • {path.category}
                           </span>
                           <h3 className="font-sans text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
-                            "{path.intent}"
+                            {path.name}
                           </h3>
                         </div>
                       </div>
@@ -451,49 +417,16 @@ export default function AudienceIntentRouting({
                     </span>
 
                     <div className="flex items-center gap-2">
-                      {path.id === 'individual' ? (
-                        /* Card 01: Routes directly to participant portal / scan */
-                        <Link
-                          to="/platform/participant-portal"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 hover:text-white transition-all duration-200 shadow-sm"
-                        >
-                          <span>Begin Free Scan</span>
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </Link>
-                      ) : path.isCommercial ? (
-                        /* Card 10: Routes to STC Commercial Portal */
-                        <StcLink
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-500/50 bg-purple-950/70 hover:bg-purple-900 text-purple-300 hover:text-purple-100 transition-all duration-200 shadow-sm"
-                        >
-                          <span>Commercial CAS → STC</span>
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </StcLink>
-                      ) : (
-                        /* Cards 02 through 09: Auto-selects and smooth scrolls down to inquiry form */
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            handleAudienceSelect(path, true)
-                          }}
-                          className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                            isSelected
-                              ? 'border border-cyan-400 bg-cyan-500/30 text-cyan-200 font-bold shadow-sm'
-                              : 'border border-cyan-500/30 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 hover:text-white'
-                          }`}
-                        >
-                          <span>{path.actionLabel}</span>
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      )}
+                      <Link
+                        to={path.routePath}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 hover:text-white transition-all duration-200 shadow-sm"
+                      >
+                        <span>Begin Free Scan</span>
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -510,253 +443,229 @@ export default function AudienceIntentRouting({
           className="scroll-mt-28 rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-6 sm:p-10 shadow-xl space-y-8 text-white relative overflow-hidden"
         >
           <div id="smart-contact-form" className="space-y-6">
-              <div className="max-w-2xl space-y-2">
-                <span className="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider block">
-                  Direct Team & Partner Inquiry
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Send an Inquiry to the Right Entity
-                </h3>
-                <p className="text-sm text-slate-300">
-                  Select your role intent below. Your inquiry is directed specifically to the appropriate ElevIQ Foundation program lead or STC Innovations commercial director.
-                </p>
-              </div>
+            <div className="max-w-2xl space-y-2">
+              <span className="font-mono text-xs text-cyan-400 font-bold uppercase tracking-wider block">
+                Direct Participant & Pathway Inquiry
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                Connect with ElevIQ Foundation
+              </h3>
+              <p className="text-sm text-slate-300">
+                Select your participant entry point and optional program affiliation below. Your inquiry will connect directly with our pathway team.
+              </p>
+            </div>
 
-              {/* COMMERCIAL NOTICE BANNER (WHEN INTENT #10 IS ACTIVE) */}
-              {selectedAudience.isCommercial && (
-                <div className="rounded-2xl border border-purple-500/40 bg-purple-950/70 p-4 sm:p-5 shadow-lg backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center text-purple-300 flex-shrink-0 mt-0.5">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white">
-                        Commercial CAS Deployment Notice
-                      </h4>
-                      <p className="text-xs text-purple-200/90 leading-relaxed mt-0.5">
-                        Commercial licensing, enterprise deployment, and institutional pricing are managed directly by STC Innovations.
-                      </p>
-                    </div>
+            {/* FORM CONTAINER */}
+            <div className="rounded-2xl bg-slate-900/90 border border-cyan-500/30 p-6 sm:p-8 backdrop-blur-xl">
+              {submitted ? (
+                <div className="text-center py-8 space-y-4 max-w-lg mx-auto">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
                   </div>
-                  <StcLink
-                    className="rounded-full bg-purple-500 hover:bg-purple-400 text-slate-950 px-5 py-2.5 text-xs font-bold whitespace-nowrap transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:scale-105 flex-shrink-0 self-stretch sm:self-auto text-center inline-flex items-center justify-center gap-1.5"
-                  >
-                    <span>Visit STC Innovations Commercial Portal</span>
-                    <span>→</span>
-                  </StcLink>
+                  <h4 className="text-xl font-bold text-white">Inquiry Received</h4>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    Thank you for connecting. Your request has been routed to the{' '}
+                    <strong className="text-cyan-300">{form.entityRoute}</strong> team for personal review and follow-up.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false)
+                        setForm({
+                          name: '',
+                          organization: '',
+                          email: '',
+                          phone: '',
+                          role: '',
+                          audienceIntent: selectedAudience.intent,
+                          programContext: 'None / General Individual Participant',
+                          entityRoute: 'ElevIQ Foundation',
+                          message: '',
+                        })
+                      }}
+                      className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-full transition"
+                    >
+                      Send another message
+                    </button>
+                    <Link
+                      to="/"
+                      className="px-5 py-2 bg-[#00D2FF] hover:bg-[#38BDF8] text-xs font-bold text-slate-950 rounded-full transition shadow-[0_0_12px_rgba(0,210,255,0.4)]"
+                    >
+                      Return Home
+                    </Link>
+                  </div>
                 </div>
-              )}
+              ) : (
+                <form onSubmit={handleSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
+                  {/* PARTICIPANT ENTRY POINT SELECTOR (7 PARTICIPANT ENTRY POINTS) */}
+                  <div className="sm:col-span-2 space-y-1.5">
+                    <label htmlFor="audienceIntent" className="block text-xs font-mono font-bold uppercase tracking-wider text-cyan-300">
+                      Participant Entry Point <span className="text-rose-400">*</span>
+                    </label>
+                    <select
+                      id="audienceIntent"
+                      value={form.audienceIntent}
+                      onChange={handleDropdownChange}
+                      className="w-full bg-slate-950/90 border border-cyan-500/40 hover:border-cyan-400 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 shadow-inner transition-all [&>option]:bg-slate-900 [&>option]:text-white cursor-pointer"
+                    >
+                      {AUDIENCE_PATHS.map((path) => (
+                        <option key={path.id} value={path.intent}>
+                          {path.number}. {path.name}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.audienceIntent && (
+                      <p className="text-xs text-rose-400 font-medium">{errors.audienceIntent}</p>
+                    )}
+                  </div>
 
-              {/* FORM CONTAINER */}
-              <div className="rounded-2xl bg-slate-900/90 border border-cyan-500/30 p-6 sm:p-8 backdrop-blur-xl">
-                {submitted ? (
-                  <div className="text-center py-8 space-y-4 max-w-lg mx-auto">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
-                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <h4 className="text-xl font-bold text-white">Inquiry Received</h4>
-                    <p className="text-sm text-slate-300 leading-relaxed">
-                      Thank you for connecting. Your request has been routed to the{' '}
-                      <strong className="text-cyan-300">{form.entityRoute}</strong> team for personal review and follow-up.
+                  {/* SEPARATE AUDIENCE / PROGRAM CONTEXT FIELD (DOES NOT AFFECT ROUTING) */}
+                  <div className="sm:col-span-2 space-y-1.5">
+                    <label htmlFor="programContext" className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
+                      Audience / Program Context <span className="text-slate-400 font-normal">(Optional context — does not alter scan route)</span>
+                    </label>
+                    <select
+                      id="programContext"
+                      value={form.programContext || 'None / General Individual Participant'}
+                      onChange={(e) => updateField('programContext', e.target.value)}
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 shadow-inner transition-all [&>option]:bg-slate-900 [&>option]:text-white cursor-pointer"
+                    >
+                      {PROGRAM_CONTEXT_OPTIONS.map((ctx) => (
+                        <option key={ctx.id} value={ctx.label}>
+                          {ctx.label}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="text-[11px] text-slate-400 font-sans">
+                      Indicate any associated school, Job Corps center, NCWorks office, community college, or partner initiative.
                     </p>
-                    <div className="flex flex-wrap justify-center gap-3 pt-2">
+                  </div>
+
+                  {/* FULL NAME */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="name" className="block text-xs font-mono font-medium text-slate-300">
+                      Full Name <span className="text-rose-400">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      value={form.name}
+                      onChange={(e) => updateField('name', e.target.value)}
+                      placeholder="Your name"
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                      type="text"
+                      autoComplete="name"
+                    />
+                    {errors.name && <p className="text-xs text-rose-400 font-medium">{errors.name}</p>}
+                  </div>
+
+                  {/* ORGANIZATION / INSTITUTION */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="organization" className="block text-xs font-mono font-medium text-slate-300">
+                      Organization / Institution
+                    </label>
+                    <input
+                      id="organization"
+                      value={form.organization}
+                      onChange={(e) => updateField('organization', e.target.value)}
+                      placeholder="School, agency, company, or self"
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                      type="text"
+                      autoComplete="organization"
+                    />
+                  </div>
+
+                  {/* EMAIL */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-300">
+                      Email Address <span className="text-rose-400">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      value={form.email}
+                      onChange={(e) => updateField('email', e.target.value)}
+                      placeholder="you@domain.com"
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                      type="email"
+                      autoComplete="email"
+                    />
+                    {errors.email && <p className="text-xs text-rose-400 font-medium">{errors.email}</p>}
+                  </div>
+
+                  {/* PHONE NUMBER */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="phone" className="block text-xs font-mono font-medium text-slate-300">
+                      Phone Number (Optional)
+                    </label>
+                    <input
+                      id="phone"
+                      value={form.phone}
+                      onChange={(e) => updateField('phone', e.target.value)}
+                      placeholder="(555) 000-0000"
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                      type="tel"
+                      autoComplete="tel"
+                    />
+                  </div>
+
+                  {/* PROFESSIONAL ROLE */}
+                  <div className="sm:col-span-2 space-y-1.5">
+                    <label htmlFor="role" className="block text-xs font-mono font-medium text-slate-300">
+                      Role / Title
+                    </label>
+                    <input
+                      id="role"
+                      value={form.role}
+                      onChange={(e) => updateField('role', e.target.value)}
+                      placeholder="e.g. Participant, Student, Coach, Navigator, Advisor"
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                      type="text"
+                    />
+                  </div>
+
+                  {/* MESSAGE */}
+                  <div className="sm:col-span-2 space-y-1.5">
+                    <label htmlFor="message" className="block text-xs font-mono font-medium text-slate-300">
+                      Inquiry Details / Context <span className="text-rose-400">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      value={form.message}
+                      onChange={(e) => updateField('message', e.target.value)}
+                      placeholder="Please share what you are looking to accomplish, your timeline, or any specific questions..."
+                      rows={4}
+                      className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all min-h-[100px]"
+                    />
+                    {errors.message && <p className="text-xs text-rose-400 font-medium">{errors.message}</p>}
+                  </div>
+
+                  {/* SUBMISSION BUTTONS */}
+                  <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
+                      <span>Routing:</span>
+                      <span className="font-bold text-cyan-300">
+                        {form.entityRoute}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
                       <button
-                        type="button"
-                        onClick={() => {
-                          setSubmitted(false)
-                          setForm({
-                            name: '',
-                            organization: '',
-                            email: '',
-                            phone: '',
-                            role: '',
-                            audienceIntent: selectedAudience.intent,
-                            entityRoute: selectedAudience.entityRoute,
-                            message: '',
-                          })
-                        }}
-                        className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-full transition"
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-6 py-2.5 text-xs sm:text-sm font-bold transition-all shadow-[0_0_15px_rgba(0,210,255,0.4)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                       >
-                        Send another message
+                        {isSubmitting ? 'Sending...' : `Send Inquiry to ${form.entityRoute}`}
                       </button>
-                      <Link
-                        to="/"
-                        className="px-5 py-2 bg-[#00D2FF] hover:bg-[#38BDF8] text-xs font-bold text-slate-950 rounded-full transition shadow-[0_0_12px_rgba(0,210,255,0.4)]"
-                      >
-                        Return Home
-                      </Link>
                     </div>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
-                    {/* INTENT SELECTOR (PRE-POPULATED WITH 10 INTENTS) */}
-                    <div className="sm:col-span-2 space-y-1.5">
-                      <label htmlFor="audienceIntent" className="block text-xs font-mono font-bold uppercase tracking-wider text-cyan-300">
-                        Inquiry Intent / Role Path <span className="text-rose-400">*</span>
-                      </label>
-                      <select
-                        id="audienceIntent"
-                        value={form.audienceIntent}
-                        onChange={handleDropdownChange}
-                        className="w-full bg-slate-950/90 border border-cyan-500/40 hover:border-cyan-400 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 shadow-inner transition-all [&>option]:bg-slate-900 [&>option]:text-white cursor-pointer"
-                      >
-                        {AUDIENCE_PATHS.map((path) => (
-                          <option key={path.id} value={path.intent}>
-                            Path {path.number}: {path.intent} ({path.category})
-                          </option>
-                        ))}
-                      </select>
-                      {errors.audienceIntent && (
-                        <p className="text-xs text-rose-400 font-medium">{errors.audienceIntent}</p>
-                      )}
-                    </div>
-
-                    {/* FULL NAME */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="name" className="block text-xs font-mono font-medium text-slate-300">
-                        Full Name <span className="text-rose-400">*</span>
-                      </label>
-                      <input
-                        id="name"
-                        value={form.name}
-                        onChange={(e) => updateField('name', e.target.value)}
-                        placeholder="Your name"
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
-                        type="text"
-                        autoComplete="name"
-                      />
-                      {errors.name && <p className="text-xs text-rose-400 font-medium">{errors.name}</p>}
-                    </div>
-
-                    {/* ORGANIZATION / INSTITUTION */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="organization" className="block text-xs font-mono font-medium text-slate-300">
-                        Organization / Institution
-                      </label>
-                      <input
-                        id="organization"
-                        value={form.organization}
-                        onChange={(e) => updateField('organization', e.target.value)}
-                        placeholder="School, agency, company, or self"
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
-                        type="text"
-                        autoComplete="organization"
-                      />
-                    </div>
-
-                    {/* EMAIL */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-300">
-                        Email Address <span className="text-rose-400">*</span>
-                      </label>
-                      <input
-                        id="email"
-                        value={form.email}
-                        onChange={(e) => updateField('email', e.target.value)}
-                        placeholder="you@domain.com"
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
-                        type="email"
-                        autoComplete="email"
-                      />
-                      {errors.email && <p className="text-xs text-rose-400 font-medium">{errors.email}</p>}
-                    </div>
-
-                    {/* PHONE NUMBER */}
-                    <div className="space-y-1.5">
-                      <label htmlFor="phone" className="block text-xs font-mono font-medium text-slate-300">
-                        Phone Number (Optional)
-                      </label>
-                      <input
-                        id="phone"
-                        value={form.phone}
-                        onChange={(e) => updateField('phone', e.target.value)}
-                        placeholder="(555) 000-0000"
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
-                        type="tel"
-                        autoComplete="tel"
-                      />
-                    </div>
-
-                    {/* PROFESSIONAL ROLE */}
-                    <div className="sm:col-span-2 space-y-1.5">
-                      <label htmlFor="role" className="block text-xs font-mono font-medium text-slate-300">
-                        Role / Title
-                      </label>
-                      <input
-                        id="role"
-                        value={form.role}
-                        onChange={(e) => updateField('role', e.target.value)}
-                        placeholder="e.g. Participant, CTE Director, Workforce Coordinator, Navigator, Executive Director"
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
-                        type="text"
-                      />
-                    </div>
-
-                    {/* MESSAGE */}
-                    <div className="sm:col-span-2 space-y-1.5">
-                      <label htmlFor="message" className="block text-xs font-mono font-medium text-slate-300">
-                        Inquiry Details / Context <span className="text-rose-400">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        value={form.message}
-                        onChange={(e) => updateField('message', e.target.value)}
-                        placeholder="Please share what you are looking to accomplish, your timeline, or any specific questions..."
-                        rows={4}
-                        className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all min-h-[100px]"
-                      />
-                      {errors.message && <p className="text-xs text-rose-400 font-medium">{errors.message}</p>}
-                    </div>
-
-                    {/* SUBMISSION BUTTONS */}
-                    <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3 pt-2">
-                      <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
-                        <span>Routing:</span>
-                        <span className={`font-bold ${selectedAudience.isCommercial ? 'text-purple-300' : 'text-cyan-300'}`}>
-                          {form.entityRoute}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-wrap gap-3">
-                        {selectedAudience.isCommercial ? (
-                          /* Commercial intent actions */
-                          <>
-                            <StcLink
-                              className="rounded-full bg-purple-500 hover:bg-purple-400 text-slate-950 px-6 py-2.5 text-xs sm:text-sm font-bold transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2"
-                            >
-                              <span>Visit STC Innovations Commercial Portal</span>
-                              <span>→</span>
-                            </StcLink>
-                            <button
-                              type="submit"
-                              disabled={isSubmitting}
-                              className="rounded-full border border-purple-500/40 bg-purple-950/40 hover:bg-purple-900/60 text-purple-300 hover:text-white px-5 py-2.5 text-xs sm:text-sm font-semibold transition cursor-pointer disabled:opacity-50"
-                            >
-                              {isSubmitting ? 'Sending...' : 'Submit Commercial Note'}
-                            </button>
-                          </>
-                        ) : (
-                          /* Foundation mission actions */
-                          <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-6 py-2.5 text-xs sm:text-sm font-bold transition-all shadow-[0_0_15px_rgba(0,210,255,0.4)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                          >
-                            {isSubmitting ? 'Sending...' : `Send Inquiry to ${form.entityRoute}`}
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </form>
-                )}
-              </div>
+                </form>
+              )}
             </div>
           </div>
-        )}
+        </div>
+      )}
     </div>
   )
 }

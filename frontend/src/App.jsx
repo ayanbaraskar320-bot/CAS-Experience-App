@@ -1893,7 +1893,7 @@ function HomePage() {
       </ScrollReveal>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 7. 10-PATH AUDIENCE INTENT ROUTING GRID */}
+      {/* 7. 7 PARTICIPANT ENTRY POINTS ROUTING GRID */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
       <div id="audience-routing" className="scroll-mt-24">
         <ScrollReveal>
