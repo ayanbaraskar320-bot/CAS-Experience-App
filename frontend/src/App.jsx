@@ -1571,11 +1571,8 @@ function HomePage() {
               <p>
                 Too many people have real capability, experience, judgment, creativity, resilience, service, and problem-solving ability that traditional systems do not fully see. A resume can show where someone has worked. A credential can show what someone has completed. A job title can show what someone has been called. None of those things, by themselves, tell the whole story of what a person can contribute.
               </p>
-              <div className="p-5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-white font-medium text-base sm:text-lg shadow-inner space-y-2">
+              <div className="p-5 sm:p-6 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-white font-medium text-base sm:text-lg shadow-inner leading-relaxed">
                 <span className="text-[#0FA88A] font-bold">ElevIQ helps make more of that capability visible</span> and then works with people and trusted partners to connect insight to practical next steps.
-                <p className="font-serif italic text-cyan-200 text-sm sm:text-base pt-1 border-t border-cyan-500/20">
-                  "What someone has done before doesn't always tell us what they're capable of doing next."
-                </p>
               </div>
             </div>
 

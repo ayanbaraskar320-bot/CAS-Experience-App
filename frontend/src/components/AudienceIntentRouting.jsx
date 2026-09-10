@@ -164,9 +164,9 @@ export default function AudienceIntentRouting({
   const navigate = useNavigate()
   const [selectedAudience, setSelectedAudience] = useState(() => {
     if (initialAudienceId) {
-      return AUDIENCE_PATHS.find((p) => p.id === initialAudienceId) || AUDIENCE_PATHS[0]
+      return AUDIENCE_PATHS.find((p) => p.id === initialAudienceId) || null
     }
-    return AUDIENCE_PATHS[0]
+    return null
   })
 
   const [form, setForm] = useState({
@@ -175,9 +175,9 @@ export default function AudienceIntentRouting({
     email: '',
     phone: '',
     role: '',
-    audienceIntent: selectedAudience.intent,
+    audienceIntent: selectedAudience?.intent || AUDIENCE_PATHS[0].intent,
     programContext: 'None / General Individual Participant',
-    entityRoute: selectedAudience.entityRoute || 'ElevIQ Foundation',
+    entityRoute: selectedAudience?.entityRoute || 'ElevIQ Foundation',
     message: '',
   })
 
@@ -361,7 +361,7 @@ export default function AudienceIntentRouting({
           {/* 7 PARTICIPANT ENTRY POINT CARDS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
             {AUDIENCE_PATHS.map((path) => {
-              const isSelected = selectedAudience.id === path.id
+              const isSelected = selectedAudience?.id === path.id
               return (
                 <div
                   key={path.id}
