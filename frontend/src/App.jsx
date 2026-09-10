@@ -1543,7 +1543,7 @@ function HomePage() {
                 <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span className="text-[#0FA88A] font-semibold">✓ No Test Pressure</span>
                   <span>•</span>
-                  {/* Privacy/data-practice language pending separate approval */}
+                  <span className="text-cyan-300 font-semibold">✓ Participant-Guided Reflection</span>
                 </div>
               </div>
             </div>
@@ -1877,7 +1877,12 @@ function HomePage() {
                 </p>
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                {/* Privacy/data-practice language pending separate approval */}
+                <h4 className="font-sans text-sm font-bold text-white flex items-center gap-2">
+                  <span className="text-[#0FA88A]">●</span> Participant Agency
+                </h4>
+                <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                  Participants guide their own reflection with ARIA™ assistance, choosing what context to share, when to proceed, and which pathways to explore alongside trusted guides.
+                </p>
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
                 <h4 className="font-sans text-sm font-bold text-white flex items-center gap-2">
@@ -2093,7 +2098,12 @@ function ParticipantPortalPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Participant-Guided Experience
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                Individuals explore scenarios and reflect on capabilities at their own pace, deciding what context to document and which goals to share with their mentors or advisors.
+              </p>
             </div>
 
             {/* Point 2 */}
@@ -3448,7 +3458,12 @@ function SupportConnectionsPage() {
             </div>
 
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Participant-Centered Coordination
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                Participants engage directly with their mentor network, reviewing shared reflections and collaborative pathway planning next steps.
+              </p>
             </div>
           </div>
         </section>
@@ -4368,7 +4383,12 @@ function IndividualsHome() {
             </h3>
             <div className="grid gap-8 md:grid-cols-3">
               <div className="space-y-3">
-                {/* Privacy/data-practice language pending separate approval */}
+                <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                  Transparent Agency
+                </h4>
+                <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                  Participants guide their own exploration without opaque algorithms or automated pass/fail rejection.
+                </p>
               </div>
               <div className="space-y-3">
                 <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
@@ -4575,7 +4595,12 @@ function IndividualsHowItWorks() {
               </p>
             </div>
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Participant-First Agency
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                You decide how you explore your capabilities and share reflections with coaches and pathway programs.
+              </p>
             </div>
           </div>
         </section>
@@ -5031,7 +5056,7 @@ function IndividualsSupportMission() {
 
 function IndividualsTrustGovernance() {
   const metrics = [
-    { value: 'POLICY', title: 'Data Practice Architecture', isPending: true },
+    { value: 'POLICY', title: 'Data Practice Governance', desc: 'Designed with human oversight, participant consent, and privacy-conscious workflows.' },
     { value: '0', title: 'Black-Box AI Scores', desc: 'We replace automated ranking algorithms and rigid testing scores. Your capabilities are represented in authentic language.' },
     { value: 'HUMAN', title: 'Coaching Oversight First', desc: 'Trained human advisors review all shared milestone entries alongside you, ensuring guidance stays supportive.' },
     { value: 'FREE', title: 'Always Free to Participants', desc: 'Individual job seekers, students, and community members never pay fees to build, store, or share snapshots.' }
@@ -5075,30 +5100,22 @@ function IndividualsTrustGovernance() {
               key={metric.title}
               className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              {metric.isPending ? (
-                <div className="space-y-3 py-6 text-center text-xs text-slate-500 font-sans">
-                  {/* Privacy/data-practice language pending separate approval */}
-                </div>
-              ) : (
-                <>
-                  <div className="space-y-3">
-                    <span className="font-mono text-3xl font-bold text-[#0284C7] tracking-tight block">
-                      {metric.value}
-                    </span>
-                    <h3 className="font-sans text-base font-bold text-slate-900">
-                      {metric.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-slate-600 font-sans">
-                      {metric.desc}
-                    </p>
-                  </div>
-                  <div className="pt-2 border-t border-slate-100">
-                    <span className="text-[10px] font-mono font-semibold text-[#0284C7] uppercase tracking-wider">
-                      Guaranteed Standard
-                    </span>
-                  </div>
-                </>
-              )}
+              <div className="space-y-3">
+                <span className="font-mono text-3xl font-bold text-[#0284C7] tracking-tight block">
+                  {metric.value}
+                </span>
+                <h3 className="font-sans text-base font-bold text-slate-900">
+                  {metric.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-slate-600 font-sans">
+                  {metric.desc}
+                </p>
+              </div>
+              <div className="pt-2 border-t border-slate-100">
+                <span className="text-[10px] font-mono font-semibold text-[#0284C7] uppercase tracking-wider">
+                  Guaranteed Standard
+                </span>
+              </div>
             </div>
           ))}
         </section>
@@ -5112,7 +5129,12 @@ function IndividualsTrustGovernance() {
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Participant Consent First
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                Workflows require participant consent before reflections or milestone summaries are shared with authorized advisors.
+              </p>
             </div>
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
@@ -5123,7 +5145,12 @@ function IndividualsTrustGovernance() {
               </p>
             </div>
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Correction & Support Pathways
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                Participants have direct paths to review, update, or clarify documented capability reflections alongside coaches.
+              </p>
             </div>
           </div>
         </section>
@@ -5380,7 +5407,7 @@ function OrganizationsHome() {
                 Infrastructure Calibration Focus
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency. {/* Privacy/data-practice language pending separate approval */}
+                System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency.
               </p>
             </div>
           </div>
@@ -5459,7 +5486,7 @@ function OrganizationsImplementation() {
       bullets: [
         'Free participant access activation',
         'Self-guided experience capture',
-        {/* Privacy/data-practice language pending separate approval */}
+        'Participant-guided reflection controls'
       ],
       badge: 'PHASE 03: ONBOARDING'
     },
@@ -5529,17 +5556,11 @@ function OrganizationsImplementation() {
                       {step.desc}
                     </p>
                     <ul className="space-y-2 text-xs font-sans text-slate-600">
-                      {step.bullets.map((bullet, bIdx) => (
-                        typeof bullet === 'string' ? (
-                          <li key={bullet} className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] shrink-0" />
-                            <span>{bullet}</span>
-                          </li>
-                        ) : (
-                          <React.Fragment key={bIdx}>
-                            {/* Privacy/data-practice language pending separate approval */}
-                          </React.Fragment>
-                        )
+                      {step.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -6294,7 +6315,12 @@ function AboutPage() {
 
             {/* Point 2 */}
             <div className="space-y-3">
-              {/* Privacy/data-practice language pending separate approval */}
+              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
+                Participant Agency & Privacy
+              </h4>
+              <p className="text-sm leading-relaxed text-slate-300 font-sans">
+                Individual reflections remain participant-guided. Organizational dashboards display aggregated, program-level capability insights.
+              </p>
             </div>
 
             {/* Point 3 */}
@@ -6908,7 +6934,20 @@ function FaqPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {/* Privacy/data-practice language pending separate approval */}
+            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7] shrink-0 border border-sky-200">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <div className="space-y-1">
+              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
+                GOVERNANCE
+              </span>
+              <h3 className="font-sans text-lg font-bold text-slate-900">Data Privacy & Agency</h3>
+            </div>
+            <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
+              Explains how the platform keeps individuals in control of their reflection data, ensuring no third-party matching occurs without participant consent.
+            </p>
           </div>
 
           <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">

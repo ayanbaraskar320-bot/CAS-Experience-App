@@ -350,7 +350,8 @@ export default function STCInnovationsPage() {
                     <div className="text-xs text-slate-500 font-medium">Black-Box Rejections</div>
                   </div>
                   <div>
-                    {/* Privacy/data-practice language pending separate approval */}
+                    <div className="font-stc-heading text-lg sm:text-xl font-extrabold text-slate-900">Human</div>
+                    <div className="text-xs text-slate-500 font-medium">Coaching Oversight</div>
                   </div>
                 </div>
               </div>
