@@ -4,36 +4,46 @@ import StcLink from './StcLink'
 
 export function ProductStatusBadge({ status, size = 'sm' }) {
   switch (status) {
-    case 'active':
-    case 'Active / Free for Individuals':
+    case 'Preview':
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          Active / Free for Individuals
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-cyan-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-cyan-300 shadow-[0_0_12px_rgba(0,210,255,0.2)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+          Preview
         </span>
       )
-    case 'pilot':
-    case 'Partner Pilot Active':
+    case 'In Development':
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.25)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-          Partner Pilot Active
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.2)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+          In Development
         </span>
       )
-    case 'configured':
-    case 'Configured Scope':
+    case 'Configured':
       return (
         <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-400/40 bg-sky-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
           <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-          Configured Scope
+          Configured
         </span>
       )
-    case 'integration':
-    case 'Community Integration':
+    case 'In Testing':
       return (
         <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/40 bg-indigo-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-indigo-300 shadow-[0_0_12px_rgba(129,140,248,0.2)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-          Community Integration
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+          In Testing
+        </span>
+      )
+    case 'Validated':
+      return (
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-400/40 bg-teal-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-teal-300 shadow-[0_0_12px_rgba(20,184,166,0.2)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+          Validated
+        </span>
+      )
+    case 'Live':
+      return (
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/40 bg-emerald-950/60 px-3 py-1 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Live
         </span>
       )
     default:
@@ -50,11 +60,12 @@ export default function CasTechnologyPreview() {
     {
       id: 'participant-portal',
       num: '01',
-      title: 'ElevIQ Participant Portal & ARIA™',
-      subhead: 'Participant-Facing Discovery & Reflective Inquiry',
+      title: 'Module 01 — Participant Experience',
+      subhead: 'Participant Portal — Configured / In Testing',
       scope:
-        'Self-paced Alignment Scan™, plain-language Capability Signals™, personal Alignment Snapshot™, and participant-facing reflective guidance with ARIA™.',
-      status: 'Active / Free for Individuals',
+        'The participant experience brings together tools designed to support reflection, capability discovery, and pathway exploration.',
+      emphasizedLine: 'The ElevIQ Alignment Scan™ is free for individual participants.',
+      status: 'In Testing',
       keyTools: [
         'Alignment Scan™',
         'Capability Signals™',
@@ -79,11 +90,13 @@ export default function CasTechnologyPreview() {
     {
       id: 'community-console',
       num: '02',
-      title: 'Community Intelligence Console™ & CLARA™',
-      subhead: 'Advisor Enablement & Regional Cohort Workflows',
-      scope:
-        'Advisor workflow, participant snapshot debriefs, Support Planning tools, cohort tracking, and advisor-facing CLARA™ intelligence.',
-      status: 'Partner Pilot Active',
+      title: 'Module 02 — Community Intelligence Console™',
+      subhead: 'Community Intelligence Console™ — Configured / In Testing | ElevIQ CLARA™ — Configured / Verification Required',
+      bodyParagraphs: [
+        'The Community Intelligence Console™ is being configured and tested to support appropriate organization and advisor workflows.',
+        'ElevIQ CLARA™ is configured for organization, advisor, and staff-facing support. Its exact availability and boundaries must be confirmed for the specific environment before it is described as broadly available, Live, or Validated.'
+      ],
+      status: 'Configured',
       keyTools: [
         'Community Intelligence Console™',
         'ElevIQ CLARA™ Assistant',
@@ -109,7 +122,7 @@ export default function CasTechnologyPreview() {
       subhead: 'Operational Role Benchmarking & Skills-First Mapping',
       scope:
         'Skills-first role benchmarks, job description alignment, and capability mapping (CAS is not a hiring decision engine).',
-      status: 'Configured Scope',
+      status: 'Configured',
       keyTools: [
         'Role Alignment™ Benchmarks',
         'Operational Capability Map',
@@ -135,11 +148,14 @@ export default function CasTechnologyPreview() {
     {
       id: 'last-mile',
       num: '04',
-      title: 'The ElevIQ Last Mile™ & Support Handoffs',
-      subhead: 'Community Integration & Human-Guided Next Steps',
-      scope:
-        'Human-guided navigation to local training, supportive services, transportation, childcare, and regional employers.',
-      status: 'Community Integration',
+      title: 'Module 04 — The ElevIQ Last Mile™ & Support Connections',
+      subhead: 'Support Connections — In Development / Configured in Parts',
+      bodyParagraphs: [
+        'The ElevIQ Last Mile™ describes the supported movement from reflection and exploration toward an appropriate practical next step.',
+        'Support Connections may help support that movement where confirmed people, resources, programs, relationships, and permissions are available within the specific partner or community context.',
+        'Availability and configuration vary by implementation environment.'
+      ],
+      status: 'In Development',
       keyTools: [
         'Support Connections',
         'The ElevIQ Last Mile™',
@@ -162,28 +178,28 @@ export default function CasTechnologyPreview() {
 
   const statusDefinitions = [
     {
-      badge: 'Active / Free for Individuals',
+      badge: 'In Testing',
       meaning:
-        'Fully implemented in production. Free and open to all individual participants at zero cost, with participant data sovereignty & privacy controls.',
-      color: 'border-emerald-500/40 text-emerald-300 bg-emerald-950/50'
+        'Configured and undergoing active verification to support reflection, capability discovery, and pathway exploration.',
+      color: 'border-indigo-500/40 text-indigo-300 bg-indigo-950/50'
     },
     {
-      badge: 'Partner Pilot Active',
+      badge: 'Configured',
       meaning:
-        'Active in approved institutional and regional pilot cohorts (schools, workforce boards, Job Corps centers, and adult learning programs).',
-      color: 'border-amber-500/40 text-amber-300 bg-amber-950/50'
-    },
-    {
-      badge: 'Configured Scope',
-      meaning:
-        'Defined capability frameworks tailored to specific organizational or employer partner configurations upon formal agreement.',
+        'Configured to support appropriate organization, advisor, and cohort workflows within verified partner environments.',
       color: 'border-sky-500/40 text-sky-300 bg-sky-950/50'
     },
     {
-      badge: 'Community Integration',
+      badge: 'In Development',
       meaning:
-        'Connected ecosystem handoffs actively bridging capability insight with local support networks, transportation, and regional employers.',
-      color: 'border-indigo-500/40 text-indigo-300 bg-indigo-950/50'
+        'In active design and engineering. Core features and workflows are being built and tested before configuration.',
+      color: 'border-amber-500/40 text-amber-300 bg-amber-950/50'
+    },
+    {
+      badge: 'Preview',
+      meaning:
+        'Demonstration and architecture review available for partner discovery and scope confirmation.',
+      color: 'border-cyan-500/40 text-cyan-300 bg-cyan-950/50'
     }
   ]
 
@@ -203,7 +219,7 @@ export default function CasTechnologyPreview() {
               PRODUCT ARCHITECTURE & CAPABILITY PREVIEW
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/60 px-3 py-1 font-mono text-[11px] font-medium text-emerald-300">
-              100% Free for Individual Participants
+              The ElevIQ Alignment Scan™ is free for individual participants
             </span>
           </div>
 
@@ -217,7 +233,7 @@ export default function CasTechnologyPreview() {
           </div>
 
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans max-w-3xl">
-            The ElevIQ Capability Alignment System provides a non-diagnostic, strengths-based architecture designed to illuminate real human potential. It equips participants with clear self-knowledge and enables frontline navigators, educators, and employers to collaborate around shared capability signals rather than blunt credential filters.
+            The ElevIQ Capability Alignment System provides an exploratory, strengths-based architecture designed to illuminate real human potential. It equips participants with clear self-knowledge and enables frontline navigators, educators, and employers to collaborate around shared capability signals rather than blunt credential filters.
           </p>
 
           {/* ECOSYSTEM CONTEXT BANNER */}
@@ -262,7 +278,7 @@ export default function CasTechnologyPreview() {
             </h2>
           </div>
           <p className="text-xs font-mono text-slate-600">
-            Validated architecture • Human-in-the-loop workflows
+            Configured architecture • Human-in-the-loop workflows
           </p>
         </div>
 
@@ -289,7 +305,15 @@ export default function CasTechnologyPreview() {
                     </div>
                   </div>
 
-                  <ProductStatusBadge status={mod.status} />
+                  {mod.statuses ? (
+                    <div className="flex flex-col items-end gap-1.5">
+                      {mod.statuses.map((st) => (
+                        <ProductStatusBadge key={st} status={st} />
+                      ))}
+                    </div>
+                  ) : (
+                    <ProductStatusBadge status={mod.status} />
+                  )}
                 </div>
 
                 {/* Module Title & Scope */}
@@ -297,9 +321,22 @@ export default function CasTechnologyPreview() {
                   <h3 className="font-sans text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {mod.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    {mod.scope}
-                  </p>
+                  {mod.bodyParagraphs ? (
+                    <div className="space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                      {mod.bodyParagraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                      {mod.scope}
+                    </p>
+                  )}
+                  {mod.emphasizedLine && (
+                    <p className="text-xs sm:text-sm text-cyan-300 font-semibold leading-relaxed font-sans pt-1">
+                      {mod.emphasizedLine}
+                    </p>
+                  )}
                 </div>
 
                 {/* Key Tools / Capabilities */}
@@ -409,7 +446,7 @@ export default function CasTechnologyPreview() {
 
         <div className="grid gap-3.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { title: 'Participant Portal (Free)', link: '/platform/participant-portal' },
+            { title: 'Participant Portal', link: '/platform/participant-portal' },
             { title: 'Capability Signals™', link: '/platform/capability-signals' },
             { title: 'Alignment Snapshot™', link: '/platform/alignment-snapshot' },
             { title: 'ElevIQ ARIA™', link: '/platform/eleviq-aria' },
@@ -441,30 +478,30 @@ export function CasTechnologyTeaser() {
   const previewCards = [
     {
       num: '01',
-      title: 'Participant Portal & ARIA™',
-      desc: 'Self-paced Alignment Scan™, Capability Signals™, and reflective guidance with ARIA™.',
-      status: 'Active / Free for Individuals',
+      title: 'Module 01 — Participant Experience',
+      desc: 'The participant experience brings together tools designed to support reflection, capability discovery, and pathway exploration. The ElevIQ Alignment Scan™ is free for individual participants.',
+      status: 'In Testing',
       link: '/platform/participant-portal'
     },
     {
       num: '02',
-      title: 'Community Intelligence Console™ & CLARA™',
-      desc: 'Advisor workflows, aggregate cohort analytics, and advisor-facing CLARA™ intelligence.',
-      status: 'Partner Pilot Active',
+      title: 'Module 02 — Community Intelligence Console™',
+      desc: 'The Community Intelligence Console™ is being configured and tested to support appropriate organization and advisor workflows.',
+      status: 'Configured',
       link: '/platform/community-intelligence-console'
     },
     {
       num: '03',
       title: 'Role Alignment™ Engine',
       desc: 'Skills-first role benchmarks and capability mapping (CAS is not a hiring decision engine).',
-      status: 'Configured Scope',
+      status: 'Configured',
       link: '/platform/role-alignment'
     },
     {
       num: '04',
-      title: 'The ElevIQ Last Mile™',
-      desc: 'Human-guided navigation to local training, supportive services, and regional employers.',
-      status: 'Community Integration',
+      title: 'Module 04 — The ElevIQ Last Mile™ & Support Connections',
+      desc: 'The ElevIQ Last Mile™ describes the supported movement from reflection and exploration toward an appropriate practical next step.',
+      status: 'In Development',
       link: '/platform/last-mile'
     }
   ]
@@ -510,11 +547,19 @@ export function CasTechnologyTeaser() {
             className="flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group space-y-4"
           >
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-2">
                 <span className="font-mono text-[10px] font-bold text-slate-400">
                   MODULE {card.num}
                 </span>
-                <ProductStatusBadge status={card.status} />
+                {card.statuses ? (
+                  <div className="flex flex-col items-end gap-1">
+                    {card.statuses.map((st) => (
+                      <ProductStatusBadge key={st} status={st} />
+                    ))}
+                  </div>
+                ) : (
+                  <ProductStatusBadge status={card.status} />
+                )}
               </div>
               <h3 className="font-sans text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
                 {card.title}
@@ -537,7 +582,7 @@ export function CasTechnologyTeaser() {
           <strong className="text-slate-300">Public Claim Discipline:</strong> Feature availability and workflows reflect approved organizational scope and partner cohort configurations.
         </p>
         <span className="text-[#0FA88A] font-mono text-[11px] shrink-0 font-semibold">
-          ✓ 100% Free for Individual Participants
+          ✓ The ElevIQ Alignment Scan™ is free for individual participants
         </span>
       </div>
     </section>

@@ -95,23 +95,30 @@ function runQA() {
     `Rail Active: ${progressionRailMatch}, Participant 6-step Flow Intact: ${participantCardsUnchanged}`
   );
 
-  // Item 5: All 10 audience routing paths connect to the smart inquiry form without broken handlers
-  const has10Paths = audienceCode.includes("number: '01'") &&
-                     audienceCode.includes("number: '02'") &&
-                     audienceCode.includes("number: '03'") &&
-                     audienceCode.includes("number: '04'") &&
-                     audienceCode.includes("number: '05'") &&
-                     audienceCode.includes("number: '06'") &&
-                     audienceCode.includes("number: '07'") &&
-                     audienceCode.includes("number: '08'") &&
-                     audienceCode.includes("number: '09'") &&
-                     audienceCode.includes("number: '10'");
+  // Item 5: All 7 approved participant entry points connect to the smart inquiry form without broken handlers
+  const has7Paths = audienceCode.includes("number: '01'") &&
+                    audienceCode.includes("number: '02'") &&
+                    audienceCode.includes("number: '03'") &&
+                    audienceCode.includes("number: '04'") &&
+                    audienceCode.includes("number: '05'") &&
+                    audienceCode.includes("number: '06'") &&
+                    audienceCode.includes("number: '07'") &&
+                    audienceCode.includes('Youth Exploration — Ages 13–15') &&
+                    audienceCode.includes('High School / CTE — Ages 16–18') &&
+                    audienceCode.includes('Postsecondary / Emerging Career') &&
+                    audienceCode.includes('Adult Learner / Workforce Entry') &&
+                    audienceCode.includes('Experienced Worker / Career Transition') &&
+                    audienceCode.includes('Veteran / Military Transition') &&
+                    audienceCode.includes('Reentry / Career Rebuilding') &&
+                    !audienceCode.includes("number: '08'") &&
+                    !audienceCode.includes("number: '09'") &&
+                    !audienceCode.includes("number: '10'");
   const hasEventSync = audienceCode.includes('eleviq-audience-select') &&
                        appCode.includes('AudienceIntentRouting');
   check(
-    '5. 10-Path Audience Routing & Smart Form Handler Wiring',
-    has10Paths && hasEventSync,
-    `All 10 Paths Configured: ${has10Paths}, Sync & Handlers Wired: ${hasEventSync}`
+    '5. 7-Path Participant Entry Point Routing & Smart Form Handler Wiring',
+    has7Paths && hasEventSync,
+    `All 7 Participant Entry Points Configured: ${has7Paths}, Sync & Handlers Wired: ${hasEventSync}`
   );
 
   // Item 6: STC Innovations links route externally and maintain strict entity separation
@@ -120,23 +127,26 @@ function runQA() {
     .map(f => fs.readFileSync(path.join(srcDir, f), 'utf8'))
     .join('\n');
   const stcRelationshipQuote = allFiles.includes('ElevIQ Foundation operates CAS at zero cost for mission-aligned initiatives, while STC Innovations provides commercial deployment and enterprise licensing.');
-  const stcHandoffLinks = (appCode.match(/to="\/stc"/g) || []).length;
+  const stcHandoffLinks = (allFiles.match(/to="\/stc"/g) || []).length;
   check(
     '6. STC Innovations External Routing & Strict Entity Separation',
     stcRelationshipQuote && stcHandoffLinks >= 3,
     `Verbatim Quote Match: ${stcRelationshipQuote}, STC Handoff Links Count: ${stcHandoffLinks}`
   );
 
-  // Item 7: CAS Preview module status tags align with verified backend readiness
-  const module1Status = casPreviewCode.includes('Active / Free for Individuals');
-  const module2Status = casPreviewCode.includes('Partner Pilot Active');
-  const module3Status = casPreviewCode.includes('Configured Scope');
-  const module4Status = casPreviewCode.includes('Community Integration');
+  // Item 7: CAS Preview module status tags align with 6 approved status badges (Phase 4B)
+  const module1Status = casPreviewCode.includes('In Testing');
+  const module2Status = casPreviewCode.includes('Configured');
+  const module4Status = casPreviewCode.includes('In Development');
+  const noLegacyBadges = !casPreviewCode.includes("'Partner Pilot Active'") &&
+                         !casPreviewCode.includes("'Configured Scope'") &&
+                         !casPreviewCode.includes("'Community Integration'") &&
+                         !casPreviewCode.includes("'Active / Free for Individuals'");
   const disclaimerMatch = casPreviewCode.includes('CAS is not a hiring decision engine');
   check(
     '7. CAS Preview Module Status Tags & Non-Algorithmic Hiring Disclaimer',
-    module1Status && module2Status && module3Status && module4Status && disclaimerMatch,
-    `Statuses: M1=${module1Status}, M2=${module2Status}, M3=${module3Status}, M4=${module4Status}, Disclaimer=${disclaimerMatch}`
+    module1Status && module2Status && module4Status && noLegacyBadges && disclaimerMatch,
+    `Statuses: M1=${module1Status}, M2=${module2Status}, M4=${module4Status}, NoLegacy=${noLegacyBadges}, Disclaimer=${disclaimerMatch}`
   );
 
   // Item 8: Zero occurrences of "CAS System" exist across all files

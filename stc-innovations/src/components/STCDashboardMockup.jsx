@@ -15,11 +15,11 @@ export default function STCDashboardMockup() {
   ]
 
   const capabilities = [
-    { name: 'Problem Solving & Critical Analysis', score: 88, band: 'Optimal', count: '1,098 verified' },
-    { name: 'Communication & Interpersonal Influence', score: 79, band: 'High', count: '942 verified' },
-    { name: 'Adaptability & Resilience Under Change', score: 84, band: 'Optimal', count: '1,048 verified' },
-    { name: 'Cross-Functional Team Collaboration', score: 72, band: 'Balanced', count: '876 verified' },
-    { name: 'Applied Technical & Workflow Literacy', score: 65, band: 'Growth Area', count: '740 verified' },
+    { name: 'Problem Solving & Critical Analysis', score: 88, band: 'Optimal', count: '1,098 active' },
+    { name: 'Communication & Interpersonal Influence', score: 79, band: 'High', count: '942 active' },
+    { name: 'Adaptability & Resilience Under Change', score: 84, band: 'Optimal', count: '1,048 active' },
+    { name: 'Cross-Functional Team Collaboration', score: 72, band: 'Balanced', count: '876 active' },
+    { name: 'Applied Technical & Workflow Literacy', score: 65, band: 'Growth Area', count: '740 active' },
   ]
 
   const heatMapGrid = [
@@ -115,7 +115,7 @@ export default function STCDashboardMockup() {
                 Workforce Capability Intelligence
               </h4>
               <p className="text-xs text-slate-400 font-sans">
-                Real-time human-skills alignment & verified pathway signals
+                Human-skills alignment & directional pathway signals
               </p>
             </div>
 

@@ -33,10 +33,10 @@ export default function RuralWorkforce({ variant = 'dark' }) {
     },
     {
       num: '03',
-      badge: 'REGIONAL FOOTPRINT',
-      title: 'Vance, Warren & The Kerr-Tar Ecosystem',
+      badge: 'RELATIONSHIPS',
+      title: 'Building relationships around the people and communities we serve',
       description:
-        'We focus on grounded regional collaboration in Henderson, Vance County, Warren County, and neighboring counties—partnering with local school districts, Vance-Granville Community College, Kittrell Job Corps, NCWorks, and area employers.',
+        'ElevIQ Foundation is actively implementing with Kittrell Job Corps while continuing to explore relationships and opportunities across community colleges, workforce organizations, schools, employers, nonprofits, and other community-serving organizations.\n\nEach relationship develops according to its own needs, readiness, and agreed scope.',
       icon: (
         <svg className="w-5 h-5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -47,10 +47,10 @@ export default function RuralWorkforce({ variant = 'dark' }) {
     },
     {
       num: '04',
-      badge: 'THE LAST MILE',
-      title: 'Connecting Signals to Local Hiring',
+      badge: 'ROLE ALIGNMENT',
+      title: 'Exploring stronger connections between people and roles',
       description:
-        'Shedding artificial degree requirements, we help regional employers define role benchmarks by verified operational capability. This allows local manufacturers, healthcare providers, and small businesses to recruit high-potential local talent.',
+        'Where configured for an organization or environment, Role Benchmark discussions and Role Alignment exploration can help create more useful conversations about how participant capability patterns may relate to the needs and expectations surrounding a role.\n\nThe goal is better-informed exploration — not a hiring score or prediction of job performance. CAS does not make final hiring decisions.',
       icon: (
         <svg className="w-5 h-5 text-teal-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -77,7 +77,7 @@ export default function RuralWorkforce({ variant = 'dark' }) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                NORTH CAROLINA REGIONAL PILOT
+                RURAL & REGIONAL WORKFORCE STRATEGY
               </span>
 
               <span className="inline-flex items-center gap-1 rounded-full border border-cyan-500/30 bg-cyan-950/50 px-3 py-1 font-mono text-[11px] text-cyan-300">
@@ -87,16 +87,21 @@ export default function RuralWorkforce({ variant = 'dark' }) {
 
             <div className="space-y-2">
               <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                Rural Talent & Regional Workforce Alignment
+                RURAL & REGIONAL WORKFORCE STRATEGY
               </h2>
               <p className="font-serif italic text-lg sm:text-xl text-[#00D2FF] font-medium leading-relaxed">
-                "Rooted in Henderson, North Carolina. Designed for rural communities everywhere."
+                Exploring what stronger community-rooted workforce pathways can look like
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-              Too often, rural and small-town workforce narratives focus exclusively on deficit. At ElevIQ Foundation, our work starts from a foundational belief in <strong className="text-white font-semibold">asset-based capability</strong>. Rural communities possess deep reserves of adaptability, problem-solving, and resilience. Our mission is to bridge the coordination and infrastructure gap so local talent connects directly to thriving regional pathways.
-            </p>
+            <div className="space-y-3 text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+              <p>
+                ElevIQ Foundation is exploring regional collaboration opportunities that bring workforce, education, community, and employer perspectives into closer conversation around the needs of rural communities.
+              </p>
+              <p>
+                We are beginning close to home in the Henderson/Warren area, where we are exploring what a community-rooted workforce approach could look like and what local problem, population, and partnership structure would make the most sense before implementation.
+              </p>
+            </div>
           </div>
 
           {/* 4 REGIONAL WORKFORCE PILLARS */}
@@ -125,7 +130,7 @@ export default function RuralWorkforce({ variant = 'dark' }) {
                     {pillar.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans whitespace-pre-line">
                     {pillar.description}
                   </p>
                 </div>
@@ -135,21 +140,32 @@ export default function RuralWorkforce({ variant = 'dark' }) {
 
           {/* FOOTER CALLOUT / COHORT CALL TO ACTION */}
           <div className="rounded-2xl border border-cyan-500/30 bg-gradient-to-r from-slate-900 via-[#071739] to-slate-900 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-1.5 text-center md:text-left">
+            <div className="space-y-2 text-center md:text-left">
               <span className="font-mono text-[11px] font-bold text-cyan-400 uppercase tracking-widest block">
-                Regional Pilot Collaboration
+                Partnership Opportunity
               </span>
               <h4 className="font-sans text-lg sm:text-xl font-bold text-white">
-                Interested in bringing ElevIQ to your rural district, chamber, or agency?
+                Explore an approach that fits your community or organization
               </h4>
-              <p className="text-xs text-slate-300 max-w-xl font-sans">
-                We partner directly with workforce boards, school systems, and community coalitions to configure tailored, zero-cost participant cohorts.
-              </p>
+              <div className="space-y-2 text-xs text-slate-300 max-w-xl font-sans leading-relaxed">
+                <p>
+                  We welcome conversations with organizations interested in exploring practical, locally informed approaches to workforce and talent pathways.
+                </p>
+                <p>
+                  Organizations may explore appropriately scoped cohorts, workshops, or phased implementation opportunities with ElevIQ Foundation.
+                </p>
+                <p>
+                  <strong className="text-white font-semibold">The ElevIQ Alignment Scan™ remains free for individual participants.</strong>
+                </p>
+                <p>
+                  Organizational services, cohort experiences, workshops, configuration, and implementation are developed through separate conversations and require scope confirmation.
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
-                to="/#path-workforce"
+                to="/organizations"
                 className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-5 py-2.5 text-xs font-bold transition shadow-[0_0_12px_rgba(0,210,255,0.4)]"
               >
                 Workforce Solutions →

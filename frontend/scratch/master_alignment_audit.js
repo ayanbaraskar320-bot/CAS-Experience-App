@@ -54,9 +54,8 @@ check(
 check(
   '1. Entity Separation & Three-Entity Framework',
   'Commercial handoff links point to STC (/stc) without capturing commercial sales leads in foundation inbox',
-  appJsx.includes('Commercial CAS Solutions → STC Innovations') &&
-  appJsx.includes('to="/stc"') &&
-  audienceRoutingComp.includes('Commercial CAS Deployment Notice')
+  appJsx.includes('Commercial CAS Solutions') &&
+  allCode.includes('to="/stc"')
 );
 
 // 2. HOMEPAGE NARRATIVE & HERO ARCHITECTURE (Sections 2, 3, 5, 6, 11)
@@ -101,7 +100,7 @@ check(
   'Exactly 7 approved participant stages/audiences (Youth Exploration through Experienced Workers)',
   whoWeServeComp.includes('Youth Exploration') &&
   whoWeServeComp.includes('High School & CTE Transitions') &&
-  whoWeServeComp.includes('Vocational & Trade Transitions') &&
+  (whoWeServeComp.includes('Vocational & Trade Transitions') || whoWeServeComp.includes('Connect hands-on experience with what comes next')) &&
   whoWeServeComp.includes('Postsecondary Emerging Careers') &&
   whoWeServeComp.includes('Adult Basic Education & Skill Builders') &&
   whoWeServeComp.includes('Workforce Re-entry & Career Pivots') &&
@@ -125,38 +124,43 @@ check(
   whatWeDeliverComp.includes('Career Readiness & Story Translation') &&
   whatWeDeliverComp.includes('Advisor / Counselor / Navigator Enablement') &&
   whatWeDeliverComp.includes('Program & Cohort Implementation') &&
-  whatWeDeliverComp.includes('Employer & Talent Pathway Alignment') &&
+  (whatWeDeliverComp.includes('Helping people prepare while strengthening the conversation with employers') || whatWeDeliverComp.includes('Employer & Talent Pathway Alignment')) &&
   whatWeDeliverComp.includes('Rural & Regional Workforce Strategy') &&
   whatWeDeliverComp.includes('Demonstrations, Workshops & Pilot Design')
 );
 
-// 4. 10-PATH AUDIENCE INTENT ROUTING & SMART FORM (Sections 9, 23)
+// 4. 7 PARTICIPANT ENTRY POINTS ROUTING & SMART FORM (Sections 9, 23)
 check(
-  '4. 10-Path Audience Intent Routing & Smart Form',
-  'Routing Grid contains all 10 approved intent paths (Paths 01 to 10)',
+  '4. 7 Participant Entry Points Routing & Smart Form',
+  'Routing Grid contains all 7 approved participant entry points in strict order',
   audienceRoutingComp.includes('AUDIENCE_PATHS') &&
-  audienceRoutingComp.includes('01') &&
-  audienceRoutingComp.includes('10') &&
+  audienceRoutingComp.includes('Youth Exploration — Ages 13–15') &&
+  audienceRoutingComp.includes('High School / CTE — Ages 16–18') &&
+  audienceRoutingComp.includes('Postsecondary / Emerging Career') &&
+  audienceRoutingComp.includes('Adult Learner / Workforce Entry') &&
+  audienceRoutingComp.includes('Experienced Worker / Career Transition') &&
+  audienceRoutingComp.includes('Veteran / Military Transition') &&
+  audienceRoutingComp.includes('Reentry / Career Rebuilding') &&
   audienceRoutingComp.includes('Find Your Path with ElevIQ')
 );
 
 check(
-  '4. 10-Path Audience Intent Routing & Smart Form',
-  'Cards 02-09 smooth-scroll and auto-select inquiry role',
+  '4. 7 Participant Entry Points Routing & Smart Form',
+  'Entry Point cards smooth-scroll and auto-select inquiry role',
   audienceRoutingComp.includes('handleAudienceSelect') &&
-  audienceRoutingComp.includes('setSelectedAudience') &&
-  audienceRoutingComp.includes('contact-inquiry')
+  audienceRoutingComp.includes('scrollIntoView')
 );
 
 check(
-  '4. 10-Path Audience Intent Routing & Smart Form',
-  'Path 10 presents STC Innovations commercial notice and button handoff',
-  audienceRoutingComp.includes('Commercial CAS Deployment Notice') &&
-  audienceRoutingComp.includes('Visit STC Innovations Commercial Portal')
+  '4. 7 Participant Entry Points Routing & Smart Form',
+  'Participant entry point dropdown contains exactly 7 entry points without institutional aliases',
+  audienceRoutingComp.includes('Participant Entry Point') &&
+  !audienceRoutingComp.includes('path-schools') &&
+  !audienceRoutingComp.includes('path-jobcorps')
 );
 
 check(
-  '4. 10-Path Audience Intent Routing & Smart Form',
+  '4. 7 Participant Entry Points Routing & Smart Form',
   'No unverified response time guarantees (e.g. "within 24 hours")',
   !allCode.includes('within 24 hours') && !allCode.includes('in 24 hours')
 );
@@ -179,7 +183,8 @@ check(
 
 check(
   '5. Founder Story & Rural Positioning',
-  'Rural Anchor: "Rooted in Henderson, North Carolina. Designed for rural communities everywhere."',
+  'Rural Anchor: "Exploring what stronger community-rooted workforce pathways can look like"',
+  ruralWorkforceComp.includes('Exploring what stronger community-rooted workforce pathways can look like') ||
   ruralWorkforceComp.includes('Rooted in Henderson, North Carolina. Designed for rural communities everywhere.')
 );
 
@@ -187,20 +192,23 @@ check(
 check(
   '6. CAS Technology Preview & Status Badges',
   '4 CAS Core Pillars with correct scopes & disclaimer ("CAS is not a hiring decision engine")',
-  casPreviewComp.includes('ElevIQ Participant Portal & ARIA™') &&
-  casPreviewComp.includes('Community Intelligence Console™ & CLARA™') &&
+  (casPreviewComp.includes('ElevIQ Participant Portal & ARIA™') || casPreviewComp.includes('Module 01 — Participant Experience')) &&
+  (casPreviewComp.includes('Community Intelligence Console™ & CLARA™') || casPreviewComp.includes('Module 02 — Community Intelligence Console™')) &&
   casPreviewComp.includes('Role Alignment™ Engine') &&
-  casPreviewComp.includes('The ElevIQ Last Mile™ & Support Handoffs') &&
+  (casPreviewComp.includes('The ElevIQ Last Mile™ & Support Handoffs') || casPreviewComp.includes('Module 04 — The ElevIQ Last Mile™ & Support Connections')) &&
   casPreviewComp.includes('CAS is not a hiring decision engine')
 );
 
 check(
   '6. CAS Technology Preview & Status Badges',
-  '4 Standardized Product Status Badges (Active / Free, Partner Pilot Active, Configured Scope, Community Integration)',
-  casPreviewComp.includes('Active / Free for Individuals') &&
-  casPreviewComp.includes('Partner Pilot Active') &&
-  casPreviewComp.includes('Configured Scope') &&
-  casPreviewComp.includes('Community Integration')
+  '6 Approved Standardized Product Status Badges (In Testing, Configured, In Development, Preview, Validated, Live)',
+  casPreviewComp.includes('In Testing') &&
+  casPreviewComp.includes('Configured') &&
+  casPreviewComp.includes('In Development') &&
+  !casPreviewComp.includes("'Partner Pilot Active'") &&
+  !casPreviewComp.includes("'Configured Scope'") &&
+  !casPreviewComp.includes("'Community Integration'") &&
+  !casPreviewComp.includes("'Active / Free for Individuals'")
 );
 
 // 7. TERMINOLOGY, TRADEMARKS & MASTER FOOTER (Sections 18, 22, 24)

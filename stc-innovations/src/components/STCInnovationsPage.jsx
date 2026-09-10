@@ -93,7 +93,7 @@ export default function STCInnovationsPage() {
                       className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-blue-50/80 transition-colors group"
                     >
                       <div className="text-xs font-bold text-slate-900 group-hover:text-[#0052CC]">Capability Signals™</div>
-                      <div className="text-[11px] text-slate-500">Verified qualitative workforce indicators</div>
+                      <div className="text-[11px] text-slate-500">Structured qualitative workforce indicators</div>
                     </button>
                     <a
                       href={ELEVIQ_LINKS.platform}
@@ -355,8 +355,7 @@ export default function STCInnovationsPage() {
                     <div className="text-xs text-slate-500 font-medium">Black-Box Rejections</div>
                   </div>
                   <div>
-                    <div className="font-stc-heading text-lg sm:text-xl font-extrabold text-slate-900">Enterprise</div>
-                    <div className="text-xs text-slate-500 font-medium">Data Sovereignty</div>
+                    {/* Privacy/data-practice language pending separate approval */}
                   </div>
                 </div>
               </div>
@@ -445,7 +444,7 @@ export default function STCInnovationsPage() {
                     </h3>
                   </div>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Connect people with roles, pathways, and opportunities based on verified human capabilities rather than rigid degree proxies.
+                    Connect people with roles, pathways, and opportunities based on demonstrated human capabilities rather than rigid degree proxies.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] flex items-center gap-1">

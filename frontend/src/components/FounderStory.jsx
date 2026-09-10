@@ -133,7 +133,7 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
                     Partnering with Cecil Strickland & Sameer Ranjan
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    To solve this at scale, I partnered with Cecil Strickland to form STC Innovations to give back to communities like ours. Working closely with Sameer Ranjan and his engineering team, we rigorously tested, adapted, and re-engineered advanced corporate talent-intelligence tools—stripping away corporate jargon and diagnostics to create a constructive, strengths-based capability architecture built specifically for community environments.
+                    To solve this at scale, I partnered with Cecil Strickland to form STC Innovations to give back to communities like ours. Working closely with Sameer Ranjan and his engineering team, we rigorously tested, adapted, and re-engineered advanced corporate talent-intelligence tools—stripping away corporate jargon and rigid testing to create a constructive, strengths-based capability architecture built specifically for community environments.
                   </p>
                 </div>
 
@@ -147,7 +147,7 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
                     Free Individual Participant Access & Low-Barrier Pilot Design
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This guarantees that the ElevIQ Alignment Scan™ remains 100% free for individual participants with complete data privacy, while organizational implementation, configuration, and pilots reflect partner scoping.
+                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This guarantees that the ElevIQ Alignment Scan™ remains 100% free for individual participants{/* Privacy/data-practice language pending separate approval */}, while organizational implementation, configuration, and pilots reflect partner scoping.
                   </p>
                 </div>
 

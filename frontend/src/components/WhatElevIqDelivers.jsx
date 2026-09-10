@@ -49,8 +49,8 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
     },
     {
       num: '07',
-      title: 'Employer & Talent Pathway Alignment',
-      desc: 'Role Benchmark discussions, Role Alignment conversations, and talent-pipeline design. (ElevIQ CAS is not a hiring decision engine).',
+      title: 'Helping people prepare while strengthening the conversation with employers',
+      desc: 'Participants need more than a list of jobs. They need opportunities to understand what they bring, explore where they may align, and prepare for meaningful next steps. ElevIQ Foundation can support participant preparation, employer engagement, Role Benchmark discussions, and community-rooted exploration of talent pathways. Where CAS is appropriately configured, its insights can support these conversations. CAS does not make hiring decisions or predict job performance.',
       badge: 'ALIGNMENT',
       keyTools: 'Role Benchmarks • Alignment Talks • Pipeline Design'
     },

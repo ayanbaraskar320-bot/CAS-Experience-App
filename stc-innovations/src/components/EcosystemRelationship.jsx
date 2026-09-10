@@ -219,16 +219,24 @@ export default function EcosystemRelationship({ className = '', variant = 'dark'
 
               <div>
                 <h3 className={`font-sans text-xl font-bold tracking-tight ${isLight ? 'text-slate-900' : 'text-white'}`}>
-                  STC Innovations
+                  Organizations seeking commercial CAS deployment
                 </h3>
                 <p className="font-mono text-xs font-semibold text-[#1E7F82] mt-0.5">
-                  IP Owner & Commercial Licensor
+                  STC Innovations • IP Owner & Commercial Licensor
                 </p>
               </div>
 
-              <p className={`text-xs sm:text-sm leading-relaxed font-sans ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
-                Focuses on owning, developing, licensing, configuring, commercializing, and deploying CAS for enterprise and commercial use.
-              </p>
+              <div className={`text-xs sm:text-sm leading-relaxed font-sans space-y-2 ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
+                <p>
+                  STC Innovations owns, develops, licenses, configures, commercializes, and deploys the ElevIQ Capability Alignment System™.
+                </p>
+                <p>
+                  Commercial services may include CAS configuration, licensing, consulting, implementation, and enterprise deployment.
+                </p>
+                <p>
+                  Exact technical, integration, and hosting requirements are determined through verified discovery and agreement with STC Innovations.
+                </p>
+              </div>
 
               {/* Key Capabilities Focus */}
               <div className="space-y-2 pt-2 border-t border-slate-200/20">

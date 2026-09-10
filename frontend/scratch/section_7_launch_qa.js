@@ -95,23 +95,30 @@ function runQA() {
     `Rail Active: ${progressionRailMatch}, Participant 6-step Flow Intact: ${participantCardsUnchanged}`
   );
 
-  // Item 5: All 10 audience routing paths connect to the smart inquiry form without broken handlers
-  const has10Paths = audienceCode.includes('path: \'01\'') &&
-                     audienceCode.includes('path: \'02\'') &&
-                     audienceCode.includes('path: \'03\'') &&
-                     audienceCode.includes('path: \'04\'') &&
-                     audienceCode.includes('path: \'05\'') &&
-                     audienceCode.includes('path: \'06\'') &&
-                     audienceCode.includes('path: \'07\'') &&
-                     audienceCode.includes('path: \'08\'') &&
-                     audienceCode.includes('path: \'09\'') &&
-                     audienceCode.includes('path: \'10\'');
+  // Item 5: All 7 approved participant entry points connect to the smart inquiry form without broken handlers
+  const has7Paths = audienceCode.includes("number: '01'") &&
+                    audienceCode.includes("number: '02'") &&
+                    audienceCode.includes("number: '03'") &&
+                    audienceCode.includes("number: '04'") &&
+                    audienceCode.includes("number: '05'") &&
+                    audienceCode.includes("number: '06'") &&
+                    audienceCode.includes("number: '07'") &&
+                    audienceCode.includes('Youth Exploration — Ages 13–15') &&
+                    audienceCode.includes('High School / CTE — Ages 16–18') &&
+                    audienceCode.includes('Postsecondary / Emerging Career') &&
+                    audienceCode.includes('Adult Learner / Workforce Entry') &&
+                    audienceCode.includes('Experienced Worker / Career Transition') &&
+                    audienceCode.includes('Veteran / Military Transition') &&
+                    audienceCode.includes('Reentry / Career Rebuilding') &&
+                    !audienceCode.includes("number: '08'") &&
+                    !audienceCode.includes("number: '09'") &&
+                    !audienceCode.includes("number: '10'");
   const hasEventSync = audienceCode.includes('eleviq-audience-select') &&
                        appCode.includes('AudienceIntentRouting');
   check(
-    '5. 10-Path Audience Routing & Smart Form Handler Wiring',
-    has10Paths && hasEventSync,
-    `All 10 Paths Configured: ${has10Paths}, Sync & Handlers Wired: ${hasEventSync}`
+    '5. 7-Path Participant Entry Point Routing & Smart Form Handler Wiring',
+    has7Paths && hasEventSync,
+    `All 7 Participant Entry Points Configured: ${has7Paths}, Sync & Handlers Wired: ${hasEventSync}`
   );
 
   // Item 6: STC Innovations links route externally and maintain strict entity separation

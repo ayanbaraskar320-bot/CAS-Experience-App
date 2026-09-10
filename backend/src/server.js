@@ -25,7 +25,7 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-// Approved interest areas from Terminology / Handoff Lock
+// Approved interest areas from Terminology / Handoff Lock and Participant Entry Points
 const APPROVED_INTEREST_AREAS = [
   'Participant/family information',
   'School/youth partnership',
@@ -33,7 +33,23 @@ const APPROVED_INTEREST_AREAS = [
   'Funder/donor conversation',
   'Employer/institutional CAS use',
   'CAS licensing/demo',
-  'Media/speaking/general inquiry'
+  'Media/speaking/general inquiry',
+  // 7 Approved Participant Entry Points
+  'Youth Exploration — Ages 13–15',
+  'High School / CTE — Ages 16–18',
+  'Postsecondary / Emerging Career',
+  'Adult Learner / Workforce Entry',
+  'Experienced Worker / Career Transition',
+  'Veteran / Military Transition',
+  'Reentry / Career Rebuilding',
+  // Participant Entry Point Intents
+  "I'm exploring interests, strengths, and early pathways (Ages 13–15)",
+  "I'm preparing for graduation, CTE training, or next steps (Ages 16–18)",
+  "I'm enrolled in or exploring college, technical degrees, or emerging careers",
+  "I'm building core capabilities, entering the workforce, or returning to work",
+  "I'm navigating an industry transition, technology shift, or mid-career pivot",
+  "I'm transitioning from military service to civilian education or career pathways",
+  "I'm rebuilding my career path, overcoming barriers, or re-entering the workforce"
 ];
 
 // Helper to read database

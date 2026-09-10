@@ -70,7 +70,6 @@ const INDIVIDUALS_TABS = [
   { label: 'Home', path: '/individuals' },
   { label: 'Explore Your Path', path: '/individuals/explore-your-path' },
   { label: 'How It Works', path: '/individuals/how-it-works' },
-  { label: 'Programs & Partners', path: '/individuals/programs-partners' },
   { label: 'For Schools & Workforce', path: '/individuals/schools-workforce' },
   { label: 'Trust', path: '/individuals/trust' },
   { label: 'Support the Mission', path: '/individuals/support-the-mission' },
@@ -715,7 +714,7 @@ function AppShell() {
                         </Link>
                         <Link to="/individuals/trust" className="block px-3 py-2 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
                           <div className="text-xs font-semibold group-hover:text-cyan-300">Governance & Transparency</div>
-                          <div className="text-[10px] text-slate-400 font-sans leading-tight">Data sovereignty, privacy & dignity principles</div>
+                          <div className="text-[10px] text-slate-400 font-sans leading-tight">Trust, agency & dignity principles</div>
                         </Link>
                       </div>
                     </div>
@@ -1185,6 +1184,12 @@ function AppShell() {
               <Route path="/for-people/who-we-serve" element={<Navigate to="/#who-we-serve" replace />} />
               <Route path="/services" element={<Navigate to="/#services" replace />} />
               <Route path="/our-services" element={<Navigate to="/#services" replace />} />
+              <Route path="/legacy-partners" element={<Navigate to="/#services" replace />} />
+              <Route path="/pilot-networks" element={<Navigate to="/#services" replace />} />
+              <Route path="/programs-partners" element={<Navigate to="/#services" replace />} />
+              <Route path="/partners-pilots" element={<Navigate to="/#services" replace />} />
+              <Route path="/individuals/programs-partners" element={<Navigate to="/#services" replace />} />
+              <Route path="/individuals/partners-pilots" element={<Navigate to="/#services" replace />} />
               <Route path="/cas-preview" element={<Navigate to="/platform" replace />} />
               <Route path="/about/tammy-story" element={<AboutPage />} />
               <Route path="/platform/*" element={<PlatformSection />} />
@@ -1315,8 +1320,8 @@ function HomePage() {
     },
     {
       num: '02',
-      title: 'Make Strengths Easier to Name',
-      desc: 'Translating participant reflection into clear, validated Capability Signals™ and an actionable Alignment Snapshot™ in plain language.',
+      title: 'Capability Signals™ — directional patterns for reflection and conversation',
+      desc: 'Capability Signals™ help participants recognize patterns across their experiences, interests, strengths, and goals. These directional patterns can give participants and trusted guides clearer language for reflection, conversation, and exploration of possible next steps.',
       badge: 'SIGNALS'
     },
     {
@@ -1333,8 +1338,8 @@ function HomePage() {
     },
     {
       num: '05',
-      title: 'Move Toward Action',
-      desc: 'Mobilizing Support Connections and The ElevIQ Last Mile™ for warm handoffs, barrier reduction, applications, and onboarding.',
+      title: 'Helping the next step feel more reachable',
+      desc: 'Knowing what direction to explore is only part of moving forward. The ElevIQ Last Mile™ is designed to support movement toward an appropriate next step. Depending on the community, relationships, resources, and permissions in place, that next step may include a conversation, referral, application, trusted guide, program, or connection to a community resource.',
       badge: 'LAST MILE™'
     }
   ]
@@ -1374,13 +1379,13 @@ function HomePage() {
     {
       stage: 'STAGE 5',
       title: 'Support & Monitor',
-      desc: 'Provide ongoing advisor assistance, real-time cohort intelligence, and adaptive check-ins.',
+      desc: 'Provide ongoing advisor assistance, cohort enablement, and adaptive check-ins.',
       tag: 'Enablement'
     },
     {
       stage: 'STAGE 6',
-      title: 'Re-measure & Review',
-      desc: 'Evaluate participant milestone completion, signal efficacy, and community pathway conversions.',
+      title: 'Learn from participation and service delivery',
+      desc: 'Evaluation can include review of participation, service-delivery evidence, participant reflection and feedback, and other indicators approved for the specific program or service environment. The purpose is to learn from the experience, strengthen service delivery, and inform thoughtful next steps.',
       tag: 'Evaluation'
     },
     {
@@ -1401,8 +1406,8 @@ function HomePage() {
     },
     {
       step: '02',
-      title: 'Capability Signals™',
-      desc: 'Validated, plain-language indicators that clearly name and articulate unique human strengths and problem-solving styles.',
+      title: 'Clearer language for understanding what may be emerging',
+      desc: 'Capability Signals™ translate participant responses into directional patterns that can support reflection and help participants and trusted guides talk more clearly about strengths, experiences, interests, and possible areas for exploration.\n\nThese patterns support reflection and conversation. They are not diagnoses, grades, eligibility decisions, hiring scores, predictions, or guarantees.',
       tag: 'Naming'
     },
     {
@@ -1425,8 +1430,8 @@ function HomePage() {
     },
     {
       step: '06',
-      title: 'Support Connections / The ElevIQ Last Mile™',
-      desc: 'Direct warm handoffs to local navigators, application coaching, barrier removal, and onboarding follow-through.',
+      title: 'Helping the next step feel more reachable',
+      desc: 'Knowing what direction to explore is only part of moving forward. The ElevIQ Last Mile™ is designed to support movement toward an appropriate next step.\n\nDepending on the community, relationships, resources, and permissions in place, that next step may include a conversation, referral, application, trusted guide, program, or connection to a community resource.',
       tag: 'Action'
     }
   ]
@@ -1506,7 +1511,7 @@ function HomePage() {
                     Connecting Capability to Opportunity
                   </h3>
                   <p className="text-xs text-slate-300 font-sans">
-                    A non-diagnostic, human-centered bridge to real pathways.
+                    A strengths-based, human-centered bridge to real pathways.
                   </p>
                 </div>
 
@@ -1538,7 +1543,7 @@ function HomePage() {
                 <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span className="text-[#0FA88A] font-semibold">✓ No Test Pressure</span>
                   <span>•</span>
-                  <span className="text-cyan-300 font-semibold">✓ Participant Data Sovereignty & Privacy Controls</span>
+                  {/* Privacy/data-practice language pending separate approval */}
                 </div>
               </div>
             </div>
@@ -1872,19 +1877,14 @@ function HomePage() {
                 </p>
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-                <h4 className="font-sans text-sm font-bold text-white flex items-center gap-2">
-                  <span className="text-[#0FA88A]">●</span> Full Participant Agency
-                </h4>
-                <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                  Participants maintain total ownership of their reflection data with ARIA™ conversational guidance, choosing what to share, when to proceed, and which pathways to pursue.
-                </p>
+                {/* Privacy/data-practice language pending separate approval */}
               </div>
               <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
                 <h4 className="font-sans text-sm font-bold text-white flex items-center gap-2">
-                  <span className="text-[#0FA88A]">●</span> Dignity Over Diagnostics
+                  <span className="text-[#0FA88A]">●</span> Dignity Over Testing
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                  No scores, no pass/fail filters, and no algorithmic rejection. Capabilities are surfaced and validated through supportive, constructive discovery.
+                  No scores, no pass/fail filters, and no algorithmic rejection. Capabilities are surfaced through supportive, constructive discovery.
                 </p>
               </div>
             </div>
@@ -2093,12 +2093,7 @@ function ParticipantPortalPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {/* Point 1 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Total Profile Sovereignty
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Participant access, correction, and sharing controls will follow the verified production configuration and applicable program consent practices.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
 
             {/* Point 2 */}
@@ -2545,16 +2540,16 @@ function CapabilitySignalsPage() {
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center relative z-10">
             <div className="space-y-6 text-white">
               <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-cyan-300 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
-                IN DEVELOPMENT / VALIDATION PENDING
+                IN DEVELOPMENT / DIRECTIONAL PATTERNS
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Capability Signals™
+                Capability Signals™ — directional patterns for reflection and conversation
               </h2>
               <p className="text-lg font-medium text-slate-200 leading-relaxed max-w-xl">
                 Clear, strengths-oriented language designed to help participants and advisors discuss capability beyond resumes and credentials.
               </p>
               <p className="text-sm leading-relaxed text-slate-300 max-w-2xl font-sans">
-                Capability Signals™ translate participant reflection and approved context into understandable capability language. They are directional and do not predict success.
+                Capability Signals™ help participants recognize patterns across their experiences, interests, strengths, and goals. These directional patterns can give participants and trusted guides clearer language for reflection, conversation, and exploration of possible next steps.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
@@ -2571,7 +2566,7 @@ function CapabilitySignalsPage() {
               <div className="w-full max-w-[340px] rounded-2xl bg-slate-900/60 backdrop-blur-md border border-cyan-500/30 p-6 shadow-2xl relative overflow-hidden group hover:border-cyan-400/50 transition-all duration-300">
                 <div className="flex justify-between items-center mb-4 border-b border-cyan-500/20 pb-2">
                   <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-cyan-300 shadow-sm">
-                    IN DEVELOPMENT / VALIDATION PENDING
+                    IN DEVELOPMENT / DIRECTIONAL PATTERNS
                   </span>
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                 </div>
@@ -2635,7 +2630,7 @@ function CapabilitySignalsPage() {
 
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Real-Time Skill Validation
+                Reflective Capability Indicators
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 Supports updated reflection over time when the configured program allows.
@@ -2836,7 +2831,7 @@ function AlignmentSnapshotPage() {
                 Context Over Scoring
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Replaces unfair predictive algorithms with complete personal context, honoring individual agency.
+                Replaces opaque ranking algorithms with complete personal context, honoring individual agency.
               </p>
             </div>
 
@@ -3453,12 +3448,7 @@ function SupportConnectionsPage() {
             </div>
 
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Participant Sovereignty Hub
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Participant consent, correction, and sharing practices will follow the verified production configuration and program requirements.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
           </div>
         </section>
@@ -3554,10 +3544,10 @@ function ExperienceContextPage() {
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Validating Hidden Assets
+                Naming What You Bring
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Helps translate lived experience into clear capability language. Do not call it validated unless an approved method exists.
+                This step helps translate lived experience into clearer capability language, surfacing patterns across strengths, interests, and past experiences so they're easier to talk about and build on.
               </p>
             </div>
 
@@ -3987,11 +3977,19 @@ function Footer() {
           {/* Dual-Entity Operating Boundary Statement */}
           <div className="p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/25 space-y-2 text-xs text-slate-300 font-sans">
             <h4 className="font-sans text-sm font-bold text-[#0FA88A] tracking-wide">
-              One Mission. Distinct Roles. Shared Infrastructure.
+              Organizations seeking commercial CAS deployment
             </h4>
-            <p className="leading-relaxed text-slate-300">
-              STC Innovations owns, develops, configures, licenses, commercializes, and deploys the ElevIQ Capability Alignment System™ for enterprise and commercial use. ElevIQ Foundation applies CAS through mission-driven access, community programs, education, rural opportunity, workforce partnerships, grants, and participant support. ElevIQ Foundation receives CAS access at no cost for mission-aligned nonprofit work. The ElevIQ Alignment Scan™ remains free for individual participants.
-            </p>
+            <div className="leading-relaxed text-slate-300 space-y-2">
+              <p>
+                STC Innovations owns, develops, licenses, configures, commercializes, and deploys the ElevIQ Capability Alignment System™.
+              </p>
+              <p>
+                Commercial services may include CAS configuration, licensing, consulting, implementation, and enterprise deployment.
+              </p>
+              <p>
+                Exact technical, integration, and hosting requirements are determined through verified discovery and agreement with STC Innovations.
+              </p>
+            </div>
           </div>
 
           {/* Copyright & Compliance Note */}
@@ -4022,7 +4020,7 @@ function Footer() {
           {/* Bottom Trust Strip */}
           <div className="pt-6 border-t border-slate-800/80 space-y-3">
             <p className="text-center text-xs text-slate-400 font-sans">
-              Trusted by organizations committed to developing people and strengthening their communities.
+              Designed for conversations across the communities that help people move forward.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] font-mono text-slate-400">
               <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400" /> Employers</span>
@@ -4048,8 +4046,8 @@ function IndividualsSection() {
           <Route path="explore-your-path" element={<IndividualsWhoWeServe />} />
           <Route path="who-we-serve" element={<IndividualsWhoWeServe />} />
           <Route path="how-it-works" element={<IndividualsHowItWorks />} />
-          <Route path="programs-partners" element={<IndividualsPartnersPilots />} />
-          <Route path="partners-pilots" element={<IndividualsPartnersPilots />} />
+          <Route path="programs-partners" element={<Navigate to="/#services" replace />} />
+          <Route path="partners-pilots" element={<Navigate to="/#services" replace />} />
           <Route path="schools-workforce" element={<IndividualsJobCorps />} />
           <Route path="job-corps" element={<IndividualsJobCorps />} />
           <Route path="trust" element={<IndividualsTrustGovernance />} />
@@ -4314,15 +4312,15 @@ function IndividualsHome() {
             <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 space-y-3 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
               <div className="flex justify-between items-center">
                 <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7]">
-                  VALIDATED
+                  EXPLORING: Rural & Regional Workforce Strategy
                 </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
               </div>
               <h3 className="font-sans text-lg font-bold text-slate-900">
-                Rural Workforce Innovation
+                Rural & Regional Workforce Strategy
               </h3>
               <p className="text-xs leading-relaxed text-slate-600 font-sans">
-                Community-rooted pilot models supporting local workforce ecosystems.
+                We are exploring how community-rooted workforce approaches may better support people in rural and underserved communities.
               </p>
             </div>
           </div>
@@ -4370,20 +4368,20 @@ function IndividualsHome() {
             </h3>
             <div className="grid gap-8 md:grid-cols-3">
               <div className="space-y-3">
-                <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                  Complete Data Privacy
-                </h4>
-                <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                  You own your profile data permanently. No third-party data sales or black-box algorithm scoring.
-                </p>
+                {/* Privacy/data-practice language pending separate approval */}
               </div>
               <div className="space-y-3">
                 <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                  Dignity & Strengths Focus
+                  See more of what you bring
                 </h4>
-                <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                  The experience focuses strictly on your verified strengths and alignment, avoiding clinical deficit framing.
-                </p>
+                <div className="text-sm leading-relaxed text-slate-300 font-sans space-y-2">
+                  <p>
+                    Your experiences, interests, strengths, and goals can offer meaningful clues about where you may want to go next.
+                  </p>
+                  <p>
+                    ElevIQ helps you explore directional capability patterns and alignment possibilities so you can reflect on what you bring and have clearer conversations about the paths you may want to explore.
+                  </p>
+                </div>
               </div>
               <div className="space-y-3">
                 <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
@@ -4403,11 +4401,19 @@ function IndividualsHome() {
                 COMMERCIAL & ENTERPRISE HANDOFF
               </span>
               <h4 className="font-sans text-lg font-bold text-white">
-                Looking for commercial licensing, institutional pricing, or enterprise implementation?
+                Organizations seeking commercial CAS deployment
               </h4>
-              <p className="text-xs text-slate-400 font-sans">
-                STC Innovations licenses and configures the ElevIQ Capability Alignment System (CAS) for workforce boards, employers, and enterprise buyers.
-              </p>
+              <div className="text-xs text-slate-400 font-sans space-y-1.5">
+                <p>
+                  STC Innovations owns, develops, licenses, configures, commercializes, and deploys the ElevIQ Capability Alignment System™.
+                </p>
+                <p>
+                  Commercial services may include CAS configuration, licensing, consulting, implementation, and enterprise deployment.
+                </p>
+                <p>
+                  Exact technical, integration, and hosting requirements are determined through verified discovery and agreement with STC Innovations.
+                </p>
+              </div>
             </div>
             <Link
               to="/organizations"
@@ -4441,8 +4447,8 @@ function IndividualsHowItWorks() {
     {
       num: '03',
       title: 'Review Your Dynamic Alignment Snapshot™',
-      desc: 'Watch your strengths organize into a clean, high-fidelity visual dashboard. You hold full sovereignty over your snapshot data and decide explicitly who gets to view it.',
-      bullets: ['High-fidelity capability dashboard', 'Complete data privacy control', 'No automated black-box scoring'],
+      desc: 'Watch your strengths organize into a clean, high-fidelity visual dashboard.',
+      bullets: ['High-fidelity capability dashboard', 'Transparent reflection overview', 'No automated black-box scoring'],
       badge: 'STEP 03: VISUALIZATION'
     },
     {
@@ -4569,12 +4575,7 @@ function IndividualsHowItWorks() {
               </p>
             </div>
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Participant Data Sovereignty & Privacy Controls
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Your data belongs to you permanently. Revoke sharing access whenever you choose.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
           </div>
         </section>
@@ -4608,7 +4609,7 @@ function IndividualsWhoWeServe() {
             </div>
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Zero Diagnostic Framing
+                Strengths-Based Capability Focus
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 We never apply psychological testing, clinical labels, or automated deficit scoring to participants.
@@ -4641,14 +4642,19 @@ function IndividualsJobCorps() {
               HISTORICAL BASELINE / IN DEVELOPMENT AND VALIDATION
             </span>
             <h1 className="font-sans text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
-              Strengths-Based Alignment for Schools & Job Corps
+              Supporting thoughtful implementation with Kittrell Job Corps
             </h1>
-            <p className="text-lg font-medium text-slate-200 leading-relaxed max-w-2xl">
-              Empowering educators, advisors, and counselors with human-centered capability alignment.
-            </p>
-            <p className="text-sm leading-relaxed text-slate-300 max-w-2xl font-sans">
-              Initial implementation occurred in April 2026 with 14 students using the earlier TalentScan™ experience. Job Corps-specific CAS, Evaluation of Student Progress (ESP), Career Success Standards (CSS), eight Career Technical Training (CTT) pathways, and Counselor workflows are in development and validation.
-            </p>
+            <div className="text-sm sm:text-base leading-relaxed text-slate-200 max-w-2xl font-sans space-y-3">
+              <p>
+                ElevIQ Foundation is actively implementing CAS with Kittrell Job Corps.
+              </p>
+              <p>
+                Parts of the Job Corps-specific experience are configured, while additional workflows remain in development and controlled acceptance work continues.
+              </p>
+              <p>
+                The goal is to build thoughtfully around the participant and staff experience rather than assume one approach fits every environment.
+              </p>
+            </div>
             <div className="pt-2">
               <Link
                 to="/platform/participant-portal"
@@ -4772,7 +4778,7 @@ function IndividualsJobCorps() {
                 Seamless Transition Handoff
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Connects campus trade graduates directly to verified regional employer buyer pipelines.
+                Connects campus trade graduates directly to regional employer and pathway partner networks.
               </p>
             </div>
             <div className="space-y-3">
@@ -4795,108 +4801,7 @@ function IndividualsJobCorps() {
   )
 }
 
-function IndividualsPartnersPilots() {
-  const cards = [
-    { badge: '01. RURAL WORKFORCE', title: 'Rural Workforce Innovation', desc: 'Community pilots extending capability alignment infrastructure to non-metropolitan towns and agricultural regions.' },
-    { badge: '02. CIVIC FOUNDATIONS', title: 'Mission-Driven Non-Profits', desc: 'Local community action agencies and non-profit coalitions coordinating participant guidance.' },
-    { badge: '03. TECHNICAL SCHOOLS', title: 'Community Colleges & Vocational', desc: 'Educational partners integrating trade skill signals into certificate programs.' },
-    { badge: '04. YOUTH INITIATIVES', title: 'Job Corps & Youth Centers', desc: 'Regional centers connecting vocational youth directly with localized employer buyer networks.' },
-    { badge: '05. MUNICIPAL BOARDS', title: 'Workforce Investment Boards', desc: 'City and county boards deploying macro capability analytics across municipal districts.' },
-    { badge: '06. REGIONAL EMPLOYERS', title: 'Inclusive Employer Alliances', desc: 'Forward-thinking corporate buyers committed to skills-first hiring and apprenticeship onboarding.' },
-    { badge: '07. RE-ENTRY PARTNERS', title: 'Justice & Re-Entry Networks', desc: 'Specialized organizations supporting re-entering individuals with verified milestone tracking.' },
-    { badge: '08. VETERAN HUBS', title: 'Military Transition Alliances', desc: 'Veteran support hubs translating tactical training into recognized civilian capability signals.' },
-    { badge: '09. PHILANTHROPIC FUNDS', title: 'Donor & Funder Alliances', desc: 'Philanthropic partners supporting mission access and pilot funding across underserved zones.' }
-  ]
-
-  return (
-    <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: COMPACT HERO BLOCK */}
-      <ScrollReveal>
-        <section className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-6 md:p-8 shadow-xl overflow-hidden relative">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 text-white relative z-10">
-            <div className="space-y-3 max-w-3xl">
-              <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-cyan-300 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
-                RELATIONSHIP STATUS REQUIRED
-              </span>
-              <h1 className="font-sans text-3xl font-bold tracking-tight text-white md:text-4xl leading-tight">
-                Partners & Pilot Networks
-              </h1>
-              <p className="text-sm leading-relaxed text-slate-200 font-sans max-w-2xl">
-                Every organization, logo, or initiative must be labeled by relationship and status, such as initial implementation, program partner, technology provider, membership, supporter, configuring, in validation, pilot-ready, or live. Do not imply endorsement without approval.
-              </p>
-            </div>
-            <div className="shrink-0">
-              <Link
-                to="/contact"
-                className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-5 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-1.5"
-              >
-                Discuss a Mission-Aligned Partnership →
-              </Link>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 2: 3x3 MATRIX CARD GRID */}
-      <ScrollReveal>
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => (
-            <div
-              key={card.badge}
-              className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 space-y-3 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-            >
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                {card.badge}
-              </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">
-                {card.title}
-              </h3>
-              <p className="text-xs leading-relaxed text-slate-600 font-sans">
-                {card.desc}
-              </p>
-            </div>
-          ))}
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 3: EXPOSITION BLOCK */}
-      <ScrollReveal>
-        <section className="w-full bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] border border-cyan-500/25 rounded-[32px] p-8 md:p-12 shadow-xl text-white">
-          <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
-            Pilot Principles & Oversight
-          </h3>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Collaborative Design
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Pilots are co-designed alongside community leaders to respect local cultural and economic realities.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Transparent Impact Metrics
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Evaluation focuses on participant retention, capability growth, and human coaching satisfaction.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Sustainable Scaling
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Successful regional pilots transition into permanent community infrastructure with long-term support.
-              </p>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-    </div>
-  )
-}
-
+// IndividualsPartnersPilots decommissioned per Section 18; routes redirected to /#services
 
 function IndividualsSupportMission() {
   const [selectedRole, setSelectedRole] = useState('funder')
@@ -4939,7 +4844,7 @@ function IndividualsSupportMission() {
                 Support the Mission
               </h1>
               <p className="text-lg font-medium text-slate-200 leading-relaxed max-w-xl">
-                ElevIQ Foundation delivers mission-driven access, community pilots, and participant support.
+                ElevIQ Foundation delivers mission-driven access, community initiatives, and participant support.
               </p>
               <p className="text-sm leading-relaxed text-slate-300 max-w-2xl font-sans">
                 Your support can help expand approved mission-driven access, paper materials, digital access, advisor preparation, pilot implementation, and partner-delivered support. Gifts do not guarantee individual outcomes.
@@ -5018,7 +4923,7 @@ function IndividualsSupportMission() {
           <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <div className="space-y-4">
               <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                ALLIANCE 01: COMMUNITY PILOTS
+                ALLIANCE 01: COMMUNITY INITIATIVES
               </span>
               <h3 className="font-sans text-xl font-bold text-slate-900">
                 Rural & Youth Pilot Grants
@@ -5126,8 +5031,8 @@ function IndividualsSupportMission() {
 
 function IndividualsTrustGovernance() {
   const metrics = [
-    { value: '100%', title: 'Participant Data Sovereignty', desc: 'You own your profile data permanently. Revoke sharing access from any organization or advisor instantly.' },
-    { value: '0', title: 'Black-Box AI Scores', desc: 'We outlaw automated ranking algorithms and diagnostic test scores. Your capabilities are represented in authentic language.' },
+    { value: 'POLICY', title: 'Data Practice Architecture', isPending: true },
+    { value: '0', title: 'Black-Box AI Scores', desc: 'We replace automated ranking algorithms and rigid testing scores. Your capabilities are represented in authentic language.' },
     { value: 'HUMAN', title: 'Coaching Oversight First', desc: 'Trained human advisors review all shared milestone entries alongside you, ensuring guidance stays supportive.' },
     { value: 'FREE', title: 'Always Free to Participants', desc: 'Individual job seekers, students, and community members never pay fees to build, store, or share snapshots.' }
   ]
@@ -5170,22 +5075,30 @@ function IndividualsTrustGovernance() {
               key={metric.title}
               className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="space-y-3">
-                <span className="font-mono text-3xl font-bold text-[#0284C7] tracking-tight block">
-                  {metric.value}
-                </span>
-                <h3 className="font-sans text-base font-bold text-slate-900">
-                  {metric.title}
-                </h3>
-                <p className="text-xs leading-relaxed text-slate-600 font-sans">
-                  {metric.desc}
-                </p>
-              </div>
-              <div className="pt-2 border-t border-slate-100">
-                <span className="text-[10px] font-mono font-semibold text-[#0284C7] uppercase tracking-wider">
-                  Guaranteed Standard
-                </span>
-              </div>
+              {metric.isPending ? (
+                <div className="space-y-3 py-6 text-center text-xs text-slate-500 font-sans">
+                  {/* Privacy/data-practice language pending separate approval */}
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-3">
+                    <span className="font-mono text-3xl font-bold text-[#0284C7] tracking-tight block">
+                      {metric.value}
+                    </span>
+                    <h3 className="font-sans text-base font-bold text-slate-900">
+                      {metric.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-slate-600 font-sans">
+                      {metric.desc}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-slate-100">
+                    <span className="text-[10px] font-mono font-semibold text-[#0284C7] uppercase tracking-wider">
+                      Guaranteed Standard
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </section>
@@ -5199,12 +5112,7 @@ function IndividualsTrustGovernance() {
           </h3>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                No Data Monetization
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                We never sell, rent, or commercialize individual participant data or reflection entries to third-party advertisers.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
@@ -5215,12 +5123,7 @@ function IndividualsTrustGovernance() {
               </p>
             </div>
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Permanent Data Portability
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Export your dynamic capability snapshot at any time in open, readable formats to share wherever you choose.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
           </div>
         </section>
@@ -5260,7 +5163,7 @@ function OrganizationsHome() {
                 COMMERCIAL OVERVIEW
               </span>
               <h2 className="max-w-2xl font-sans text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
-                Align Local Talent Through Verified Capabilities
+                Align Local Talent Through Demonstrated Capabilities
               </h2>
               <p className="text-lg font-medium text-slate-200 leading-relaxed max-w-xl">
                 Shift your operational hiring from static keyword filtering to high-fidelity, private capability metrics.
@@ -5429,7 +5332,7 @@ function OrganizationsHome() {
                 </span>
               </div>
               <p className="text-sm leading-relaxed text-slate-600 font-sans">
-                Securely accept dynamic snapshot profiles from verified workforce programs, community cohorts, and local pilots without intrusive data collection friction.
+                Securely accept dynamic snapshot profiles from participating workforce programs, community cohorts, and local initiatives without intrusive data collection friction.
               </p>
             </div>
             <div className="pt-2 border-t border-slate-100">
@@ -5467,7 +5370,7 @@ function OrganizationsHome() {
                 De-Biased Ingestion Architecture
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Our layout outlaws traditional automated ranking filters, predictive black-box indices, and talent scoring systems. Alignment is based entirely on verified lifestyle and project milestones.
+                Our layout outlaws traditional automated ranking filters, opaque black-box screening, and arbitrary talent scoring systems. Alignment is based entirely on participant reflection and project milestones.
               </p>
             </div>
 
@@ -5477,7 +5380,7 @@ function OrganizationsHome() {
                 Infrastructure Calibration Focus
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency without sacrificing individual user data sovereignty.
+                System access focuses entirely on upgrading local economic infrastructure health. We provide high-fidelity dashboard transparency. {/* Privacy/data-practice language pending separate approval */}
               </p>
             </div>
           </div>
@@ -5520,10 +5423,10 @@ function OrganizationsSolutions() {
             </div>
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Proven Regional Impact
+                Strengthened Regional Alignment
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Delivers verifiable retention improvements by aligning talent to roles based on genuine capability fit.
+                Supports stronger organizational engagement by aligning talent to roles based on genuine capability fit.
               </p>
             </div>
           </div>
@@ -5545,7 +5448,7 @@ function OrganizationsImplementation() {
     {
       num: '02',
       title: 'Advisor & Leadership Cohort Enablement',
-      desc: 'Frontline advisors, workforce coaches, and cohort leaders receive comprehensive enablement on ElevIQ CLARA™ dashboards to support participant reflection without clinical diagnostic pressure.',
+      desc: 'Frontline advisors, workforce coaches, and cohort leaders receive comprehensive enablement on ElevIQ CLARA™ dashboards to support participant reflection without high-stakes testing pressure.',
       bullets: ['ElevIQ CLARA™ advisor workspace training', 'Human-in-the-loop coaching protocols', 'Plain-language capability interpretation'],
       badge: 'PHASE 02: ENABLEMENT'
     },
@@ -5553,14 +5456,18 @@ function OrganizationsImplementation() {
       num: '03',
       title: 'Participant Portal & Scan Onboarding',
       desc: 'Individual participants receive free, self-guided access to the ElevIQ Alignment Scan™ and Participant Portal to begin capturing non-linear experiences and qualitative capabilities.',
-      bullets: ['Free participant access activation', 'Self-guided experience capture', 'Participant privacy sovereignty'],
+      bullets: [
+        'Free participant access activation',
+        'Self-guided experience capture',
+        {/* Privacy/data-practice language pending separate approval */}
+      ],
       badge: 'PHASE 03: ONBOARDING'
     },
     {
       num: '04',
       title: 'Cross-Sector Pipeline Alignment & Analytics',
-      desc: 'Macro intelligence consoles (Community Intelligence Console™) aggregate verified capability signals across regional cohorts, enabling corporate buyers and municipal leads to align open tracks.',
-      bullets: ['Macro cohort capability analytics', 'Regional buyer pipeline matching', 'Transparent outcome tracking'],
+      desc: 'Macro intelligence consoles (Community Intelligence Console™) aggregate directional capability signals across participating cohorts, enabling corporate buyers and municipal leads to align open tracks.',
+      bullets: ['Macro cohort capability patterns', 'Regional pathway and employer alignment', 'Collaborative service-delivery review'],
       badge: 'PHASE 04: ALIGNMENT'
     }
   ]
@@ -5622,11 +5529,17 @@ function OrganizationsImplementation() {
                       {step.desc}
                     </p>
                     <ul className="space-y-2 text-xs font-sans text-slate-600">
-                      {step.bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] shrink-0" />
-                          <span>{bullet}</span>
-                        </li>
+                      {step.bullets.map((bullet, bIdx) => (
+                        typeof bullet === 'string' ? (
+                          <li key={bullet} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#0284C7] shrink-0" />
+                            <span>{bullet}</span>
+                          </li>
+                        ) : (
+                          <React.Fragment key={bIdx}>
+                            {/* Privacy/data-practice language pending separate approval */}
+                          </React.Fragment>
+                        )
                       ))}
                     </ul>
                   </div>
@@ -5709,7 +5622,7 @@ function OrganizationsPricingDemo() {
     },
     employer: {
       title: 'Enterprise Buyer & Employer Pipeline',
-      desc: 'Direct skills-first hiring access to verified candidate snapshots without automated black-box screening filters.',
+      desc: 'Direct skills-first hiring access to candidate capability snapshots without automated black-box screening filters.',
       tag: 'ENTERPRISE LICENSING',
       action: 'Schedule Enterprise Demo'
     },
@@ -6214,7 +6127,7 @@ function ResourcesPage() {
                   03. Role Benchmarking Guide
                 </span>
                 <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs shrink-0">
-                  STATUS: ROADMAP
+                  In Development
                 </span>
               </div>
               <p className="text-xs leading-relaxed text-slate-600 font-sans">
@@ -6263,7 +6176,7 @@ function ResourcesPage() {
                 Continuous Knowledge Updates
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Our resource center is continuously updated as new regional cohort data and verified pilot outcomes are finalized.
+                Our resource center is continuously updated as new cohort learning and community updates are finalized.
               </p>
             </div>
           </div>
@@ -6372,7 +6285,7 @@ function AboutPage() {
             {/* Point 1 */}
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Guiding Reflection, Not Clinical Testing
+                Guiding Reflection, Not Standardized Testing
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 CAS is not a test that tells someone what they must become. It is capability-alignment infrastructure built to support human guidance and practical next steps.
@@ -6381,12 +6294,7 @@ function AboutPage() {
 
             {/* Point 2 */}
             <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Participant Data Sovereignty & Privacy Controls
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Individual records are owned strictly by the participant. Data splitting protocols ensure organizations only view aggregate, anonymized regional metrics.
-              </p>
+              {/* Privacy/data-practice language pending separate approval */}
             </div>
 
             {/* Point 3 */}
@@ -6395,7 +6303,7 @@ function AboutPage() {
                 Dignified Career Mobility
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Connects non-traditional talent, career changers, veterans, and students with verified regional buyer pipelines based on baseline operational capabilities rather than blunt degree proxies.
+                Connects non-traditional talent, career changers, veterans, and students with regional employer and pathway partner networks based on baseline operational capabilities rather than blunt degree proxies.
               </p>
             </div>
           </div>
@@ -6432,10 +6340,10 @@ function ElevIqLastMilePage() {
               FROM INSIGHT TO PRACTICAL NEXT STEPS
             </p>
             <p className="text-lg font-medium text-slate-200 leading-relaxed">
-              Supporting the movement from capability insight toward practical, human-guided next steps.
+              Helping the next step feel more reachable
             </p>
             <p className="text-sm leading-relaxed text-slate-300">
-              Depending on the configured partner program, The ElevIQ Last Mile™ may include support planning, referrals, preparation, training options, applications, interviews, onboarding preparation, and follow-up.
+              Knowing what direction to explore is only part of moving forward. The ElevIQ Last Mile™ is designed to support movement toward an appropriate next step. Depending on the community, relationships, resources, and permissions in place, that next step may include a conversation, referral, application, trusted guide, program, or connection to a community resource.
             </p>
             <div className="pt-2">
               <Link
@@ -6843,10 +6751,10 @@ function InteractiveJourneyPage() {
               <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
                 PHASE 02
               </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">Signal Verification Stage</h3>
+              <h3 className="font-sans text-lg font-bold text-slate-900">Signal Synthesis Stage</h3>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Demonstrates how qualitative entries evolve seamlessly into clear, visible indicators accessible to verified coaches.
+              Demonstrates how qualitative entries evolve seamlessly into clear, visible indicators accessible to trusted guides.
             </p>
           </div>
 
@@ -6890,10 +6798,10 @@ function InteractiveJourneyPage() {
 
             <div className="space-y-3">
               <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Contextual Validation Logic
+                Contextual Alignment Logic
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Highlights the absolute absence of testing stress, proving data accumulates strictly through self-driven, verified milestones.
+                Highlights the absolute absence of testing stress, proving data accumulates strictly through self-driven reflection and milestones.
               </p>
             </div>
 
@@ -7000,20 +6908,7 @@ function FaqPage() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7] shrink-0 border border-sky-200">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <div className="space-y-1">
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                GOVERNANCE
-              </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">Data Privacy & Sovereignty</h3>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Explains how the platform keeps individuals in absolute control of their data, ensuring no third-party matching occurs without explicit consent.
-            </p>
+            {/* Privacy/data-practice language pending separate approval */}
           </div>
 
           <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -7029,7 +6924,7 @@ function FaqPage() {
               <h3 className="font-sans text-lg font-bold text-slate-900">Bypassing Legacy Testing</h3>
             </div>
             <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Clarifies exactly how CAS operates without assigning clinical test grades, personality profiles, or automated scoring models.
+              Clarifies exactly how CAS operates without assigning rigid test grades, personality profiles, or automated scoring models.
             </p>
           </div>
 

@@ -24,8 +24,8 @@ export default function WhoElevIqServes({ variant = 'dark', showPartnerBanner = 
     {
       num: '03',
       stage: 'VOCATIONAL & TRADE',
-      title: 'Vocational & Trade Transitions',
-      desc: 'Hands-on skill validation, apprenticeship pathways, trade academies, and practical industry certification alignment.',
+      title: 'Connect hands-on experience with what comes next',
+      desc: 'Explore hands-on capability through reflection, consider apprenticeship and training opportunities, and build a practical pathway toward the next step.',
       badge: 'VOCATIONAL',
       focus: 'Apprenticeships & trade careers'
     },
@@ -184,18 +184,10 @@ export default function WhoElevIqServes({ variant = 'dark', showPartnerBanner = 
           </div>
           <div className="shrink-0 flex flex-wrap gap-2">
             <Link
-              to="/individuals/programs-partners"
+              to="/contact"
               className="rounded-full bg-[#0FA88A] hover:bg-[#0E957A] text-white text-xs font-bold px-5 py-2.5 shadow-sm transition hover:scale-[1.02] active:scale-[0.98]"
             >
-              Partner Programs →
-            </Link>
-            <Link
-              to="/contact"
-              className={`rounded-full border text-xs font-semibold px-5 py-2.5 transition hover:scale-[1.02] active:scale-[0.98] ${
-                isDark ? 'border-slate-700 hover:bg-slate-800 text-slate-300' : 'border-slate-300 hover:bg-slate-200 text-slate-700'
-              }`}
-            >
-              Partner Inquiry
+              Partner Inquiry →
             </Link>
           </div>
         </div>
