@@ -424,66 +424,48 @@ function AppShell() {
                         </span>
                         <div className="grid grid-cols-2 gap-1.5 pt-1">
                           <Link
-                            to="/#path-school"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-school')
-                            }}
+                            to="/individuals/schools-workforce"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Schools & CTE</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Youth & vocational career clarity</div>
                           </Link>
                           <Link
-                            to="/#path-workforce"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-workforce')
-                            }}
+                            to="/organizations/solutions"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Workforce & NCWorks</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Regional board infrastructure</div>
                           </Link>
                           <Link
-                            to="/#path-college"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-college')
-                            }}
+                            to="/organizations/solutions"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Community Colleges & Adult Learning</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Adult learning & trade tracks</div>
                           </Link>
                           <Link
-                            to="/#path-jobcorps"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-jobcorps')
-                            }}
+                            to="/individuals/job-corps"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Job Corps</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Trade completion & transition</div>
                           </Link>
                           <Link
-                            to="/#path-nonprofit"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-nonprofit')
-                            }}
+                            to="/organizations/solutions"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Community & Nonprofits</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Local cohorts & guided pilots</div>
                           </Link>
                           <Link
-                            to="/#path-employer"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-employer')
-                            }}
+                            to="/organizations/solutions"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Employers & Regional Partners</div>
@@ -492,11 +474,8 @@ function AppShell() {
                         </div>
                         <div className="pt-2 border-t border-cyan-500/20">
                           <Link
-                            to="/#path-funder"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleAnchorNav('path-funder')
-                            }}
+                            to="/individuals/support-the-mission"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300 flex items-center justify-between">
@@ -950,71 +929,50 @@ function AppShell() {
                   {mobileExpanded.organizations && (
                     <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-sky-400/60 ml-2 mt-1">
                       <Link
-                        to="/#path-school"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-school')
-                        }}
+                        to="/individuals/schools-workforce"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Schools & CTE
                       </Link>
                       <Link
-                        to="/#path-workforce"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-workforce')
-                        }}
+                        to="/organizations/solutions"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Workforce & NCWorks
                       </Link>
                       <Link
-                        to="/#path-college"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-college')
-                        }}
+                        to="/organizations/solutions"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Community Colleges & Adult Learning
                       </Link>
                       <Link
-                        to="/#path-jobcorps"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-jobcorps')
-                        }}
+                        to="/individuals/job-corps"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Job Corps
                       </Link>
                       <Link
-                        to="/#path-nonprofit"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-nonprofit')
-                        }}
+                        to="/organizations/solutions"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Community & Nonprofits
                       </Link>
                       <Link
-                        to="/#path-employer"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-employer')
-                        }}
+                        to="/organizations/solutions"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
                       >
                         Employers & Regional Partners
                       </Link>
                       <Link
-                        to="/#path-funder"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleAnchorNav('path-funder')
-                        }}
+                        to="/individuals/support-the-mission"
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white"
                       >
                         Funders & Philanthropic Alliances
@@ -1821,8 +1779,9 @@ function HomePage() {
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 5. HUMAN GUIDANCE LAYER */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <ScrollReveal>
-        <section className="rounded-[32px] border border-cyan-500/25 bg-[#0B1936]/90 p-8 sm:p-12 shadow-xl text-white space-y-8">
+      <div id="human-guidance" className="scroll-mt-24">
+        <ScrollReveal>
+          <section className="rounded-[32px] border border-cyan-500/25 bg-[#0B1936]/90 p-8 sm:p-12 shadow-xl text-white space-y-8">
           <div className="space-y-2 text-center max-w-3xl mx-auto">
             <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">
               THE HUMAN CORE
@@ -1891,8 +1850,9 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
-      </ScrollReveal>
+          </section>
+        </ScrollReveal>
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 7. 7 PARTICIPANT ENTRY POINTS ROUTING GRID */}
@@ -3921,22 +3881,22 @@ function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm font-sans">
               <li>
-                <Link to="/#path-school" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                <Link to="/individuals/schools-workforce" className="text-slate-300 hover:text-cyan-300 transition-colors">
                   Schools & CTE
                 </Link>
               </li>
               <li>
-                <Link to="/#path-workforce" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                <Link to="/organizations/solutions" className="text-slate-300 hover:text-cyan-300 transition-colors">
                   Workforce & NCWorks
                 </Link>
               </li>
               <li>
-                <Link to="/#path-jobcorps" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                <Link to="/individuals/job-corps" className="text-slate-300 hover:text-cyan-300 transition-colors">
                   Job Corps Centers
                 </Link>
               </li>
               <li>
-                <Link to="/#path-employer" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                <Link to="/organizations/solutions" className="text-slate-300 hover:text-cyan-300 transition-colors">
                   Employers & Role Alignment
                 </Link>
               </li>
