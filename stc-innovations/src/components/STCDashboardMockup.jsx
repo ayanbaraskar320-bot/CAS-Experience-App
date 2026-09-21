@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { getElevIqUrl } from '../config/links'
 
 export default function STCDashboardMockup() {
   const [activeNav, setActiveNav] = useState('overview')
@@ -320,7 +321,14 @@ export default function STCDashboardMockup() {
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-sm bg-cyan-500/30 border border-cyan-500/40" /> 85%+ Target Alignment
                 </span>
-                <span className="text-[#00D2FF]">View Full Matrix →</span>
+                <a
+                  href={getElevIqUrl('/platform/community-intelligence-console')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#00D2FF] hover:underline font-bold transition-all"
+                >
+                  View Full Matrix →
+                </a>
               </div>
             </div>
           </div>

@@ -421,10 +421,15 @@ export default function STCInnovationsPage() {
                     Reveal human skills, capabilities, experience and context that traditional assessments and keyword resume filters miss.
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] flex items-center gap-1">
+                <a
+                  href={getElevIqUrl('/platform/capability-signals')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] hover:text-[#1D4ED8] flex items-center gap-1 transition-colors"
+                >
                   <span>Explore Capability Signals™</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
+                </a>
               </div>
 
               {/* Card 2: ALIGN */}
@@ -448,10 +453,15 @@ export default function STCInnovationsPage() {
                     Connect people with roles, pathways, and opportunities based on demonstrated human capabilities rather than rigid degree proxies.
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] flex items-center gap-1">
+                <a
+                  href={getElevIqUrl('/platform/role-alignment')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] hover:text-[#1D4ED8] flex items-center gap-1 transition-colors"
+                >
                   <span>View Role Alignment Models</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
+                </a>
               </div>
 
               {/* Card 3: DEVELOP */}
@@ -475,10 +485,15 @@ export default function STCInnovationsPage() {
                     Identify growth needs, uncover non-linear strengths, and create clear next steps that empower individuals and organizations alike.
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] flex items-center gap-1">
+                <a
+                  href={getElevIqUrl('/platform/development-opportunities')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pt-4 border-t border-slate-200/80 text-xs font-semibold text-[#0052CC] hover:text-[#1D4ED8] flex items-center gap-1 transition-colors"
+                >
                   <span>See Development Workflows</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </div>
+                </a>
               </div>
             </div>
           </div>

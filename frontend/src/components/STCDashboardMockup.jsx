@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function STCDashboardMockup() {
   const [activeNav, setActiveNav] = useState('overview')
@@ -320,7 +321,9 @@ export default function STCDashboardMockup() {
                 <span className="flex items-center gap-1">
                   <span className="w-2 h-2 rounded-sm bg-cyan-500/30 border border-cyan-500/40" /> 85%+ Target Alignment
                 </span>
-                <span className="text-[#00D2FF]">View Full Matrix →</span>
+                <Link to="/platform/community-intelligence-console" className="text-[#00D2FF] hover:underline font-bold transition-all">
+                  View Full Matrix →
+                </Link>
               </div>
             </div>
           </div>
