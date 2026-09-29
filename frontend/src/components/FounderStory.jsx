@@ -199,7 +199,7 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
 
                 <div className="flex items-center gap-3 shrink-0">
                   <Link
-                    to="/platform/participant-portal"
+                    to="/contact?topic=participant-scan#contact-inquiry"
                     className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-5 py-2 text-xs font-bold transition shadow-sm"
                   >
                     Begin Free Scan

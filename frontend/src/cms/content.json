@@ -32,7 +32,7 @@
     }
   ],
   "routingEndpoints": {
-    "useMyProgramLink": "/platform/participant-portal",
+    "useMyProgramLink": "/contact?topic=participant-scan",
     "exploreYourPath": "/individuals/explore-your-path",
     "discussProgram": "/contact?topic=discuss-program",
     "discussJobCorps": "/contact?topic=job-corps-configuration",

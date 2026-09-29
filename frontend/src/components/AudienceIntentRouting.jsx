@@ -9,8 +9,8 @@ export const AUDIENCE_PATHS = [
     name: 'Youth Exploration — Ages 13–15',
     category: 'Ages 13–15',
     description: 'Early awareness, interest discovery, informal problem-solving, and personal strength exploration free from testing pressure.',
-    routePath: '/platform/participant-portal?entry=youth-exploration',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=youth-exploration#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Youth Exploration (13–15)',
     badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
@@ -29,8 +29,8 @@ export const AUDIENCE_PATHS = [
     name: 'High School / CTE — Ages 16–18',
     category: 'Ages 16–18',
     description: 'Career and technical education alignment, practical credential exploration, and post-graduation transition readiness.',
-    routePath: '/platform/participant-portal?entry=high-school-cte',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=high-school-cte#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'High School & CTE (16–18)',
     badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
@@ -48,8 +48,8 @@ export const AUDIENCE_PATHS = [
     name: 'Postsecondary / Emerging Career',
     category: 'Emerging Career',
     description: 'Community college, four-year university, and emerging technical careers, connecting studies to practical real-world roles.',
-    routePath: '/platform/participant-portal?entry=postsecondary',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=postsecondary#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Postsecondary / Emerging',
     badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
@@ -67,8 +67,8 @@ export const AUDIENCE_PATHS = [
     name: 'Adult Learner / Workforce Entry',
     category: 'Workforce Entry',
     description: 'Foundational literacy, digital capability recognition, up-skilling, and entering or returning to the workforce with confidence.',
-    routePath: '/platform/participant-portal?entry=adult-learner',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=adult-learner#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Adult Learner / Entry',
     badgeColor: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
@@ -86,8 +86,8 @@ export const AUDIENCE_PATHS = [
     name: 'Experienced Worker / Career Transition',
     category: 'Career Transition',
     description: 'Mid-career pivoting, naming transferable capabilities, and navigating industry transitions or technology adoption.',
-    routePath: '/platform/participant-portal?entry=experienced-worker',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=experienced-worker#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Experienced / Transition',
     badgeColor: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
@@ -105,8 +105,8 @@ export const AUDIENCE_PATHS = [
     name: 'Veteran / Military Transition',
     category: 'Military Transition',
     description: 'Translating military specialty codes, tactical leadership, discipline, and operational execution into recognized civilian capability signals.',
-    routePath: '/platform/participant-portal?entry=veteran',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=veteran#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Military Transition',
     badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
@@ -124,8 +124,8 @@ export const AUDIENCE_PATHS = [
     name: 'Reentry / Career Rebuilding',
     category: 'Career Rebuilding',
     description: 'Overcoming employment gaps or justice-impacted barriers, validating personal resilience, structured support, and fresh career starts.',
-    routePath: '/platform/participant-portal?entry=reentry',
-    actionLabel: 'Begin Alignment Scan',
+    routePath: '/contact?entry=reentry#contact-inquiry',
+    actionLabel: 'Take Assessment',
     entityRoute: 'ElevIQ Foundation',
     badge: 'Restorative Reentry',
     badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
@@ -185,19 +185,39 @@ export default function AudienceIntentRouting({
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Listen to hash changes, initial hash deep-linking, and cross-component event syncing
+  // Listen to hash changes, URL query parameters, and cross-component event syncing
   useEffect(() => {
-    function handleHashCheck() {
+    function handleLocationCheck() {
       const hash = window.location.hash.replace('#', '')
-      if (!hash) return
+      const searchParams = new URLSearchParams(window.location.search)
+      const entryParam = searchParams.get('entry') || searchParams.get('audience')
+      const topicParam = searchParams.get('topic')
 
-      const matchedPath = AUDIENCE_PATHS.find(
-        (p) =>
-          p.id === hash ||
-          p.anchorIds?.includes(hash) ||
-          hash === `path-${p.id}` ||
-          hash === `path-${p.number}`
-      )
+      let matchedPath = null
+
+      if (entryParam) {
+        matchedPath = AUDIENCE_PATHS.find(
+          (p) => p.id === entryParam || p.number === entryParam || p.anchorIds?.includes(entryParam)
+        )
+      }
+
+      if (!matchedPath && hash) {
+        matchedPath = AUDIENCE_PATHS.find(
+          (p) =>
+            p.id === hash ||
+            p.anchorIds?.includes(hash) ||
+            hash === `path-${p.id}` ||
+            hash === `path-${p.number}`
+        )
+      }
+
+      if (!matchedPath && topicParam) {
+        if (topicParam === 'participant-scan' || topicParam === 'talent-assessment') {
+          matchedPath = AUDIENCE_PATHS[0]
+        } else if (topicParam === 'job-corps-configuration') {
+          matchedPath = AUDIENCE_PATHS[1]
+        }
+      }
 
       if (matchedPath) {
         setSelectedAudience(matchedPath)
@@ -207,13 +227,17 @@ export default function AudienceIntentRouting({
           entityRoute: matchedPath.entityRoute,
         }))
         const targetEl = document.getElementById(`path-${matchedPath.id}`)
-        if (targetEl && showGrid) {
+        if (targetEl && showGrid && !hash.includes('contact')) {
           targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
         }
-      } else if (hash === 'contact-inquiry' || hash === 'smart-contact-form') {
-        const formEl = document.getElementById('contact-inquiry')
+      }
+
+      if (hash === 'contact-inquiry' || hash === 'smart-contact-form' || topicParam || entryParam) {
+        const formEl = document.getElementById('contact-inquiry') || document.getElementById('smart-contact-form')
         if (formEl) {
-          formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          setTimeout(() => {
+            formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }, 100)
         }
       }
     }
@@ -230,11 +254,13 @@ export default function AudienceIntentRouting({
       }
     }
 
-    handleHashCheck()
-    window.addEventListener('hashchange', handleHashCheck)
+    handleLocationCheck()
+    window.addEventListener('hashchange', handleLocationCheck)
+    window.addEventListener('popstate', handleLocationCheck)
     window.addEventListener('eleviq-audience-select', handleCustomEvent)
     return () => {
-      window.removeEventListener('hashchange', handleHashCheck)
+      window.removeEventListener('hashchange', handleLocationCheck)
+      window.removeEventListener('popstate', handleLocationCheck)
       window.removeEventListener('eleviq-audience-select', handleCustomEvent)
     }
   }, [showGrid])
@@ -259,7 +285,9 @@ export default function AudienceIntentRouting({
         setTimeout(() => {
           const nameInput = document.getElementById('name')
           if (nameInput) nameInput.focus()
-        }, 500)
+        }, 400)
+      } else {
+        navigate(`/contact?entry=${path.id}#contact-inquiry`)
       }
     }
   }
@@ -419,16 +447,19 @@ export default function AudienceIntentRouting({
                     </span>
 
                     <div className="flex items-center gap-2">
-                      <Link
-                        to={path.routePath}
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 hover:text-white transition-all duration-200 shadow-sm"
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleAudienceSelect(path, true)
+                        }}
+                        className="inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-full border border-cyan-400/40 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 hover:text-white transition-all duration-200 shadow-sm cursor-pointer"
                       >
-                        <span>Begin Free Scan</span>
+                        <span>Take Assessment</span>
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>

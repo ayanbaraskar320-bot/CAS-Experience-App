@@ -249,7 +249,7 @@ export default function CasTechnologyPreview() {
 
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
-                to="/platform/participant-portal"
+                to="/contact?topic=participant-scan#contact-inquiry"
                 className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-5 py-2 text-xs font-bold transition shadow-sm"
               >
                 Begin Free Scan
@@ -530,7 +530,7 @@ export function CasTechnologyTeaser() {
             See the Technology Behind the Work →
           </Link>
           <Link
-            to="/platform/participant-portal"
+            to="/contact?topic=participant-scan#contact-inquiry"
             className="rounded-full border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 px-5 py-3 text-xs sm:text-sm font-semibold transition"
           >
             Begin Free Scan

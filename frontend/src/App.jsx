@@ -380,11 +380,11 @@ function AppShell() {
                           <div className="text-[10px] text-slate-400 font-sans leading-tight">7 approved life & career stages</div>
                         </Link>
                         <Link
-                          to="/platform/participant-portal"
+                          to="/contact?topic=participant-scan#contact-inquiry"
                           className="block px-3 py-2 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
                         >
                           <div className="text-xs font-bold text-cyan-300 flex items-center justify-between">
-                            <span>Free ElevIQ Alignment Scan™</span>
+                            <span>Take Assessment / Free Scan™</span>
                             <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
                           </div>
                           <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
@@ -828,9 +828,9 @@ function AppShell() {
                   </svg>
                 </StcLink>
 
-                {/* Primary Button: Strictly 'Begin Free Scan' */}
+                {/* Primary Button: Strictly 'Begin Free Scan' / Contact */}
                 <Link
-                  to="/platform/participant-portal"
+                  to="/contact?topic=participant-scan#contact-inquiry"
                   className="inline-flex items-center justify-center rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-3 2xl:px-4 py-1.5 text-xs 2xl:text-sm font-bold whitespace-nowrap flex-shrink-0 shadow-[0_0_15px_rgba(0,210,255,0.45)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   title="Begin Free ElevIQ Alignment Scan™"
                 >
@@ -909,7 +909,7 @@ function AppShell() {
                     <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-[#0FA88A]/60 ml-2 mt-1">
                       <Link to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">How It Works</Link>
                       <Link to="/#who-we-serve" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('who-we-serve')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Who We Serve (7 Populations)</Link>
-                      <Link to="/platform/participant-portal" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white">Free ElevIQ Alignment Scan™</Link>
+                      <Link to="/contact?topic=participant-scan#contact-inquiry" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white">Free ElevIQ Alignment Scan™</Link>
                     </div>
                   )}
                 </div>
@@ -1122,7 +1122,7 @@ function AppShell() {
               {/* Mobile CTA Button */}
               <div className="mt-auto pt-4">
                 <Link
-                  to="/platform/participant-portal"
+                  to="/contact?topic=participant-scan#contact-inquiry"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center rounded-full bg-[#00D2FF] py-3 text-sm font-bold text-slate-950 shadow-md cursor-pointer"
                 >
@@ -1435,7 +1435,7 @@ function HomePage() {
                 </button>
 
                 <Link
-                  to="/platform/participant-portal"
+                  to="/contact?topic=participant-scan#contact-inquiry"
                   className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Begin the Free ElevIQ Alignment Scan™
@@ -3857,7 +3857,7 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/platform/participant-portal" className="text-cyan-300 font-semibold hover:text-white transition-colors">
+                <Link to="/contact?topic=participant-scan#contact-inquiry" className="text-cyan-300 font-semibold hover:text-white transition-colors">
                   Free Alignment Scan™ →
                 </Link>
               </li>
@@ -4639,7 +4639,7 @@ function IndividualsJobCorps() {
             </div>
             <div className="pt-2">
               <Link
-                to="/platform/participant-portal"
+                to="/contact?topic=job-corps-configuration#contact-inquiry"
                 className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2"
               >
                 Use My Approved Program Link →
