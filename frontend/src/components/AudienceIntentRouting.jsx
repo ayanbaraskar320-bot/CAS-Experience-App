@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { sendInquiry } from '../services/inquiryService'
 
 export const AUDIENCE_PATHS = [
   {
@@ -332,33 +333,24 @@ export default function AudienceIntentRouting({
 
     if (Object.keys(nextErrors).length === 0) {
       setIsSubmitting(true)
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
-      fetch(`${apiUrl}/api/inquiry`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          organization: form.organization || 'Individual / Participant',
-          email: form.email,
-          phone: form.phone || '',
-          role: form.role || form.audienceIntent,
-          interestArea: form.audienceIntent,
-          programContext: form.programContext,
-          entityRoute: form.entityRoute,
-          message: form.message,
-        }),
+      sendInquiry({
+        name: form.name,
+        organization: form.organization || 'Individual / Participant',
+        email: form.email,
+        phone: form.phone || '',
+        role: form.role || form.audienceIntent,
+        interestArea: form.audienceIntent,
+        programContext: form.programContext,
+        entityRoute: form.entityRoute,
+        message: form.message,
       })
-        .then((res) => {
-          if (!res.ok) throw new Error('Submission error')
-          return res.json()
-        })
         .then(() => {
           setIsSubmitting(false)
           setSubmitted(true)
         })
         .catch((err) => {
-          console.warn('Backend fetch fallback to confirmation:', err)
+          console.warn('Inquiry submission fallback to confirmation:', err)
           setIsSubmitting(false)
           setSubmitted(true)
         })

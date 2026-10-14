@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { sendInquiry } from '../services/inquiryService'
 
 export default function STCDemoModal({ isOpen, onClose, initialInterest = '' }) {
   const [form, setForm] = useState({
@@ -70,7 +71,6 @@ export default function STCDemoModal({ isOpen, onClose, initialInterest = '' }) 
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitting(true)
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
       const payload = {
         name: form.fullName,
@@ -83,15 +83,7 @@ export default function STCDemoModal({ isOpen, onClose, initialInterest = '' }) 
         message: form.notes || `STC Enterprise Demo Request for ${form.organization}. Tier: ${form.talentVolume}.`,
       }
 
-      fetch(`${apiUrl}/api/inquiry`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error('Submission error')
-          return res.json()
-        })
+      sendInquiry(payload)
         .then(() => {
           setIsSubmitting(false)
           setIsSuccess(true)
