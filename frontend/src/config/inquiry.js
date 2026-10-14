@@ -9,7 +9,7 @@
 
 export const INQUIRY_CONFIG = {
   // Web3Forms Access Key (reads environment variable first, falls back to direct string)
-  web3FormsAccessKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '4fcb968a-ed45-4b84-9a57-ffaca963df7c',
+  web3FormsAccessKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '9949e474-6db6-4851-aab1-072aecbf8c16',
 
   // Destination email target for reference
   targetEmail: 'info@eleviqfoundation.org',
