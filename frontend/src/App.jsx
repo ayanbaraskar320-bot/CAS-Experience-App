@@ -225,6 +225,14 @@ function App() {
   )
 }
 
+function ParticipantPortalRedirect() {
+  const location = useLocation()
+  useEffect(() => {
+    window.location.href = `https://cas.eleviqfoundation.org/login${location.search || ''}${location.hash || ''}`
+  }, [location.search, location.hash])
+  return null
+}
+
 function AppShell() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -295,19 +303,19 @@ function AppShell() {
           '--reading-line': '1.62',
         }}
       >
-        <div className="relative flex-grow flex flex-col">
-          <header className="sticky top-0 z-40 bg-[#030B1E]/95 backdrop-blur-md text-white border-b border-cyan-500/20 shadow-lg py-2 px-2 sm:px-4 2xl:px-6 transition-all duration-200">
-            <div className="w-full max-w-[1600px] mx-auto flex items-center justify-between gap-x-1.5 2xl:gap-x-3">
+        <div className="relative flex-grow flex flex-col min-w-0 overflow-x-clip">
+          <header className="sticky top-0 z-40 bg-[#030B1E]/95 backdrop-blur-md text-white border-b border-cyan-500/20 shadow-lg py-2 px-3 sm:px-4 2xl:px-6 transition-all duration-200 w-full">
+            <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-x-2 xl:gap-x-4">
               {/* LEFT: Brand Logo Block */}
               <Link
                 to="/"
-                className="flex items-center text-white hover:opacity-95 transition-opacity flex-shrink-0 mr-1 2xl:mr-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0FA88A] rounded-xl py-0.5 px-0.5"
+                className="flex items-center text-white hover:opacity-95 transition-opacity shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0FA88A] rounded-xl py-0.5 px-0.5"
                 aria-label="ElevIQ Foundation Home"
               >
                 <img
                   src="/ElevIQ Foundation Horizontal Lockup Approved Sep 2026.png"
                   alt="ElevIQ Foundation logo"
-                  className="h-8 sm:h-9 2xl:h-10 w-auto object-contain rounded-lg bg-white/95 px-2.5 py-0.5 shadow-sm border border-cyan-500/20 group-hover:border-[#0FA88A]/60 transition-all"
+                  className="h-7.5 sm:h-8 2xl:h-9 w-auto object-contain rounded-lg bg-white/95 px-2 py-0.5 shadow-sm border border-cyan-500/20 group-hover:border-[#0FA88A]/60 transition-all"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = '/eleviq-foundation-horizontal-lockup.png';
@@ -316,13 +324,13 @@ function AppShell() {
               </Link>
 
               {/* CENTER: Desktop Nav with Interactive Dropdowns (Section 22 Navigation) */}
-              <nav aria-label="Primary navigation" className="hidden xl:flex items-center gap-x-0.5 2xl:gap-x-1.5">
+              <nav aria-label="Primary navigation" className="hidden xl:flex items-center gap-x-1 mr-auto ml-2 xl:ml-3 2xl:ml-5">
                 {/* 1. Home */}
                 <NavLink
                   to="/"
                   end
                   className={({ isActive }) =>
-                    `inline-flex items-center justify-center px-2 2xl:px-3 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    `inline-flex items-center justify-center px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       isActive
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -342,7 +350,7 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'people' ? null : 'people')}
                     aria-expanded={activeDropdown === 'people'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/individuals') || activeDropdown === 'people'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -380,15 +388,23 @@ function AppShell() {
                           <div className="text-[10px] text-slate-400 font-sans leading-tight">7 approved life & career stages</div>
                         </Link>
                         <Link
-                          to="/contact?topic=participant-scan#contact-inquiry"
+                          to="/#participation-inquiry"
                           className="block px-3 py-2 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
                         >
                           <div className="text-xs font-bold text-cyan-300 flex items-center justify-between">
-                            <span>Take Assessment / Free Scan™</span>
+                            <span>Request Scan Access</span>
                             <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
                           </div>
                           <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
                         </Link>
+                        <a
+                          href="https://cas.eleviqfoundation.org/login"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-cyan-300 hover:text-white text-xs font-semibold"
+                        >
+                          Already Invited? Access CAS →
+                        </a>
                       </div>
                     </div>
                   )}
@@ -404,13 +420,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'organizations' ? null : 'organizations')}
                     aria-expanded={activeDropdown === 'organizations'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/organizations') || activeDropdown === 'organizations'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
-                    <span>For Organizations</span>
+                    <span>Organizations</span>
                     <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'organizations' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -500,13 +516,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                     aria-expanded={activeDropdown === 'services'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'services'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
-                    <span>Our Services</span>
+                    <span>Services</span>
                     <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -564,13 +580,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'approach' ? null : 'approach')}
                     aria-expanded={activeDropdown === 'approach'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'approach'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
-                    <span>Our Approach</span>
+                    <span>Approach</span>
                     <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'approach' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -640,7 +656,7 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
                     aria-expanded={activeDropdown === 'about'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/about') || activeDropdown === 'about'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -710,7 +726,7 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
                     aria-expanded={activeDropdown === 'cas'}
-                    className={`px-1.5 2xl:px-2.5 py-1 text-xs 2xl:text-[13px] font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 2xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/platform') || activeDropdown === 'cas'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -814,27 +830,41 @@ function AppShell() {
               </nav>
 
               {/* RIGHT: Persistent Action Items (Far-Right Header) */}
-              <div className="flex items-center gap-x-1.5 2xl:gap-x-2.5 flex-shrink-0">
-                {/* External Handoff Link: Strictly Commercial CAS Solutions → STC Innovations */}
+              <div className="flex items-center gap-x-2 shrink-0 ml-auto xl:ml-0">
+                {/* External Handoff Link: Commercial CAS */}
                 <StcLink
-                  className="hidden xl:inline-flex border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 px-2 2xl:px-2.5 py-1 text-[11px] 2xl:text-xs font-semibold whitespace-nowrap flex-shrink-0 transition-all items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
+                  className="hidden xl:inline-flex items-center gap-1 text-[11px] font-semibold text-cyan-300 hover:text-white px-2.5 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/40 hover:bg-cyan-900/60 transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   title="Commercial CAS Solutions → STC Innovations"
                   label="Commercial CAS Solutions → STC Innovations"
                 >
-                  <span className="hidden 2xl:inline">Commercial CAS Solutions → STC Innovations</span>
-                  <span className="inline 2xl:hidden">Commercial CAS → STC</span>
-                  <svg className="w-3 h-3 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <span>Commercial CAS</span>
+                  <svg className="w-3 h-3 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </StcLink>
 
-                {/* Primary Button: Strictly 'Begin Free Scan' / Contact */}
-                <Link
-                  to="/contact?topic=participant-scan#contact-inquiry"
-                  className="inline-flex items-center justify-center rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-3 2xl:px-4 py-1.5 text-xs 2xl:text-sm font-bold whitespace-nowrap flex-shrink-0 shadow-[0_0_15px_rgba(0,210,255,0.45)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-                  title="Begin Free ElevIQ Alignment Scan™"
+                {/* Subtle Divider between External Partner & Foundation CTAs */}
+                <div className="hidden xl:block h-4 w-px bg-cyan-500/25 shrink-0" aria-hidden="true" />
+
+                {/* Secondary CTA: Already Invited? Access CAS */}
+                <a
+                  href="https://cas.eleviqfoundation.org/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:inline-flex items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-500/20 text-cyan-200 hover:text-white px-2.5 py-1.5 text-xs font-semibold whitespace-nowrap shrink-0 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-sm"
+                  title="Already Invited? Access CAS"
                 >
-                  Begin Free Scan
+                  <span className="hidden md:inline">Already Invited? Access CAS</span>
+                  <span className="inline md:hidden">Access CAS</span>
+                </a>
+
+                {/* Primary Button: Request Scan Access */}
+                <Link
+                  to="/#participation-inquiry"
+                  className="inline-flex items-center justify-center rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-3.5 py-1.5 text-xs font-bold whitespace-nowrap shrink-0 shadow-[0_0_15px_rgba(0,210,255,0.45)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                  title="Request Scan Access"
+                >
+                  Request Scan Access
                 </Link>
 
                 {/* Mobile Menu Button */}
@@ -1097,7 +1127,7 @@ function AppShell() {
                   {mobileExpanded.cas && (
                     <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-cyan-400/60 ml-2 mt-1">
                       <Link to="/platform" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white">See the Technology Behind the Work →</Link>
-                      <Link to="/platform/participant-portal" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Participant Portal (Free Scan)</Link>
+                      <a href="https://cas.eleviqfoundation.org/login" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Participant Portal (Already Invited? Access CAS)</a>
                       <Link to="/platform/capability-signals" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Capability Signals™</Link>
                       <Link to="/platform/alignment-snapshot" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Alignment Snapshot™</Link>
                       <Link to="/platform/eleviq-aria" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">ElevIQ ARIA™</Link>
@@ -1119,15 +1149,24 @@ function AppShell() {
                 </StcLink>
               </nav>
 
-              {/* Mobile CTA Button */}
-              <div className="mt-auto pt-4">
+              {/* Mobile CTA Buttons */}
+              <div className="mt-auto pt-4 space-y-2">
                 <Link
-                  to="/contact?topic=participant-scan#contact-inquiry"
+                  to="/#participation-inquiry"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center rounded-full bg-[#00D2FF] py-3 text-sm font-bold text-slate-950 shadow-md cursor-pointer"
                 >
-                  Begin Free Scan
+                  Request Scan Access
                 </Link>
+                <a
+                  href="https://cas.eleviqfoundation.org/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-950/40 py-2.5 text-xs font-semibold text-cyan-200 hover:text-white cursor-pointer"
+                >
+                  Already Invited? Access CAS
+                </a>
               </div>
             </div>
           )}
@@ -1154,6 +1193,9 @@ function AppShell() {
               <Route path="/individuals/*" element={<IndividualsSection />} />
               <Route path="/organizations/*" element={<OrganizationsSection />} />
               <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/faqs" element={<FaqPage />} />
+              <Route path="/faq" element={<Navigate to="/faqs" replace />} />
+              <Route path="/participant-portal" element={<ParticipantPortalRedirect />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
@@ -1435,11 +1477,20 @@ function HomePage() {
                 </button>
 
                 <Link
-                  to="/contact?topic=participant-scan#contact-inquiry"
+                  to="/#participation-inquiry"
                   className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Begin the Free ElevIQ Alignment Scan™
+                  Request Scan Access
                 </Link>
+
+                <a
+                  href="https://cas.eleviqfoundation.org/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-cyan-400/50 bg-cyan-950/40 hover:bg-cyan-500/20 text-cyan-200 hover:text-white font-semibold px-6 py-3 text-xs sm:text-sm transition-all duration-200"
+                >
+                  Already Invited? Access CAS
+                </a>
 
                 <Link
                   to="/platform"
@@ -1902,12 +1953,139 @@ function HomePage() {
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 12. SMART CONTACT & INQUIRY FORM */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <div id="contact-inquiry-section" className="scroll-mt-24">
+      <div id="participation-inquiry" className="scroll-mt-24">
+        <div id="contact-inquiry-section">
+          <ScrollReveal>
+            <AudienceIntentRouting variant="dark" showGrid={false} showForm={true} />
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      {/* 13. HOMEPAGE FAQ PREVIEW SECTION */}
+      {/* ═══════════════════════════════════════════════════════════════════ */}
+      <div id="homepage-faq-preview" className="scroll-mt-24">
         <ScrollReveal>
-          <AudienceIntentRouting variant="dark" showGrid={false} showForm={true} />
+          <HomepageFaqPreview />
         </ScrollReveal>
       </div>
     </div>
+  )
+}
+
+function HomepageFaqPreview() {
+  const [openIndex, setOpenIndex] = useState(0)
+
+  const previewFaqs = [
+    {
+      question: 'What is ElevIQ Foundation?',
+      answer: 'ElevIQ Foundation is a mission-driven 501(c)(3) nonprofit organization dedicated to closing the distance between human capability and meaningful opportunity. Through strengths-based discovery, trusted human guidance, practical pathway planning, and community partnerships, the Foundation helps individuals make their authentic capabilities visible and actionable without testing pressure.'
+    },
+    {
+      question: 'What is the ElevIQ Alignment Scan™?',
+      answer: 'The ElevIQ Alignment Scan™ is a zero-pressure, scenario-based self-reflection experience. It explores lived experience, informal problem-solving, and personal interests to surface directional Capability Signals™ that support personal reflection and human advising conversations—free from testing anxiety, pass/fail grading, or automated rejection.'
+    },
+    {
+      question: 'Is participation free?',
+      answer: 'Yes. Participation in the ElevIQ Alignment Scan™ is 100% free for individual participants. Through the Foundation’s nonprofit mission, philanthropic endowment, and community pilot partnerships, individuals never pay to discover their capabilities, explore alignment pathways, or access their Alignment Snapshot™.'
+    },
+    {
+      question: 'Is this an exam or personality test?',
+      answer: 'No. The ElevIQ Alignment Scan™ is neither an academic exam nor a psychological personality test. There are no right or wrong answers, test scores, grades, or diagnostic personality boxes. It is a supportive, self-guided reflection instrument designed to facilitate constructive conversations with mentors, counselors, navigators, and advisors.'
+    }
+  ]
+
+  return (
+    <section className="rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-2xl space-y-8 text-white relative overflow-hidden">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-cyan-500/20 pb-6">
+        <div className="space-y-3 max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-500/15 px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-cyan-300 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            FREQUENTLY ASKED QUESTIONS
+          </span>
+          <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+            Common Questions & Answers
+          </h2>
+          <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
+            Essential answers about ElevIQ Foundation, the Alignment Scan™, participation accessibility, and human-centered capability discovery.
+          </p>
+        </div>
+
+        <Link
+          to="/faqs"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold px-6 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap self-start md:self-end"
+        >
+          <span>View All FAQs</span>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </Link>
+      </div>
+
+      <div className="grid gap-3.5">
+        {previewFaqs.map((faq, idx) => {
+          const isOpen = openIndex === idx
+          return (
+            <div
+              key={faq.question}
+              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                isOpen
+                  ? 'border-cyan-400/60 bg-slate-900/95 shadow-[0_0_25px_rgba(0,210,255,0.12)]'
+                  : 'border-slate-800 bg-slate-900/50 hover:border-cyan-500/40 hover:bg-slate-900/80'
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIndex(isOpen ? null : idx)}
+                aria-expanded={isOpen}
+                className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              >
+                <div className="flex items-center gap-3.5">
+                  <span className={`font-mono text-xs font-bold transition-colors ${isOpen ? 'text-cyan-400' : 'text-slate-500'}`}>
+                    0{idx + 1}
+                  </span>
+                  <span className="font-sans text-base sm:text-lg font-bold text-white">
+                    {faq.question}
+                  </span>
+                </div>
+                <span
+                  className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                    isOpen
+                      ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300 rotate-180'
+                      : 'border-slate-700 bg-slate-800 text-slate-400 group-hover:border-cyan-400'
+                  }`}
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+
+              {isOpen && (
+                <div className="px-5 sm:px-6 pb-6 pt-0 text-sm sm:text-base leading-relaxed text-slate-300 font-sans border-t border-slate-800/80 mt-1">
+                  <p className="pt-4">{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-slate-400 border-t border-slate-800/80">
+        <span className="flex items-center gap-2 text-cyan-300">
+          <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Participant Privacy Protected • Zero Cost Access Guaranteed
+        </span>
+        <Link
+          to="/faqs"
+          className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-semibold font-sans text-xs transition-colors"
+        >
+          Explore all architecture, governance & data ethics FAQs &rarr;
+        </Link>
+      </div>
+    </section>
   )
 }
 
@@ -1971,12 +2149,14 @@ function ParticipantPortalPage() {
                 The Participant Portal is being configured to help participants review their information, understand Capability Signals™, explore possible pathways, and share approved insight with authorized support.
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
-                <Link
-                  to="/contact"
+                <a
+                  href="https://cas.eleviqfoundation.org/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Program Access / Portal Preview
-                </Link>
+                  Log in to CAS Portal →
+                </a>
               </div>
             </div>
 
@@ -3857,9 +4037,14 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact?topic=participant-scan#contact-inquiry" className="text-cyan-300 font-semibold hover:text-white transition-colors">
-                  Free Alignment Scan™ →
+                <Link to="/#participation-inquiry" className="text-cyan-300 font-semibold hover:text-white transition-colors">
+                  Request Scan Access →
                 </Link>
+              </li>
+              <li>
+                <a href="https://cas.eleviqfoundation.org/login" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Already Invited? Access CAS
+                </a>
               </li>
               <li>
                 <Link to="/platform/last-mile" className="text-slate-300 hover:text-cyan-300 transition-colors">
@@ -3934,6 +4119,11 @@ function Footer() {
                   <span>Commercial Solutions</span>
                   <span aria-hidden="true">↗</span>
                 </StcLink>
+              </li>
+              <li>
+                <Link to="/faqs" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Frequently Asked Questions
+                </Link>
               </li>
               <li>
                 <Link to="/individuals/trust" className="text-slate-300 hover:text-cyan-300 transition-colors">
@@ -6806,10 +6996,13 @@ function InteractiveJourneyPage() {
 function FaqPage() {
   const [openAll, setOpenAll] = useState(false)
   const faqs = [
+    { question: 'What is ElevIQ Foundation?', answer: 'ElevIQ Foundation is a mission-driven 501(c)(3) nonprofit organization dedicated to closing the distance between human capability and meaningful opportunity. Through strengths-based discovery, trusted human guidance, practical pathway planning, and community partnerships, the Foundation helps individuals make their authentic capabilities visible and actionable without testing pressure.' },
+    { question: 'What is the ElevIQ Alignment Scan™?', answer: 'The ElevIQ Alignment Scan™ is a zero-pressure, scenario-based self-reflection experience. It explores lived experience, informal problem-solving, and personal interests to surface directional Capability Signals™ that support personal reflection and human advising conversations—free from testing anxiety, pass/fail grading, or automated rejection.' },
+    { question: 'Is participation free?', answer: 'Yes. Participation in the ElevIQ Alignment Scan™ is 100% free for individual participants. Through the Foundation’s nonprofit mission, philanthropic endowment, and community pilot partnerships, individuals never pay to discover their capabilities, explore alignment pathways, or access their Alignment Snapshot™.' },
+    { question: 'Is this an exam or personality test?', answer: 'No. The ElevIQ Alignment Scan™ is neither an academic exam nor a psychological personality test. There are no right or wrong answers, test scores, grades, or diagnostic personality boxes. It is a supportive, self-guided reflection instrument designed to facilitate constructive conversations with mentors, counselors, navigators, and advisors.' },
     { question: 'Is CAS a test or a quiz?', answer: 'No. CAS is capability-alignment infrastructure that supports participant reflection, staff interpretation, and practical next steps.' },
     { question: 'Does CAS guarantee any outcome?', answer: 'No. It does not guarantee employment, hiring, wages, admissions, or clinical or psychological outcomes.' },
     { question: 'Who can use shared information?', answer: 'Access depends on participant consent, program rules, legal agreements, and the verified production permissions model.' },
-    { question: 'Is the ElevIQ Alignment Scan™ free?', answer: 'The ElevIQ Alignment Scan™ remains free for individual participants. Program services, institutional implementation, and commercial licensing are separate.' },
     { question: 'How is system documentation updated?', answer: 'Product and public documentation will be updated as configuration, testing, validation, and launch status changes.' },
   ]
 

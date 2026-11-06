@@ -197,13 +197,21 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0">
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
                   <Link
-                    to="/contact?topic=participant-scan#contact-inquiry"
+                    to="/#participation-inquiry"
                     className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 px-5 py-2 text-xs font-bold transition shadow-sm"
                   >
-                    Begin Free Scan
+                    Request Scan Access
                   </Link>
+                  <a
+                    href="https://cas.eleviqfoundation.org/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-cyan-500/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 hover:text-white px-4 py-2 text-xs font-semibold transition"
+                  >
+                    Already Invited? Access CAS
+                  </a>
                   <Link
                     to="/#audience-routing"
                     className="rounded-full border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 text-xs font-semibold transition"

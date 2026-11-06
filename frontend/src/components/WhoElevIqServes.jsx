@@ -147,11 +147,19 @@ export default function WhoElevIqServes({ variant = 'dark', showPartnerBanner = 
       {showCtas && (
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <Link
-            to="/contact?topic=participant-scan#contact-inquiry"
+            to="/#participation-inquiry"
             className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
-            Begin Free Scan
+            Request Scan Access
           </Link>
+          <a
+            href="https://cas.eleviqfoundation.org/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 hover:text-white px-6 py-3 text-xs sm:text-sm font-semibold transition-all duration-200"
+          >
+            Already Invited? Access CAS
+          </a>
           <Link
             to="/platform/alignment-pathways"
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-white transition-colors px-4 py-2.5 rounded-full border border-cyan-500/30 hover:border-cyan-400 bg-slate-900/60"
