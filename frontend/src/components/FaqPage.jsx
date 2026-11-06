@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -351,6 +351,114 @@ export const FAQ_SECTIONS = [
   }
 ]
 
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function normalizeText(text) {
+  return (text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+}
+
+function FaqQuestionCard({ item, isOpen, onToggle, showSectionBadge = false }) {
+  return (
+    <div
+      className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+        isOpen
+          ? 'border-cyan-400 bg-gradient-to-b from-[#0C2556] to-[#041029] shadow-[0_0_25px_rgba(0,210,255,0.18)] ring-1 ring-cyan-400/30'
+          : 'border-cyan-500/20 bg-[#0B1E40]/75 hover:border-cyan-400/60 hover:bg-[#0E2756]/90 shadow-sm'
+      }`}
+    >
+      {/* Accordion Trigger */}
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 group"
+        aria-expanded={isOpen}
+      >
+        <div className="space-y-2 flex-1 min-w-0">
+          {showSectionBadge && (
+            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+              <span className="font-mono text-[11px] font-bold text-cyan-300 bg-cyan-950/90 border border-cyan-400/40 px-2.5 py-0.5 rounded-full shadow-[0_0_8px_rgba(0,210,255,0.2)]">
+                SECTION {item.sectionNumber}
+              </span>
+              <span className="font-mono text-[11px] text-cyan-200/90 font-medium">
+                {item.sectionBadge}
+              </span>
+            </div>
+          )}
+          <div className="flex items-start gap-3">
+            <span className="font-mono text-xs sm:text-sm font-bold text-cyan-400 shrink-0 pt-0.5">
+              {item.number < 10 ? `0${item.number}` : item.number}.
+            </span>
+            <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-100 leading-snug transition-colors">
+              {item.question}
+            </h3>
+          </div>
+        </div>
+        <div
+          className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border transition-all duration-200 mt-0.5 ${
+            isOpen
+              ? 'rotate-180 border-cyan-400 bg-cyan-500/25 text-cyan-300 shadow-[0_0_12px_rgba(0,210,255,0.4)]'
+              : 'border-cyan-500/30 bg-[#07132D] text-cyan-300/80 group-hover:border-cyan-400 group-hover:bg-cyan-500/20 group-hover:text-white'
+          }`}
+        >
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
+
+      {/* Accordion Content */}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="px-5 pb-5 pt-2 border-t border-cyan-500/20 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans space-y-4 bg-black/25">
+              {/* Standard direct answer */}
+              {item.answer && (
+                <div className="space-y-3 whitespace-pre-line text-slate-100 leading-relaxed">
+                  {item.answer}
+                </div>
+              )}
+
+              {/* Complex question intro */}
+              {item.intro && (
+                <p className="text-cyan-100 font-medium leading-relaxed bg-cyan-950/40 p-3.5 rounded-xl border border-cyan-500/25">
+                  {item.intro}
+                </p>
+              )}
+
+              {/* Subsections (Q9, Q12, Q13, Q22, Q23) */}
+              {item.subsections && (
+                <div className="space-y-3.5 pt-2">
+                  {item.subsections.map((sub, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="p-4 rounded-xl bg-[#030B1E]/95 border border-cyan-500/25 space-y-2 shadow-inner"
+                    >
+                      <h4 className="font-sans text-xs sm:text-sm font-bold text-cyan-300 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,210,255,0.7)] shrink-0" />
+                        {sub.title}
+                      </h4>
+                      <div className="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-cyan-400/50">
+                        {sub.content}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 export default function FaqPage() {
   const [activeSection, setActiveSection] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
@@ -360,42 +468,108 @@ export default function FaqPage() {
   })
   const [expandAll, setExpandAll] = useState(false)
 
-  // Filter sections and questions
+  const trimmedQuery = searchQuery.trim()
+  const isSearching = Boolean(trimmedQuery)
+
+  // 1. Global Flattening: flatten all FAQ items across all sections into a single array
+  const allQuestionsFlat = useMemo(() => {
+    return FAQ_SECTIONS.flatMap((section) =>
+      section.questions.map((q) => ({
+        ...q,
+        sectionId: section.id,
+        sectionNumber: section.number,
+        sectionTitle: section.title,
+        sectionBadge: section.badge
+      }))
+    )
+  }, [])
+
+  // 2. Word-Boundary Regex Matching & Relevance Sorting:
+  // Score matches:
+  //  - Match in Question title: High score (+100 for exact word boundary, +40 for partial)
+  //  - Match in Answer body: Base score (+20 for exact word boundary, +5 for partial)
+  //  - Sort the output list in descending order of score so the most relevant questions appear first
+  const rankedSearchResults = useMemo(() => {
+    if (!trimmedQuery) return []
+
+    const normalizedQuery = normalizeText(trimmedQuery)
+    const escapedQuery = escapeRegex(normalizedQuery)
+    const startBoundary = /^\w/.test(normalizedQuery) ? '\\b' : ''
+    const endBoundary = /\w$/.test(normalizedQuery) ? '\\b' : ''
+    const exactWordBoundaryRegex = new RegExp(`${startBoundary}${escapedQuery}${endBoundary}`, 'i')
+    const partialRegex = new RegExp(escapedQuery, 'i')
+    const isShort = normalizedQuery.length <= 3
+
+    // Flatten all items across all sections before searching (do NOT sort by section index)
+    const itemsToSearch = activeSection === 'all'
+      ? allQuestionsFlat
+      : allQuestionsFlat.filter((item) => item.sectionId === activeSection)
+
+    const scored = []
+
+    for (const item of itemsToSearch) {
+      let bodyText = item.answer || ''
+      if (item.intro) bodyText += ' ' + item.intro
+      if (item.subsections && Array.isArray(item.subsections)) {
+        bodyText += ' ' + item.subsections.map((s) => `${s.title} ${s.content}`).join(' ')
+      }
+
+      const qNorm = normalizeText(item.question)
+      const bodyNorm = normalizeText(bodyText)
+
+      let score = 0
+
+      // Match in Question title: High score (+100 for exact word boundary, +40 for partial)
+      if (exactWordBoundaryRegex.test(qNorm)) {
+        score += 100
+      } else if (!isShort && partialRegex.test(qNorm)) {
+        score += 40
+      }
+
+      // Match in Answer body: Base score (+20 for exact word boundary, +5 for partial)
+      if (exactWordBoundaryRegex.test(bodyNorm)) {
+        score += 20
+      } else if (!isShort && partialRegex.test(bodyNorm)) {
+        score += 5
+      }
+
+      if (score > 0) {
+        scored.push({
+          ...item,
+          score
+        })
+      }
+    }
+
+    // Sort descending by score, tie-break by question number
+    scored.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score
+      return a.number - b.number
+    })
+
+    return scored
+  }, [allQuestionsFlat, trimmedQuery, activeSection])
+
+  // 3. Default categorized view (when search query is empty)
   const filteredSections = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim()
-    return FAQ_SECTIONS.map((section) => {
-      // If a specific section filter is active, skip non-matching sections
+    return FAQ_SECTIONS.filter((section) => {
       if (activeSection !== 'all' && section.id !== activeSection) {
-        return null
+        return false
       }
+      return true
+    })
+  }, [activeSection])
 
-      if (!q) return section
-
-      const matchedQuestions = section.questions.filter((item) => {
-        const inQuestion = item.question.toLowerCase().includes(q)
-        const inAnswer = item.answer ? item.answer.toLowerCase().includes(q) : false
-        const inIntro = item.intro ? item.intro.toLowerCase().includes(q) : false
-        const inSubs = item.subsections
-          ? item.subsections.some(
-              (s) => s.title.toLowerCase().includes(q) || s.content.toLowerCase().includes(q)
-            )
-          : false
-        return inQuestion || inAnswer || inIntro || inSubs
-      })
-
-      if (matchedQuestions.length === 0) return null
-
-      return {
-        ...section,
-        questions: matchedQuestions
-      }
-    }).filter(Boolean)
-  }, [activeSection, searchQuery])
-
-  // Total question count
-  const totalVisibleCount = useMemo(() => {
-    return filteredSections.reduce((acc, sec) => acc + sec.questions.length, 0)
-  }, [filteredSections])
+  // Auto-expand the top matching question when searching
+  useEffect(() => {
+    if (trimmedQuery && rankedSearchResults.length > 0) {
+      const topId = rankedSearchResults[0].id
+      setExpandedQuestions((prev) => ({
+        ...prev,
+        [topId]: true
+      }))
+    }
+  }, [trimmedQuery])
 
   const toggleQuestion = (id) => {
     setExpandedQuestions((prev) => ({
@@ -410,11 +584,17 @@ export default function FaqPage() {
       setExpandAll(false)
     } else {
       const allOpen = {}
-      FAQ_SECTIONS.forEach((s) => {
-        s.questions.forEach((q) => {
+      if (isSearching) {
+        rankedSearchResults.forEach((q) => {
           allOpen[q.id] = true
         })
-      })
+      } else {
+        FAQ_SECTIONS.forEach((s) => {
+          s.questions.forEach((q) => {
+            allOpen[q.id] = true
+          })
+        })
+      }
       setExpandedQuestions(allOpen)
       setExpandAll(true)
     }
@@ -453,7 +633,12 @@ export default function FaqPage() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                setSearchQuery(e.target.value)
+                if (activeSection !== 'all') {
+                  setActiveSection('all')
+                }
+              }}
               placeholder="Search across all 34 questions and answers..."
               className="w-full rounded-2xl bg-[#07132D]/95 border border-cyan-500/30 hover:border-cyan-400/60 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/25 px-4 py-3 pl-11 text-sm text-white placeholder:text-slate-400 outline-none transition-all shadow-inner"
             />
@@ -469,10 +654,16 @@ export default function FaqPage() {
             {searchQuery && (
               <button
                 type="button"
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-3 text-xs text-cyan-300 hover:text-white px-2.5 py-1 rounded-lg bg-[#0B1E40] border border-cyan-500/30 transition-colors"
+                onClick={() => {
+                  setSearchQuery('')
+                  setActiveSection('all')
+                }}
+                aria-label="Clear search"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full flex items-center justify-center text-cyan-300 hover:text-white bg-[#0B1E40] hover:bg-cyan-500/25 border border-cyan-500/30 hover:border-cyan-400 transition-all cursor-pointer shadow-sm"
               >
-                Clear
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             )}
           </div>
@@ -509,7 +700,7 @@ export default function FaqPage() {
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all cursor-pointer ${
                 activeSection === sec.id
                   ? 'bg-[#00D2FF] text-slate-950 font-bold shadow-[0_0_15px_rgba(0,210,255,0.4)]'
-                  : 'bg-[#07132D]/90 border border-cyan-500/25 text-cyan-200/90 hover:border-cyan-400 hover:text-white hover:bg-[#0B1E40]'
+                : 'bg-[#07132D]/90 border border-cyan-500/25 text-cyan-200/90 hover:border-cyan-400 hover:text-white hover:bg-[#0B1E40]'
               }`}
             >
               Sec {sec.number}: {sec.title.split(' ')[0].replace(/,/g, '')}
@@ -518,167 +709,106 @@ export default function FaqPage() {
         </div>
       </section>
 
-      {/* SEARCH SUMMARY WHEN ACTIVE */}
-      {searchQuery && (
-        <div className="flex items-center justify-between text-xs font-mono text-cyan-400 bg-slate-950/80 border border-cyan-500/30 rounded-xl px-4 py-2.5 shadow-sm">
-          <span>Found <strong className="text-white">{totalVisibleCount}</strong> matching questions for "{searchQuery}"</span>
-          <button
-            type="button"
-            onClick={() => setSearchQuery('')}
-            className="text-cyan-300 hover:text-white underline font-semibold"
-          >
-            Reset search
-          </button>
+      {/* RENDER FLAT LIST WHEN SEARCHING, OR CATEGORIZED VIEW WHEN EMPTY */}
+      {isSearching ? (
+        <div className="space-y-4">
+          {rankedSearchResults.length > 0 ? (
+            <section className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#071739]/90 via-[#05112B]/95 to-[#030B1E]/98 p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-4 text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-cyan-500/20 pb-4">
+                <div className="space-y-1">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    Search Results
+                  </h2>
+                  <p className="text-xs font-mono text-cyan-300/80">
+                    Ranked by relevance across questions and answers
+                  </p>
+                </div>
+                <span className="text-xs font-mono text-cyan-300 bg-cyan-950/80 border border-cyan-400/40 px-3 py-1 rounded-full self-start sm:self-auto font-medium shadow-[0_0_10px_rgba(0,210,255,0.2)]">
+                  {rankedSearchResults.length} {rankedSearchResults.length === 1 ? 'Question' : 'Questions'}
+                </span>
+              </div>
+
+              <div className="space-y-4 pt-2">
+                {rankedSearchResults.map((q) => (
+                  <FaqQuestionCard
+                    key={q.id}
+                    item={q}
+                    isOpen={Boolean(expandedQuestions[q.id])}
+                    onToggle={() => toggleQuestion(q.id)}
+                    showSectionBadge={true}
+                  />
+                ))}
+              </div>
+            </section>
+          ) : (
+            <div className="text-center py-12 rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-[#071739]/95 to-[#030B1E]/98 p-8 space-y-4 text-white shadow-xl">
+              <div className="w-12 h-12 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 flex items-center justify-center mx-auto">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-white">No questions matched your search</h3>
+              <p className="text-sm text-slate-300 max-w-md mx-auto">
+                No questions matched "{trimmedQuery}". Try searching with different keywords or reset your filter to view all 34 questions.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('')
+                  setActiveSection('all')
+                }}
+                className="px-5 py-2.5 rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold text-xs shadow-[0_0_15px_rgba(0,210,255,0.4)] transition-all cursor-pointer"
+              >
+                Reset Search
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        /* 6 ACCORDION SECTIONS (DEFAULT CATEGORIZED VIEW) */
+        <div className="space-y-10">
+          {filteredSections.map((section) => (
+            <section
+              key={section.id}
+              id={section.id}
+              className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#071739]/90 via-[#05112B]/95 to-[#030B1E]/98 p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6 transition-all duration-300 text-white"
+            >
+              {/* Section Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-cyan-500/20 pb-5">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-400/40 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(0,210,255,0.2)]">
+                      SECTION {section.number}
+                    </span>
+                    <span className="font-mono text-xs text-cyan-200/90 font-medium">
+                      {section.badge}
+                    </span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    {section.title}
+                  </h2>
+                </div>
+                <span className="text-xs font-mono text-cyan-300/80 bg-cyan-950/50 border border-cyan-500/20 px-2.5 py-1 rounded-full self-start sm:self-auto font-medium">
+                  {section.questions.length} Questions
+                </span>
+              </div>
+
+              {/* Questions List */}
+              <div className="space-y-4">
+                {section.questions.map((q) => (
+                  <FaqQuestionCard
+                    key={q.id}
+                    item={q}
+                    isOpen={Boolean(expandedQuestions[q.id])}
+                    onToggle={() => toggleQuestion(q.id)}
+                    showSectionBadge={false}
+                  />
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
       )}
-
-      {/* 6 ACCORDION SECTIONS */}
-      <div className="space-y-10">
-        {filteredSections.map((section) => (
-          <section
-            key={section.id}
-            id={section.id}
-            className="rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#071739]/90 via-[#05112B]/95 to-[#030B1E]/98 p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6 transition-all duration-300 text-white"
-          >
-            {/* Section Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-cyan-500/20 pb-5">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-400/40 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(0,210,255,0.2)]">
-                    SECTION {section.number}
-                  </span>
-                  <span className="font-mono text-xs text-cyan-200/90 font-medium">
-                    {section.badge}
-                  </span>
-                </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  {section.title}
-                </h2>
-              </div>
-              <span className="text-xs font-mono text-cyan-300/80 bg-cyan-950/50 border border-cyan-500/20 px-2.5 py-1 rounded-full self-start sm:self-auto font-medium">
-                {section.questions.length} Questions
-              </span>
-            </div>
-
-            {/* Questions List */}
-            <div className="space-y-4">
-              {section.questions.map((q) => {
-                const isOpen = Boolean(expandedQuestions[q.id])
-                return (
-                  <div
-                    key={q.id}
-                    className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                      isOpen
-                        ? 'border-cyan-400 bg-gradient-to-b from-[#0C2556] to-[#041029] shadow-[0_0_25px_rgba(0,210,255,0.18)] ring-1 ring-cyan-400/30'
-                        : 'border-cyan-500/20 bg-[#0B1E40]/75 hover:border-cyan-400/60 hover:bg-[#0E2756]/90 shadow-sm'
-                    }`}
-                  >
-                    {/* Accordion Trigger */}
-                    <button
-                      type="button"
-                      onClick={() => toggleQuestion(q.id)}
-                      className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 group"
-                      aria-expanded={isOpen}
-                    >
-                      <div className="flex items-start gap-3">
-                        <span className="font-mono text-xs sm:text-sm font-bold text-cyan-400 shrink-0 pt-0.5">
-                          {q.number < 10 ? `0${q.number}` : q.number}.
-                        </span>
-                        <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-cyan-100 leading-snug transition-colors">
-                          {q.question}
-                        </h3>
-                      </div>
-                      <div
-                        className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border transition-all duration-200 ${
-                          isOpen
-                            ? 'rotate-180 border-cyan-400 bg-cyan-500/25 text-cyan-300 shadow-[0_0_12px_rgba(0,210,255,0.4)]'
-                            : 'border-cyan-500/30 bg-[#07132D] text-cyan-300/80 group-hover:border-cyan-400 group-hover:bg-cyan-500/20 group-hover:text-white'
-                        }`}
-                      >
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </button>
-
-                    {/* Accordion Content */}
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <div className="px-5 pb-5 pt-2 border-t border-cyan-500/20 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans space-y-4 bg-black/25">
-                            {/* Standard direct answer */}
-                            {q.answer && (
-                              <div className="space-y-3 whitespace-pre-line text-slate-100 leading-relaxed">
-                                {q.answer}
-                              </div>
-                            )}
-
-                            {/* Complex question intro */}
-                            {q.intro && (
-                              <p className="text-cyan-100 font-medium leading-relaxed bg-cyan-950/40 p-3.5 rounded-xl border border-cyan-500/25">
-                                {q.intro}
-                              </p>
-                            )}
-
-                            {/* Subsections (Q9, Q12, Q13, Q22, Q23) */}
-                            {q.subsections && (
-                              <div className="space-y-3.5 pt-2">
-                                {q.subsections.map((sub, sIdx) => (
-                                  <div
-                                    key={sIdx}
-                                    className="p-4 rounded-xl bg-[#030B1E]/95 border border-cyan-500/25 space-y-2 shadow-inner"
-                                  >
-                                    <h4 className="font-sans text-xs sm:text-sm font-bold text-cyan-300 flex items-center gap-2">
-                                      <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(0,210,255,0.7)] shrink-0" />
-                                      {sub.title}
-                                    </h4>
-                                    <div className="text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line pl-3.5 border-l-2 border-cyan-400/50">
-                                      {sub.content}
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )
-              })}
-            </div>
-          </section>
-        ))}
-
-        {filteredSections.length === 0 && (
-          <div className="text-center py-12 rounded-3xl border border-cyan-500/30 bg-gradient-to-b from-[#071739]/95 to-[#030B1E]/98 p-8 space-y-4 text-white shadow-xl">
-            <div className="w-12 h-12 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 flex items-center justify-center mx-auto">
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-bold text-white">No questions matched your search</h3>
-            <p className="text-sm text-slate-300 max-w-md mx-auto">
-              Try searching with different keywords or reset your filter to view all 34 questions.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSearchQuery('')
-                setActiveSection('all')
-              }}
-              className="px-5 py-2.5 rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold text-xs shadow-[0_0_15px_rgba(0,210,255,0.4)] transition-all cursor-pointer"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-      </div>
 
       {/* FOOTER CALL-TO-ACTION BANNER */}
       <section className="rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-[#030B1E] via-[#071739] to-[#030B1E] p-6 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 text-white">

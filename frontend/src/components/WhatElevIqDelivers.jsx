@@ -170,7 +170,11 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
             type="button"
             onClick={() => {
               const target = document.getElementById('delivery-model');
-              if (target) target.scrollIntoView({ behavior: 'smooth' });
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/organizations/solutions#delivery-model';
+              }
             }}
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-200 hover:text-white transition-colors px-4 py-2.5 rounded-full border border-slate-700 hover:border-slate-500 bg-slate-900/60 cursor-pointer"
           >

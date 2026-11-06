@@ -13,6 +13,7 @@ import RuralWorkforce from './components/RuralWorkforce'
 import CasTechnologyPreview, { CasTechnologyTeaser } from './components/CasTechnologyPreview'
 import StcLink from './components/StcLink'
 import FaqPage from './components/FaqPage'
+import ServiceDeliveryModel from './components/ServiceDeliveryModel'
 
 const TOP_NAV = [
   { label: 'Home', path: '/' },
@@ -370,14 +371,14 @@ function AppShell() {
                   to="/"
                   end
                   className={({ isActive }) =>
-                    `inline-flex items-center justify-center px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    `px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       isActive
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`
                   }
                 >
-                  Home
+                  <span>Home</span>
                 </NavLink>
 
                 {/* 2. For People Dropdown */}
@@ -390,61 +391,114 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'people' ? null : 'people')}
                     aria-expanded={activeDropdown === 'people'}
-                    className={`px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/individuals') || activeDropdown === 'people'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>For People</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'people' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'people' && (
-                    <div className="absolute left-0 top-full pt-2 w-[340px] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="rounded-2xl bg-[#071739]/98 border border-cyan-500/30 p-4 shadow-2xl backdrop-blur-2xl text-white space-y-1.5">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] px-3 pb-1 block border-b border-cyan-500/20">
-                          Participant Experience
-                        </span>
-                        <Link
-                          to="/individuals/how-it-works"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                        >
-                          <div className="text-xs font-semibold group-hover:text-cyan-300">How It Works</div>
-                          <div className="text-[10px] text-slate-400 font-sans leading-tight">Participant reflection, guidance & next steps</div>
-                        </Link>
-                        <Link
-                          to="/#who-we-serve"
-                          onClick={() => {
-                            if (location.pathname === '/') {
-                              document.getElementById('who-we-serve')?.scrollIntoView({ behavior: 'smooth' })
-                            }
-                          }}
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                        >
-                          <div className="text-xs font-semibold group-hover:text-cyan-300">Who We Serve</div>
-                          <div className="text-[10px] text-slate-400 font-sans leading-tight">7 approved life & career stages</div>
-                        </Link>
-                        <Link
-                          to="/#participation-inquiry"
-                          className="block px-3 py-2 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
-                        >
-                          <div className="text-xs font-bold text-cyan-300 flex items-center justify-between">
-                            <span>Request Scan Access</span>
-                            <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
+                    <div className="absolute -left-12 sm:left-0 top-full pt-2 w-[560px] sm:w-[640px] max-w-[95vw] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="rounded-3xl bg-[#071739]/98 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl backdrop-blur-2xl text-white space-y-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Column 1: Participant Hub & Sub Tabs */}
+                          <div className="space-y-1.5">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] px-3 pb-1 block border-b border-cyan-500/20">
+                              Participant Hub & Sub Tabs
+                            </span>
+                            <Link
+                              to="/individuals"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block p-2.5 rounded-xl transition-all bg-cyan-950/50 hover:bg-cyan-900/70 border border-cyan-500/40 text-slate-200 hover:text-white group"
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-cyan-300">For People Home</span>
+                                <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-[#0FA88A]/20 text-[#0FA88A] px-2 py-0.5 rounded-full border border-[#0FA88A]/40">
+                                  Hub Overview →
+                                </span>
+                              </div>
+                              <div className="text-[10px] text-slate-300 font-sans leading-tight mt-1">
+                                Participant overview, personal agency & capability discovery
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/explore-your-path"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Explore Your Path</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Tailored reflection for 5 learner & worker stages</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/how-it-works"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">How It Works</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Scenario-based reflection, signals & next steps</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/schools-workforce"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">For Schools & Workforce</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Youth, CTE, Job Corps & workforce cohorts</div>
+                            </Link>
                           </div>
-                          <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
-                        </Link>
-                        <a
-                          href="https://cas.eleviqfoundation.org/login"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-cyan-300 hover:text-white text-xs font-semibold"
-                        >
-                          Already Invited? Access CAS →
-                        </a>
+
+                          {/* Column 2: Governance, Mission & Scan Access */}
+                          <div className="space-y-1.5 border-t md:border-t-0 md:border-l border-cyan-500/20 pt-3 md:pt-0 md:pl-4">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 pb-1 block border-b border-cyan-500/20">
+                              Governance & Community Access
+                            </span>
+
+                            <Link
+                              to="/individuals/trust"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Trust & Governance</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Dignity, data protection & non-clinical guardrails</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/support-the-mission"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Support the Mission</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Nonprofit mission, philanthropy & community impact</div>
+                            </Link>
+
+                            <Link
+                              to="/#participation-inquiry"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block p-2.5 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-cyan-300">Request Scan Access</span>
+                                <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
+                              </div>
+                              <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
+                            </Link>
+
+                            <a
+                              href="https://cas.eleviqfoundation.org/login"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-cyan-300 hover:text-white text-xs font-semibold"
+                            >
+                              Already Invited? Access CAS →
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -460,16 +514,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'organizations' ? null : 'organizations')}
                     aria-expanded={activeDropdown === 'organizations'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/organizations') || activeDropdown === 'organizations'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Organizations</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'organizations' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'organizations' && (
@@ -617,16 +668,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                     aria-expanded={activeDropdown === 'services'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'services'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Services</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'services' && (
@@ -636,54 +684,54 @@ function AppShell() {
                           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400">
                             9 Service Lanes & Delivery
                           </span>
-                          <Link to="/#services" onClick={() => { setActiveDropdown(null); handleAnchorNav('services'); }} className="text-[10px] text-[#0FA88A] hover:underline font-mono">
+                          <Link to="/organizations/solutions" onClick={() => setActiveDropdown(null)} className="text-[10px] text-[#0FA88A] hover:underline font-mono">
                             View All 9 →
                           </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-1.5 pt-1">
                           <Link
-                            to="/#service-lane-01"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-01'); }}
+                            to="/organizations/solutions#service-lane-01"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Capability Discovery</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Signals™ & guided reflection</div>
                           </Link>
                           <Link
-                            to="/#service-lane-02"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-02'); }}
+                            to="/organizations/solutions#service-lane-02"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Pathway Planning</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Education & career next-steps</div>
                           </Link>
                           <Link
-                            to="/#service-lane-04"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-04'); }}
+                            to="/organizations/solutions#service-lane-04"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Career Readiness</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Story translation & presence</div>
                           </Link>
                           <Link
-                            to="/#service-lane-05"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-05'); }}
+                            to="/organizations/solutions#service-lane-05"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Advisor Enablement</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">CLARA™ & navigator workflows</div>
                           </Link>
                           <Link
-                            to="/#service-lane-06"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-06'); }}
+                            to="/organizations/solutions#service-lane-06"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Program Implementation</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Cohort setup & staff workflow</div>
                           </Link>
                           <Link
-                            to="/#service-lane-08"
-                            onClick={() => { setActiveDropdown(null); handleAnchorNav('service-lane-08'); }}
+                            to="/organizations/solutions#service-lane-08"
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
                           >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Regional Workforce Strategy</div>
@@ -705,16 +753,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'approach' ? null : 'approach')}
                     aria-expanded={activeDropdown === 'approach'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'approach'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Approach</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'approach' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'approach' && (
@@ -781,16 +826,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
                     aria-expanded={activeDropdown === 'about'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/about') || activeDropdown === 'about'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>About</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'about' && (
@@ -851,7 +893,7 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
                     aria-expanded={activeDropdown === 'cas'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/platform') || activeDropdown === 'cas'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -859,15 +901,6 @@ function AppShell() {
                     title="See the Technology Behind the Work"
                   >
                     <span>CAS Preview</span>
-                    <svg
-                      className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'cas' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {/* Dropdown Menu */}
@@ -957,7 +990,7 @@ function AppShell() {
                 <NavLink
                   to="/faqs"
                   className={({ isActive }) =>
-                    `px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    `px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       isActive
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -1076,10 +1109,76 @@ function AppShell() {
                     </svg>
                   </button>
                   {mobileExpanded.people && (
-                    <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-[#0FA88A]/60 ml-2 mt-1">
-                      <Link to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">How It Works</Link>
-                      <Link to="/#who-we-serve" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('who-we-serve')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Who We Serve (7 Populations)</Link>
-                      <Link to="/contact?topic=participant-scan#contact-inquiry" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white">Free ElevIQ Alignment Scan™</Link>
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[#0FA88A]/60 ml-2 mt-1">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] block">
+                          Participant Hub & Sub Tabs
+                        </span>
+                        <Link
+                          to="/individuals"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm font-bold text-cyan-300 hover:text-white"
+                        >
+                          For People Home (Overview) →
+                        </Link>
+                        <Link
+                          to="/individuals/explore-your-path"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Explore Your Path
+                        </Link>
+                        <Link
+                          to="/individuals/how-it-works"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          How It Works
+                        </Link>
+                        <Link
+                          to="/individuals/schools-workforce"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          For Schools & Workforce
+                        </Link>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-800 space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 block">
+                          Governance & Community Access
+                        </span>
+                        <Link
+                          to="/individuals/trust"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Trust & Governance
+                        </Link>
+                        <Link
+                          to="/individuals/support-the-mission"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Support the Mission
+                        </Link>
+                        <Link
+                          to="/#participation-inquiry"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-[#0FA88A] font-semibold hover:text-white"
+                        >
+                          Request Scan Access (100% Free)
+                        </Link>
+                        <a
+                          href="https://cas.eleviqfoundation.org/login"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white"
+                        >
+                          Already Invited? Access CAS →
+                        </a>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1881,99 +1980,7 @@ function HomePage() {
       <div id="service-model-journey" className="scroll-mt-24 space-y-[var(--section-gap)]">
         {/* Stages 0–7 Organizational Delivery Model */}
         <ScrollReveal>
-          <section id="delivery-model" className="scroll-mt-24 rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
-            <div className="space-y-2 text-center max-w-3xl mx-auto">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">
-                ORGANIZATIONAL COLLABORATION
-              </span>
-              <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-                How We Work With Communities and Organizations
-              </h2>
-              <p className="text-base font-semibold text-[#00D2FF] font-sans">
-                "We don't begin with software. We begin with the problem."
-              </p>
-              <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mx-auto">
-                A structured 8-stage methodology designed to embed capability infrastructure alongside local mentors, educational institutions, and regional workforce partners.
-              </p>
-            </div>
-
-            {/* Connected Stage Rail (Section 3: Organizational Service-Delivery Flow) */}
-            <div className="space-y-3 pt-2">
-              <div className="flex items-center justify-between px-1 text-slate-300">
-                <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#00D2FF] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-                  ORGANIZATIONAL SERVICE-DELIVERY PROGRESSION RAIL
-                </span>
-                <span className="hidden sm:inline-block font-mono text-[10px] text-slate-400">
-                  Sequential Institutional Delivery Pipeline
-                </span>
-              </div>
-
-              {/* Connected Stage Pipeline Rail */}
-              <div className="hidden lg:grid grid-cols-8 gap-2 p-3 rounded-2xl bg-[#07132D]/90 border border-cyan-500/20 shadow-inner">
-                {deliveryStages.map((stg, idx) => (
-                  <div key={stg.stage} className="relative flex flex-col items-center text-center group">
-                    <div className="flex items-center w-full">
-                      {idx > 0 && (
-                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-500/30 to-cyan-400/60" />
-                      )}
-                      <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center font-mono text-[10px] font-bold text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)] shrink-0 mx-auto group-hover:border-[#00D2FF] group-hover:bg-cyan-500/30 transition-all">
-                        {idx}
-                      </div>
-                      {idx < deliveryStages.length - 1 && (
-                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-400/60 to-cyan-500/30" />
-                      )}
-                    </div>
-                    <span className="mt-1.5 font-mono text-[9px] font-bold text-slate-300 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
-                      {stg.tag}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 8-Stage Grid (Stages 0–7) */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {deliveryStages.map((stg, idx) => (
-                <div
-                  key={stg.stage}
-                  className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group overflow-hidden"
-                >
-                  {/* Top Sequential Accent Line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/30 via-[#00D2FF] to-cyan-500/30 opacity-70 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
-                          {stg.stage}
-                        </span>
-                        <span className="text-[11px] font-mono text-cyan-400/70 font-semibold" aria-hidden="true">
-                          {idx < 7 ? '→' : '✓'}
-                        </span>
-                      </div>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
-                        {stg.tag}
-                      </span>
-                    </div>
-                    <h3 className="font-sans text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {stg.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
-                      {stg.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                    <span className="text-cyan-400/80">Org Phase {idx + 1} of 8</span>
-                    <span className="text-slate-500 group-hover:text-cyan-300 transition-colors">
-                      {idx < 7 ? `Stage ${idx + 1} →` : 'Sustained Delivery'}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          <ServiceDeliveryModel id="delivery-model" />
         </ScrollReveal>
 
         {/* 6-Step Participant Journey */}
@@ -2101,15 +2108,6 @@ function HomePage() {
             </div>
           </div>
           </section>
-        </ScrollReveal>
-      </div>
-
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      {/* 6. WHAT ELEVIQ CAN HELP DELIVER (9 APPROVED SERVICE LANES) */}
-      {/* ═══════════════════════════════════════════════════════════════════ */}
-      <div id="services" className="scroll-mt-28">
-        <ScrollReveal>
-          <WhatElevIqDelivers variant="dark" />
         </ScrollReveal>
       </div>
 
@@ -4628,7 +4626,7 @@ function IndividualsHome() {
             <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               PARTICIPANT JOURNEY
             </span>
-            <h2 className="font-sans text-3xl font-bold text-white">
+            <h2 className="font-sans text-3xl font-bold text-slate-900">
               5 Steps to Discover & Build Your Path
             </h2>
           </div>
@@ -4822,12 +4820,11 @@ function IndividualsHome() {
                 </p>
               </div>
             </div>
-            <Link
-              to="/organizations"
+            <StcLink
               className="shrink-0 rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-6 py-3 text-xs font-semibold text-white transition-all duration-200 hover:scale-[1.02] shadow-xs inline-flex items-center gap-1.5"
             >
               Visit STC Innovations →
-            </Link>
+            </StcLink>
           </div>
         </section>
       </ScrollReveal>
@@ -5707,7 +5704,7 @@ function OrganizationsHome() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5721,18 +5718,10 @@ function OrganizationsHome() {
                 Define your local team positions based on required day-one operational capability parameters, moving entirely away from restrictive and arbitrary college degree proxies.
               </p>
             </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                Configure parameters
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5746,18 +5735,10 @@ function OrganizationsHome() {
                 Monitor high-level regional talent trajectories, capability density maps, and upskilling alignment curves across your target municipal geographic clusters.
               </p>
             </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                View alignment curves
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5770,14 +5751,6 @@ function OrganizationsHome() {
               <p className="text-sm leading-relaxed text-slate-600 font-sans">
                 Securely accept dynamic snapshot profiles from participating workforce programs, community cohorts, and local initiatives without intrusive data collection friction.
               </p>
-            </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                Review pipelines
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
             </div>
           </div>
         </section>
@@ -5943,7 +5916,12 @@ function OrganizationsSolutions() {
         <WhatElevIqDelivers variant="dark" />
       </ScrollReveal>
 
-      {/* SECTION 2: EXPOSITION BLOCK */}
+      {/* SECTION 2: ORGANIZATIONAL SERVICE DELIVERY MODEL (STAGES 0-7) */}
+      <ScrollReveal>
+        <ServiceDeliveryModel id="delivery-model" />
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] border border-cyan-500/25 rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">

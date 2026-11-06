@@ -59,13 +59,10 @@ export default function STCInnovationsPage() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
-                className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#0052CC] rounded-lg hover:bg-slate-50 flex items-center gap-1.5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC]"
+                className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#0052CC] rounded-lg hover:bg-slate-50 flex items-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC]"
                 aria-expanded={activeDropdown === 'cas'}
               >
                 <span>ElevIQ CAS™</span>
-                <svg className={`w-4 h-4 text-slate-400 transition-transform ${activeDropdown === 'cas' ? 'rotate-180 text-[#0052CC]' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
               </button>
 
               {activeDropdown === 'cas' && (
@@ -121,13 +118,10 @@ export default function STCInnovationsPage() {
               <button
                 type="button"
                 onClick={() => setActiveDropdown(activeDropdown === 'solutions' ? null : 'solutions')}
-                className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#0052CC] rounded-lg hover:bg-slate-50 flex items-center gap-1.5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC]"
+                className="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#0052CC] rounded-lg hover:bg-slate-50 flex items-center transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0052CC]"
                 aria-expanded={activeDropdown === 'solutions'}
               >
                 <span>Solutions</span>
-                <svg className={`w-4 h-4 text-slate-400 transition-transform ${activeDropdown === 'solutions' ? 'rotate-180 text-[#0052CC]' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
               </button>
 
               {activeDropdown === 'solutions' && (
