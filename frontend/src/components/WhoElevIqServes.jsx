@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom'
 export default function WhoElevIqServes({ variant = 'dark', showPartnerBanner = true, showCtas = true }) {
   const isDark = variant === 'dark'
 
+  const handleRequestInvitation = (e) => {
+    const formEl = document.getElementById('participation-inquiry') || document.getElementById('contact-inquiry') || document.getElementById('contact-inquiry-section')
+    if (formEl) {
+      e.preventDefault()
+      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      setTimeout(() => {
+        const nameInput = document.getElementById('name') || document.getElementById('audienceIntent')
+        if (nameInput) nameInput.focus()
+      }, 350)
+    }
+  }
+
   // The 7 Approved Participant Levels (Section 8)
   const participantLevels = [
     {
@@ -143,30 +155,40 @@ export default function WhoElevIqServes({ variant = 'dark', showPartnerBanner = 
         })}
       </div>
 
-      {/* Action CTAs */}
+      {/* Action CTAs & Participation Disclosure */}
       {showCtas && (
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-          <Link
-            to="/#participation-inquiry"
-            className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] text-slate-950 font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Request Scan Access
-          </Link>
-          <a
-            href="https://cas.eleviqfoundation.org/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 hover:text-white px-6 py-3 text-xs sm:text-sm font-semibold transition-all duration-200"
-          >
-            Already Invited? Access CAS
-          </a>
-          <Link
-            to="/platform/alignment-pathways"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-white transition-colors px-4 py-2.5 rounded-full border border-cyan-500/30 hover:border-cyan-400 bg-slate-900/60"
-          >
-            <span>Explore Participant Pathways</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+        <div className="max-w-3xl mx-auto text-center space-y-4 pt-4">
+          <p className={`text-xs sm:text-sm leading-relaxed border-t pt-4 ${
+            isDark ? 'text-slate-300 border-cyan-500/20' : 'text-slate-600 border-slate-200'
+          }`}>
+            The ElevIQ Alignment Scan™ is available at no charge to eligible participants through approved invitations and participating initiatives. Because access is currently coordinated, completing an inquiry does not automatically enroll you or guarantee an invitation.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
+            <Link
+              to="/#participation-inquiry"
+              onClick={handleRequestInvitation}
+              style={{ color: '#020617' }}
+              className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center cursor-pointer"
+            >
+              Request an Invitation
+            </Link>
+            <a
+              href="https://cas.eleviqfoundation.org/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 hover:text-white px-6 py-3 text-xs sm:text-sm font-semibold transition-all duration-200 inline-flex items-center justify-center"
+            >
+              Already Invited? Access CAS
+            </a>
+            <Link
+              to="/platform/alignment-pathways"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-white transition-colors px-4 py-2.5 rounded-full border border-cyan-500/30 hover:border-cyan-400 bg-slate-900/60"
+            >
+              <span>Explore Participant Pathways</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       )}
 

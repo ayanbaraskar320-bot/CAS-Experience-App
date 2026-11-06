@@ -147,7 +147,7 @@ export default function FounderStory({ isFullPage = false, initialExpanded = fal
                     Free Individual Participant Access & Low-Barrier Pilot Design
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This guarantees that the ElevIQ Alignment Scan™ remains 100% free for individual participants, while organizational implementation, configuration, and pilots reflect partner scoping.
+                    We established ElevIQ Foundation as an independent mission vehicle. Through our non-monetary partnership with STC Innovations, ElevIQ Foundation receives full CAS access at no cost for approved mission-aligned work. This ensures that the ElevIQ Alignment Scan™ remains 100% free for individual participants, while organizational implementation, configuration, and pilots reflect partner scoping.
                   </p>
                 </div>
 

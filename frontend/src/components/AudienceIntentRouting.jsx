@@ -161,6 +161,7 @@ export default function AudienceIntentRouting({
   showGrid = true,
   showForm = true,
   initialAudienceId = null,
+  confirmationMessage = "Thank you for your interest in ElevIQ Foundation. We've received your inquiry. Our team will review available participation opportunities and contact you if an appropriate opportunity is available.",
 }) {
   const navigate = useNavigate()
   const [selectedAudience, setSelectedAudience] = useState(() => {
@@ -217,6 +218,22 @@ export default function AudienceIntentRouting({
           matchedPath = AUDIENCE_PATHS[0]
         } else if (topicParam === 'job-corps-configuration') {
           matchedPath = AUDIENCE_PATHS[1]
+        } else if (topicParam === 'organizational-demo') {
+          matchedPath = AUDIENCE_PATHS[1]
+          setForm((prev) => ({
+            ...prev,
+            role: prev.role || 'Organizational Leader / Administrator',
+            programContext: 'Workforce Development System / Agency',
+            message: prev.message || 'Requesting an organizational demonstration of CAS capabilities.',
+          }))
+        } else if (topicParam === 'sponsorship') {
+          matchedPath = AUDIENCE_PATHS[3]
+          setForm((prev) => ({
+            ...prev,
+            role: prev.role || 'Philanthropic Funder / Community Partner',
+            programContext: 'Philanthropic Initiative / Grant-Funded Cohort',
+            message: prev.message || 'Exploring sponsorship and partnership opportunities with ElevIQ Foundation.',
+          }))
         }
       }
 
@@ -336,23 +353,49 @@ export default function AudienceIntentRouting({
 
       sendInquiry({
         name: form.name,
+        fullName: form.name,
         organization: form.organization || 'Individual / Participant',
         email: form.email,
         phone: form.phone || '',
         role: form.role || form.audienceIntent,
         interestArea: form.audienceIntent,
+        participantEntryPoint: form.audienceIntent,
         programContext: form.programContext,
+        audienceContext: form.programContext,
+        formType: form.formType || (form.audienceIntent === 'Funder/donor conversation' ? 'sponsorship' : 'participant'),
         entityRoute: form.entityRoute,
         message: form.message,
       })
         .then(() => {
           setIsSubmitting(false)
           setSubmitted(true)
+          setForm({
+            name: '',
+            organization: '',
+            email: '',
+            phone: '',
+            role: '',
+            audienceIntent: selectedAudience.intent,
+            programContext: 'None / General Individual Participant',
+            entityRoute: 'ElevIQ Foundation',
+            message: '',
+          })
         })
         .catch((err) => {
           console.warn('Inquiry submission fallback to confirmation:', err)
           setIsSubmitting(false)
           setSubmitted(true)
+          setForm({
+            name: '',
+            organization: '',
+            email: '',
+            phone: '',
+            role: '',
+            audienceIntent: selectedAudience.intent,
+            programContext: 'None / General Individual Participant',
+            entityRoute: 'ElevIQ Foundation',
+            message: '',
+          })
         })
     }
   }
@@ -502,9 +545,8 @@ export default function AudienceIntentRouting({
                     </svg>
                   </div>
                   <h4 className="text-xl font-bold text-white">Inquiry Received</h4>
-                  <p className="text-sm text-slate-300 leading-relaxed">
-                    Thank you for connecting. Your request has been routed to the{' '}
-                    <strong className="text-cyan-300">{form.entityRoute}</strong> team for personal review and follow-up.
+                  <p className="text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
+                    {confirmationMessage}
                   </p>
                   <div className="flex flex-wrap justify-center gap-3 pt-2">
                     <button
@@ -523,13 +565,14 @@ export default function AudienceIntentRouting({
                           message: '',
                         })
                       }}
-                      className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 rounded-full transition"
+                      className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-sans font-semibold text-slate-200 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                     >
                       Send another message
                     </button>
                     <Link
                       to="/"
-                      className="px-5 py-2 bg-[#00D2FF] hover:bg-[#38BDF8] text-xs font-bold text-slate-950 rounded-full transition shadow-[0_0_12px_rgba(0,210,255,0.4)]"
+                      style={{ color: '#020617' }}
+                      className="inline-flex items-center justify-center px-6 py-2.5 bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans text-xs sm:text-sm font-bold rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_15px_rgba(0,210,255,0.4)]"
                     >
                       Return Home
                     </Link>
@@ -676,6 +719,13 @@ export default function AudienceIntentRouting({
                       className="w-full bg-slate-950/90 border border-slate-700 hover:border-cyan-500/50 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all min-h-[100px]"
                     />
                     {errors.message && <p className="text-xs text-rose-400 font-medium">{errors.message}</p>}
+                  </div>
+
+                  {/* MANDATORY GATEKEEPING DISCLOSURE */}
+                  <div className="sm:col-span-2 pt-2 border-t border-slate-800/80">
+                    <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                      The ElevIQ Alignment Scan™ is available at no charge to eligible participants through approved invitations and participating initiatives. Because access is currently coordinated, completing an inquiry does not automatically enroll you or guarantee an invitation.
+                    </p>
                   </div>
 
                   {/* SUBMISSION BUTTONS */}

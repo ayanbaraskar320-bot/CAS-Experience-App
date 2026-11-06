@@ -1,4 +1,4 @@
-import { INQUIRY_CONFIG } from '../config/inquiry'
+import { INQUIRY_CONFIG } from '../config/inquiry.js'
 
 /**
  * Dispatches inquiry form submissions.
@@ -11,20 +11,58 @@ export async function sendInquiry(payload) {
   const accessKey = INQUIRY_CONFIG.web3FormsAccessKey
   const promises = []
 
+  const isSTC = payload.entityRoute === 'STC Innovations' || payload.entityRoute === 'stc'
+  const activeAccessKey = isSTC 
+    ? (INQUIRY_CONFIG.stcWeb3FormsAccessKey || accessKey)
+    : accessKey
+
+  const fullName = payload.fullName || payload.name || 'Anonymous Inquirer'
+  const audienceContext = payload.audienceContext !== undefined ? payload.audienceContext : (payload.programContext || '')
+  const participantEntryPoint = payload.participantEntryPoint || payload.interestArea || ''
+  let formType = (payload.formType || '').toLowerCase()
+
+  if (!formType) {
+    if (
+      payload.interestArea === 'Funder/donor conversation' ||
+      (audienceContext && audienceContext.toLowerCase().includes('philanthropic')) ||
+      (payload.role && payload.role.toLowerCase().includes('funder'))
+    ) {
+      formType = 'sponsorship'
+    } else if (audienceContext && audienceContext !== 'None / General Individual Participant') {
+      formType = 'organizational-demo'
+    } else {
+      formType = 'participant'
+    }
+  }
+
+  let subject = ''
+  if (isSTC) {
+    subject = `[STC Innovations Commercial Inquiry] ${fullName} (${payload.organization || 'Enterprise'}) - ${payload.interestArea || 'Demo Request'}`
+  } else if (formType === 'sponsorship') {
+    subject = `[SPONSORSHIP] New Partnership Request: ${fullName}`
+  } else if (!audienceContext || audienceContext === 'None / General Individual Participant') {
+    subject = `[PARTICIPANT INQUIRY] ${fullName} - ${participantEntryPoint || 'General'}`
+  } else {
+    subject = `[ORG DEMO] ${audienceContext} - ${fullName}`
+  }
+
   // 1. Deliver direct email to inbox via Web3Forms
-  if (accessKey) {
+  if (activeAccessKey) {
     const web3formsBody = {
-      access_key: accessKey,
-      subject: `[ElevIQ Foundation Inquiry] ${payload.interestArea || 'New Inquiry'} - ${payload.name}`,
-      from_name: 'ElevIQ Foundation Website',
-      name: payload.name,
+      access_key: activeAccessKey,
+      subject: subject,
+      from_name: isSTC ? 'STC Innovations Commercial Inquiries' : 'ElevIQ Foundation Website',
+      name: fullName,
       email: payload.email,
       phone: payload.phone || 'N/A',
-      organization: payload.organization || 'Individual / Participant',
+      organization: payload.organization || (isSTC ? 'Enterprise Partner' : 'Individual / Participant'),
       role: payload.role || 'N/A',
-      interest_area: payload.interestArea || 'General Inquiry',
+      interest_area: payload.interestArea || (isSTC ? 'Commercial Demo' : 'General Inquiry'),
       program_context: payload.programContext || 'N/A',
-      entity_route: payload.entityRoute || 'ElevIQ Foundation',
+      audience_context: audienceContext,
+      participant_entry_point: participantEntryPoint,
+      form_type: formType,
+      entity_route: isSTC ? 'STC Innovations' : 'ElevIQ Foundation',
       message: payload.message,
       replyto: payload.email,
     }
@@ -63,7 +101,13 @@ export async function sendInquiry(payload) {
     fetch(`${apiUrl}/api/inquiry`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        ...payload,
+        fullName,
+        audienceContext,
+        participantEntryPoint,
+        formType,
+      }),
     })
       .then(async (res) => {
         const data = await res.json().catch(() => ({}))
