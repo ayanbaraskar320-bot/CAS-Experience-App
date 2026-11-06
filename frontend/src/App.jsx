@@ -12,6 +12,8 @@ import FounderStory from './components/FounderStory'
 import RuralWorkforce from './components/RuralWorkforce'
 import CasTechnologyPreview, { CasTechnologyTeaser } from './components/CasTechnologyPreview'
 import StcLink from './components/StcLink'
+import FaqPage from './components/FaqPage'
+import ServiceDeliveryModel from './components/ServiceDeliveryModel'
 
 const TOP_NAV = [
   { label: 'Home', path: '/' },
@@ -20,6 +22,7 @@ const TOP_NAV = [
   { label: 'For Organizations', path: '/organizations' },
   { label: 'Resources', path: '/resources' },
   { label: 'About', path: '/about' },
+  { label: 'FAQs', path: '/faqs' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -114,10 +117,37 @@ const SECTION_THEME_VARIANTS = {
     buttonPrimary: 'border-[#0284C7] bg-[#0284C7]',
     surfaceTint: 'bg-white',
   },
+  faqs: {
+    shellBg: 'bg-[#030B1E]',
+    heroBg: 'bg-[#030B1E]',
+    accent: '#00D2FF',
+    accentSoft: 'rgba(0, 210, 255, 0.15)',
+    accentHover: 'hover:border-[#00D2FF]',
+    buttonPrimary: 'border-[#00D2FF] bg-[#00D2FF]',
+    surfaceTint: 'bg-[#071739]',
+  },
 }
 
 function SectionTheme({ variant = 'platform', children }) {
   const themeValues = useMemo(() => {
+    if (variant === 'faqs') {
+      return {
+        '--page-bg': '#030B1E',
+        '--surface': '#071739',
+        '--panel': '#0B1936',
+        '--accent': '#00D2FF',
+        '--accent-soft': 'rgba(0, 210, 255, 0.15)',
+        '--surface-soft': '#07132D',
+        '--line': 'rgba(6, 182, 212, 0.25)',
+        '--ink': '#FFFFFF',
+        '--muted': '#94A3B8',
+        '--hero-bg-from': '#030B1E',
+        '--hero-bg-to': '#071739',
+        '--bg-glow-1': 'rgba(0, 210, 255, 0.15)',
+        '--bg-glow-2': 'rgba(14, 165, 233, 0.15)',
+        '--bg-glow-3': 'rgba(3, 11, 30, 0.40)',
+      }
+    }
     return {
       '--page-bg': '#FAFBFF',
       '--surface': '#FFFFFF',
@@ -190,13 +220,18 @@ function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '')
-      const el = document.getElementById(id)
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 120)
-        return
+      let attempts = 0
+      const tryScroll = () => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else if (attempts < 10) {
+          attempts++
+          setTimeout(tryScroll, 60)
+        }
       }
+      setTimeout(tryScroll, 50)
+      return
     }
     window.scrollTo(0, 0)
   }, [pathname, hash])
@@ -247,7 +282,7 @@ function AppShell() {
     if (location.pathname === '/') {
       const el = document.getElementById(targetHash)
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
         window.history.replaceState(null, '', `#${targetHash}`)
         window.dispatchEvent(new HashChangeEvent('hashchange'))
       }
@@ -272,12 +307,18 @@ function AppShell() {
   // Hash-based smooth scrolling handler
   useEffect(() => {
     if (location.hash) {
-      const el = document.getElementById(location.hash.slice(1))
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }, 100)
+      const targetId = location.hash.replace('#', '')
+      let attempts = 0
+      const tryScroll = () => {
+        const el = document.getElementById(targetId)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else if (attempts < 10) {
+          attempts++
+          setTimeout(tryScroll, 60)
+        }
       }
+      setTimeout(tryScroll, 50)
     }
   }, [location.pathname, location.hash])
 
@@ -330,14 +371,14 @@ function AppShell() {
                   to="/"
                   end
                   className={({ isActive }) =>
-                    `inline-flex items-center justify-center px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    `px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       isActive
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`
                   }
                 >
-                  Home
+                  <span>Home</span>
                 </NavLink>
 
                 {/* 2. For People Dropdown */}
@@ -350,61 +391,114 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'people' ? null : 'people')}
                     aria-expanded={activeDropdown === 'people'}
-                    className={`px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/individuals') || activeDropdown === 'people'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>For People</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'people' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'people' && (
-                    <div className="absolute left-0 top-full pt-2 w-[340px] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="rounded-2xl bg-[#071739]/98 border border-cyan-500/30 p-4 shadow-2xl backdrop-blur-2xl text-white space-y-1.5">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] px-3 pb-1 block border-b border-cyan-500/20">
-                          Participant Experience
-                        </span>
-                        <Link
-                          to="/individuals/how-it-works"
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                        >
-                          <div className="text-xs font-semibold group-hover:text-cyan-300">How It Works</div>
-                          <div className="text-[10px] text-slate-400 font-sans leading-tight">Participant reflection, guidance & next steps</div>
-                        </Link>
-                        <Link
-                          to="/#who-we-serve"
-                          onClick={() => {
-                            if (location.pathname === '/') {
-                              document.getElementById('who-we-serve')?.scrollIntoView({ behavior: 'smooth' })
-                            }
-                          }}
-                          className="block px-3 py-2 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                        >
-                          <div className="text-xs font-semibold group-hover:text-cyan-300">Who We Serve</div>
-                          <div className="text-[10px] text-slate-400 font-sans leading-tight">7 approved life & career stages</div>
-                        </Link>
-                        <Link
-                          to="/#participation-inquiry"
-                          className="block px-3 py-2 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
-                        >
-                          <div className="text-xs font-bold text-cyan-300 flex items-center justify-between">
-                            <span>Request Scan Access</span>
-                            <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
+                    <div className="absolute -left-12 sm:left-0 top-full pt-2 w-[560px] sm:w-[640px] max-w-[95vw] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="rounded-3xl bg-[#071739]/98 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl backdrop-blur-2xl text-white space-y-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Column 1: Participant Hub & Sub Tabs */}
+                          <div className="space-y-1.5">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] px-3 pb-1 block border-b border-cyan-500/20">
+                              Participant Hub & Sub Tabs
+                            </span>
+                            <Link
+                              to="/individuals"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block p-2.5 rounded-xl transition-all bg-cyan-950/50 hover:bg-cyan-900/70 border border-cyan-500/40 text-slate-200 hover:text-white group"
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-cyan-300">For People Home</span>
+                                <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-[#0FA88A]/20 text-[#0FA88A] px-2 py-0.5 rounded-full border border-[#0FA88A]/40">
+                                  Hub Overview →
+                                </span>
+                              </div>
+                              <div className="text-[10px] text-slate-300 font-sans leading-tight mt-1">
+                                Participant overview, personal agency & capability discovery
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/explore-your-path"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Explore Your Path</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Tailored reflection for 5 learner & worker stages</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/how-it-works"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">How It Works</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Scenario-based reflection, signals & next steps</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/schools-workforce"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">For Schools & Workforce</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Youth, CTE, Job Corps & workforce cohorts</div>
+                            </Link>
                           </div>
-                          <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
-                        </Link>
-                        <a
-                          href="https://cas.eleviqfoundation.org/login"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-cyan-300 hover:text-white text-xs font-semibold"
-                        >
-                          Already Invited? Access CAS →
-                        </a>
+
+                          {/* Column 2: Governance, Mission & Scan Access */}
+                          <div className="space-y-1.5 border-t md:border-t-0 md:border-l border-cyan-500/20 pt-3 md:pt-0 md:pl-4">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 pb-1 block border-b border-cyan-500/20">
+                              Governance & Community Access
+                            </span>
+
+                            <Link
+                              to="/individuals/trust"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Trust & Governance</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Dignity, data protection & non-clinical guardrails</div>
+                            </Link>
+
+                            <Link
+                              to="/individuals/support-the-mission"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Support the Mission</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Nonprofit mission, philanthropy & community impact</div>
+                            </Link>
+
+                            <Link
+                              to="/#participation-inquiry"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block p-2.5 rounded-xl transition-all bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/30 text-slate-200 hover:text-white group mt-1"
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-cyan-300">Request Scan Access</span>
+                                <span className="text-[9px] font-mono uppercase bg-[#0FA88A]/20 text-[#0FA88A] border border-[#0FA88A]/40 px-1.5 py-0.5 rounded-full">100% Free</span>
+                              </div>
+                              <div className="text-[10px] text-slate-300 font-sans leading-tight mt-0.5">Private, zero-pressure self-discovery workspace</div>
+                            </Link>
+
+                            <a
+                              href="https://cas.eleviqfoundation.org/login"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-cyan-300 hover:text-white text-xs font-semibold"
+                            >
+                              Already Invited? Access CAS →
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -420,86 +514,144 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'organizations' ? null : 'organizations')}
                     aria-expanded={activeDropdown === 'organizations'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/organizations') || activeDropdown === 'organizations'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Organizations</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'organizations' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'organizations' && (
-                    <div className="absolute left-0 top-full pt-2 w-[420px] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                      <div className="rounded-2xl bg-[#071739]/98 border border-cyan-500/30 p-4 shadow-2xl backdrop-blur-2xl text-white space-y-1.5">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 px-3 pb-1 block border-b border-cyan-500/20">
-                          Partner & Institutional Settings
-                        </span>
-                        <div className="grid grid-cols-2 gap-1.5 pt-1">
-                          <Link
-                            to="/individuals/schools-workforce"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Schools & CTE</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Youth & vocational career clarity</div>
-                          </Link>
-                          <Link
-                            to="/organizations/solutions"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Workforce & NCWorks</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Regional board infrastructure</div>
-                          </Link>
-                          <Link
-                            to="/organizations/solutions"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Community Colleges & Adult Learning</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Adult learning & trade tracks</div>
-                          </Link>
-                          <Link
-                            to="/individuals/job-corps"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Job Corps</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Trade completion & transition</div>
-                          </Link>
-                          <Link
-                            to="/organizations/solutions"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Community & Nonprofits</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Local cohorts & guided pilots</div>
-                          </Link>
-                          <Link
-                            to="/organizations/solutions"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300">Employers & Regional Partners</div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Skills-first talent alignment</div>
-                          </Link>
-                        </div>
-                        <div className="pt-2 border-t border-cyan-500/20">
-                          <Link
-                            to="/individuals/support-the-mission"
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
-                          >
-                            <div className="text-xs font-semibold group-hover:text-cyan-300 flex items-center justify-between">
-                              <span>Funders & Philanthropic Alliances</span>
-                              <span className="text-[10px] text-cyan-400 font-mono">Partner →</span>
+                    <div className="absolute -left-16 sm:left-0 top-full pt-2 w-[560px] sm:w-[640px] max-w-[95vw] z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="rounded-3xl bg-[#071739]/98 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl backdrop-blur-2xl text-white space-y-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {/* Column 1: Organization Workflows & Sub Tabs */}
+                          <div className="space-y-1.5">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 px-3 pb-1 block border-b border-cyan-500/20">
+                              Organization Hub & Sub Tabs
+                            </span>
+                            <Link
+                              to="/organizations"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block p-2.5 rounded-xl transition-all bg-cyan-950/50 hover:bg-cyan-900/70 border border-cyan-500/40 text-slate-200 hover:text-white group"
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-cyan-300">Organizations Home</span>
+                                <span className="text-[9px] font-mono font-bold uppercase tracking-wider bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-full border border-cyan-400/40">
+                                  Hub Overview →
+                                </span>
+                              </div>
+                              <div className="text-[10px] text-slate-300 font-sans leading-tight mt-1">
+                                Commercial overview, capability alignment & operational gateways
+                              </div>
+                            </Link>
+
+                            <Link
+                              to="/organizations/solutions"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Solutions & Delivery</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">9 approved service delivery lanes</div>
+                            </Link>
+
+                            <Link
+                              to="/organizations/implementation"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Implementation Framework</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">4-stage staged onboarding framework</div>
+                            </Link>
+
+                            <Link
+                              to="/organizations/pricing-demo"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Pricing, Pilots & Demo</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Configured pilot scopes & demo inquiry</div>
+                            </Link>
+
+                            <Link
+                              to="/organizations/security-trust"
+                              onClick={() => setActiveDropdown(null)}
+                              className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                            >
+                              <div className="text-xs font-semibold group-hover:text-cyan-300">Security & Trust</div>
+                              <div className="text-[10px] text-slate-400 font-sans leading-tight">Sovereign data isolation & governance</div>
+                            </Link>
+                          </div>
+
+                          {/* Column 2: Partner & Institutional Settings */}
+                          <div className="space-y-1.5 border-t md:border-t-0 md:border-l border-cyan-500/20 pt-3 md:pt-0 md:pl-4">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 px-3 pb-1 block border-b border-cyan-500/20">
+                              Partner & Cohort Settings
+                            </span>
+                            <div className="grid grid-cols-1 gap-1 pt-0.5">
+                              <Link
+                                to="/individuals/schools-workforce"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Schools & CTE</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Youth & vocational career clarity</div>
+                              </Link>
+                              <Link
+                                to="/organizations/solutions"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Workforce & NCWorks</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Regional board infrastructure</div>
+                              </Link>
+                              <Link
+                                to="/organizations/solutions"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Community Colleges & Adult Learning</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Adult learning & trade tracks</div>
+                              </Link>
+                              <Link
+                                to="/individuals/job-corps"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Job Corps</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Trade completion & transition</div>
+                              </Link>
+                              <Link
+                                to="/organizations/solutions"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Community & Nonprofits</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Local cohorts & guided pilots</div>
+                              </Link>
+                              <Link
+                                to="/organizations/solutions"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300">Employers & Regional Partners</div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Skills-first talent alignment</div>
+                              </Link>
+                              <Link
+                                to="/individuals/support-the-mission"
+                                onClick={() => setActiveDropdown(null)}
+                                className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group border-t border-cyan-500/10 mt-1"
+                              >
+                                <div className="text-xs font-semibold group-hover:text-cyan-300 flex items-center justify-between">
+                                  <span>Funders & Philanthropic Alliances</span>
+                                  <span className="text-[10px] text-cyan-400 font-mono">Partner →</span>
+                                </div>
+                                <div className="text-[10px] text-slate-400 font-sans leading-tight">Mission investment & cohort grants</div>
+                              </Link>
                             </div>
-                            <div className="text-[10px] text-slate-400 font-sans leading-tight">Mission investment & cohort grants</div>
-                          </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -516,16 +668,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                     aria-expanded={activeDropdown === 'services'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'services'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Services</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'services' && (
@@ -535,32 +684,56 @@ function AppShell() {
                           <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400">
                             9 Service Lanes & Delivery
                           </span>
-                          <Link to="/#services" className="text-[10px] text-[#0FA88A] hover:underline font-mono">
+                          <Link to="/organizations/solutions" onClick={() => setActiveDropdown(null)} className="text-[10px] text-[#0FA88A] hover:underline font-mono">
                             View All 9 →
                           </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-1.5 pt-1">
-                          <Link to="/#services" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-01"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Capability Discovery</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Signals™ & guided reflection</div>
                           </Link>
-                          <Link to="/#services" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-02"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Pathway Planning</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Education & career next-steps</div>
                           </Link>
-                          <Link to="/#services" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-04"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Career Readiness</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Story translation & presence</div>
                           </Link>
-                          <Link to="/#services" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-05"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Advisor Enablement</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">CLARA™ & navigator workflows</div>
                           </Link>
-                          <Link to="/organizations/implementation" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-06"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Program Implementation</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Cohort setup & staff workflow</div>
                           </Link>
-                          <Link to="/#services" className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group">
+                          <Link
+                            to="/organizations/solutions#service-lane-08"
+                            onClick={() => setActiveDropdown(null)}
+                            className="block px-3 py-1.5 rounded-xl transition-all hover:bg-slate-800/80 text-slate-200 hover:text-cyan-300 group"
+                          >
                             <div className="text-xs font-semibold group-hover:text-cyan-300">Regional Workforce Strategy</div>
                             <div className="text-[10px] text-slate-400 font-sans leading-tight">Cross-system facilitation & gap mapping</div>
                           </Link>
@@ -580,16 +753,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'approach' ? null : 'approach')}
                     aria-expanded={activeDropdown === 'approach'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       activeDropdown === 'approach'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>Approach</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'approach' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'approach' && (
@@ -656,16 +826,13 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
                     aria-expanded={activeDropdown === 'about'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/about') || activeDropdown === 'about'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
                     }`}
                   >
                     <span>About</span>
-                    <svg className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {activeDropdown === 'about' && (
@@ -726,7 +893,7 @@ function AppShell() {
                     type="button"
                     onClick={() => setActiveDropdown(activeDropdown === 'cas' ? null : 'cas')}
                     aria-expanded={activeDropdown === 'cas'}
-                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center gap-0.5 xl:gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                    className={`px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
                       location.pathname.startsWith('/platform') || activeDropdown === 'cas'
                         ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -734,15 +901,6 @@ function AppShell() {
                     title="See the Technology Behind the Work"
                   >
                     <span>CAS Preview</span>
-                    <svg
-                      className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === 'cas' ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
                   </button>
 
                   {/* Dropdown Menu */}
@@ -827,6 +985,21 @@ function AppShell() {
                     </div>
                   )}
                 </div>
+
+                {/* 8. FAQs Link */}
+                <NavLink
+                  to="/faqs"
+                  className={({ isActive }) =>
+                    `px-1.5 xl:px-2 py-1 text-xs font-medium whitespace-nowrap rounded-lg transition-colors flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 cursor-pointer ${
+                      isActive
+                        ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 font-semibold'
+                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    }`
+                  }
+                  title="Frequently Asked Questions"
+                >
+                  <span>FAQs</span>
+                </NavLink>
               </nav>
 
               {/* RIGHT: Persistent Action Items (Far-Right Header) */}
@@ -936,10 +1109,76 @@ function AppShell() {
                     </svg>
                   </button>
                   {mobileExpanded.people && (
-                    <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-[#0FA88A]/60 ml-2 mt-1">
-                      <Link to="/individuals/how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">How It Works</Link>
-                      <Link to="/#who-we-serve" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('who-we-serve')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Who We Serve (7 Populations)</Link>
-                      <Link to="/contact?topic=participant-scan#contact-inquiry" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white">Free ElevIQ Alignment Scan™</Link>
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-[#0FA88A]/60 ml-2 mt-1">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0FA88A] block">
+                          Participant Hub & Sub Tabs
+                        </span>
+                        <Link
+                          to="/individuals"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm font-bold text-cyan-300 hover:text-white"
+                        >
+                          For People Home (Overview) →
+                        </Link>
+                        <Link
+                          to="/individuals/explore-your-path"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Explore Your Path
+                        </Link>
+                        <Link
+                          to="/individuals/how-it-works"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          How It Works
+                        </Link>
+                        <Link
+                          to="/individuals/schools-workforce"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          For Schools & Workforce
+                        </Link>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-800 space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 block">
+                          Governance & Community Access
+                        </span>
+                        <Link
+                          to="/individuals/trust"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Trust & Governance
+                        </Link>
+                        <Link
+                          to="/individuals/support-the-mission"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Support the Mission
+                        </Link>
+                        <Link
+                          to="/#participation-inquiry"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-[#0FA88A] font-semibold hover:text-white"
+                        >
+                          Request Scan Access (100% Free)
+                        </Link>
+                        <a
+                          href="https://cas.eleviqfoundation.org/login"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white"
+                        >
+                          Already Invited? Access CAS →
+                        </a>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -957,56 +1196,102 @@ function AppShell() {
                     </svg>
                   </button>
                   {mobileExpanded.organizations && (
-                    <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-sky-400/60 ml-2 mt-1">
-                      <Link
-                        to="/individuals/schools-workforce"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Schools & CTE
-                      </Link>
-                      <Link
-                        to="/organizations/solutions"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Workforce & NCWorks
-                      </Link>
-                      <Link
-                        to="/organizations/solutions"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Community Colleges & Adult Learning
-                      </Link>
-                      <Link
-                        to="/individuals/job-corps"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Job Corps
-                      </Link>
-                      <Link
-                        to="/organizations/solutions"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Community & Nonprofits
-                      </Link>
-                      <Link
-                        to="/organizations/solutions"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
-                      >
-                        Employers & Regional Partners
-                      </Link>
-                      <Link
-                        to="/individuals/support-the-mission"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white"
-                      >
-                        Funders & Philanthropic Alliances
-                      </Link>
+                    <div className="pl-4 pb-2 space-y-2 border-l-2 border-sky-400/60 ml-2 mt-1">
+                      <div className="space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-400 block">
+                          Organization Hub & Sub Tabs
+                        </span>
+                        <Link
+                          to="/organizations"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm font-bold text-cyan-300 hover:text-white"
+                        >
+                          Organizations Home (Overview) →
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Solutions & Delivery Lanes
+                        </Link>
+                        <Link
+                          to="/organizations/implementation"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Implementation Framework
+                        </Link>
+                        <Link
+                          to="/organizations/pricing-demo"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Pricing, Pilots & Demo Inquiry
+                        </Link>
+                        <Link
+                          to="/organizations/security-trust"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Security & Trust Governance
+                        </Link>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-800 space-y-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-400 block">
+                          Partner & Cohort Settings
+                        </span>
+                        <Link
+                          to="/individuals/schools-workforce"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Schools & CTE
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Workforce & NCWorks
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Community Colleges & Adult Learning
+                        </Link>
+                        <Link
+                          to="/individuals/job-corps"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Job Corps
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Community & Nonprofits
+                        </Link>
+                        <Link
+                          to="/organizations/solutions"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-slate-300 hover:text-cyan-300"
+                        >
+                          Employers & Regional Partners
+                        </Link>
+                        <Link
+                          to="/individuals/support-the-mission"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-1 text-sm text-cyan-300 font-semibold hover:text-white"
+                        >
+                          Funders & Philanthropic Alliances
+                        </Link>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -1025,12 +1310,12 @@ function AppShell() {
                   </button>
                   {mobileExpanded.services && (
                     <div className="pl-4 pb-2 space-y-1.5 border-l-2 border-cyan-400/60 ml-2 mt-1">
-                      <Link to="/#services" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Capability Discovery</Link>
-                      <Link to="/#services" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Pathway Planning</Link>
-                      <Link to="/#services" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Career Readiness</Link>
-                      <Link to="/#services" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Advisor Enablement</Link>
-                      <Link to="/organizations/implementation" onClick={() => setIsMobileMenuOpen(false)} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Program Implementation</Link>
-                      <Link to="/#services" onClick={() => { setIsMobileMenuOpen(false); if (location.pathname === '/') { document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }) } }} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Rural & Regional Strategy</Link>
+                      <Link to="/#service-lane-01" onClick={() => handleAnchorNav('service-lane-01')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Capability Discovery</Link>
+                      <Link to="/#service-lane-02" onClick={() => handleAnchorNav('service-lane-02')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Pathway Planning</Link>
+                      <Link to="/#service-lane-04" onClick={() => handleAnchorNav('service-lane-04')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Career Readiness</Link>
+                      <Link to="/#service-lane-05" onClick={() => handleAnchorNav('service-lane-05')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Advisor Enablement</Link>
+                      <Link to="/#service-lane-06" onClick={() => handleAnchorNav('service-lane-06')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Program Implementation</Link>
+                      <Link to="/#service-lane-08" onClick={() => handleAnchorNav('service-lane-08')} className="block py-1 text-sm text-slate-300 hover:text-cyan-300">Rural & Regional Strategy</Link>
                     </div>
                   )}
                 </div>
@@ -1140,6 +1425,15 @@ function AppShell() {
                   )}
                 </div>
 
+                {/* 8. FAQs Link */}
+                <NavLink
+                  to="/faqs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="py-2.5 text-base font-semibold text-slate-200 hover:text-cyan-300 border-b border-slate-800/80 block"
+                >
+                  FAQs
+                </NavLink>
+
                 {/* Handoff item */}
                 <StcLink onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 rounded-xl border border-cyan-500/40 bg-cyan-950/40 text-cyan-200 text-sm font-semibold flex items-center justify-between mt-2">
                   <span>Commercial CAS Solutions → STC Innovations</span>
@@ -1196,6 +1490,10 @@ function AppShell() {
               <Route path="/faqs" element={<FaqPage />} />
               <Route path="/faq" element={<Navigate to="/faqs" replace />} />
               <Route path="/participant-portal" element={<ParticipantPortalRedirect />} />
+              <Route path="/invite" element={<ParticipantPortalRedirect />} />
+              <Route path="/invitation" element={<ParticipantPortalRedirect />} />
+              <Route path="/access" element={<ParticipantPortalRedirect />} />
+              <Route path="/login" element={<ParticipantPortalRedirect />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
@@ -1413,7 +1711,7 @@ function HomePage() {
     {
       step: '03',
       title: 'Alignment Snapshot™',
-      desc: 'A comprehensive, portable summary synthesizing capabilities, priorities, and potential direction.',
+      desc: 'Participants receive an Alignment Snapshot™ reflecting strengths, experiences, and potential career directions to support conversations with career advisors, educators, and mentors.',
       tag: 'Synthesis'
     },
     {
@@ -1682,99 +1980,7 @@ function HomePage() {
       <div id="service-model-journey" className="scroll-mt-24 space-y-[var(--section-gap)]">
         {/* Stages 0–7 Organizational Delivery Model */}
         <ScrollReveal>
-          <section id="delivery-model" className="scroll-mt-24 rounded-[32px] border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-8 sm:p-12 shadow-xl space-y-8 text-white">
-            <div className="space-y-2 text-center max-w-3xl mx-auto">
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-[#00D2FF]">
-                ORGANIZATIONAL COLLABORATION
-              </span>
-              <h2 className="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-                How We Work With Communities and Organizations
-              </h2>
-              <p className="text-base font-semibold text-[#00D2FF] font-sans">
-                "We don't begin with software. We begin with the problem."
-              </p>
-              <p className="text-xs sm:text-sm text-slate-300 font-sans max-w-2xl mx-auto">
-                A structured 8-stage methodology designed to embed capability infrastructure alongside local mentors, educational institutions, and regional workforce partners.
-              </p>
-            </div>
-
-            {/* Connected Stage Rail (Section 3: Organizational Service-Delivery Flow) */}
-            <div className="space-y-3 pt-2">
-              <div className="flex items-center justify-between px-1 text-slate-300">
-                <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#00D2FF] flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-                  ORGANIZATIONAL SERVICE-DELIVERY PROGRESSION RAIL
-                </span>
-                <span className="hidden sm:inline-block font-mono text-[10px] text-slate-400">
-                  Sequential Institutional Delivery Pipeline
-                </span>
-              </div>
-
-              {/* Connected Stage Pipeline Rail */}
-              <div className="hidden lg:grid grid-cols-8 gap-2 p-3 rounded-2xl bg-[#07132D]/90 border border-cyan-500/20 shadow-inner">
-                {deliveryStages.map((stg, idx) => (
-                  <div key={stg.stage} className="relative flex flex-col items-center text-center group">
-                    <div className="flex items-center w-full">
-                      {idx > 0 && (
-                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-500/30 to-cyan-400/60" />
-                      )}
-                      <div className="w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center font-mono text-[10px] font-bold text-cyan-300 shadow-[0_0_10px_rgba(6,182,212,0.3)] shrink-0 mx-auto group-hover:border-[#00D2FF] group-hover:bg-cyan-500/30 transition-all">
-                        {idx}
-                      </div>
-                      {idx < deliveryStages.length - 1 && (
-                        <div className="flex-1 h-[2px] bg-gradient-to-r from-cyan-400/60 to-cyan-500/30" />
-                      )}
-                    </div>
-                    <span className="mt-1.5 font-mono text-[9px] font-bold text-slate-300 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
-                      {stg.tag}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 8-Stage Grid (Stages 0–7) */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {deliveryStages.map((stg, idx) => (
-                <div
-                  key={stg.stage}
-                  className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] transition-all duration-300 group overflow-hidden"
-                >
-                  {/* Top Sequential Accent Line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/30 via-[#00D2FF] to-cyan-500/30 opacity-70 group-hover:opacity-100 transition-opacity" />
-
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        <span className="inline-flex items-center justify-center px-2.5 py-1 rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-300 border border-cyan-400/30 font-mono">
-                          {stg.stage}
-                        </span>
-                        <span className="text-[11px] font-mono text-cyan-400/70 font-semibold" aria-hidden="true">
-                          {idx < 7 ? '→' : '✓'}
-                        </span>
-                      </div>
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400">
-                        {stg.tag}
-                      </span>
-                    </div>
-                    <h3 className="font-sans text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {stg.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-[#BAE6FD]/80 font-sans">
-                      {stg.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
-                    <span className="text-cyan-400/80">Org Phase {idx + 1} of 8</span>
-                    <span className="text-slate-500 group-hover:text-cyan-300 transition-colors">
-                      {idx < 7 ? `Stage ${idx + 1} →` : 'Sustained Delivery'}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          <ServiceDeliveryModel id="delivery-model" />
         </ScrollReveal>
 
         {/* 6-Step Participant Journey */}
@@ -1904,6 +2110,9 @@ function HomePage() {
           </section>
         </ScrollReveal>
       </div>
+
+      {/* WHO WE SERVE SECTION ANCHOR */}
+      <div id="who-we-serve" className="scroll-mt-28"></div>
 
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* 7. 7 PARTICIPANT ENTRY POINTS ROUTING GRID */}
@@ -2851,10 +3060,10 @@ function AlignmentSnapshotPage() {
                 Alignment Snapshot™
               </h2>
               <p className="text-lg font-medium text-slate-200 leading-relaxed max-w-xl">
-                A clear, participant-centered summary of Capability Signals™, context, and possible next-step discussion points.
+                Participants complete the ElevIQ Alignment Scan™ and receive an Alignment Snapshot™ reflecting strengths, experiences, and potential career directions.
               </p>
               <p className="text-sm leading-relaxed text-slate-300 max-w-2xl font-sans">
-                The Alignment Snapshot™ is designed to organize participant-approved information into a plain-language summary for participant review and human-guided conversation.
+                The Snapshot is designed to support constructive conversations with career advisors, educators, and mentors. It does not guarantee employment, determine job qualifications, or replace professional human guidance.
               </p>
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
@@ -2869,10 +3078,10 @@ function AlignmentSnapshotPage() {
                   View Sample Snapshot
                 </button>
                 <Link
-                  to="/contact"
+                  to="/contact?topic=organizational-demo#contact-inquiry"
                   className="rounded-full border border-slate-600 hover:bg-white/10 text-white font-medium px-6 py-2.5 text-xs sm:text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Request Institutional Demo
+                  Request an Organizational Demo
                 </Link>
               </div>
             </div>
@@ -4122,7 +4331,7 @@ function Footer() {
               </li>
               <li>
                 <Link to="/faqs" className="text-slate-300 hover:text-cyan-300 transition-colors">
-                  Frequently Asked Questions
+                  FAQs
                 </Link>
               </li>
               <li>
@@ -4137,11 +4346,14 @@ function Footer() {
         {/* Bottom Legal Bar & Policy Quotes */}
         <div className="space-y-6 pt-2">
           {/* Dual-Entity Operating Boundary Statement */}
-          <div className="p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/25 space-y-2 text-xs text-slate-300 font-sans">
+          <div className="p-5 rounded-2xl bg-slate-900/90 border border-cyan-500/25 space-y-3 text-xs text-slate-300 font-sans">
             <h4 className="font-sans text-sm font-bold text-[#0FA88A] tracking-wide">
-              Organizations seeking commercial CAS deployment
+              Foundation & STC Innovations Relationship Statement
             </h4>
             <div className="leading-relaxed text-slate-300 space-y-2">
+              <p className="font-medium text-slate-200">
+                CAS is developed and owned by STC Innovations Inc., which provides the technology to ElevIQ Foundation at no charge for its mission-aligned nonprofit activities. ElevIQ Foundation focuses on nonprofit workforce development and participant support, while STC Innovations manages commercial technology licensing and deployment.
+              </p>
               <p>
                 STC Innovations owns, develops, licenses, configures, commercializes, and deploys the ElevIQ Capability Alignment System™.
               </p>
@@ -4158,7 +4370,7 @@ function Footer() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-slate-400 font-sans border-t border-slate-800/80 pt-6">
             <p>© 2026 ElevIQ Foundation. All rights reserved.</p>
             <p className="max-w-xl text-[11px] leading-relaxed text-slate-400">
-              ElevIQ Foundation receives CAS infrastructure access at zero cost for mission-aligned nonprofit initiatives. Individual participant scans remain 100% free. CAS is not an algorithmic hiring decision engine.
+              Individual participant scans remain 100% free. CAS is not an algorithmic hiring decision engine.
             </p>
           </div>
 
@@ -4231,7 +4443,7 @@ function IndividualsHome() {
     {
       num: '02',
       title: 'Alignment Snapshot™',
-      desc: 'Receive a clear summary that helps you recognize and name your core professional strengths.'
+      desc: 'Receive an Alignment Snapshot™ reflecting strengths, experiences, and potential career directions to support conversations with advisors, educators, and mentors.'
     },
     {
       num: '03',
@@ -4290,20 +4502,45 @@ function IndividualsHome() {
                 ElevIQ Foundation programs are designed to support a guided flow that keeps human support central. The experience is about alignment, not limitation, and technology supports rather than replaces trusted human guidance.
               </p>
 
-              {/* Dual Action CTAs */}
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  to="/individuals/how-it-works"
-                  className="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-3 rounded-full shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm inline-flex items-center gap-1.5"
-                >
-                  Explore What to Expect →
-                </Link>
-                <Link
-                  to="/individuals/support-the-mission"
-                  className="border border-slate-600 hover:bg-white/10 text-white font-medium px-6 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm inline-flex items-center gap-1.5"
-                >
-                  Partner With or Support ElevIQ Foundation
-                </Link>
+              {/* Participation Disclosure & Action CTAs */}
+              <div className="pt-2 space-y-3">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-xl border-l-2 border-cyan-400 pl-3.5 py-0.5">
+                  The ElevIQ Alignment Scan™ is available at no charge to eligible participants through approved invitations and participating initiatives. Because access is currently coordinated, completing an inquiry does not automatically enroll you or guarantee an invitation.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <Link
+                    to="/#participation-inquiry"
+                    onClick={(e) => {
+                      const formEl = document.getElementById('participation-inquiry') || document.getElementById('contact-inquiry') || document.getElementById('contact-inquiry-section')
+                      if (formEl) {
+                        e.preventDefault()
+                        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                        setTimeout(() => {
+                          const nameInput = document.getElementById('name') || document.getElementById('audienceIntent')
+                          if (nameInput) nameInput.focus()
+                        }, 350)
+                      }
+                    }}
+                    style={{ color: '#020617' }}
+                    className="bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-6 py-3 rounded-full shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm inline-flex items-center gap-1.5 cursor-pointer"
+                  >
+                    Request an Invitation
+                  </Link>
+                  <a
+                    href="https://cas.eleviqfoundation.org/login"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-200 hover:text-white font-semibold px-5 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm inline-flex items-center gap-1.5"
+                  >
+                    Already Invited? Access CAS
+                  </a>
+                  <Link
+                    to="/individuals/how-it-works"
+                    className="border border-slate-700 hover:bg-white/10 text-slate-300 hover:text-white font-medium px-5 py-3 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-xs sm:text-sm inline-flex items-center gap-1.5"
+                  >
+                    Explore What to Expect →
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -4389,7 +4626,7 @@ function IndividualsHome() {
             <span className="inline-flex rounded-full border border-[#00D2FF]/40 bg-[#00D2FF]/15 px-[10px] py-[4px] font-mono text-[11px] font-bold uppercase tracking-[0.05em] text-[#00D2FF]">
               PARTICIPANT JOURNEY
             </span>
-            <h2 className="font-sans text-3xl font-bold text-white">
+            <h2 className="font-sans text-3xl font-bold text-slate-900">
               5 Steps to Discover & Build Your Path
             </h2>
           </div>
@@ -4505,13 +4742,14 @@ function IndividualsHome() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
-              to="/individuals/support-the-mission"
-              className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-3 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              to="/contact?topic=sponsorship#contact-inquiry"
+              style={{ color: '#020617' }}
+              className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-6 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-1.5 cursor-pointer"
             >
-              Partner With or Support ElevIQ Foundation
+              Explore Sponsorship Opportunities
             </Link>
             <Link
-              to="/contact"
+              to="/contact?topic=sponsorship#contact-inquiry"
               className="rounded-full border border-slate-600 hover:bg-white/10 text-white font-medium px-6 py-3 text-xs sm:text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
               Ask About a Program
@@ -4582,12 +4820,11 @@ function IndividualsHome() {
                 </p>
               </div>
             </div>
-            <Link
-              to="/organizations"
+            <StcLink
               className="shrink-0 rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-6 py-3 text-xs font-semibold text-white transition-all duration-200 hover:scale-[1.02] shadow-xs inline-flex items-center gap-1.5"
             >
               Visit STC Innovations →
-            </Link>
+            </StcLink>
           </div>
         </section>
       </ScrollReveal>
@@ -4749,6 +4986,26 @@ function IndividualsHowItWorks() {
                 You decide how you explore your capabilities and share reflections with coaches and pathway programs.
               </p>
             </div>
+          </div>
+
+          {/* Contextual FAQs Link */}
+          <div className="mt-8 pt-6 border-t border-cyan-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h5 className="font-sans text-sm font-bold text-white flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                Have questions about the scan, privacy, or results?
+              </h5>
+              <p className="text-xs text-slate-300 font-sans">
+                Read our participant and partner guide covering free access, question formats, accommodations, and how your answers remain confidential.
+              </p>
+            </div>
+            <Link
+              to="/faqs"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 hover:text-white text-xs font-semibold whitespace-nowrap transition-all shadow-sm shrink-0"
+            >
+              <span>Explore Participant FAQs</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </section>
       </ScrollReveal>
@@ -5026,10 +5283,11 @@ function IndividualsSupportMission() {
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
-                  to="/contact"
-                  className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                  to="/contact?topic=sponsorship#contact-inquiry"
+                  style={{ color: '#020617' }}
+                  className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-1.5 cursor-pointer"
                 >
-                  Support ElevIQ Foundation →
+                  Explore Sponsorship Opportunities
                 </Link>
               </div>
             </div>
@@ -5077,7 +5335,7 @@ function IndividualsSupportMission() {
                 </div>
 
                 <Link
-                  to="/contact"
+                  to="/contact?topic=sponsorship#contact-inquiry"
                   className="w-full rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2.5 text-xs font-bold transition text-center block shadow-md"
                 >
                   {currentRole.action} →
@@ -5106,10 +5364,10 @@ function IndividualsSupportMission() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=sponsorship#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-xs"
               >
-                Sponsor a Pilot →
+                Explore Sponsorship Opportunities
               </Link>
             </div>
           </div>
@@ -5129,10 +5387,10 @@ function IndividualsSupportMission() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=sponsorship#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-md"
               >
-                Support Free Access →
+                Explore Sponsorship Opportunities
               </Link>
             </div>
           </div>
@@ -5152,10 +5410,10 @@ function IndividualsSupportMission() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=sponsorship#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-xs"
               >
-                Enable Local Advisors →
+                Explore Sponsorship Opportunities
               </Link>
             </div>
           </div>
@@ -5348,21 +5606,22 @@ function OrganizationsHome() {
               <p className="text-xs text-cyan-300/80 font-mono">
                 Request a configured demonstration to review current, in-development, and planned capabilities for your use case.
               </p>
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link
+                  to="/contact?topic=organizational-demo#contact-inquiry"
+                  style={{ color: '#020617' }}
+                  className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-7 py-3 text-xs sm:text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  Request an Organizational Demo
+                </Link>
                 <StcLink
-                  className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                  className="rounded-full border border-sky-400/40 bg-sky-950/40 hover:bg-sky-900/60 px-6 py-3 text-xs sm:text-sm font-semibold text-cyan-200 hover:text-white transition shadow-sm"
                 >
                   Visit Standalone STC Innovations Portal ↗
                 </StcLink>
                 <Link
-                  to="/organizations/pricing-demo"
-                  className="rounded-full border border-sky-400/30 bg-sky-950/40 hover:bg-sky-900/60 px-6 py-2.5 text-xs sm:text-sm font-semibold text-white transition shadow-sm"
-                >
-                  Request a Configured Demo
-                </Link>
-                <Link
                   to="/organizations/implementation"
-                  className="rounded-full border border-slate-700 hover:bg-white/10 px-6 py-2.5 text-xs sm:text-sm font-medium text-slate-300 transition"
+                  className="rounded-full border border-slate-700 hover:bg-white/10 px-6 py-3 text-xs sm:text-sm font-medium text-slate-300 transition"
                 >
                   Implementation Discovery
                 </Link>
@@ -5445,7 +5704,7 @@ function OrganizationsHome() {
       <ScrollReveal>
         <section className="grid gap-6 md:grid-cols-3">
           {/* Card 01 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5459,18 +5718,10 @@ function OrganizationsHome() {
                 Define your local team positions based on required day-one operational capability parameters, moving entirely away from restrictive and arbitrary college degree proxies.
               </p>
             </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                Configure parameters
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
           </div>
 
           {/* Card 02 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5484,18 +5735,10 @@ function OrganizationsHome() {
                 Monitor high-level regional talent trajectories, capability density maps, and upskilling alignment curves across your target municipal geographic clusters.
               </p>
             </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                View alignment curves
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
           </div>
 
           {/* Card 03 */}
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between space-y-6 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="space-y-4">
               <div className="flex justify-between items-start">
                 <span className="font-mono text-sm font-bold text-slate-900 tracking-wide">
@@ -5509,14 +5752,115 @@ function OrganizationsHome() {
                 Securely accept dynamic snapshot profiles from participating workforce programs, community cohorts, and local initiatives without intrusive data collection friction.
               </p>
             </div>
-            <div className="pt-2 border-t border-slate-100">
-              <span className="text-xs font-semibold text-[#0284C7] inline-flex items-center gap-1 group-hover:text-slate-900 transition-colors">
-                Review pipelines
-                <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* SECTION 2.5: ORGANIZATIONAL WORKFLOWS & SUB-TABS NAVIGATOR */}
+      <ScrollReveal>
+        <section className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-cyan-500/20 pb-4">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-wider text-cyan-400 block mb-1">
+                ORGANIZATIONAL SUB-TABS
               </span>
+              <h3 className="font-sans text-2xl md:text-3xl font-bold text-white tracking-tight">
+                Explore Organization Modules & Sub-Tabs
+              </h3>
             </div>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-md font-sans">
+              Access modular capability solutions, structured implementation stages, demo inquiries, and sovereign data governance.
+            </p>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Sub-Tab 01: Solutions */}
+            <Link
+              to="/organizations/solutions"
+              className="group rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] text-white"
+            >
+              <div className="space-y-3">
+                <span className="inline-flex rounded-full border border-cyan-400/30 bg-cyan-950/60 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-cyan-300">
+                  Sub-Tab 01
+                </span>
+                <h4 className="font-sans text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  Solutions & Delivery
+                </h4>
+                <p className="text-xs leading-relaxed text-slate-300 font-sans">
+                  The 9 modular service lanes spanning capability reflection, Last Mile™ navigation, and institutional architecture.
+                </p>
+              </div>
+              <div className="pt-4 mt-3 border-t border-cyan-500/20 flex items-center justify-between text-xs font-semibold text-cyan-300">
+                <span>Explore Solutions</span>
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
+
+            {/* Sub-Tab 02: Implementation */}
+            <Link
+              to="/organizations/implementation"
+              className="group rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] text-white"
+            >
+              <div className="space-y-3">
+                <span className="inline-flex rounded-full border border-sky-400/30 bg-sky-950/60 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-sky-300">
+                  Sub-Tab 02
+                </span>
+                <h4 className="font-sans text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  Implementation Framework
+                </h4>
+                <p className="text-xs leading-relaxed text-slate-300 font-sans">
+                  4-stage structured deployment: Discover → Configure → Sandbox → Test → Train → Launch with sovereign data splitting.
+                </p>
+              </div>
+              <div className="pt-4 mt-3 border-t border-cyan-500/20 flex items-center justify-between text-xs font-semibold text-sky-300">
+                <span>View Implementation</span>
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
+
+            {/* Sub-Tab 03: Pricing & Demo */}
+            <Link
+              to="/organizations/pricing-demo"
+              className="group rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] text-white"
+            >
+              <div className="space-y-3">
+                <span className="inline-flex rounded-full border border-teal-400/30 bg-teal-950/60 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-teal-300">
+                  Sub-Tab 03
+                </span>
+                <h4 className="font-sans text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  Pricing, Pilots & Demo
+                </h4>
+                <p className="text-xs leading-relaxed text-slate-300 font-sans">
+                  Role-based inquiry, regional pilot clusters, and commercial licensing consultation without automated user provisioning.
+                </p>
+              </div>
+              <div className="pt-4 mt-3 border-t border-cyan-500/20 flex items-center justify-between text-xs font-semibold text-teal-300">
+                <span>Request a Demo</span>
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
+
+            {/* Sub-Tab 04: Security & Trust */}
+            <Link
+              to="/organizations/security-trust"
+              className="group rounded-2xl bg-[#0B1936]/90 border border-cyan-500/25 hover:border-[#00D2FF] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,210,255,0.2)] text-white"
+            >
+              <div className="space-y-3">
+                <span className="inline-flex rounded-full border border-indigo-400/30 bg-indigo-950/60 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-indigo-300">
+                  Sub-Tab 04
+                </span>
+                <h4 className="font-sans text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  Security & Trust
+                </h4>
+                <p className="text-xs leading-relaxed text-slate-300 font-sans">
+                  Sovereign data isolation, de-biased architecture, zero black-box AI scores, and institutional privacy compliance.
+                </p>
+              </div>
+              <div className="pt-4 mt-3 border-t border-cyan-500/20 flex items-center justify-between text-xs font-semibold text-indigo-300">
+                <span>Review Governance</span>
+                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Link>
           </div>
         </section>
       </ScrollReveal>
@@ -5572,7 +5916,12 @@ function OrganizationsSolutions() {
         <WhatElevIqDelivers variant="dark" />
       </ScrollReveal>
 
-      {/* SECTION 2: EXPOSITION BLOCK */}
+      {/* SECTION 2: ORGANIZATIONAL SERVICE DELIVERY MODEL (STAGES 0-7) */}
+      <ScrollReveal>
+        <ServiceDeliveryModel id="delivery-model" />
+      </ScrollReveal>
+
+      {/* SECTION 3: EXPOSITION BLOCK */}
       <ScrollReveal>
         <section className="w-full bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] border border-cyan-500/25 rounded-[32px] p-8 md:p-12 shadow-xl text-white">
           <h3 className="text-center font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-10">
@@ -5666,7 +6015,7 @@ function OrganizationsImplementation() {
             </p>
             <div className="pt-2">
               <Link
-                to="/organizations/pricing-demo"
+                to="/contact?topic=organizational-demo#contact-inquiry"
                 className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] inline-flex items-center gap-2"
               >
                 Schedule an Implementation Discovery Conversation →
@@ -5766,6 +6115,26 @@ function OrganizationsImplementation() {
               </p>
             </div>
           </div>
+
+          {/* Contextual FAQs Link for Organizations */}
+          <div className="mt-8 pt-6 border-t border-cyan-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h5 className="font-sans text-sm font-bold text-white flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                Frequently Asked Questions for Organizations & Partners
+              </h5>
+              <p className="text-xs text-slate-300 font-sans">
+                Review pilot expectations, youth consent (age 13+), data retention, advisor Console access, and commercial separation details.
+              </p>
+            </div>
+            <Link
+              to="/faqs#families-organizations-support"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-cyan-400/40 bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-300 hover:text-white text-xs font-semibold whitespace-nowrap transition-all shadow-sm shrink-0"
+            >
+              <span>View Partner FAQs</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
         </section>
       </ScrollReveal>
     </div>
@@ -5823,10 +6192,11 @@ function OrganizationsPricingDemo() {
               </p>
               <div className="flex flex-wrap gap-2.5 pt-2">
                 <Link
-                  to="/contact"
-                  className="rounded-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                  to="/contact?topic=organizational-demo#contact-inquiry"
+                  style={{ color: '#020617' }}
+                  className="rounded-full bg-[#00D2FF] hover:bg-[#38BDF8] !text-slate-950 font-sans font-bold px-6 py-2.5 text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  Discuss CAS Licensing →
+                  Request an Organizational Demo →
                 </Link>
               </div>
             </div>
@@ -5881,7 +6251,7 @@ function OrganizationsPricingDemo() {
                 </div>
 
                 <Link
-                  to="/contact"
+                  to="/contact?topic=organizational-demo#contact-inquiry"
                   className="w-full rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-4 py-2.5 text-xs text-center block shadow-lg shadow-cyan-500/20 transition-all duration-200"
                 >
                   {currentRole.action} →
@@ -5924,7 +6294,7 @@ function OrganizationsPricingDemo() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=organizational-demo#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-xs"
               >
                 Inquire for Pilot Scope →
@@ -5964,7 +6334,7 @@ function OrganizationsPricingDemo() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=organizational-demo#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-md"
               >
                 Schedule Ecosystem Demo →
@@ -6001,7 +6371,7 @@ function OrganizationsPricingDemo() {
             </div>
             <div className="pt-3 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/contact?topic=organizational-demo#contact-inquiry"
                 className="w-full rounded-full bg-[#0284C7] hover:bg-[#0369A1] px-4 py-2.5 text-xs font-semibold text-white transition text-center block shadow-xs"
               >
                 Request Enterprise Consultation →
@@ -6984,192 +7354,6 @@ function InteractiveJourneyPage() {
               </h4>
               <p className="text-sm leading-relaxed text-slate-300 font-sans">
                 Clearly tags complex interactive steps as 'Pending Final Scope Verification' to align expectations perfectly.
-              </p>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-    </div>
-  )
-}
-
-function FaqPage() {
-  const [openAll, setOpenAll] = useState(false)
-  const faqs = [
-    { question: 'What is ElevIQ Foundation?', answer: 'ElevIQ Foundation is a mission-driven 501(c)(3) nonprofit organization dedicated to closing the distance between human capability and meaningful opportunity. Through strengths-based discovery, trusted human guidance, practical pathway planning, and community partnerships, the Foundation helps individuals make their authentic capabilities visible and actionable without testing pressure.' },
-    { question: 'What is the ElevIQ Alignment Scan™?', answer: 'The ElevIQ Alignment Scan™ is a zero-pressure, scenario-based self-reflection experience. It explores lived experience, informal problem-solving, and personal interests to surface directional Capability Signals™ that support personal reflection and human advising conversations—free from testing anxiety, pass/fail grading, or automated rejection.' },
-    { question: 'Is participation free?', answer: 'Yes. Participation in the ElevIQ Alignment Scan™ is 100% free for individual participants. Through the Foundation’s nonprofit mission, philanthropic endowment, and community pilot partnerships, individuals never pay to discover their capabilities, explore alignment pathways, or access their Alignment Snapshot™.' },
-    { question: 'Is this an exam or personality test?', answer: 'No. The ElevIQ Alignment Scan™ is neither an academic exam nor a psychological personality test. There are no right or wrong answers, test scores, grades, or diagnostic personality boxes. It is a supportive, self-guided reflection instrument designed to facilitate constructive conversations with mentors, counselors, navigators, and advisors.' },
-    { question: 'Is CAS a test or a quiz?', answer: 'No. CAS is capability-alignment infrastructure that supports participant reflection, staff interpretation, and practical next steps.' },
-    { question: 'Does CAS guarantee any outcome?', answer: 'No. It does not guarantee employment, hiring, wages, admissions, or clinical or psychological outcomes.' },
-    { question: 'Who can use shared information?', answer: 'Access depends on participant consent, program rules, legal agreements, and the verified production permissions model.' },
-    { question: 'How is system documentation updated?', answer: 'Product and public documentation will be updated as configuration, testing, validation, and launch status changes.' },
-  ]
-
-  return (
-    <div className="space-y-[var(--section-gap)]">
-      {/* SECTION 1: HERO BLOCK */}
-      <ScrollReveal>
-        <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center rounded-3xl border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] p-[var(--panel-pad)] shadow-xl overflow-hidden relative text-white">
-          <div className="space-y-6 relative z-10">
-            <span className="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/15 px-[14px] py-[6px] font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-cyan-300 shadow-[0_0_15px_rgba(0,210,255,0.2)]">
-              KNOWLEDGE BASE
-            </span>
-            <h2 className="font-sans text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.1]">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg font-medium text-slate-200 leading-relaxed">
-              Clear, straightforward answers regarding CAS mechanics, architecture, and deployment models.
-            </p>
-            <p className="text-sm leading-relaxed text-slate-300">
-              Product purpose, participant experience, human oversight, data practices, and current development status.
-            </p>
-          </div>
-
-          <div className="flex justify-center items-center p-4">
-            <div className="w-full max-w-[340px] rounded-2xl bg-slate-900/80 backdrop-blur-md border border-cyan-500/30 p-6 shadow-2xl relative overflow-hidden group hover:border-cyan-400/50 transition-all duration-300">
-              <svg viewBox="0 0 320 240" className="w-full h-auto drop-shadow-md relative z-10" aria-hidden="true">
-                <rect x="0" y="0" width="320" height="240" fill="#071739" rx="16" />
-                {/* Dialogue shapes & dotted lines */}
-                <rect x="30" y="50" width="160" height="45" rx="6" fill="#030B1E" opacity="0.6" stroke="#00D2FF" strokeWidth="1" strokeOpacity="0.3" />
-                <rect x="130" y="120" width="160" height="45" rx="6" fill="#030B1E" opacity="0.8" stroke="#00D2FF" strokeWidth="1.5" />
-
-                <circle cx="50" cy="72" r="8" fill="#FFFFFF" opacity="0.5" />
-                <line x1="70" y1="72" x2="160" y2="72" stroke="#FFFFFF" strokeWidth="2.5" opacity="0.6" />
-
-                <circle cx="260" cy="142" r="8" fill="#00D2FF" />
-                <line x1="160" y1="142" x2="240" y2="142" stroke="#00D2FF" strokeWidth="2.5" />
-
-                <path d="M 110 95 L 110 120" fill="none" stroke="#FFFFFF" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
-              </svg>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* FAQ INTERACTIVE ACCORDIONS */}
-      <ScrollReveal>
-        <section className="bg-white rounded-[24px] p-6 md:p-8 shadow-sm border border-slate-200 space-y-4">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="font-sans text-xl font-bold text-slate-900">Platform FAQs</h3>
-            <button
-              onClick={() => setOpenAll((value) => !value)}
-              className="text-xs font-mono font-semibold px-3 py-1.5 rounded-full border border-slate-200 hover:border-sky-300 text-[#0284C7] bg-sky-50 transition"
-            >
-              {openAll ? 'Collapse all' : 'Expand all'}
-            </button>
-          </div>
-
-          <div className="space-y-3">
-            {faqs.map((item) => (
-              <details
-                key={item.question}
-                open={openAll}
-                className="group rounded-xl border border-slate-200 bg-slate-50/50 p-4 transition-all duration-300 hover:border-sky-200"
-              >
-                <summary className="cursor-pointer list-none font-sans text-base font-semibold text-slate-900 select-none outline-none flex justify-between items-center">
-                  <span>{item.question}</span>
-                  <span className="text-slate-400 group-open:rotate-180 transition-transform duration-200">↓</span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 font-sans border-t border-slate-200/60 pt-3">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 2: 3 FLOATING CARDS */}
-      <ScrollReveal>
-        <section className="grid gap-6 md:grid-cols-3">
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7] shrink-0 border border-sky-200">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <div className="space-y-1">
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                GOVERNANCE
-              </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">Data Privacy & Agency</h3>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Explains how the platform keeps individuals in control of their reflection data, ensuring no third-party matching occurs without participant consent.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7] shrink-0 border border-sky-200">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-              </svg>
-            </div>
-            <div className="space-y-1">
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                METHODOLOGY
-              </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">Bypassing Legacy Testing</h3>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Clarifies exactly how CAS operates without assigning rigid test grades, personality profiles, or automated scoring models.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-[24px] p-6 shadow-sm border border-slate-200 flex flex-col justify-start space-y-4 hover:border-sky-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-sky-50 flex items-center justify-center text-[#0284C7] shrink-0 border border-sky-200">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-            </div>
-            <div className="space-y-1">
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-[10px] py-[4px] font-mono text-[10px] font-bold uppercase tracking-wider text-[#0284C7] shadow-xs">
-                OPERATIONS
-              </span>
-              <h3 className="font-sans text-lg font-bold text-slate-900">Deployment Coordination</h3>
-            </div>
-            <p className="text-xs md:text-sm leading-relaxed text-slate-600 font-sans">
-              Outlines how regional organizations, schools, and civic non-profits roll out local alignment clusters efficiently.
-            </p>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* SECTION 3: BOTTOM 3-POINT GRID */}
-      <ScrollReveal>
-        <section className="w-full bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] border border-cyan-500/25 rounded-[32px] p-8 md:p-12 shadow-xl text-white space-y-8">
-          <div className="text-center space-y-2">
-            <h3 className="font-sans text-2xl md:text-3xl font-bold tracking-tight text-white">
-              Core Policy Framework Reminders
-            </h3>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Free Public Utility
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                The ElevIQ Alignment Scan™ remains free for individual participants. Program services, institutional implementation, and commercial licensing are separate.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Dual-Audience Boundaries
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Clearly distinguishes the mission-driven work of ElevIQ Foundation from the commercial operations of STC Innovations.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="border-l-4 border-cyan-400 pl-3 text-base md:text-lg font-semibold text-white font-sans tracking-tight">
-                Continuous Architecture Reviews
-              </h4>
-              <p className="text-sm leading-relaxed text-slate-300 font-sans">
-                Product and public documentation will be updated as configuration, testing, validation, and launch status changes.
               </p>
             </div>
           </div>

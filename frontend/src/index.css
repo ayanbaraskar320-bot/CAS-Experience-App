@@ -179,6 +179,8 @@ a {
   text-decoration: none;
 }
 
+header nav a,
+header nav button,
 button,
 input,
 select,

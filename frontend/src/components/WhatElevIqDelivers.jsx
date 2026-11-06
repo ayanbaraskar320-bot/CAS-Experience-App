@@ -8,7 +8,7 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
     {
       num: '01',
       title: 'Capability Discovery & Guided Reflection',
-      desc: 'ElevIQ Alignment Scan™, Experience & Context, Capability Signals™, Alignment Snapshot™, and human-guided reflection or debrief.',
+      desc: 'ElevIQ Alignment Scan™, Experience & Context, Capability Signals™, and an Alignment Snapshot™ reflecting strengths, experiences, and potential career directions to support conversations with advisors, educators, and mentors.',
       badge: 'DISCOVERY',
       keyTools: 'Alignment Scan™ • Signals™ • Snapshot™ • Guided Debrief'
     },
@@ -73,7 +73,7 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
   return (
     <section
       id="services"
-      className={`scroll-mt-24 rounded-[32px] p-8 sm:p-12 shadow-xl space-y-8 ${
+      className={`scroll-mt-28 rounded-[32px] p-8 sm:p-12 shadow-xl space-y-8 ${
         isDark
           ? 'border border-cyan-500/25 bg-gradient-to-b from-[#030B1E] via-[#071739] to-[#030B1E] text-white'
           : 'border border-slate-200 bg-white text-slate-900'
@@ -95,15 +95,31 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
 
       {/* 9 Service Lanes Grid */}
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {serviceLanes.map((lane) => (
-          <div
-            key={lane.num}
-            className={`flex flex-col justify-between p-6 rounded-2xl transition-all duration-300 group hover:-translate-y-1 ${
+        {serviceLanes.map((lane) => {
+          const laneSlugMap = {
+            '01': 'capability-discovery',
+            '02': 'pathway-planning',
+            '03': 'support-connections',
+            '04': 'career-readiness',
+            '05': 'advisor-enablement',
+            '06': 'program-implementation',
+            '07': 'employer-engagement',
+            '08': 'regional-workforce-strategy',
+            '09': 'pilot-design'
+          }
+          const slug = laneSlugMap[lane.num]
+
+          return (
+            <div
+              key={lane.num}
+              id={`service-lane-${lane.num}`}
+              className={`scroll-mt-28 relative flex flex-col justify-between p-6 rounded-2xl transition-all duration-300 group hover:-translate-y-1 ${
               isDark
                 ? 'bg-[#0B1936]/90 border border-cyan-500/25 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,210,255,0.2)] text-white'
                 : 'bg-white border border-slate-200 hover:border-sky-300 hover:shadow-lg text-slate-900'
             }`}
           >
+            {slug && <span id={slug} className="scroll-mt-28 absolute top-0" aria-hidden="true" />}
             <div className="space-y-3.5">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-cyan-500/20 text-xs font-bold text-cyan-300 border border-cyan-400/30 font-mono">
@@ -137,7 +153,8 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
               {lane.keyTools}
             </div>
           </div>
-        ))}
+          )
+        })}
       </div>
 
       {/* Action CTAs */}
@@ -153,7 +170,11 @@ export default function WhatElevIqDelivers({ variant = 'dark', showCtas = true }
             type="button"
             onClick={() => {
               const target = document.getElementById('delivery-model');
-              if (target) target.scrollIntoView({ behavior: 'smooth' });
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/organizations/solutions#delivery-model';
+              }
             }}
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-200 hover:text-white transition-colors px-4 py-2.5 rounded-full border border-slate-700 hover:border-slate-500 bg-slate-900/60 cursor-pointer"
           >
